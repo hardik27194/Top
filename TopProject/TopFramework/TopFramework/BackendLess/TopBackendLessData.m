@@ -12,7 +12,7 @@
 
 @implementation TopBackendLessData
 
-+(NSArray<TopPage *>*)getAllPages{
++(NSArray<TopPage *>*)getAllTopPages{
     id <IDataStore> pages = [backendless.persistenceService of:[TopPage class]];
     BackendlessCollection *collection = [pages find];
     return collection.data;

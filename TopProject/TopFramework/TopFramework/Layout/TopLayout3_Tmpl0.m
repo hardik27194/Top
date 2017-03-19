@@ -1,30 +1,30 @@
 //
-//  ViewController.m
-//  TopAnimals
+//  TopLayout3_Tmpl0.m
+//  TopFramework
 //
 //  Created by Jacopo Pappalettera on 19/03/17.
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TopLayout3_Tmpl0.h"
 
-@interface ViewController ()
+@interface TopLayout3_Tmpl0 ()
 
 @end
 
-@implementation ViewController
+@implementation TopLayout3_Tmpl0
+// check objects count!!!
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view from its nib.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

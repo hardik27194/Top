@@ -365,6 +365,15 @@
 		BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */; };
 		BD21A0191E7ED42B0040E092 /* TopBackendLessData.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0171E7ED42B0040E092 /* TopBackendLessData.h */; };
 		BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0181E7ED42B0040E092 /* TopBackendLessData.m */; };
+		BD21A01E1E7EF8660040E092 /* TOPPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A01C1E7EF8660040E092 /* TOPPageController.h */; };
+		BD21A01F1E7EF8660040E092 /* TOPPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A01D1E7EF8660040E092 /* TOPPageController.m */; };
+		BD21A02C1E7F13D60040E092 /* TopLayout3_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0291E7F13D60040E092 /* TopLayout3_Tmpl0.h */; };
+		BD21A02D1E7F13D60040E092 /* TopLayout3_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A02A1E7F13D60040E092 /* TopLayout3_Tmpl0.m */; };
+		BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD21A02B1E7F13D60040E092 /* TopLayout3_Tmpl0.xib */; };
+		BD21A0311E7F13F20040E092 /* BasePageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A02F1E7F13F20040E092 /* BasePageViewController.h */; };
+		BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0301E7F13F20040E092 /* BasePageViewController.m */; };
+		BD21A0351E7F143B0040E092 /* TopLayoutFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */; };
+		BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -728,6 +737,15 @@
 		BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessConfiguration.m; sourceTree = "<group>"; };
 		BD21A0171E7ED42B0040E092 /* TopBackendLessData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBackendLessData.h; sourceTree = "<group>"; };
 		BD21A0181E7ED42B0040E092 /* TopBackendLessData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessData.m; sourceTree = "<group>"; };
+		BD21A01C1E7EF8660040E092 /* TOPPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPPageController.h; sourceTree = "<group>"; };
+		BD21A01D1E7EF8660040E092 /* TOPPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPPageController.m; sourceTree = "<group>"; };
+		BD21A0291E7F13D60040E092 /* TopLayout3_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout3_Tmpl0.h; sourceTree = "<group>"; };
+		BD21A02A1E7F13D60040E092 /* TopLayout3_Tmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout3_Tmpl0.m; sourceTree = "<group>"; };
+		BD21A02B1E7F13D60040E092 /* TopLayout3_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout3_Tmpl0.xib; sourceTree = "<group>"; };
+		BD21A02F1E7F13F20040E092 /* BasePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasePageViewController.h; sourceTree = "<group>"; };
+		BD21A0301E7F13F20040E092 /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
+		BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayoutFactory.h; sourceTree = "<group>"; };
+		BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayoutFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -775,6 +793,8 @@
 		BD219D0A1E7EC8900040E092 /* TopFramework */ = {
 			isa = PBXGroup;
 			children = (
+				BD21A0281E7F13530040E092 /* Layout */,
+				BD21A01B1E7EF8660040E092 /* MainController */,
 				BD219D261E7EC9720040E092 /* lib */,
 				BD21A0081E7ED3B60040E092 /* Object */,
 				BD21A00B1E7ED3B60040E092 /* Page */,
@@ -1353,6 +1373,29 @@
 			path = BackendLess;
 			sourceTree = "<group>";
 		};
+		BD21A01B1E7EF8660040E092 /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				BD21A01C1E7EF8660040E092 /* TOPPageController.h */,
+				BD21A01D1E7EF8660040E092 /* TOPPageController.m */,
+			);
+			path = MainController;
+			sourceTree = "<group>";
+		};
+		BD21A0281E7F13530040E092 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				BD21A02F1E7F13F20040E092 /* BasePageViewController.h */,
+				BD21A0301E7F13F20040E092 /* BasePageViewController.m */,
+				BD21A0291E7F13D60040E092 /* TopLayout3_Tmpl0.h */,
+				BD21A02A1E7F13D60040E092 /* TopLayout3_Tmpl0.m */,
+				BD21A02B1E7F13D60040E092 /* TopLayout3_Tmpl0.xib */,
+				BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */,
+				BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1362,6 +1405,7 @@
 			files = (
 				BD219F941E7EC9730040E092 /* avformat.h in Headers */,
 				BD219FAD1E7EC9730040E092 /* error.h in Headers */,
+				BD21A0351E7F143B0040E092 /* TopLayoutFactory.h in Headers */,
 				BD219FC01E7EC9730040E092 /* pixfmt.h in Headers */,
 				BD219F221E7EC9720040E092 /* IAdaptingType.h in Headers */,
 				BD219F461E7EC9730040E092 /* MessageWriter.h in Headers */,
@@ -1546,6 +1590,7 @@
 				BD219FB01E7EC9730040E092 /* file.h in Headers */,
 				BD219FE51E7EC9730040E092 /* speex_config_types.h in Headers */,
 				BD219FC21E7EC9730040E092 /* rational.h in Headers */,
+				BD21A02C1E7F13D60040E092 /* TopLayout3_Tmpl0.h in Headers */,
 				BD219F671E7EC9730040E092 /* RTMPConstants.h in Headers */,
 				BD219F001E7EC9720040E092 /* BaseEvent.h in Headers */,
 				BD219F071E7EC9720040E092 /* BodyHolderFactory.h in Headers */,
@@ -1605,6 +1650,7 @@
 				BD219F611E7EC9730040E092 /* ReferenceCache.h in Headers */,
 				BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */,
 				BD219F011E7EC9720040E092 /* BaseRTMPProtocolDecoder.h in Headers */,
+				BD21A01E1E7EF8660040E092 /* TOPPageController.h in Headers */,
 				BD219FAB1E7EC9730040E092 /* display.h in Headers */,
 				BD219F8D1E7EC9730040E092 /* avdevice.h in Headers */,
 				BD219F701E7EC9730040E092 /* StringWriter.h in Headers */,
@@ -1649,6 +1695,7 @@
 				BD219EEE1E7EC9720040E092 /* AbstractUnreferenceableTypeWriter.h in Headers */,
 				BD219ECE1E7EC9720040E092 /* IMediaStreamer.h in Headers */,
 				BD219F921E7EC9730040E092 /* buffersrc.h in Headers */,
+				BD21A0311E7F13F20040E092 /* BasePageViewController.h in Headers */,
 				BD219F421E7EC9730040E092 /* IVideoStreamCodec.h in Headers */,
 				BD219F5C1E7EC9730040E092 /* Ping.h in Headers */,
 				BD219F0D1E7EC9720040E092 /* BoundPropertyBagWriter.h in Headers */,
@@ -1760,6 +1807,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1772,9 +1820,13 @@
 			files = (
 				BD21A0111E7ED3B60040E092 /* TopPage.m in Sources */,
 				BD21A00F1E7ED3B60040E092 /* TopObject.m in Sources */,
+				BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */,
 				BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */,
 				BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */,
+				BD21A02D1E7F13D60040E092 /* TopLayout3_Tmpl0.m in Sources */,
+				BD21A01F1E7EF8660040E092 /* TOPPageController.m in Sources */,
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
+				BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

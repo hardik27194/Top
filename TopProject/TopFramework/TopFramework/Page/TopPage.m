@@ -9,5 +9,17 @@
 #import "TopPage.h"
 
 @implementation TopPage
-
+-(NSString *)description{
+    NSMutableString *description = [[NSMutableString alloc]initWithString:@"<TopPage :"];
+    
+    [description appendString:[NSString stringWithFormat:@"title : %@ \n",self.title]];
+    [description appendString:[NSString stringWithFormat:@"desc : %@ \n",self.desc]];
+    [description appendString:[NSString stringWithFormat:@"topObjects : %@ \n",self.topObjects]];
+    [description appendString:[NSString stringWithFormat:@"layoutName : %@ \n",self.layoutName]];
+    
+    [description appendString:@" >"];
+    
+    return description;
+    
+}
 @end

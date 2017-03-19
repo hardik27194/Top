@@ -1,5 +1,5 @@
 //
-//  TopBackendLessData.h
+//  TopLayoutFactory.h
 //  TopFramework
 //
 //  Created by Jacopo Pappalettera on 19/03/17.
@@ -7,9 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TopPage.h"
+#import "BasePageViewController.h"
 
-@interface TopBackendLessData : NSObject
-+(NSArray<TopPage *>*)getAllTopPages;
-
+@interface TopLayoutFactory : NSObject
++(BasePageViewController *)layoutFromTopPage:(TopPage *)topPage;
 @end
