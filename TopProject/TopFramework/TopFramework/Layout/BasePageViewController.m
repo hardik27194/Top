@@ -25,6 +25,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+   
+    for (int i = 0; i < self.tPage.topObjects.count; i++) {
+        TopObject *tObject = self.tPage.topObjects[i];
+        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
+        [sview updateFromTopObject:tObject];
+    }
+   
+
     // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated

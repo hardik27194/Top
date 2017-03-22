@@ -21,7 +21,9 @@
     
     for (TopPage *page in dataArray) {
         BasePageViewController *controller = [TopLayoutFactory layoutFromTopPage:page];
-        [pages addObject:controller];
+        if (controller) {
+            [pages addObject:controller];
+        }
     }
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 

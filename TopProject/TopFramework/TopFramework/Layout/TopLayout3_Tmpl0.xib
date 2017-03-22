@@ -5,12 +5,15 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopLayout3_Tmpl0">
             <connections>
+                <outlet property="pl_0" destination="QPT-40-kIW" id="Z26-y3-cEo"/>
+                <outlet property="pl_1" destination="Nzs-fo-55k" id="jvc-WG-g9k"/>
+                <outlet property="pl_2" destination="Y2c-bj-dZb" id="fno-61-63G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,24 +22,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-40-kIW">
-                    <rect key="frame" x="26" y="80" width="198" height="156"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-40-kIW" customClass="StickerView">
+                    <rect key="frame" x="16" y="61" width="160" height="200"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="7jY-5B-oEe"/>
+                        <constraint firstAttribute="width" constant="160" id="zuB-ze-gwA"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-fo-55k">
-                    <rect key="frame" x="161" y="255" width="198" height="156"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-fo-55k" customClass="StickerView">
+                    <rect key="frame" x="199" y="187" width="160" height="200"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="iPo-Jd-uN6"/>
+                        <constraint firstAttribute="height" constant="200" id="qcY-2x-YGl"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-bj-dZb">
-                    <rect key="frame" x="16" y="437" width="198" height="156"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-bj-dZb" customClass="StickerView">
+                    <rect key="frame" x="16" y="447" width="160" height="200"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="2S0-OF-oHV"/>
+                        <constraint firstAttribute="height" constant="200" id="qYJ-2G-zyM"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="34.5" y="53.5"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Nzs-fo-55k" secondAttribute="trailing" constant="16" id="Vei-nv-s3D"/>
+                <constraint firstItem="Nzs-fo-55k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="187" id="b1T-zN-ZRa"/>
+                <constraint firstItem="Y2c-bj-dZb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="naL-sU-fPr"/>
+                <constraint firstItem="QPT-40-kIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="qLC-X7-wZp"/>
+                <constraint firstAttribute="bottom" secondItem="Y2c-bj-dZb" secondAttribute="bottom" constant="20" id="sCc-Cf-ng7"/>
+                <constraint firstItem="QPT-40-kIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vvF-fM-lbB"/>
+            </constraints>
+            <point key="canvasLocation" x="-30.5" y="36.5"/>
         </view>
     </objects>
 </document>
