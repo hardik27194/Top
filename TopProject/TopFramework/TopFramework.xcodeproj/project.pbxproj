@@ -383,6 +383,11 @@
 		EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */; };
 		EA4969BA1E82FBF700435E70 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969B81E82FBF700435E70 /* StickerView.h */; };
 		EA4969BB1E82FBF700435E70 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969B91E82FBF700435E70 /* StickerView.m */; };
+		EA4969BF1E8330DE00435E70 /* TopMenuTmpl1.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969BD1E8330DE00435E70 /* TopMenuTmpl1.h */; };
+		EA4969C01E8330DE00435E70 /* TopMenuTmpl1.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969BE1E8330DE00435E70 /* TopMenuTmpl1.m */; };
+		EA4969C41E83345400435E70 /* TOPSMContainerController.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969C11E83345400435E70 /* TOPSMContainerController.h */; };
+		EA4969C51E83345400435E70 /* TOPSMContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969C21E83345400435E70 /* TOPSMContainerController.m */; };
+		EA4969C61E83345400435E70 /* TOPSMContainerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969C31E83345400435E70 /* TOPSMContainerController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -764,6 +769,11 @@
 		EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
 		EA4969B81E82FBF700435E70 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		EA4969B91E82FBF700435E70 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
+		EA4969BD1E8330DE00435E70 /* TopMenuTmpl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopMenuTmpl1.h; sourceTree = "<group>"; };
+		EA4969BE1E8330DE00435E70 /* TopMenuTmpl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopMenuTmpl1.m; sourceTree = "<group>"; };
+		EA4969C11E83345400435E70 /* TOPSMContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPSMContainerController.h; sourceTree = "<group>"; };
+		EA4969C21E83345400435E70 /* TOPSMContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPSMContainerController.m; sourceTree = "<group>"; };
+		EA4969C31E83345400435E70 /* TOPSMContainerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOPSMContainerController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1422,8 +1432,12 @@
 		BD21A0811E8325230040E092 /* TOPSM */ = {
 			isa = PBXGroup;
 			children = (
+				EA4969BC1E8330B900435E70 /* Menu */,
 				BD21A0821E8325230040E092 /* TOPSideMenuController.h */,
 				BD21A0831E8325230040E092 /* TOPSideMenuController.m */,
+				EA4969C11E83345400435E70 /* TOPSMContainerController.h */,
+				EA4969C21E83345400435E70 /* TOPSMContainerController.m */,
+				EA4969C31E83345400435E70 /* TOPSMContainerController.xib */,
 				BD21A0841E8325230040E092 /* TOPSMIControllerInterface.h */,
 				BD21A0851E8325230040E092 /* TOPSMIMenuInterface.h */,
 			);
@@ -1437,6 +1451,15 @@
 				EA4969B91E82FBF700435E70 /* StickerView.m */,
 			);
 			path = StickerView;
+			sourceTree = "<group>";
+		};
+		EA4969BC1E8330B900435E70 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EA4969BD1E8330DE00435E70 /* TopMenuTmpl1.h */,
+				EA4969BE1E8330DE00435E70 /* TopMenuTmpl1.m */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1491,6 +1514,7 @@
 				BD219F631E7EC9730040E092 /* Request.h in Headers */,
 				BD219F211E7EC9720040E092 /* HttpEngine.h in Headers */,
 				BD219FE01E7EC9730040E092 /* VideoStream.h in Headers */,
+				EA4969BF1E8330DE00435E70 /* TopMenuTmpl1.h in Headers */,
 				BD219F201E7EC9720040E092 /* Header.h in Headers */,
 				BD219F6D1E7EC9730040E092 /* SharedObjectMessage.h in Headers */,
 				BD219F721E7EC9730040E092 /* Types.h in Headers */,
@@ -1691,6 +1715,7 @@
 				BD219F111E7EC9720040E092 /* ClientSharedObject.h in Headers */,
 				BD219F881E7EC9730040E092 /* vaapi.h in Headers */,
 				BD219EB81E7EC9720040E092 /* ClassCastException.h in Headers */,
+				EA4969C41E83345400435E70 /* TOPSMContainerController.h in Headers */,
 				BD219ED31E7EC9720040E092 /* LocationTracker.h in Headers */,
 				BD219EA01E7EC9720040E092 /* BackendlessCacheData.h in Headers */,
 				BD219F611E7EC9730040E092 /* ReferenceCache.h in Headers */,
@@ -1855,6 +1880,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4969C61E83345400435E70 /* TOPSMContainerController.xib in Resources */,
 				EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */,
 				BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */,
 			);
@@ -1872,7 +1898,9 @@
 				BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */,
 				BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */,
 				BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */,
+				EA4969C51E83345400435E70 /* TOPSMContainerController.m in Sources */,
 				BD21A02D1E7F13D60040E092 /* TopLayout3_Tmpl0.m in Sources */,
+				EA4969C01E8330DE00435E70 /* TopMenuTmpl1.m in Sources */,
 				BD21A01F1E7EF8660040E092 /* TOPPageController.m in Sources */,
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
 				EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */,

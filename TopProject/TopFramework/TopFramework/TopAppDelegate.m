@@ -7,27 +7,19 @@
 //
 
 #import "TopAppDelegate.h"
-#import "Backendless.h"
-#import "TopBackendLessData.h"
-#import "TOPPageController.h"
-#import "TopLayoutFactory.h"
+
+
+#import "TopMenuTmpl1.h"
+#import "TOPSideMenuController.h"
 
 @implementation TopAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSArray *dataArray =  [TopBackendLessData getAllTopPages];
-    NSMutableArray *pages = [[NSMutableArray alloc]init];
-    
-    
-    for (TopPage *page in dataArray) {
-        BasePageViewController *controller = [TopLayoutFactory layoutFromTopPage:page];
-        if (controller) {
-            [pages addObject:controller];
-        }
-    }
+   
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    self.viewController = [[TOPPageController alloc]initWithPages:pages];
+    TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]init];
+    
+    self.viewController = [[TOPSideMenuController alloc]initWithMenuController:menuTmpl1];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     

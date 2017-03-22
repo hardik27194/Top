@@ -8,10 +8,12 @@
 
 #import "TOPSideMenuController.h"
 #import "TOPSMIMenuInterface.h"
+#import "TOPSMContainerController.h"
 
 @interface TOPSideMenuController ()<TOPSMIMenuProtocol,TOPSMIControllerProtocol>{
     UIViewController<TOPSMIMenuInterface> *_menuController;
-    UIViewController * _containerController;
+    TOPSMContainerController * _containerController;
+    UIView *_overlay;
 }
 @end
 
@@ -37,7 +39,8 @@
     [_menuController didMoveToParentViewController:self];
     
     
-    _containerController = [[UIViewController alloc]init];
+    _containerController = [[TOPSMContainerController alloc]init];
+    _containerController.delegate = self;
     [self addChildViewController:_containerController];
     _containerController.view.frame = self.view.bounds;
     [self.view addSubview:_containerController.view];
@@ -47,29 +50,17 @@
     
     // Do any additional setup after loading the view.
 }
--(void)removeFromParentController:(UIViewController *)controller{
-  
-    [controller.view removeFromSuperview];
-    [controller removeFromParentViewController];
-}
--(void)addToContainerController:(UIViewController <TOPSMIControllerInterface>*)controller{
-    controller.delegate = self;
-    [_containerController addChildViewController:controller];
-    controller.view.frame = _containerController.view.bounds;
-    [_containerController.view addSubview:controller.view];
-    [controller didMoveToParentViewController:self];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(void)addToContainerController:(UIViewController *)controller{
+    [_containerController setController:controller];
 }
 
 #pragma mark - menu delegate -
 -(void)TOPSMDidSelectController:(UIViewController <TOPSMIControllerInterface>*)controller{
-    UIViewController *lastController = [[_containerController childViewControllers]lastObject];
+    UIViewController *lastController = [_containerController contentController];
     if (lastController != nil) {
         if (lastController != controller) {
-            [self removeFromParentController:lastController];
+            [_containerController removeController:lastController];
         }
     }
     
@@ -82,13 +73,42 @@
 }
 #pragma mark - controller delegate -
 -(void)TOPSMControllerOpenMenu{
+    
+    UIView *overlayView = [[UIView alloc]initWithFrame:_containerController.view.bounds];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TOPSMControllerCloseMenu)];
+    [overlayView addGestureRecognizer:tap];
+    _overlay = overlayView;
+    _overlay.alpha = 0;
+    _overlay.backgroundColor = [UIColor blackColor];
+
+    
+
+    [_containerController.view addSubview:_overlay];
+
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        _containerController.view.transform = CGAffineTransformMakeTranslation(300, 0);
+        _containerController.view.transform = CGAffineTransformMakeTranslation(self.view.bounds.size.width-100, 0);
+        _overlay.alpha = 0.5;
+
+
     } completion:^(BOOL finished) {
+        
+       
         
         
     }];
 }
+-(void)TOPSMControllerCloseMenu{
+    
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _containerController.view.transform = CGAffineTransformIdentity;
+        _overlay.alpha = 0;
+
+    } completion:^(BOOL finished) {
+        [_overlay removeFromSuperview];
+        _overlay = nil;
+    }];
+}
+
 
 /*
 #pragma mark - Navigation

@@ -10,6 +10,7 @@
 #define TOPIControllerInterface_h
 @protocol TOPSMIControllerProtocol <NSObject>
 -(void)TOPSMControllerOpenMenu;
+-(void)TOPSMControllerCloseMenu;
 @end
 
 @protocol TOPSMIControllerInterface <NSObject>
