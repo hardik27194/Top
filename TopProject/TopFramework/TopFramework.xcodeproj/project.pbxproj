@@ -374,6 +374,10 @@
 		BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0301E7F13F20040E092 /* BasePageViewController.m */; };
 		BD21A0351E7F143B0040E092 /* TopLayoutFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */; };
 		BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */; };
+		BD21A0861E8325230040E092 /* TOPSideMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0821E8325230040E092 /* TOPSideMenuController.h */; };
+		BD21A0871E8325230040E092 /* TOPSideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0831E8325230040E092 /* TOPSideMenuController.m */; };
+		BD21A0881E8325230040E092 /* TOPSMIControllerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0841E8325230040E092 /* TOPSMIControllerInterface.h */; };
+		BD21A0891E8325230040E092 /* TOPSMIMenuInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0851E8325230040E092 /* TOPSMIMenuInterface.h */; };
 		EA4969B01E82F82F00435E70 /* TopLayout4_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */; };
 		EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */; };
 		EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */; };
@@ -751,6 +755,10 @@
 		BD21A0301E7F13F20040E092 /* BasePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasePageViewController.m; sourceTree = "<group>"; };
 		BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayoutFactory.h; sourceTree = "<group>"; };
 		BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayoutFactory.m; sourceTree = "<group>"; };
+		BD21A0821E8325230040E092 /* TOPSideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPSideMenuController.h; sourceTree = "<group>"; };
+		BD21A0831E8325230040E092 /* TOPSideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOPSideMenuController.m; sourceTree = "<group>"; };
+		BD21A0841E8325230040E092 /* TOPSMIControllerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPSMIControllerInterface.h; sourceTree = "<group>"; };
+		BD21A0851E8325230040E092 /* TOPSMIMenuInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOPSMIMenuInterface.h; sourceTree = "<group>"; };
 		EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout4_Tmpl0.h; sourceTree = "<group>"; };
 		EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout4_Tmpl0.m; sourceTree = "<group>"; };
 		EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
@@ -803,6 +811,7 @@
 		BD219D0A1E7EC8900040E092 /* TopFramework */ = {
 			isa = PBXGroup;
 			children = (
+				BD21A0811E8325230040E092 /* TOPSM */,
 				EA4969B71E82FBF700435E70 /* StickerView */,
 				BD21A0281E7F13530040E092 /* Layout */,
 				BD21A01B1E7EF8660040E092 /* MainController */,
@@ -1410,6 +1419,17 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
+		BD21A0811E8325230040E092 /* TOPSM */ = {
+			isa = PBXGroup;
+			children = (
+				BD21A0821E8325230040E092 /* TOPSideMenuController.h */,
+				BD21A0831E8325230040E092 /* TOPSideMenuController.m */,
+				BD21A0841E8325230040E092 /* TOPSMIControllerInterface.h */,
+				BD21A0851E8325230040E092 /* TOPSMIMenuInterface.h */,
+			);
+			path = TOPSM;
+			sourceTree = "<group>";
+		};
 		EA4969B71E82FBF700435E70 /* StickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1508,6 +1528,7 @@
 				BD219FC31E7EC9730040E092 /* replaygain.h in Headers */,
 				BD21A0151E7ED3F50040E092 /* TopBackendLessConfiguration.h in Headers */,
 				BD219EDA1E7EC9720040E092 /* MediaPublisher.h in Headers */,
+				BD21A0881E8325230040E092 /* TOPSMIControllerInterface.h in Headers */,
 				BD219F961E7EC9730040E092 /* version.h in Headers */,
 				BD219F341E7EC9720040E092 /* IPersistenceStore.h in Headers */,
 				BD219EA11E7EC9720040E092 /* BackendlessCacheKey.h in Headers */,
@@ -1654,6 +1675,7 @@
 				BD219FB81E7EC9730040E092 /* macros.h in Headers */,
 				BD219ED11E7EC9720040E092 /* ISDatabase.h in Headers */,
 				BD219F441E7EC9730040E092 /* LongUTFStringReader.h in Headers */,
+				BD21A0891E8325230040E092 /* TOPSMIMenuInterface.h in Headers */,
 				BD219F5D1E7EC9730040E092 /* PointerReader.h in Headers */,
 				BD219FA01E7EC9730040E092 /* avstring.h in Headers */,
 				BD219FD91E7EC9730040E092 /* MPMediaData.h in Headers */,
@@ -1768,6 +1790,7 @@
 				BD219F371E7EC9720040E092 /* IRTMProtocol.h in Headers */,
 				BD219F251E7EC9720040E092 /* IAudioStreamCodec.h in Headers */,
 				BD219F6A1E7EC9730040E092 /* SharedObject.h in Headers */,
+				BD21A0861E8325230040E092 /* TOPSideMenuController.h in Headers */,
 				BD219F3F1E7EC9720040E092 /* IStreamPacket.h in Headers */,
 				BD219EFC1E7EC9720040E092 /* ArrayWriter.h in Headers */,
 				BD219F051E7EC9720040E092 /* Body.h in Headers */,
@@ -1855,6 +1878,7 @@
 				EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */,
 				EA4969BB1E82FBF700435E70 /* StickerView.m in Sources */,
 				BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */,
+				BD21A0871E8325230040E092 /* TOPSideMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

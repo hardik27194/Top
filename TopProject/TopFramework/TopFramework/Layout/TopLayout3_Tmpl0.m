@@ -13,7 +13,6 @@
 @end
 
 @implementation TopLayout3_Tmpl0
-// check objects count!!!
 
 
 - (void)viewDidLoad {
