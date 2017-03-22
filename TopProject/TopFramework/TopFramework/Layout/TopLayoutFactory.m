@@ -33,12 +33,21 @@ static NSDictionary *layouts;
     
     NSNumber *countObjectsInPage = [NSNumber numberWithUnsignedInteger:topPage.topObjects.count];
     NSDictionary *layoutDict = [layouts objectForKey:countObjectsInPage];
+    if (layoutDict == nil) {
+        NSLog(@"Top Error: there is no layout with %i objects",(int)countObjectsInPage);
+        return nil;
+    }
     
     if (topPage.layoutName == nil) {
         return nil;
     }
     
     Class layoutClass = [layoutDict objectForKey:topPage.layoutName];
+    if (layoutClass == nil) {
+        NSLog(@"Top Error: there is no layout name %@ ",topPage.layoutName);
+        return nil;
+    }
+    
     BasePageViewController *layoutController = [[layoutClass alloc]initWithTopPage:topPage];
     return layoutController;
 }
