@@ -31,7 +31,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(UIViewController<TOPSMIControllerInterface> *)firstController{
+-(UIViewController *)firstController{
     //tmp implementation
     NSArray *dataArray =  [TopBackendLessData getAllTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];

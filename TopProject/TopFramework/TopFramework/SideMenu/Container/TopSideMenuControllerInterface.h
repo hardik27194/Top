@@ -8,13 +8,14 @@
 
 #ifndef TOPIControllerInterface_h
 #define TOPIControllerInterface_h
-@protocol TOPSMIControllerProtocol <NSObject>
+@protocol TopSideMenuControllerProtocol <NSObject>
 -(void)TOPSMControllerOpenMenu;
 -(void)TOPSMControllerCloseMenu;
+
 @end
 
-@protocol TOPSMIControllerInterface <NSObject>
-@property (nonatomic,assign) id<TOPSMIControllerProtocol> delegate;
+@protocol TopSideMenuControllerInterface <NSObject>
+@property (nonatomic,assign) id<TopSideMenuControllerProtocol> delegate;
 @end
 
 

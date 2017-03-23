@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TOPSMIControllerInterface.h"
+#import "TopSideMenuControllerInterface.h"
 
-@interface TOPSMContainerController : UIViewController <TOPSMIControllerInterface>
+@interface TopSideMenuContainerController : UIViewController <TopSideMenuControllerInterface>
 
 - (void)setController:(UIViewController *)controller;
 - (void)removeController:(UIViewController *)controller;

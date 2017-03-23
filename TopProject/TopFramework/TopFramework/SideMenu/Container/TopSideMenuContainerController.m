@@ -6,9 +6,9 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import "TOPSMContainerController.h"
+#import "TopSideMenuContainerController.h"
 
-@interface TOPSMContainerController ()
+@interface TopSideMenuContainerController ()
 {
     UIViewController *_contentController;
 }
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation TOPSMContainerController
+@implementation TopSideMenuContainerController
 @synthesize delegate;
 
 - (instancetype)init

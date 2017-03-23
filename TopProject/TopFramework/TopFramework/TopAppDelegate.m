@@ -10,7 +10,7 @@
 
 
 #import "TopMenuTmpl1.h"
-#import "TOPSideMenuController.h"
+#import "TopSideMenu.h"
 
 @implementation TopAppDelegate
 
@@ -19,7 +19,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]init];
     
-    self.viewController = [[TOPSideMenuController alloc]initWithMenuController:menuTmpl1];
+    self.viewController = [[TopSideMenu alloc]initWithMenuController:menuTmpl1];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TOPSMIMenuInterface.h"
+#import "TopSideMenuMenuInterface.h"
 
-@interface TOPSideMenuController : UIViewController
-- (instancetype)initWithMenuController:(UIViewController <TOPSMIMenuInterface> *)menuController;
+@interface TopSideMenu : UIViewController
+- (instancetype)initWithMenuController:(UIViewController <TopSideMenuMenuInterface> *)menuController;
 
 
 @end

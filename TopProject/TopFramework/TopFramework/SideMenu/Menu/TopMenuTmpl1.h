@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TOPSMIMenuInterface.h"
+#import "TopSideMenuMenuInterface.h"
 
-@interface TopMenuTmpl1 : UIViewController<TOPSMIMenuInterface>
+@interface TopMenuTmpl1 : UIViewController<TopSideMenuMenuInterface>
 
 @end

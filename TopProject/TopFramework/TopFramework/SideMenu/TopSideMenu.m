@@ -6,20 +6,20 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import "TOPSideMenuController.h"
-#import "TOPSMIMenuInterface.h"
-#import "TOPSMContainerController.h"
+#import "TopSideMenu.h"
+#import "TopSideMenuMenuInterface.h"
+#import "TopSideMenuContainerController.h"
 
-@interface TOPSideMenuController ()<TOPSMIMenuProtocol,TOPSMIControllerProtocol>{
-    UIViewController<TOPSMIMenuInterface> *_menuController;
-    TOPSMContainerController * _containerController;
+@interface TopSideMenu ()<TopSideMenuMenuProtocol,TopSideMenuControllerProtocol>{
+    UIViewController<TopSideMenuMenuInterface> *_menuController;
+    TopSideMenuContainerController * _containerController;
     UIView *_overlay;
 }
 @end
 
-@implementation TOPSideMenuController
+@implementation TopSideMenu
 
-- (instancetype)initWithMenuController:(UIViewController <TOPSMIMenuInterface> *)menuController
+- (instancetype)initWithMenuController:(UIViewController <TopSideMenuMenuInterface> *)menuController
 {
     self = [super init];
     if (self) {
@@ -39,7 +39,7 @@
     [_menuController didMoveToParentViewController:self];
     
     
-    _containerController = [[TOPSMContainerController alloc]init];
+    _containerController = [[TopSideMenuContainerController alloc]init];
     _containerController.delegate = self;
     [self addChildViewController:_containerController];
     _containerController.view.frame = self.view.bounds;
@@ -56,7 +56,7 @@
 }
 
 #pragma mark - menu delegate -
--(void)TOPSMDidSelectController:(UIViewController <TOPSMIControllerInterface>*)controller{
+-(void)TOPSMDidSelectController:(UIViewController <TopSideMenuControllerInterface>*)controller{
     UIViewController *lastController = [_containerController contentController];
     if (lastController != nil) {
         if (lastController != controller) {
