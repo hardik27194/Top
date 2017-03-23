@@ -9,8 +9,13 @@
 @import UIKit;
 @import Foundation;
 
+#import "TopBackendLessConfiguration.h"
+
 @interface TopAppDelegate : UIResponder <UIApplicationDelegate>
+
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIViewController *viewController;
+@property (strong, nonatomic) TopBackendLessConfiguration *backendlessConfiguration;
++(TopAppDelegate *)topAppDelegate;
 
 @end

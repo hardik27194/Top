@@ -14,6 +14,8 @@
 		BD219CDB1E7EC82F0040E092 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD219CD91E7EC82F0040E092 /* LaunchScreen.storyboard */; };
 		BD219FEE1E7EC98A0040E092 /* TopFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD219FED1E7EC98A0040E092 /* TopFramework.framework */; };
 		BD219FEF1E7EC98A0040E092 /* TopFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD219FED1E7EC98A0040E092 /* TopFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BD21A08C1E84695B0040E092 /* TopAnimalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08B1E84695B0040E092 /* TopAnimalObject.m */; };
+		BD21A08F1E846A5B0040E092 /* TopAnimalPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +43,10 @@
 		BD219CDA1E7EC82F0040E092 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD219CDC1E7EC82F0040E092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD219FED1E7EC98A0040E092 /* TopFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TopFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD21A08A1E84695B0040E092 /* TopAnimalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalObject.h; sourceTree = "<group>"; };
+		BD21A08B1E84695B0040E092 /* TopAnimalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalObject.m; sourceTree = "<group>"; };
+		BD21A08D1E846A5B0040E092 /* TopAnimalPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalPage.h; sourceTree = "<group>"; };
+		BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalPage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,10 @@
 			children = (
 				BD219CCE1E7EC82F0040E092 /* AppDelegate.h */,
 				BD219CCF1E7EC82F0040E092 /* AppDelegate.m */,
+				BD21A08A1E84695B0040E092 /* TopAnimalObject.h */,
+				BD21A08B1E84695B0040E092 /* TopAnimalObject.m */,
+				BD21A08D1E846A5B0040E092 /* TopAnimalPage.h */,
+				BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */,
 				BD219CD11E7EC82F0040E092 /* ViewController.h */,
 				BD219CD21E7EC82F0040E092 /* ViewController.m */,
 				BD219CD71E7EC82F0040E092 /* Assets.xcassets */,
@@ -167,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD21A08F1E846A5B0040E092 /* TopAnimalPage.m in Sources */,
+				BD21A08C1E84695B0040E092 /* TopAnimalObject.m in Sources */,
 				BD219CD31E7EC82F0040E092 /* ViewController.m in Sources */,
 				BD219CD01E7EC82F0040E092 /* AppDelegate.m in Sources */,
 				BD219CCD1E7EC82F0040E092 /* main.m in Sources */,

@@ -10,13 +10,16 @@
 #import "Backendless.h"
 
 @implementation TopBackendLessConfiguration
-+(void)initBackendlessWithAppId:(NSString *)appIDKey
-                         secret:(NSString*)secretKey
-                        version:(NSString *)versionKey{
++(instancetype)initWithAppId:(NSString *)appIDKey
+              secret:(NSString*)secretKey
+             version:(NSString *)versionKey{
     
     [[Backendless sharedInstance] initApp:appIDKey
                                    secret:secretKey
                                   version:versionKey];
     
+    
+    return [[TopBackendLessConfiguration alloc]init];
 }
+
 @end

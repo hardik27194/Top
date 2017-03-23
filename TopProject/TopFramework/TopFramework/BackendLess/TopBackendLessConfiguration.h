@@ -9,7 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface TopBackendLessConfiguration : NSObject
-+(void)initBackendlessWithAppId:(NSString *)appIDKey
-                         secret:(NSString*)secretKey
-                        version:(NSString *)versionKey;
+@property (nonnull,assign) Class topObjectClass;
+@property (nonnull,assign) Class topPageClass;
+
+
++(instancetype)initWithAppId:(NSString *)appIDKey
+                      secret:(NSString*)secretKey
+                     version:(NSString *)versionKey;
+
 @end

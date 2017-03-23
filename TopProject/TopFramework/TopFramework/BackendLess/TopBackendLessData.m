@@ -8,12 +8,13 @@
 
 #import "TopBackendLessData.h"
 #import "Backendless.h"
-
+#import "TopAppDelegate.h"
 
 @implementation TopBackendLessData
 
 +(NSArray<TopPage *>*)getAllTopPages{
-    id <IDataStore> pages = [backendless.persistenceService of:[TopPage class]];
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
+    id <IDataStore> pages = [backendless.persistenceService of:topConfiguration.topPageClass];
     BackendlessCollection *collection = [pages find];
     return collection.data;
 }

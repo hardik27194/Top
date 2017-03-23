@@ -13,7 +13,11 @@
 #import "TopSideMenu.h"
 
 @implementation TopAppDelegate
+@synthesize backendlessConfiguration;
 
++(TopAppDelegate *)topAppDelegate{
+    return [[UIApplication sharedApplication] delegate];
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

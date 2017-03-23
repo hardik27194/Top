@@ -368,7 +368,7 @@
 		BD21A0031E7ED17D0040E092 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BD21A0021E7ED17D0040E092 /* libsqlite3.0.tbd */; };
 		BD21A00E1E7ED3B60040E092 /* TopObject.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0091E7ED3B60040E092 /* TopObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD21A00F1E7ED3B60040E092 /* TopObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A00A1E7ED3B60040E092 /* TopObject.m */; };
-		BD21A0101E7ED3B60040E092 /* TopPage.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A00C1E7ED3B60040E092 /* TopPage.h */; };
+		BD21A0101E7ED3B60040E092 /* TopPage.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A00C1E7ED3B60040E092 /* TopPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD21A0111E7ED3B60040E092 /* TopPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A00D1E7ED3B60040E092 /* TopPage.m */; };
 		BD21A0151E7ED3F50040E092 /* TopBackendLessConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0131E7ED3F50040E092 /* TopBackendLessConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */; };
