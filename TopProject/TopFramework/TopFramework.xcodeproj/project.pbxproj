@@ -860,11 +860,11 @@
 				BD219D261E7EC9720040E092 /* lib */,
 				BD21A0081E7ED3B60040E092 /* Object */,
 				BD21A00B1E7ED3B60040E092 /* Page */,
-				BD219D0B1E7EC8900040E092 /* TopFramework.h */,
 				BD21A0121E7ED3F50040E092 /* BackendLess */,
-				BD219D0C1E7EC8900040E092 /* Info.plist */,
 				BD219FF51E7ECB940040E092 /* TopAppDelegate.h */,
 				BD219FF61E7ECB940040E092 /* TopAppDelegate.m */,
+				BD219D0B1E7EC8900040E092 /* TopFramework.h */,
+				BD219D0C1E7EC8900040E092 /* Info.plist */,
 			);
 			path = TopFramework;
 			sourceTree = "<group>";

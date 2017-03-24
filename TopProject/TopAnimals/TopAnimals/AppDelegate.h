@@ -10,8 +10,5 @@
 #import <TopFramework/TopFramework.h>
 
 @interface AppDelegate : TopAppDelegate
-
-
-
 @end
 

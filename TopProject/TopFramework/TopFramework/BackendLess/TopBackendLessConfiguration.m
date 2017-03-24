@@ -11,7 +11,7 @@
 
 @implementation TopBackendLessConfiguration
 +(instancetype)initWithAppId:(NSString *)appIDKey
-              secret:(NSString*)secretKey
+              secret:(NSString *)secretKey
              version:(NSString *)versionKey{
     
     [[Backendless sharedInstance] initApp:appIDKey

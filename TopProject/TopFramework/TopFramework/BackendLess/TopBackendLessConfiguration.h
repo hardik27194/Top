@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TopBackendLessConfiguration : NSObject
 @property (nonnull,assign) Class topObjectClass;
@@ -14,7 +15,9 @@
 
 
 +(instancetype)initWithAppId:(NSString *)appIDKey
-                      secret:(NSString*)secretKey
+                      secret:(NSString *)secretKey
                      version:(NSString *)versionKey;
 
 @end
+
+NS_ASSUME_NONNULL_END
