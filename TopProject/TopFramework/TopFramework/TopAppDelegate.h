@@ -10,7 +10,7 @@
 @import Foundation;
 
 #import "TopBackendLessConfiguration.h"
-#import "TopUser.h"
+#import "TopBackendLessUserData.h"
 
 @interface TopAppDelegate : UIResponder <UIApplicationDelegate>
 

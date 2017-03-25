@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface TopUser : NSObject
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *email;

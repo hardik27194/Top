@@ -8,15 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
+@interface TopUser : NSObject
++(TopUser *)initializeFromBackendLessUser:(id)bUser;
+@end
+
+
 @interface TopBackendLessUserData : NSObject
 +(void)loginUserWithEmail:(NSString *)email
                       pwd:(NSString *)pwd
-               completion:(void(^)(NSDictionary *data,NSError *error))completionBlock;
+               completion:(void(^)(id user,NSError *error))completionBlock;
 +(void)logoutUser:(void(^)(BOOL success,NSError *error))completionBlock;
 +(void)registerUserWithName:(NSString *)name
                     surname:(NSString *)surname
                         pwd:(NSString *)pwd
                       email:(NSString *)email
-                 completion:(void(^)(NSDictionary *data,NSError *error))completionBlock;
+                 completion:(void(^)(id user,NSError *error))completionBlock;
+
+
+
++(void)addStickers:(NSArray *)stickersNumber
+            toUser:(TopUser *)topUser
+        completion:(void(^)(BOOL success,NSError *error))completionBlock;
++(void)removeStickers:(NSArray *)stickersNumber
+             fromUser:(TopUser *)topUser
+           completion:(void(^)(BOOL success,NSError *error))completionBlock;
 
 @end

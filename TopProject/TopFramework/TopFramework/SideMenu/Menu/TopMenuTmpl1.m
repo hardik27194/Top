@@ -15,7 +15,6 @@
 #import "BasePageViewController.h"
 #import "TopLayoutFactory.h"
 #import "TOPPageController.h"
-#import "TopUser.h"
 #import "TopAppDelegate.h"
 
 
@@ -63,16 +62,67 @@
     [buttonLogout addTarget:self action:@selector(logoutUser) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonLogout];
     
+    
+    UIButton *addSticker = [UIButton buttonWithType:UIButtonTypeCustom];
+    addSticker.backgroundColor = [UIColor whiteColor];
+    [addSticker setTitle:@"add Sticker" forState:UIControlStateNormal];
+    [addSticker setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    addSticker.frame = CGRectMake(10, 380, 150, 50);
+    addSticker.layer.cornerRadius = 10;
+    addSticker.layer.borderColor = [UIColor blackColor].CGColor;
+    addSticker.layer.borderWidth = 2;
+    [addSticker addTarget:self action:@selector(addSticker) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:addSticker];
+    
+    UIButton *removeSticker = [UIButton buttonWithType:UIButtonTypeCustom];
+    removeSticker.backgroundColor = [UIColor whiteColor];
+    [removeSticker setTitle:@"remove Sticker" forState:UIControlStateNormal];
+    [removeSticker setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    removeSticker.frame = CGRectMake(10, 440, 150, 50);
+    removeSticker.layer.cornerRadius = 10;
+    removeSticker.layer.borderColor = [UIColor blackColor].CGColor;
+    removeSticker.layer.borderWidth = 2;
+    [removeSticker addTarget:self action:@selector(removeSticker) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:removeSticker];
     // Do any additional setup after loading the view.
+}
+-(void)removeSticker{
+
+    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
+    [TopBackendLessUserData removeStickers:@[@2]
+                                  fromUser:user
+                                completion:^(BOOL success, NSError *error) {
+                                    if (success) {
+                                        NSLog(@"added a sticker");
+                                    }
+                                    
+                                    if (error) {
+                                        NSLog(@"error : %@",error.domain);
+                                    }
+                                }];
+
+}
+
+-(void)addSticker{
+    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
+    [TopBackendLessUserData addStickers:@[@2,@2,@1]
+                                toUser:user
+                            completion:^(BOOL success, NSError *error) {
+        if (success) {
+            NSLog(@"added a sticker");
+        }
+        
+        if (error) {
+            NSLog(@"error : %@",error.domain);
+        }
+    }];
 }
 -(void)loginUser{
     [TopBackendLessUserData loginUserWithEmail:@"pippoFranco@libero.it"
                                            pwd:@"qwerty"
-                                    completion:^(NSDictionary *data, NSError *error) {
+                                    completion:^(id user, NSError *error) {
         
-        
-        TopUser *user = [TopUser initializeAccountWithData:data];
-        [TopAppDelegate topAppDelegate].topUser = user;
+        [TopAppDelegate topAppDelegate].topUser = [TopUser initializeFromBackendLessUser:user];
         
                                         if ([TopAppDelegate topAppDelegate].topUser != nil) {
                                             NSLog(@"login success !!");
@@ -84,9 +134,7 @@
     [TopBackendLessUserData logoutUser:^(BOOL success, NSError *error) {
         if (success) {
             [TopAppDelegate topAppDelegate].topUser = nil;
-            if ([TopAppDelegate topAppDelegate].topUser == nil) {
-                NSLog(@"logout success !!");
-            }
+            NSLog(@"logout success !!");
         }
     }];
 }
@@ -95,7 +143,7 @@
                                          surname:@"Franco"
                                              pwd:@"qwerty"
                                            email:@"pippoFranco@libero.it"
-                                      completion:^(NSDictionary *data, NSError *error) {
+                                      completion:^(id user, NSError *error) {
                                           if (error == nil) {
                                               
                                           }
