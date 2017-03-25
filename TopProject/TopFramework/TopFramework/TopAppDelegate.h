@@ -10,12 +10,16 @@
 @import Foundation;
 
 #import "TopBackendLessConfiguration.h"
+#import "TopUser.h"
 
 @interface TopAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIViewController *viewController;
 @property (strong, nonatomic) TopBackendLessConfiguration *backendlessConfiguration;
+@property (strong, nonatomic) TopUser *topUser;
+
+
 +(TopAppDelegate *)topAppDelegate;
 
 @end

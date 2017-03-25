@@ -10,6 +10,8 @@
 #import "TopPage.h"
 
 @interface TopBackendLessData : NSObject
+
+
 +(NSArray<TopPage *>*)getAllTopPages;
 
 @end

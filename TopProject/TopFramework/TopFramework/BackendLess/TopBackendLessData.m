@@ -12,6 +12,7 @@
 
 @implementation TopBackendLessData
 
+#pragma mark - data -
 +(NSArray<TopPage *>*)getAllTopPages{
     TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
     id <IDataStore> pages = [backendless.persistenceService of:topConfiguration.topPageClass];

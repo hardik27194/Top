@@ -6,7 +6,7 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import <TopFramework/TopFramework.h>
+@import TopFramework;
 
 @interface TopAnimalObject : TopObject
 

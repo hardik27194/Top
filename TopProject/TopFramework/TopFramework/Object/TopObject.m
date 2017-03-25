@@ -10,5 +10,17 @@
 
 
 @implementation TopObject
-
+-(NSString *)description{
+    NSMutableString *description = [[NSMutableString alloc]initWithString:@"<TopObject :"];
+    
+    [description appendString:[NSString stringWithFormat:@"title : %@ \n",self.title]];
+    [description appendString:[NSString stringWithFormat:@"desc : %@ \n",self.desc]];
+    [description appendString:[NSString stringWithFormat:@"image : %@ \n",self.image]];
+    [description appendString:[NSString stringWithFormat:@"layoutName : %@ \n",self.rarity]];
+    
+    [description appendString:@" >"];
+    
+    return description;
+    
+}
 @end

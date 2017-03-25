@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TopFramework/TopFramework/SideMenu/Menu/TopMenuTmpl1.m"
-            timestampString = "511997953.085855"
+            timestampString = "512093280.511469"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-firstController"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "-registerUser"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
