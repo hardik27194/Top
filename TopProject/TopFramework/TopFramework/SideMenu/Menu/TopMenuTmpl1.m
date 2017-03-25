@@ -8,8 +8,8 @@
 
 #import "TopMenuTmpl1.h"
 
+#import "TopStickersDirector.h"
 
-#import "TopBackendLessData.h"
 #import "TopBackendLessUserData.h"
 
 #import "BasePageViewController.h"
@@ -156,7 +156,10 @@
 }
 -(UIViewController *)firstController{
     //tmp implementation
-    NSArray *dataArray =  [TopBackendLessData getAllTopPages];
+    TopStickersDirector *stickerDirector = [[TopStickersDirector alloc]init];
+    
+    
+    NSArray *dataArray =  [stickerDirector askTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];
     
     

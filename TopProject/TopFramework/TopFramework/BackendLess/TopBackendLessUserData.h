@@ -10,6 +10,7 @@
 
 @interface TopUser : NSObject
 +(TopUser *)initializeFromBackendLessUser:(id)bUser;
+-(NSArray *)stickers;
 @end
 
 
@@ -26,10 +27,10 @@
 
 
 
-+(void)addStickers:(NSArray *)stickersNumber
++(void)addStickers:(NSArray *)stickerNumbers
             toUser:(TopUser *)topUser
         completion:(void(^)(BOOL success,NSError *error))completionBlock;
-+(void)removeStickers:(NSArray *)stickersNumber
++(void)removeStickers:(NSArray *)stickerNumbers
              fromUser:(TopUser *)topUser
            completion:(void(^)(BOOL success,NSError *error))completionBlock;
 

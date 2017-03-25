@@ -9,6 +9,13 @@
 #import "TopBackendLessUserData.h"
 #import "Backendless.h"
 
+static NSArray *stickersArrayFromString(NSString *stickersString){
+    return [stickersString componentsSeparatedByString:@":"];
+}
+static NSString *stickersStringFromArray(NSArray *stickerArray){
+    return [stickerArray componentsJoinedByString:@":"];
+}
+
 @interface TopUser()
 @property (nonatomic,strong) NSArray *stickers;
 @property (nonatomic,strong,readonly) BackendlessUser *backendLessUser;
@@ -21,12 +28,19 @@
     if (![bUser isKindOfClass:[BackendlessUser class]]) {
         return nil;
     }
+    
+    NSDictionary *allProperties = [bUser retrieveProperties];
+    
     TopUser *topUser = [[TopUser alloc]init];
     topUser->_backendLessUser = bUser;
+    topUser->_stickers = stickersArrayFromString(allProperties[@"stickers"]);
+    
     return topUser;
 }
-
-
+-(NSArray *)stickers{
+    NSDictionary *allProperties = [self->_backendLessUser retrieveProperties];
+    return stickersArrayFromString(allProperties[@"stickers"]);
+}
 @end
 @implementation TopBackendLessUserData
 +(void)loginUserWithEmail:(NSString *)email
@@ -38,7 +52,6 @@
     
     [backendless.userService login:email password:pwd response:^(BackendlessUser *userObject) {
         completionBlock(userObject,nil);
-
     } error:^(Fault *fault) {
         completionBlock(nil,fault);
     }];
@@ -64,7 +77,6 @@
     
     [backendless.userService registering:user response:^(BackendlessUser *userObject) {
         completionBlock(userObject,nil);
-
     } error:^(Fault *fault) {
         completionBlock(nil,fault);
     }];
@@ -77,34 +89,44 @@
         completionBlock(YES,nil);
     } error:^(Fault *fault) {
         completionBlock(NO,fault);
-    } ];
+    }];
 }
 
 #pragma mark - Stickers -
-+(void)addStickers:(NSArray *)stickersNumber toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
++(void)addStickers:(NSArray *)stickerNumbers toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
     if (topUser == nil){
         NSError *error = [NSError errorWithDomain:@"you are not logged in" code:0 userInfo:nil];
         completionBlock(NO,error);
         return;
     }
     
+    NSString *stickerString = stickersStringFromArray(stickerNumbers);
+    if (stickerString == nil) {
+        return;
+    }
+    
     BackendlessUser *backendLessUser = topUser.backendLessUser;
-    [backendLessUser updateProperties:@{@"stickers":@"ahahahaaha"}];
+    [backendLessUser updateProperties:@{@"stickers":stickerString}];
     
     [TopBackendLessUserData updateUser:backendLessUser
                             completion:^(BOOL success, NSError *error) {
                                 completionBlock(success,error);
     }];
 }
-+(void)removeStickers:(NSArray *)stickersNumber fromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
++(void)removeStickers:(NSArray *)stickerNumbers fromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
     if (topUser == nil){
-        NSError *error = [NSError errorWithDomain:@"you are not logged in" code:0 userInfo:nil];
+        NSError *error = [NSError errorWithDomain:@"You are not logged in" code:0 userInfo:nil];
         completionBlock(NO,error);
         return;
     }
     
+    NSString *stickerString = stickersStringFromArray(stickerNumbers);
+    if (stickerString == nil) {
+        return;
+    }
+    
     BackendlessUser *backendLessUser = topUser.backendLessUser;
-    [backendLessUser updateProperties:@{@"stickers":@"buahahhaha"}];
+    [backendLessUser updateProperties:@{@"stickers":stickerString}];
 
     [TopBackendLessUserData updateUser:backendLessUser
                             completion:^(BOOL success, NSError *error) {

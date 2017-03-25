@@ -7,9 +7,11 @@
 //
 
 #import "BasePageViewController.h"
+#import "TopAppDelegate.h"
 
 @interface BasePageViewController ()
 @property (nonatomic,strong) TopPage *tPage;
+
 @end
 
 @implementation BasePageViewController
@@ -18,28 +20,26 @@
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];
     if (self) {
         _tPage = topPage;
+        
+        
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
 
-   
     for (int i = 0; i < self.tPage.topObjects.count; i++) {
         TopObject *tObject = self.tPage.topObjects[i];
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
         [sview updateFromTopObject:tObject];
     }
    
-
-    // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-   
+    NSArray *stickers = [[TopAppDelegate topAppDelegate].topUser stickers];
 //    for (SingleSticker *sticker in self.stickers) {
 //        [sticker checkSticker];
 //        [self.view addSubview:sticker];

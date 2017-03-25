@@ -385,6 +385,8 @@
 		BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */; };
 		BD21A0A41E85E1450040E092 /* TopBackendLessUserData.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0A21E85E1450040E092 /* TopBackendLessUserData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD21A0A51E85E1450040E092 /* TopBackendLessUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0A31E85E1450040E092 /* TopBackendLessUserData.m */; };
+		BD21A0B21E871D000040E092 /* TopStickersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0B01E871D000040E092 /* TopStickersDirector.h */; };
+		BD21A0B31E871D000040E092 /* TopStickersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0B11E871D000040E092 /* TopStickersDirector.m */; };
 		EA4969B01E82F82F00435E70 /* TopLayout4_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */; };
 		EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */; };
 		EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */; };
@@ -773,6 +775,8 @@
 		BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayoutFactory.m; sourceTree = "<group>"; };
 		BD21A0A21E85E1450040E092 /* TopBackendLessUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBackendLessUserData.h; sourceTree = "<group>"; };
 		BD21A0A31E85E1450040E092 /* TopBackendLessUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessUserData.m; sourceTree = "<group>"; };
+		BD21A0B01E871D000040E092 /* TopStickersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickersDirector.h; sourceTree = "<group>"; };
+		BD21A0B11E871D000040E092 /* TopStickersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickersDirector.m; sourceTree = "<group>"; };
 		EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout4_Tmpl0.h; sourceTree = "<group>"; };
 		EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout4_Tmpl0.m; sourceTree = "<group>"; };
 		EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
@@ -857,6 +861,7 @@
 		BD219D0A1E7EC8900040E092 /* TopFramework */ = {
 			isa = PBXGroup;
 			children = (
+				BD21A0AF1E871D000040E092 /* Director */,
 				3DF28B1E1E83DB85005FAD92 /* SideMenu */,
 				EA4969B71E82FBF700435E70 /* StickerView */,
 				BD21A0281E7F13530040E092 /* Layout */,
@@ -1467,6 +1472,15 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
+		BD21A0AF1E871D000040E092 /* Director */ = {
+			isa = PBXGroup;
+			children = (
+				BD21A0B01E871D000040E092 /* TopStickersDirector.h */,
+				BD21A0B11E871D000040E092 /* TopStickersDirector.m */,
+			);
+			path = Director;
+			sourceTree = "<group>";
+		};
 		EA4969B71E82FBF700435E70 /* StickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1485,6 +1499,7 @@
 			files = (
 				BD219F941E7EC9730040E092 /* avformat.h in Headers */,
 				BD219FAD1E7EC9730040E092 /* error.h in Headers */,
+				BD21A0B21E871D000040E092 /* TopStickersDirector.h in Headers */,
 				BD21A0351E7F143B0040E092 /* TopLayoutFactory.h in Headers */,
 				BD219FC01E7EC9730040E092 /* pixfmt.h in Headers */,
 				BD219F221E7EC9720040E092 /* IAdaptingType.h in Headers */,
@@ -1915,6 +1930,7 @@
 				BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */,
 				3DF28B301E83DB85005FAD92 /* TopSideMenu.m in Sources */,
 				BD21A02D1E7F13D60040E092 /* TopLayout3_Tmpl0.m in Sources */,
+				BD21A0B31E871D000040E092 /* TopStickersDirector.m in Sources */,
 				3DF28B2E1E83DB85005FAD92 /* TopMenuTmpl1.m in Sources */,
 				3DF28B2B1E83DB85005FAD92 /* TopSideMenuContainerController.m in Sources */,
 				BD21A01F1E7EF8660040E092 /* TOPPageController.m in Sources */,
