@@ -10,6 +10,7 @@
 #import "TopObject.h"
 
 @interface StickerView : UIView
--(void)updateFromTopObject:(TopObject *)topObject;
-
+@property (nonatomic,strong) NSArray *numberStickers;
+-(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
+-(void)updateNumber:(NSNumber *)number ifFounded:(BOOL)found;
 @end

@@ -102,7 +102,7 @@
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _containerController.view.transform = CGAffineTransformIdentity;
         _overlay.alpha = 0;
-
+        [[_containerController contentController]viewWillAppear:YES];
     } completion:^(BOOL finished) {
         [_overlay removeFromSuperview];
         _overlay = nil;

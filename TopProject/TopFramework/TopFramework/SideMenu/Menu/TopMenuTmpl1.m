@@ -126,6 +126,10 @@
         
                                         if ([TopAppDelegate topAppDelegate].topUser != nil) {
                                             NSLog(@"login success !!");
+                                            
+//                                            [TopBackendLessUserData addStickers:@[@1,@2,@3,@4,@7] toUser:[TopAppDelegate topAppDelegate].topUser completion:^(BOOL success, NSError *error) {
+//                                                
+//                                            }];
                                         }
         
     }];
@@ -155,11 +159,8 @@
     // Dispose of any resources that can be recreated.
 }
 -(UIViewController *)firstController{
-    //tmp implementation
-    TopStickersDirector *stickerDirector = [[TopStickersDirector alloc]init];
     
-    
-    NSArray *dataArray =  [stickerDirector askTopPages];
+    NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];
     
     

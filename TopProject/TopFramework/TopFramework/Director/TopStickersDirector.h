@@ -10,6 +10,11 @@
 #import "BasePageViewController.h"
 
 @interface TopStickersDirector : NSObject
--(NSArray <TopPage *>*)askTopPages;
++ (id)sharedDirector;
+
+
+- (NSArray <TopPage *>*)askTopPages;
+- (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
+- (void)askFoundSticker:(NSNumber *)numberSticker inFoundedStickers:(NSArray *)foundedStickers completion:(void(^)(BOOL found))completionBlock;
 
 @end

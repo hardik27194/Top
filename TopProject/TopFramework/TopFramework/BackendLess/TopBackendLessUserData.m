@@ -10,7 +10,18 @@
 #import "Backendless.h"
 
 static NSArray *stickersArrayFromString(NSString *stickersString){
-    return [stickersString componentsSeparatedByString:@":"];
+    NSMutableArray *numberStickers = [[NSMutableArray alloc]init];
+    if (stickersString == nil || [stickersString isKindOfClass:[NSNull class]]) {
+        return numberStickers;
+    }
+    if (stickersString.length == 0) {
+        return numberStickers;
+    }
+    for (NSString *stickerNumberString in [stickersString componentsSeparatedByString:@":"]) {
+        [numberStickers addObject:[NSNumber numberWithInteger:[stickerNumberString integerValue]]];
+    }
+    
+    return numberStickers;
 }
 static NSString *stickersStringFromArray(NSArray *stickerArray){
     return [stickerArray componentsJoinedByString:@":"];

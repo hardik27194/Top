@@ -22,6 +22,7 @@
 
 
 - (instancetype)initWithTopPage:(TopPage *)topPage;
+- (void)refresh;
 
 
 @end

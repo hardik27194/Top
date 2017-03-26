@@ -16,7 +16,8 @@
     [description appendString:[NSString stringWithFormat:@"desc : %@ \n",self.desc]];
     [description appendString:[NSString stringWithFormat:@"topObjects : %@ \n",self.topObjects]];
     [description appendString:[NSString stringWithFormat:@"layoutName : %@ \n",self.layoutName]];
-    
+    [description appendString:[NSString stringWithFormat:@"number : %i \n",(int)self.number]];
+
     [description appendString:@" >"];
     
     return description;

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TopPage.h"
 
 @interface TOPPageController : UIViewController
 - (id)initWithPages:(NSArray *)pages;

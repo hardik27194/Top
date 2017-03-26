@@ -7,7 +7,12 @@
 //
 
 #import "StickerView.h"
-@interface StickerView()
+#import "AFNetworking.h"
+
+@interface StickerView(){
+    TopObject *_tObject;
+    
+}
 @property (nonatomic,weak) UIImageView *stickerImageView;
 @property (nonatomic,weak) UILabel *stickerTitleLabel;
 @property (nonatomic,weak) UILabel *stickerDescriptionLabel;
@@ -54,13 +59,18 @@
     
     self.backgroundColor = [UIColor colorWithRed:231/255.f green:231/255.f blue:231/255.f alpha:1];
 }
--(void)updateFromTopObject:(TopObject *)topObject{
-    
-    NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:topObject.image]];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        self.stickerImageView.image = [UIImage imageWithData:imageData];
-    });
+-(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
+    _tObject = topObject;
+    self.numberStickers = numbers;
+   
     self.stickerTitleLabel.text = topObject.title;
+}
+-(void)updateNumber:(NSNumber *)number ifFounded:(BOOL)found{
+    if (found == NO) {
+        self.stickerImageView.image = nil;
+        return;
+    }
+    [self.stickerImageView setImageWithURL:[NSURL URLWithString:_tObject.image] placeholderImage:nil];
+
 }
 @end

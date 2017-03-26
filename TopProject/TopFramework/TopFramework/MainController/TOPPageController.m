@@ -49,7 +49,15 @@
     
     // Do any additional setup after loading the view.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 
+    for (UIViewController *controller in self.pages) {
+        if ([controller respondsToSelector:@selector(refresh)]) {
+            [controller performSelector:@selector(refresh) withObject:nil afterDelay:0];
+        }
+    }
+}
 - (void)createPageController
 {
 
