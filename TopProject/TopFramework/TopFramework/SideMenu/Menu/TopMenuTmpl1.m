@@ -19,11 +19,19 @@
 
 
 @interface TopMenuTmpl1 ()
-
 @end
 
 @implementation TopMenuTmpl1
+@synthesize menuControllers;
 @synthesize delegate;
+
+-(instancetype)initWithControllers:(NSArray<UIViewController *> *)controllers{
+    self = [super init];
+    if (self) {
+        self.menuControllers = controllers;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -159,19 +167,7 @@
     // Dispose of any resources that can be recreated.
 }
 -(UIViewController *)firstController{
-    
-    NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
-    NSMutableArray *pages = [[NSMutableArray alloc]init];
-    
-    
-    for (TopPage *page in dataArray) {
-        BasePageViewController *controller = [TopLayoutFactory layoutFromTopPage:page];
-        if (controller) {
-            [pages addObject:controller];
-        }
-    }
-
-    return [[TOPPageController alloc]initWithPages:pages];
+    return menuControllers.count > 0 ? menuControllers[0] : nil;
 }
 /*
 #pragma mark - Navigation

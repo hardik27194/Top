@@ -12,6 +12,8 @@
 #import "TopMenuTmpl1.h"
 #import "TopSideMenu.h"
 
+#import "TopMenuDirector.h"
+
 @implementation TopAppDelegate
 @synthesize backendlessConfiguration;
 
@@ -21,7 +23,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]init];
+    
+    NSArray <UIViewController *> *menuControllers = [[TopMenuDirector sharedDirector] menuControllers];
+    
+    TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]initWithControllers:menuControllers];
     
     self.viewController = [[TopSideMenu alloc]initWithMenuController:menuTmpl1];
     self.window.rootViewController = self.viewController;

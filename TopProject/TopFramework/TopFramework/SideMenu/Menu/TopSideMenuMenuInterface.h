@@ -13,8 +13,11 @@
 @end
 
 @protocol TopSideMenuMenuInterface <NSObject>
-@property (nonatomic,assign) id<TopSideMenuMenuProtocol> delegate;
--(UIViewController *)firstController;
+@property (nonatomic,strong) NSArray *menuControllers;
+@property (nonatomic,assign) id <TopSideMenuMenuProtocol> delegate;
+
+- (instancetype)initWithControllers:(NSArray<UIViewController *> *)controllers;
+- (UIViewController *)firstController;
 @end
 
 

@@ -7,13 +7,12 @@
 //
 
 #import "StickerView.h"
-#import "AFNetworking.h"
+#import "PhotoContainerStickersView.h"
 
 @interface StickerView(){
     TopObject *_tObject;
-    
 }
-@property (nonatomic,weak) UIImageView *stickerImageView;
+@property (nonatomic,weak) PhotoContainerStickersView *photoContainer;
 @property (nonatomic,weak) UILabel *stickerTitleLabel;
 @property (nonatomic,weak) UILabel *stickerDescriptionLabel;
 @end
@@ -44,15 +43,14 @@
     
     offsetY += titleLabel.bounds.size.height;
     
+    PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height/2)];
+    photoContainer.backgroundColor = [UIColor grayColor];
+    photoContainer.layer.masksToBounds = YES;
+    photoContainer.contentMode = UIViewContentModeScaleAspectFill;
+    [self addSubview:photoContainer];
+    self.photoContainer = photoContainer;
     
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height/2)];
-    imageView.backgroundColor = [UIColor grayColor];
-    imageView.layer.masksToBounds = YES;
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    [self addSubview:imageView];
-    self.stickerImageView = imageView;
-    
-    offsetY += imageView.bounds.size.height;
+    offsetY += photoContainer.bounds.size.height;
 }
 -(void)innerInit{
     [self build];
@@ -62,15 +60,18 @@
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
     self.numberStickers = numbers;
-   
+    [self.photoContainer buildPhotoWithUrl:[NSURL URLWithString:_tObject.image] stickerViewFromNumbers:self.numberStickers];
     self.stickerTitleLabel.text = topObject.title;
 }
 -(void)updateNumber:(NSNumber *)number ifFounded:(BOOL)found{
+    
+    [self.photoContainer number:number found:found];
+
     if (found == NO) {
-        self.stickerImageView.image = nil;
+//        self.stickerImageView.image = nil;
         return;
     }
-    [self.stickerImageView setImageWithURL:[NSURL URLWithString:_tObject.image] placeholderImage:nil];
 
+//    [self.stickerImageView setImageWithURL:[NSURL URLWithString:_tObject.image] placeholderImage:nil];
 }
 @end

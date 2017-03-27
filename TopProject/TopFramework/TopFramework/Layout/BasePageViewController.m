@@ -21,8 +21,6 @@
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];
     if (self) {
         _tPage = topPage;
-        
-        
     }
     return self;
 }
@@ -47,43 +45,17 @@
 -(void)refresh{
     NSArray *stickers = [[TopAppDelegate topAppDelegate].topUser stickers];
     for (int i = 0; i < self.tPage.topObjects.count; i++) {
-        
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
         for (NSNumber *numberSticker in sview.numberStickers) {
-            [[TopStickersDirector sharedDirector] askFoundSticker:numberSticker inFoundedStickers:stickers completion:^(BOOL found) {
+            [[TopStickersDirector sharedDirector] askFoundSticker:numberSticker
+                                                inFoundedStickers:stickers
+                                                       completion:^(BOOL found) {
                 [sview updateNumber:numberSticker ifFounded:found];
             }];
         }
         
     }
 }
-#pragma mark - Orientation -
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    
-//    for (SingleSticker *sticker in self.stickers) {
-//        [self updateFrameOfSticker:sticker FromOrientation:toInterfaceOrientation];
-//    }
-}
-//- (void)updateFrameOfSticker:(SingleSticker *)sticker FromOrientation:(UIInterfaceOrientation)orientation
-//{
-//
-//    if(UIInterfaceOrientationIsPortrait(orientation))
-//    {
-//        sticker.frame = sticker.portraitStickerRect;
-//    }else
-//    {
-//        sticker.frame = sticker.landscapeStickerRect;
-//        
-//    }
-//    [sticker setNeedsLayout];
-//
-//}
-#pragma mark - new sticker -
 
-//- (void)insertNewSticker:(SingleSticker *)sticker
-//{
-////    [self.stickers addObject:sticker];
-//}
 
 @end

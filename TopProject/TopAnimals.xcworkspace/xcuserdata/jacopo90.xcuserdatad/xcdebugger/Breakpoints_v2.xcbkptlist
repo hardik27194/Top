@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TopFramework/TopFramework/Layout/BasePageViewController.m"
-            timestampString = "512231883.734925"
+            filePath = "TopFramework/TopFramework/StickerView/StickerView.m"
+            timestampString = "512348070.443323"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-refresh"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-updateNumber:ifFounded:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TopFramework/TopFramework/StickerView/StickerView.m"
-            timestampString = "512231907.117457"
+            filePath = "TopFramework/TopFramework/StickerView/PhotoContainerStickersView.m"
+            timestampString = "512348386.387662"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-updateNumber:ifFounded:"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-buildPhotoWithUrl:stickerViewFromNumbers:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TopFramework/TopFramework/StickerView/PhotoContainerStickersView.m"
+            timestampString = "512348386.387662"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-buildPhotoWithUrl:stickerViewFromNumbers:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
