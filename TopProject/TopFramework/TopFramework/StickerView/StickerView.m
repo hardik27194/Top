@@ -60,7 +60,7 @@
     
     offsetY += titleLabel.bounds.size.height;
     
-    PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height/2)];
+    PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height-30)];
     [self addSubview:photoContainer];
     self.photoContainer = photoContainer;
     

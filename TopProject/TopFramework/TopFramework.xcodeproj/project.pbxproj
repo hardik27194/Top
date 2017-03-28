@@ -412,6 +412,9 @@
 		BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */; };
 		BDEAC7891E89BED80016502E /* PhotoStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC7871E89BED80016502E /* PhotoStickerView.h */; };
 		BDEAC78A1E89BED80016502E /* PhotoStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7881E89BED80016502E /* PhotoStickerView.m */; };
+		BDEAC78E1E8AF3D00016502E /* TopLayout1_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC78B1E8AF3D00016502E /* TopLayout1_Tmpl0.h */; };
+		BDEAC78F1E8AF3D00016502E /* TopLayout1_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC78C1E8AF3D00016502E /* TopLayout1_Tmpl0.m */; };
+		BDEAC7901E8AF3D00016502E /* TopLayout1_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDEAC78D1E8AF3D00016502E /* TopLayout1_Tmpl0.xib */; };
 		EA4969B01E82F82F00435E70 /* TopLayout4_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */; };
 		EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */; };
 		EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */; };
@@ -827,6 +830,9 @@
 		BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoContainerStickersView.m; sourceTree = "<group>"; };
 		BDEAC7871E89BED80016502E /* PhotoStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStickerView.h; sourceTree = "<group>"; };
 		BDEAC7881E89BED80016502E /* PhotoStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStickerView.m; sourceTree = "<group>"; };
+		BDEAC78B1E8AF3D00016502E /* TopLayout1_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout1_Tmpl0.h; sourceTree = "<group>"; };
+		BDEAC78C1E8AF3D00016502E /* TopLayout1_Tmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout1_Tmpl0.m; sourceTree = "<group>"; };
+		BDEAC78D1E8AF3D00016502E /* TopLayout1_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout1_Tmpl0.xib; sourceTree = "<group>"; };
 		EA4969AD1E82F82F00435E70 /* TopLayout4_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout4_Tmpl0.h; sourceTree = "<group>"; };
 		EA4969AE1E82F82F00435E70 /* TopLayout4_Tmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout4_Tmpl0.m; sourceTree = "<group>"; };
 		EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
@@ -1517,6 +1523,9 @@
 				BD21A0291E7F13D60040E092 /* TopLayout3_Tmpl0.h */,
 				BD21A02A1E7F13D60040E092 /* TopLayout3_Tmpl0.m */,
 				BD21A02B1E7F13D60040E092 /* TopLayout3_Tmpl0.xib */,
+				BDEAC78B1E8AF3D00016502E /* TopLayout1_Tmpl0.h */,
+				BDEAC78C1E8AF3D00016502E /* TopLayout1_Tmpl0.m */,
+				BDEAC78D1E8AF3D00016502E /* TopLayout1_Tmpl0.xib */,
 				BD21A0331E7F143B0040E092 /* TopLayoutFactory.h */,
 				BD21A0341E7F143B0040E092 /* TopLayoutFactory.m */,
 			);
@@ -1682,6 +1691,7 @@
 				BD219EA81E7EC9720040E092 /* BackendlessGeoQuery.h in Headers */,
 				BD219FD11E7EC9730040E092 /* AudioCodec.h in Headers */,
 				BD219F5E1E7EC9730040E092 /* PropertyBagWriter.h in Headers */,
+				BDEAC78E1E8AF3D00016502E /* TopLayout1_Tmpl0.h in Headers */,
 				BD219FBA1E7EC9730040E092 /* md5.h in Headers */,
 				BD219EC91E7EC9720040E092 /* HashMap.h in Headers */,
 				BD219F2A1E7EC9720040E092 /* IDeserializer.h in Headers */,
@@ -2009,6 +2019,7 @@
 				3DF28B2C1E83DB85005FAD92 /* TopSideMenuContainerController.xib in Resources */,
 				EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */,
 				BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */,
+				BDEAC7901E8AF3D00016502E /* TopLayout1_Tmpl0.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2040,6 +2051,7 @@
 				3DF28B2B1E83DB85005FAD92 /* TopSideMenuContainerController.m in Sources */,
 				BDEAC78A1E89BED80016502E /* PhotoStickerView.m in Sources */,
 				BD21A01F1E7EF8660040E092 /* TOPPageController.m in Sources */,
+				BDEAC78F1E8AF3D00016502E /* TopLayout1_Tmpl0.m in Sources */,
 				BD21A0C91E88016C0040E092 /* AFHTTPClient.m in Sources */,
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
 				EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */,

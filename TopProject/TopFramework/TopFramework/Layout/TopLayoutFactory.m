@@ -7,6 +7,7 @@
 //
 
 #import "TopLayoutFactory.h"
+#import "TopLayout1_Tmpl0.h"
 #import "TopLayout3_Tmpl0.h"
 #import "TopLayout4_Tmpl0.h"
 
@@ -18,10 +19,12 @@ static NSDictionary *layouts;
 @implementation TopLayoutFactory
 +(void)load{
     
+    NSDictionary *layout_1_obj = @{@"l1_tmpl0":[TopLayout1_Tmpl0 class]};
     NSDictionary *layout_3_obj = @{@"l3_tmpl0":[TopLayout3_Tmpl0 class]};
     NSDictionary *layout_4_obj = @{@"l4_tmpl0":[TopLayout4_Tmpl0 class]};
 
-    layouts = @{@3:layout_3_obj,
+    layouts = @{@1:layout_1_obj,
+                @3:layout_3_obj,
                 @4:layout_4_obj};
     
 }
