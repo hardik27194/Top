@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoStickerView.h"
 
 @interface PhotoContainerStickersView : UIView
--(void)buildPhotoWithUrl:(NSURL *)urlPhoto stickerViewFromNumbers:(NSArray *)numbers;
+
+
+-(void)buildPhotoWithUrl:(NSURL *)urlPhoto
+                    rows:(NSInteger)rows
+                 columns:(NSInteger)columns
+  stickerViewFromNumbers:(NSArray *)numbers
+         stickerDelegate:(id<PhotoStickerViewProtocol>)delagate;
+
 -(NSArray *)getStickerPhotos;
--(void)number:(NSNumber *)numberSticker found:(BOOL)founded;
 
 @end

@@ -18,18 +18,19 @@
     if (self) {
         _number = [number integerValue];
         _layerRect = layerRect;
-        self.founded = NO;
     }
     return self;
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    
-    if(self.founded){
-        [self showStickerPhoto];
-    }else{
-        [self showPlaceholder];
-    }
+    [self.delegate photoStickerView:self isFounded:^(BOOL founded) {
+        if(founded){
+            [self showStickerPhoto];
+        }else{
+            [self showPlaceholder];
+        }
+    }];
+   
 }
 -(void)showStickerPhoto{
     if (self.image = nil) {

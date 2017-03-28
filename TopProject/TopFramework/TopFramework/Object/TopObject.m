@@ -17,7 +17,9 @@
     [description appendString:[NSString stringWithFormat:@"desc : %@ \n",self.desc]];
     [description appendString:[NSString stringWithFormat:@"image : %@ \n",self.image]];
     [description appendString:[NSString stringWithFormat:@"layoutName : %@ \n",self.rarity]];
-    
+    [description appendString:[NSString stringWithFormat:@"rows : %@ \n",self.rows]];
+    [description appendString:[NSString stringWithFormat:@"columns : %@ \n",self.columns]];
+
     [description appendString:@" >"];
     
     return description;

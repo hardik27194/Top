@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "TopObject.h"
+@class StickerView;
+
+@protocol StickerViewProtocol <NSObject>
+-(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void(^)(NSArray *foundedStickers))foundedStickers;
+@end
 
 @interface StickerView : UIView
 @property (nonatomic,strong) NSArray *numberStickers;
+@property (nonatomic,assign) id <StickerViewProtocol> delegate;
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
--(void)updateNumber:(NSNumber *)number ifFounded:(BOOL)found;
 @end

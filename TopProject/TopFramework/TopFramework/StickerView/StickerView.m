@@ -9,7 +9,7 @@
 #import "StickerView.h"
 #import "PhotoContainerStickersView.h"
 
-@interface StickerView(){
+@interface StickerView()<PhotoStickerViewProtocol>{
     TopObject *_tObject;
 }
 @property (nonatomic,weak) PhotoContainerStickersView *photoContainer;
@@ -60,18 +60,20 @@
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
     self.numberStickers = numbers;
-    [self.photoContainer buildPhotoWithUrl:[NSURL URLWithString:_tObject.image] stickerViewFromNumbers:self.numberStickers];
+    [self.photoContainer buildPhotoWithUrl:[NSURL URLWithString:_tObject.image]
+                                      rows:_tObject.rows
+                                   columns:_tObject.columns
+                    stickerViewFromNumbers:self.numberStickers
+                           stickerDelegate:self];
+ 
     self.stickerTitleLabel.text = topObject.title;
 }
--(void)updateNumber:(NSNumber *)number ifFounded:(BOOL)found{
-    
-    [self.photoContainer number:number found:found];
 
-    if (found == NO) {
-//        self.stickerImageView.image = nil;
-        return;
-    }
 
-//    [self.stickerImageView setImageWithURL:[NSURL URLWithString:_tObject.image] placeholderImage:nil];
+-(void)photoStickerView:(PhotoStickerView *)stickerNumberView
+              isFounded:(void (^)(BOOL))foundedBlock{
+    [self.delegate stickerView:self askFoundedStickers:^(NSArray *foundedStickers) {
+        foundedBlock([foundedStickers containsObject:@(stickerNumberView.number)]);
+    }];
 }
 @end

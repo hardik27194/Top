@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PhotoStickerView;
 
+@protocol PhotoStickerViewProtocol <NSObject>
+-(void)photoStickerView:(PhotoStickerView* )stickerNumberView isFounded:(void(^)(BOOL founded))foundedBlock;
+
+@end
 @interface PhotoStickerView : UIView
 - (instancetype)initWithNumber:(NSNumber *)number andLayerRect:(CGRect)layerRect;
+
+@property (nonatomic,assign) id<PhotoStickerViewProtocol> delegate;
 @property (nonatomic,weak) UIImage *image;
-@property (nonatomic,assign) BOOL founded;
 @property (nonatomic,assign) NSInteger number;
 
 @end

@@ -14,6 +14,7 @@
 @property (nonatomic,strong) NSString *desc;
 @property (nonatomic,strong) NSString *image;
 @property (nonatomic,assign) NSUInteger rarity;
-@property (nonatomic,assign) NSUInteger split;
+@property (nonatomic,assign) NSUInteger rows;
+@property (nonatomic,assign) NSUInteger columns;
 
 @end

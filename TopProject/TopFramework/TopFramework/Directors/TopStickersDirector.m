@@ -40,7 +40,7 @@ static TopStickersDirector *sharedDirector = nil;
 
         NSInteger stickers_count_in_page = 0;
         for (TopObject *object in page.topObjects) {
-            NSInteger splitCount = object.split;
+            NSInteger splitCount = object.rows * object.columns;
             stickers_count_in_page += splitCount;
             
             NSMutableArray *stickersNumberArray = [[NSMutableArray alloc]init];
@@ -75,8 +75,5 @@ static TopStickersDirector *sharedDirector = nil;
 
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page{
     return self.mainStructure[@"pages"][page.number];
-}
--(void)askFoundSticker:(NSNumber *)numberSticker inFoundedStickers:(NSArray *)foundedStickers completion:(void(^)(BOOL found))completionBlock{
-    completionBlock([foundedStickers containsObject:numberSticker]);
 }
 @end

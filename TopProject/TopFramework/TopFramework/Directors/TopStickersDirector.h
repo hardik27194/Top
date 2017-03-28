@@ -12,9 +12,6 @@
 @interface TopStickersDirector : NSObject
 + (id)sharedDirector;
 
-
 - (NSArray <TopPage *>*)askTopPages;
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
-- (void)askFoundSticker:(NSNumber *)numberSticker inFoundedStickers:(NSArray *)foundedStickers completion:(void(^)(BOOL found))completionBlock;
-
 @end

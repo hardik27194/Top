@@ -10,7 +10,7 @@
 #import "TopAppDelegate.h"
 #import "TopStickersDirector.h"
 
-@interface BasePageViewController ()
+@interface BasePageViewController ()<StickerViewProtocol>
 @property (nonatomic,strong) TopPage *tPage;
 
 @end
@@ -33,6 +33,7 @@
         TopObject *tObject = self.tPage.topObjects[i];
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
+        sview.delegate = self;
         [sview updateFromTopObject:tObject withNumbers:stickers];
     }
  
@@ -40,22 +41,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    [self refresh];
 }
--(void)refresh{
-    NSArray *stickers = [[TopAppDelegate topAppDelegate].topUser stickers];
-    for (int i = 0; i < self.tPage.topObjects.count; i++) {
-        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
-        for (NSNumber *numberSticker in sview.numberStickers) {
-            [[TopStickersDirector sharedDirector] askFoundSticker:numberSticker
-                                                inFoundedStickers:stickers
-                                                       completion:^(BOOL found) {
-                [sview updateNumber:numberSticker ifFounded:found];
-            }];
-        }
-        
-    }
+-(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void (^)(NSArray *))foundedStickers{
+    foundedStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
 }
+
 
 
 @end

@@ -7,14 +7,11 @@
 //
 
 #import "PhotoContainerStickersView.h"
-#import "PhotoStickerView.h"
 #import "AFNetworking.h"
 #import "mathematics.h"
 
 
-@interface PhotoContainerStickersView(){
-    NSURL *_urlPhoto;
-}
+@interface PhotoContainerStickersView()
 
 @property (nonatomic,strong) NSMutableArray *stickerPhotos;
 @property (nonatomic,strong) UIImage *photo;
@@ -27,73 +24,56 @@
     }
     return _stickerPhotos;
 }
--(void)buildPhotoWithUrl:(NSURL *)urlPhoto stickerViewFromNumbers:(NSArray *)numbers{
-    _urlPhoto = urlPhoto;
-    
+-(void)buildPhotoWithUrl:(NSURL *)urlPhoto
+                    rows:(NSInteger)rows
+                 columns:(NSInteger)columns
+  stickerViewFromNumbers:(NSArray *)numbers
+                 stickerDelegate:(id<PhotoStickerViewProtocol>)delagate{
     NSInteger stickers_count = numbers.count;
-    if (stickers_count %2 == 1) {
-        
-    }
-    float portion = 1/stickers_count;
+    CGFloat portion_width = 1.0f / columns;
+    CGFloat portion_height = 1.0f / rows;
     
-    for (int i = 0; i< numbers.count; i++) {
-        NSNumber *s_number = numbers[i];
-        NSInteger colum =  portion * i;
-        NSInteger row =  i % stickers_count/2;
-
-        PhotoStickerView *stickerNumberView = [[PhotoStickerView alloc]initWithNumber:s_number andLayerRect:CGRectMake(row, colum, portion, portion)];
-        [self.stickerPhotos addObject:stickerNumberView];
-    }
-  
-}
-
--(void)number:(NSNumber *)numberSticker found:(BOOL)founded{
-    for (PhotoStickerView *view in self.stickerPhotos) {
-        if (view.number == [numberSticker integerValue]) {
-            view.founded = founded;
+    NSInteger indexSticker = 0;
+    for (int row = 0; row < rows; row ++) {
+        for (int column = 0; column < columns; column ++) {
+            
+            NSNumber *s_number = numbers[indexSticker];
+            CGFloat originX = column * portion_width;
+            CGFloat originY = row * portion_height;
+            CGRect layerRect = CGRectMake(originX, originY, portion_width, portion_height);
+            PhotoStickerView *stickerNumberView = [[PhotoStickerView alloc]initWithNumber:s_number andLayerRect:layerRect];
+            stickerNumberView.delegate = delagate;
+            [self.stickerPhotos addObject:stickerNumberView];
+            indexSticker ++;
         }
     }
-    [self update];
-}
--(void)update{
-    NSInteger founded = [self foundedCount];
-    if (founded == 0) {
-        return;
-    }
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        UIImageView *tmpImageView = [[UIImageView alloc]init];
-        [tmpImageView setImageWithURL:[NSURL URLWithString:_urlPhoto] placeholderImage:nil];
-        self.photo = tmpImageView.image;
+        dispatch_queue_t callerQueue = dispatch_get_current_queue();
+        dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
+
+        dispatch_async(downloadQueue, ^{
+            NSData * imageData = [NSData dataWithContentsOfURL:urlPhoto];
+            dispatch_async(callerQueue, ^{
+                self.photo = [UIImage imageWithData:imageData];
+            });
+        });
+
     });
 
-    if (self.photo == nil) {
-        return;
-    }
-    
-    
 }
--(NSInteger)foundedCount{
-    NSInteger founded = 0;
-    
-    for (PhotoStickerView *view in self.stickerPhotos) {
-        if (view.founded == YES) {
-            founded ++;
-        }
+-(void)setPhoto:(UIImage *)photo{
+    _photo = photo;
+    for (PhotoStickerView *photoStickerView in self.stickerPhotos) {
+        photoStickerView.image = _photo;
+        [photoStickerView layoutIfNeeded];
     }
-    return founded;
 }
+
+
 -(NSArray *)getStickerPhotos{
     return self.stickerPhotos;
 }
 
--(void)splitImage{
-    if (self.photo == nil) {
-        return;
-    }
-    
-    for (PhotoStickerView *photoStickerView in self.stickerPhotos) {
-        photoStickerView.image = self.photo;
-    }
-}
 @end
