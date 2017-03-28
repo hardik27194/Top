@@ -11,9 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopLayout4_Tmpl0">
             <connections>
-                <outlet property="pl_0" destination="N7B-vL-L2i" id="HYP-JK-0qX"/>
-                <outlet property="pl_1" destination="4qV-km-C5l" id="Qhq-ZI-SB5"/>
-                <outlet property="pl_2" destination="mK2-pp-flT" id="8Su-T4-7K9"/>
+                <outlet property="pl_0" destination="N7B-vL-L2i" id="vIV-eR-WUe"/>
+                <outlet property="pl_1" destination="4qV-km-C5l" id="HPf-au-C11"/>
+                <outlet property="pl_2" destination="mK2-pp-flT" id="Tp1-DG-9QQ"/>
                 <outlet property="pl_3" destination="n4a-ee-ulZ" id="qWD-VM-kEA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +27,6 @@
                     <rect key="frame" x="16" y="20" width="173" height="117"/>
                     <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="173" id="brc-m8-fOQ"/>
                         <constraint firstAttribute="height" constant="117" id="eTY-iM-PFo"/>
                     </constraints>
                 </view>
@@ -35,7 +34,6 @@
                     <rect key="frame" x="216" y="29" width="143" height="200"/>
                     <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="143" id="gZ9-NU-k7P"/>
                         <constraint firstAttribute="height" constant="200" id="lsG-ur-0Ab"/>
                     </constraints>
                 </view>
@@ -59,7 +57,9 @@
             <constraints>
                 <constraint firstItem="4qV-km-C5l" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="6U0-HS-1zL"/>
                 <constraint firstItem="N7B-vL-L2i" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="9W8-cp-cyV"/>
-                <constraint firstAttribute="trailing" secondItem="n4a-ee-ulZ" secondAttribute="trailing" constant="20" id="DmY-U7-SNT"/>
+                <constraint firstItem="4qV-km-C5l" firstAttribute="leading" secondItem="N7B-vL-L2i" secondAttribute="trailing" constant="27" id="Dx3-GF-0GQ"/>
+                <constraint firstAttribute="trailing" secondItem="n4a-ee-ulZ" secondAttribute="trailing" constant="20" id="H3W-6k-tc0"/>
+                <constraint firstAttribute="trailing" secondItem="N7B-vL-L2i" secondAttribute="trailing" constant="186" id="K37-8j-391"/>
                 <constraint firstItem="n4a-ee-ulZ" firstAttribute="top" secondItem="mK2-pp-flT" secondAttribute="bottom" constant="31" id="QrU-MI-LLf"/>
                 <constraint firstItem="mK2-pp-flT" firstAttribute="top" secondItem="4qV-km-C5l" secondAttribute="bottom" constant="45" id="Uma-hc-Y3L"/>
                 <constraint firstAttribute="trailing" secondItem="4qV-km-C5l" secondAttribute="trailing" constant="16" id="Wh1-EE-u3e"/>

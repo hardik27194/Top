@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,13 +20,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BMq-Er-IyF" customClass="StickerView">
-                    <rect key="frame" x="16" y="34" width="343" height="412"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMq-Er-IyF" customClass="StickerView">
+                    <rect key="frame" x="16" y="34" width="343" height="623"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BMq-Er-IyF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="4wD-rt-Qka"/>
+                <constraint firstAttribute="bottom" secondItem="BMq-Er-IyF" secondAttribute="bottom" constant="10" id="IBG-Yy-E3M"/>
+                <constraint firstItem="BMq-Er-IyF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="JlW-iw-3Y4"/>
+                <constraint firstAttribute="trailing" secondItem="BMq-Er-IyF" secondAttribute="trailing" constant="16" id="cgS-fl-KNA"/>
+            </constraints>
             <point key="canvasLocation" x="33.5" y="59.5"/>
         </view>
     </objects>

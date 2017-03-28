@@ -8,13 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotoStickerView.h"
+typedef struct {
+    NSInteger rows;
+    NSInteger columns;
+} stickerContainerGrid;
 
 @interface PhotoContainerStickersView : UIView
+@property (nonatomic,assign) stickerContainerGrid grid;
 
-
--(void)buildWithRows:(NSInteger)rows
-             columns:(NSInteger)columns
-stickerViewFromNumbers:(NSArray *)numbers
-     stickerDelegate:(id<PhotoStickerViewProtocol>)delegate;
+-(void)buildStickersFromNumbers:(NSArray *)numbers
+                    andDelegate:(id<PhotoStickerViewProtocol>)delegate;
 
 @end

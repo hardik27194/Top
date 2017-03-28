@@ -53,15 +53,16 @@
 }
 -(void)build{
     NSInteger offsetY = 0;
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, 30)];
+    UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:titleLabel];
     self.stickerTitleLabel = titleLabel;
     
     offsetY += titleLabel.bounds.size.height;
+    PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]init];
     
-    PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height-30)];
     [self addSubview:photoContainer];
+    photoContainer.backgroundColor = [UIColor purpleColor];
     self.photoContainer = photoContainer;
     
     offsetY += photoContainer.bounds.size.height;
@@ -74,10 +75,14 @@
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
     self.numberStickers = numbers;
-    [self.photoContainer buildWithRows:_tObject.rows
-                               columns:_tObject.columns
-                stickerViewFromNumbers:self.numberStickers
-                       stickerDelegate:self];
+    
+    stickerContainerGrid grid;
+    grid.columns = _tObject.columns;
+    grid.rows = _tObject.rows;
+    self.photoContainer.grid = grid;
+    [self.photoContainer buildStickersFromNumbers:self.numberStickers
+                                      andDelegate:self];
+
  
     self.stickerTitleLabel.text = topObject.title;
 }
@@ -97,6 +102,11 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [self.photoContainer layoutSubviews];
+    NSInteger offsetY = 0;
+
+    self.stickerTitleLabel.frame =  CGRectMake(0, offsetY, self.bounds.size.width, 30);
+    offsetY += self.stickerTitleLabel.bounds.size.height;
+    self.photoContainer.frame = CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height-30);
+    
 }
 @end

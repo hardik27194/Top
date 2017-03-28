@@ -7,25 +7,21 @@
 //
 
 #import "PhotoStickerView.h"
-@interface PhotoStickerView (){
-    CGRect _layerRect;
-}
+@interface PhotoStickerView ()
 @property (nonatomic,weak) UILabel *numberLabel;
 @end
 @implementation PhotoStickerView
-- (instancetype)initWithNumber:(NSNumber *)number
-                         frame:(CGRect)frameRect
-                  andLayerRect:(CGRect)layerRect
-{
-    self = [super initWithFrame:frameRect];
+
+-(instancetype)initWithNumber:(NSNumber *)number{
+    self = [super init];
     if (self) {
         _number = [number integerValue];
-        _layerRect = layerRect;
+        self.layerRect = CGRectZero;
+        
         self.backgroundColor = [UIColor redColor];
         self.layer.borderWidth = 1;
         self.layer.borderColor = [UIColor blackColor].CGColor;
-        
-        UILabel *numberLabel = [[UILabel alloc]initWithFrame:self.bounds];
+        UILabel *numberLabel = [[UILabel alloc]init];
         numberLabel.font = [UIFont systemFontOfSize:20];
         numberLabel.textAlignment = NSTextAlignmentCenter;
         numberLabel.text = [NSString stringWithFormat:@"%i",_number];
@@ -34,8 +30,11 @@
     }
     return self;
 }
+
 -(void)layoutSubviews{
     [super layoutSubviews];
+    
+    self.numberLabel.frame = self.bounds;
     [self.delegate photoStickerView:self isFounded:^(BOOL founded) {
         if(founded){
             [self showStickerPhoto];
@@ -48,6 +47,10 @@
    
 }
 -(void)showStickerPhoto{
+    if (CGRectEqualToRect(self.layerRect, CGRectZero)) {
+        return;
+    }
+    
     [self.delegate photoStickerView:self image:^(UIImage *image) {
         if (image == nil) {
             return;
@@ -63,12 +66,6 @@
 -(void)showPlaceholder{
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

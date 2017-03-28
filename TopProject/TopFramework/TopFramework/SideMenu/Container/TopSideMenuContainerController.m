@@ -43,7 +43,6 @@
     [self addChildViewController:controller];
     controller.view.frame = self.contentControllerView.bounds;
     [self.contentControllerView addSubview:controller.view];
-    [self.contentControllerView layoutIfNeeded];
     [controller didMoveToParentViewController:self];
 }
 

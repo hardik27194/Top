@@ -15,12 +15,11 @@
 
 @end
 @interface PhotoStickerView : UIView
-- (instancetype)initWithNumber:(NSNumber *)number
-                         frame:(CGRect)frameRect
-                  andLayerRect:(CGRect)layerRect;
+- (instancetype)initWithNumber:(NSNumber *)number;
+
 
 @property (nonatomic,assign) id<PhotoStickerViewProtocol> delegate;
 @property (nonatomic,assign) NSInteger number;
--(void)setLayerRect:(CGRect)rect;
+@property (nonatomic,assign) CGRect layerRect;
 
 @end

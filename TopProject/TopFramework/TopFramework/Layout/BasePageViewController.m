@@ -39,11 +39,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+//    [self refresh];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [self refresh];
+
 }
 -(void)refresh{
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
-        [sview layoutSubviews];
+        [sview layoutIfNeeded];
     }];
 }
 -(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void (^)(NSArray *))foundedStickers{
