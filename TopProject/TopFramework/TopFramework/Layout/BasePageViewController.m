@@ -29,23 +29,34 @@
     [super viewDidLoad];
     NSDictionary *pageStructure = [[TopStickersDirector sharedDirector] askStickersFromTopPage:self.tPage];
     
-    for (int i = 0; i < self.tPage.topObjects.count; i++) {
-        TopObject *tObject = self.tPage.topObjects[i];
+    [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
-        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",i]];
+        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
         sview.delegate = self;
         [sview updateFromTopObject:tObject withNumbers:stickers];
-    }
- 
+    }];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
 }
+-(void)refresh{
+    [self enumTopObject:^(TopObject *tObject,NSInteger index) {
+        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
+        [sview layoutSubviews];
+    }];
+}
 -(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void (^)(NSArray *))foundedStickers{
     foundedStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
 }
 
+-(void)enumTopObject:(void(^)(TopObject *tObject,NSInteger index))tObjectBlock{
+    NSInteger i = 0;
+    for (TopObject *obj in self.tPage.topObjects) {
+        tObjectBlock(obj,i);
+        i++;
+    }
+}
 
 
 @end

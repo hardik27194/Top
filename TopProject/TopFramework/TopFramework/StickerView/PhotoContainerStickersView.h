@@ -12,12 +12,9 @@
 @interface PhotoContainerStickersView : UIView
 
 
--(void)buildPhotoWithUrl:(NSURL *)urlPhoto
-                    rows:(NSInteger)rows
-                 columns:(NSInteger)columns
-  stickerViewFromNumbers:(NSArray *)numbers
-         stickerDelegate:(id<PhotoStickerViewProtocol>)delagate;
-
--(NSArray *)getStickerPhotos;
+-(void)buildWithRows:(NSInteger)rows
+             columns:(NSInteger)columns
+stickerViewFromNumbers:(NSArray *)numbers
+     stickerDelegate:(id<PhotoStickerViewProtocol>)delegate;
 
 @end

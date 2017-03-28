@@ -24,12 +24,14 @@
     }
     return _stickerPhotos;
 }
--(void)buildPhotoWithUrl:(NSURL *)urlPhoto
-                    rows:(NSInteger)rows
+-(void)buildWithRows:(NSInteger)rows
                  columns:(NSInteger)columns
   stickerViewFromNumbers:(NSArray *)numbers
-                 stickerDelegate:(id<PhotoStickerViewProtocol>)delagate{
+                 stickerDelegate:(id<PhotoStickerViewProtocol>)delegate{
     NSInteger stickers_count = numbers.count;
+    
+    CGFloat frame_portion_width = self.frame.size.width/columns;
+    CGFloat frame_portion_height = self.frame.size.height/rows;
     CGFloat portion_width = 1.0f / columns;
     CGFloat portion_height = 1.0f / rows;
     
@@ -40,40 +42,30 @@
             NSNumber *s_number = numbers[indexSticker];
             CGFloat originX = column * portion_width;
             CGFloat originY = row * portion_height;
+            
+            CGFloat f_originX = column *frame_portion_width;
+            CGFloat f_originY = row *frame_portion_height;
+
             CGRect layerRect = CGRectMake(originX, originY, portion_width, portion_height);
-            PhotoStickerView *stickerNumberView = [[PhotoStickerView alloc]initWithNumber:s_number andLayerRect:layerRect];
-            stickerNumberView.delegate = delagate;
+            CGRect frameRect = CGRectMake(f_originX, f_originY, frame_portion_width, frame_portion_height);
+
+           PhotoStickerView *stickerNumberView = [[PhotoStickerView alloc]initWithNumber:s_number
+                                                                                   frame:frameRect
+                                                                            andLayerRect:layerRect];
+         
+            stickerNumberView.delegate = delegate;
             [self.stickerPhotos addObject:stickerNumberView];
             indexSticker ++;
+            
+            [self addSubview:stickerNumberView];
+            
         }
     }
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        dispatch_queue_t callerQueue = dispatch_get_current_queue();
-        dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
-
-        dispatch_async(downloadQueue, ^{
-            NSData * imageData = [NSData dataWithContentsOfURL:urlPhoto];
-            dispatch_async(callerQueue, ^{
-                self.photo = [UIImage imageWithData:imageData];
-            });
-        });
-
-    });
-
 }
--(void)setPhoto:(UIImage *)photo{
-    _photo = photo;
+-(void)layoutSubviews{
+    [super layoutSubviews];
     for (PhotoStickerView *photoStickerView in self.stickerPhotos) {
-        photoStickerView.image = _photo;
-        [photoStickerView layoutIfNeeded];
+        [photoStickerView layoutSubviews];
     }
 }
-
-
--(NSArray *)getStickerPhotos{
-    return self.stickerPhotos;
-}
-
 @end

@@ -15,9 +15,26 @@
 @property (nonatomic,weak) PhotoContainerStickersView *photoContainer;
 @property (nonatomic,weak) UILabel *stickerTitleLabel;
 @property (nonatomic,weak) UILabel *stickerDescriptionLabel;
+@property (nonatomic,strong) UIImage *photo;
 @end
 @implementation StickerView
 
+-(void)photoWithUrl:(NSURL *)photoUrl completion:(void(^)(UIImage* image))photoBlock{
+    if (self.photo != nil) {
+        photoBlock(self.photo);
+        return;
+    }
+        dispatch_queue_t callerQueue = dispatch_get_current_queue();
+        dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
+        
+        dispatch_async(downloadQueue, ^{
+            NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
+            dispatch_async(callerQueue, ^{
+                self.photo= [UIImage imageWithData:imageData];
+                photoBlock(self.photo);
+            });
+        });
+}
 - (instancetype)init
 {
     self = [super init];
@@ -44,9 +61,6 @@
     offsetY += titleLabel.bounds.size.height;
     
     PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]initWithFrame:CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height/2)];
-    photoContainer.backgroundColor = [UIColor grayColor];
-    photoContainer.layer.masksToBounds = YES;
-    photoContainer.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:photoContainer];
     self.photoContainer = photoContainer;
     
@@ -60,20 +74,29 @@
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
     self.numberStickers = numbers;
-    [self.photoContainer buildPhotoWithUrl:[NSURL URLWithString:_tObject.image]
-                                      rows:_tObject.rows
-                                   columns:_tObject.columns
-                    stickerViewFromNumbers:self.numberStickers
-                           stickerDelegate:self];
+    [self.photoContainer buildWithRows:_tObject.rows
+                               columns:_tObject.columns
+                stickerViewFromNumbers:self.numberStickers
+                       stickerDelegate:self];
  
     self.stickerTitleLabel.text = topObject.title;
 }
 
 
+-(void)photoStickerView:(PhotoStickerView *)stickerNumberView image:(void (^)(UIImage *))imageBlock{
+    [self photoWithUrl:[NSURL URLWithString:_tObject.image]
+            completion:^(UIImage *image) {
+        imageBlock(image);
+    }];
+}
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView
               isFounded:(void (^)(BOOL))foundedBlock{
     [self.delegate stickerView:self askFoundedStickers:^(NSArray *foundedStickers) {
         foundedBlock([foundedStickers containsObject:@(stickerNumberView.number)]);
     }];
+}
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    [self.photoContainer layoutSubviews];
 }
 @end
