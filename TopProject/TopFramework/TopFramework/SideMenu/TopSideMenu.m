@@ -46,14 +46,10 @@
     [self.view addSubview:_containerController.view];
     [_containerController didMoveToParentViewController:self];
     
-    [self addToContainerController:[_menuController firstController]];
-    
+    [_containerController setController:[_menuController firstController]];
     // Do any additional setup after loading the view.
 }
 
--(void)addToContainerController:(UIViewController *)controller{
-    [_containerController setController:controller];
-}
 
 #pragma mark - menu delegate -
 -(void)TOPSMDidSelectController:(UIViewController <TopSideMenuControllerInterface>*)controller{
@@ -64,7 +60,7 @@
         }
     }
     
-    [self addToContainerController:controller];
+    [_containerController setController:controller];
     
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _containerController.view.transform = CGAffineTransformIdentity;
@@ -81,8 +77,6 @@
     _overlay.alpha = 0;
     _overlay.backgroundColor = [UIColor blackColor];
 
-    
-
     [_containerController.view addSubview:_overlay];
 
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -91,8 +85,6 @@
 
 
     } completion:^(BOOL finished) {
-        
-       
         
         
     }];
