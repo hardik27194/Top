@@ -48,7 +48,7 @@
 -(void)refresh{
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
-        [sview layoutIfNeeded];
+        [sview layoutSubviews];
     }];
 }
 -(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void (^)(NSArray *))foundedStickers{
