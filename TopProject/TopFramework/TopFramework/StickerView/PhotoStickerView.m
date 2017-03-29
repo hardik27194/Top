@@ -35,8 +35,9 @@
     [super layoutSubviews];
     
     self.numberLabel.frame = self.bounds;
-    [self.delegate photoStickerView:self isFounded:^(BOOL founded) {
-        if(founded){
+    [self.delegate photoStickerView:self isFound:^(BOOL found) {
+        self.found = found;
+        if(found){
             [self showStickerPhoto];
             self.numberLabel.hidden = YES;
         }else{

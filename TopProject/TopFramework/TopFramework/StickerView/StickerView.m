@@ -95,9 +95,9 @@
     }];
 }
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView
-              isFounded:(void (^)(BOOL))foundedBlock{
-    [self.delegate stickerView:self askFoundedStickers:^(NSArray *foundedStickers) {
-        foundedBlock([foundedStickers containsObject:@(stickerNumberView.number)]);
+              isFound:(void (^)(BOOL))foundBlock{
+    [self.delegate stickerView:self askFoundStickers:^(NSArray *foundStickers) {
+        foundBlock([foundStickers containsObject:@(stickerNumberView.number)]);
     }];
 }
 -(void)layoutSubviews{

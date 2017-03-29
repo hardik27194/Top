@@ -51,8 +51,8 @@
         [sview layoutSubviews];
     }];
 }
--(void)stickerView:(StickerView *)stickerView askFoundedStickers:(void (^)(NSArray *))foundedStickers{
-    foundedStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
+-(void)stickerView:(StickerView *)stickerView askFoundStickers:(void (^)(NSArray *))foundStickers{
+    foundStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
 }
 
 -(void)enumTopObject:(void(^)(TopObject *tObject,NSInteger index))tObjectBlock{

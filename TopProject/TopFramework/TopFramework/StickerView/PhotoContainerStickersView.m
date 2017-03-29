@@ -73,10 +73,7 @@
             view.frame = frameRect;
             [view layoutSubviews];
             index++;
-            
         }
     }
-    
-    
 }
 @end

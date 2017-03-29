@@ -11,7 +11,7 @@
 
 @protocol PhotoStickerViewProtocol <NSObject>
 -(void)photoStickerView:(PhotoStickerView* )stickerNumberView image:(void(^)(UIImage *image))imageBlock;
--(void)photoStickerView:(PhotoStickerView* )stickerNumberView isFounded:(void(^)(BOOL founded))foundedBlock;
+-(void)photoStickerView:(PhotoStickerView* )stickerNumberView isFound:(void(^)(BOOL found))foundBlock;
 
 @end
 @interface PhotoStickerView : UIView
@@ -21,5 +21,6 @@
 @property (nonatomic,assign) id<PhotoStickerViewProtocol> delegate;
 @property (nonatomic,assign) NSInteger number;
 @property (nonatomic,assign) CGRect layerRect;
+@property (nonatomic,assign) BOOL found;
 
 @end
