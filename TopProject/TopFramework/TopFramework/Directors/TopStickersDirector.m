@@ -16,6 +16,8 @@ static TopStickersDirector *sharedDirector = nil;
 @interface TopStickersDirector ()
 @property (nonatomic,assign) NSInteger totalStickers;
 @property (nonatomic,strong) NSMutableDictionary *mainStructure;
+@property (nonatomic,strong) NSMutableDictionary *stickers;
+
 @end
 
 @implementation TopStickersDirector
@@ -24,6 +26,8 @@ static TopStickersDirector *sharedDirector = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedDirector = [[self alloc] init];
+        sharedDirector.mainStructure = [[NSMutableDictionary alloc]init];
+        sharedDirector.stickers = [[NSMutableDictionary alloc]init];
     });
     return sharedDirector;
 }
@@ -31,7 +35,6 @@ static TopStickersDirector *sharedDirector = nil;
     NSArray <TopPage *> *pages = [self orderTopPages:[TopBackendLessData getAllTopPages]];
     
     self.totalStickers = 0;
-    self.mainStructure = [[NSMutableDictionary alloc]init];
     NSMutableArray *pagesArray = [[NSMutableArray alloc]init];
 
     for (TopPage *page in pages) {
@@ -75,5 +78,12 @@ static TopStickersDirector *sharedDirector = nil;
 
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page{
     return self.mainStructure[@"pages"][page.number];
+}
+
+-(void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect{
+    if (self.stickers[@(number)] != nil) {
+        return;
+    }
+    self.stickers[@(number)] = @{@"layer_rect":NSStringFromCGRect(layerRect)};
 }
 @end

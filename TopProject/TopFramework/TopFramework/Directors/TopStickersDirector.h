@@ -14,4 +14,6 @@
 
 - (NSArray <TopPage *>*)askTopPages;
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
+- (void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect;
+
 @end

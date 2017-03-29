@@ -57,14 +57,12 @@
         }
         self.layer.contents = (__bridge id)image.CGImage;
         self.layer.contentsRect = _layerRect;
-        self.layer.contentsGravity = kCAGravityResizeAspectFill;
-        NSLog(@"show image in %i",self.number);
+//        self.layer.contentsGravity = kCAGravityResizeAspectFill;
         self.layer.masksToBounds = YES;
-        self.backgroundColor = [UIColor greenColor];
     }];
 }
 -(void)showPlaceholder{
-    
+    self.layer.contents = nil;
 }
 
 

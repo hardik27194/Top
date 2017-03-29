@@ -8,7 +8,7 @@
 
 #import "PhotoContainerStickersView.h"
 #import "AFNetworking.h"
-#import "mathematics.h"
+#import "TopStickersDirector.h"
 
 
 @interface PhotoContainerStickersView()
@@ -68,6 +68,8 @@
             CGRect frameRect = CGRectMake(f_originX, f_originY, frame_portion_width, frame_portion_height);
             PhotoStickerView *view = self.stickerPhotos[index];
             view.layerRect = layerRect;
+            [[TopStickersDirector sharedDirector] saveStickerNumber:view.number
+                                                      withLayerRect:layerRect];
             view.frame = frameRect;
             [view layoutSubviews];
             index++;
