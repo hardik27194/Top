@@ -33,5 +33,5 @@
 +(void)removeStickers:(NSArray *)stickerNumbers
              fromUser:(TopUser *)topUser
            completion:(void(^)(BOOL success,NSError *error))completionBlock;
-
++(void)removeAllStickerFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
 @end

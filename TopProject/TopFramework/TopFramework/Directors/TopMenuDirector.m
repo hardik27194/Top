@@ -28,8 +28,6 @@ static TopMenuDirector *sharedMenuDirector = nil;
 -(NSArray <UIViewController *>*) menuControllers{
     NSMutableArray *arrayControllers = [[NSMutableArray alloc]init];
     
-    
-    //first controller
     NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];
     

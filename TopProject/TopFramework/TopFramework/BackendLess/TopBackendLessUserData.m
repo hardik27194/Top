@@ -110,13 +110,16 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
         completionBlock(NO,error);
         return;
     }
-    
-    NSString *stickerString = stickersStringFromArray(stickerNumbers);
-    if (stickerString == nil) {
+    if (stickerNumbers == nil) {
         return;
     }
+   
     
     BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.stickers];
+    [mutStickers addObjectsFromArray:stickerNumbers];
+    NSString *stickerString = stickersStringFromArray(mutStickers);
+    topUser.stickers = (NSArray *)mutStickers;
     [backendLessUser updateProperties:@{@"stickers":stickerString}];
     
     [TopBackendLessUserData updateUser:backendLessUser
@@ -130,18 +133,38 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
         completionBlock(NO,error);
         return;
     }
-    
-    NSString *stickerString = stickersStringFromArray(stickerNumbers);
-    if (stickerString == nil) {
+    if (stickerNumbers == nil) {
         return;
     }
     
     BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.stickers];
+    [mutStickers removeObjectsInArray:stickerNumbers];
+    topUser.stickers = (NSArray *)mutStickers;
+    NSString *stickerString = stickersStringFromArray(mutStickers);
     [backendLessUser updateProperties:@{@"stickers":stickerString}];
 
     [TopBackendLessUserData updateUser:backendLessUser
                             completion:^(BOOL success, NSError *error) {
                                 completionBlock(success,error);
     }];
+}
++(void)removeAllStickerFromUser:(TopUser *)topUser completion:
+(void(^)(BOOL success,NSError *error))completionBlock{
+    
+    if (topUser == nil){
+        NSError *error = [NSError errorWithDomain:@"You are not logged in" code:0 userInfo:nil];
+        completionBlock(NO,error);
+        return;
+    }
+   
+    
+    BackendlessUser *backendLessUser = topUser.backendLessUser;
+    [backendLessUser updateProperties:@{@"stickers":@""}];
+    
+    [TopBackendLessUserData updateUser:backendLessUser
+                            completion:^(BOOL success, NSError *error) {
+                                completionBlock(success,error);
+                            }];
 }
 @end

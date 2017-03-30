@@ -66,7 +66,6 @@ static TopStickersDirector *sharedDirector = nil;
 -(NSArray <TopPage *>*)askTopPages{
     NSArray <TopPage *> *pages = [self orderTopPages:[TopBackendLessData getAllTopPages]];
     
-    
     self.totalStickers = 0;
     NSMutableArray *pagesArray = [[NSMutableArray alloc]init];
     
