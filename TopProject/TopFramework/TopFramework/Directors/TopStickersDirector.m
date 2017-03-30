@@ -43,16 +43,26 @@ static TopStickersDirector *sharedDirector = nil;
 
         NSInteger stickers_count_in_page = 0;
         for (TopObject *object in page.topObjects) {
+            
             NSInteger splitCount = object.rows * object.columns;
             stickers_count_in_page += splitCount;
-            
             NSMutableArray *stickersNumberArray = [[NSMutableArray alloc]init];
             NSInteger tmpTotalSticker = self.totalStickers;
             for (int i = tmpTotalSticker; i < tmpTotalSticker+splitCount; i++){
                 self.totalStickers += 1;
                 [stickersNumberArray addObject:@(self.totalStickers)];
-
             }
+            
+            
+            [self layerRectForStickerWithRows:object.rows
+                                      columns:object.columns
+                               stickerNumbers:stickersNumberArray
+                                   completion:^(CGRect layerRect, NSInteger number) {
+                                       [self saveStickerNumber:number
+                                                 withLayerRect:layerRect];
+                
+            }];
+            
             stickers_in_page[object.objectId] = stickersNumberArray;
             pageDict[@"stickers"] = stickers_in_page;
         }
@@ -64,7 +74,27 @@ static TopStickersDirector *sharedDirector = nil;
 
     return pages;
 }
-
+#pragma mark -private -
+- (void)layerRectForStickerWithRows:(NSInteger)rows
+                   columns:(NSInteger)colums
+            stickerNumbers:(NSArray *)stickerNumbers
+                completion:(void(^)(CGRect layerRect,NSInteger number)) rectBlock {
+    NSInteger index = 0;
+    NSInteger stickers_count = stickerNumbers.count;
+    CGFloat portion_width = 1.0f / colums;
+    CGFloat portion_height = 1.0f / rows;
+    for (int row = 0; row < rows; row ++) {
+        for (int column = 0; column < colums; column ++) {
+            NSInteger number = [stickerNumbers[index] integerValue];
+            CGFloat originX = column * portion_width;
+            CGFloat originY = row * portion_height;
+            CGRect layerRect = CGRectMake(originX, originY, portion_width, portion_height);
+            rectBlock(layerRect,number);
+            index++;
+        }
+    }
+}
+#pragma -
 
 - (NSArray<TopPage *> *)orderTopPages:(NSArray<TopPage *> * )pages{
     NSSortDescriptor *sortDescriptor;
@@ -79,11 +109,16 @@ static TopStickersDirector *sharedDirector = nil;
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page{
     return self.mainStructure[@"pages"][page.number];
 }
-
+- (CGRect)askLayerRectFromStickerNumber:(NSInteger)number{
+    NSString *stringRect = [self.stickers[@(number)] objectForKey:@"layer_rect"];
+    return CGRectFromString(stringRect);
+}
 -(void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect{
     if (self.stickers[@(number)] != nil) {
         return;
     }
     self.stickers[@(number)] = @{@"layer_rect":NSStringFromCGRect(layerRect)};
 }
+
+
 @end
