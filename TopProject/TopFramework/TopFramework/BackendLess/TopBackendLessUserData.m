@@ -8,6 +8,7 @@
 
 #import "TopBackendLessUserData.h"
 #import "Backendless.h"
+#import "TopPacket.h"
 
 static NSArray *stickersArrayFromString(NSString *stickersString){
     NSMutableArray *numberStickers = [[NSMutableArray alloc]init];
@@ -28,6 +29,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
 }
 
 @interface TopUser()
+@property (nonatomic,assign) NSInteger packetsCount;
 @property (nonatomic,strong) NSArray *stickers;
 @property (nonatomic,strong,readonly) BackendlessUser *backendLessUser;
 @end
@@ -45,12 +47,17 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     TopUser *topUser = [[TopUser alloc]init];
     topUser->_backendLessUser = bUser;
     topUser->_stickers = stickersArrayFromString(allProperties[@"stickers"]);
+    topUser->_packetsCount = [allProperties[@"packets"] integerValue];
     
     return topUser;
 }
 -(NSArray *)stickers{
     NSDictionary *allProperties = [self->_backendLessUser retrieveProperties];
     return stickersArrayFromString(allProperties[@"stickers"]);
+}
+-(NSInteger)packetsCount{
+    NSDictionary *allProperties = [self->_backendLessUser retrieveProperties];
+    return [allProperties[@"packets"] integerValue];
 }
 @end
 @implementation TopBackendLessUserData
@@ -166,5 +173,43 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
                             completion:^(BOOL success, NSError *error) {
                                 completionBlock(success,error);
                             }];
+}
+#pragma mark - packets -
++(void)addPackets:(NSInteger)numberPackets toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
+    if (topUser == nil){
+        NSError *error = [NSError errorWithDomain:@"You are not logged in" code:0 userInfo:nil];
+        completionBlock(NO,error);
+        return;
+    }
+    BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSInteger userPackets = topUser.packetsCount;
+    userPackets += numberPackets;
+    topUser.packetsCount = userPackets;
+    [backendLessUser updateProperties:@{@"packets":@(userPackets)}];
+    [TopBackendLessUserData updateUser:backendLessUser
+                            completion:^(BOOL success, NSError *error) {
+                                completionBlock(success,error);
+                            }];
+}
++(void)removePacketFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
+    if (topUser == nil){
+        NSError *error = [NSError errorWithDomain:@"You are not logged in" code:0 userInfo:nil];
+        completionBlock(NO,error);
+        return;
+    }
+    
+    BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSInteger userPackets = topUser.packetsCount;
+    if (userPackets<= 0) {
+        return;
+    }
+    userPackets--;
+    topUser.packetsCount = userPackets;
+    [backendLessUser updateProperties:@{@"packets":@(userPackets)}];
+    [TopBackendLessUserData updateUser:backendLessUser
+                            completion:^(BOOL success, NSError *error) {
+                                completionBlock(success,error);
+                            }];
+    
 }
 @end

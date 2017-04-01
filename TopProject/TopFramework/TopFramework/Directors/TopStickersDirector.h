@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BasePageViewController.h"
+#import "Chance.h"
 
 @interface TopStickersDirector : NSObject
 + (id)sharedDirector;
@@ -15,6 +16,9 @@
 - (NSArray <TopPage *>*)askTopPages;
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
 - (CGRect)askLayerRectFromStickerNumber:(NSInteger)number;
+- (NSInteger)askTotalStickers;
+- (void)askStickerNumberFromRarity:(TopRarityLevel)topRarityLevel
+                        completion:(void(^)(NSInteger number,NSError *error))completion;
 
 - (void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect;
 

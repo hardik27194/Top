@@ -420,6 +420,12 @@
 		EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */; };
 		EA4969BA1E82FBF700435E70 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4969B81E82FBF700435E70 /* StickerView.h */; };
 		EA4969BB1E82FBF700435E70 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4969B91E82FBF700435E70 /* StickerView.m */; };
+		EAF3FB8D1E8FA3E50037F4A8 /* Chance.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB8B1E8FA3E50037F4A8 /* Chance.h */; };
+		EAF3FB8E1E8FA3E50037F4A8 /* Chance.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB8C1E8FA3E50037F4A8 /* Chance.m */; };
+		EAF3FB921E8FEC7E0037F4A8 /* TopPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB901E8FEC7E0037F4A8 /* TopPacket.h */; };
+		EAF3FB931E8FEC7E0037F4A8 /* TopPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB911E8FEC7E0037F4A8 /* TopPacket.m */; };
+		EAF3FB961E8FF0750037F4A8 /* TopPacketsDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */; };
+		EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -838,6 +844,12 @@
 		EA4969AF1E82F82F00435E70 /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
 		EA4969B81E82FBF700435E70 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		EA4969B91E82FBF700435E70 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
+		EAF3FB8B1E8FA3E50037F4A8 /* Chance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chance.h; sourceTree = "<group>"; };
+		EAF3FB8C1E8FA3E50037F4A8 /* Chance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chance.m; sourceTree = "<group>"; };
+		EAF3FB901E8FEC7E0037F4A8 /* TopPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacket.h; sourceTree = "<group>"; };
+		EAF3FB911E8FEC7E0037F4A8 /* TopPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacket.m; sourceTree = "<group>"; };
+		EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketsDirector.h; sourceTree = "<group>"; };
+		EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsDirector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -917,6 +929,8 @@
 		BD219D0A1E7EC8900040E092 /* TopFramework */ = {
 			isa = PBXGroup;
 			children = (
+				EAF3FB8F1E8FEC700037F4A8 /* Packets */,
+				EAF3FB8A1E8FA38F0037F4A8 /* Probability */,
 				BDEAC77A1E89B99A0016502E /* Directors */,
 				3DF28B1E1E83DB85005FAD92 /* SideMenu */,
 				EA4969B71E82FBF700435E70 /* StickerView */,
@@ -1565,6 +1579,8 @@
 				BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */,
 				BDEAC77F1E89B9B20016502E /* TopMenuDirector.h */,
 				BDEAC7801E89B9B20016502E /* TopMenuDirector.m */,
+				EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */,
+				EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */,
 			);
 			path = Directors;
 			sourceTree = "<group>";
@@ -1580,6 +1596,24 @@
 				BDEAC7881E89BED80016502E /* PhotoStickerView.m */,
 			);
 			path = StickerView;
+			sourceTree = "<group>";
+		};
+		EAF3FB8A1E8FA38F0037F4A8 /* Probability */ = {
+			isa = PBXGroup;
+			children = (
+				EAF3FB8B1E8FA3E50037F4A8 /* Chance.h */,
+				EAF3FB8C1E8FA3E50037F4A8 /* Chance.m */,
+			);
+			path = Probability;
+			sourceTree = "<group>";
+		};
+		EAF3FB8F1E8FEC700037F4A8 /* Packets */ = {
+			isa = PBXGroup;
+			children = (
+				EAF3FB901E8FEC7E0037F4A8 /* TopPacket.h */,
+				EAF3FB911E8FEC7E0037F4A8 /* TopPacket.m */,
+			);
+			path = Packets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1640,6 +1674,7 @@
 				BD219FE01E7EC9730040E092 /* VideoStream.h in Headers */,
 				BD219F201E7EC9720040E092 /* Header.h in Headers */,
 				BD219F6D1E7EC9730040E092 /* SharedObjectMessage.h in Headers */,
+				EAF3FB8D1E8FA3E50037F4A8 /* Chance.h in Headers */,
 				BD219F721E7EC9730040E092 /* Types.h in Headers */,
 				BD219FDB1E7EC9730040E092 /* MPMediaEncoder.h in Headers */,
 				BD219EB21E7EC9720040E092 /* BEReachability.h in Headers */,
@@ -1760,6 +1795,7 @@
 				BD219FC81E7EC9730040E092 /* xtea.h in Headers */,
 				BD219EB51E7EC9720040E092 /* BodyParts.h in Headers */,
 				BD219FC91E7EC9730040E092 /* swscale.h in Headers */,
+				EAF3FB921E8FEC7E0037F4A8 /* TopPacket.h in Headers */,
 				BDEAC7851E89BD050016502E /* PhotoContainerStickersView.h in Headers */,
 				BD219F6B1E7EC9730040E092 /* SharedObjectEvent.h in Headers */,
 				BD219F4B1E7EC9730040E092 /* NamedObjectReader.h in Headers */,
@@ -1779,6 +1815,7 @@
 				BD219F711E7EC9730040E092 /* Subscription.h in Headers */,
 				BD219EB31E7EC9720040E092 /* BESubscription.h in Headers */,
 				BD219F411E7EC9730040E092 /* ITypeWriter.h in Headers */,
+				EAF3FB961E8FF0750037F4A8 /* TopPacketsDirector.h in Headers */,
 				BD21A0A41E85E1450040E092 /* TopBackendLessUserData.h in Headers */,
 				BD219EF71E7EC9720040E092 /* AnonymousObject.h in Headers */,
 				BD219EE51E7EC9720040E092 /* PublishOptions.h in Headers */,
@@ -2033,11 +2070,13 @@
 				BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */,
 				BD21A0CD1E88016C0040E092 /* AFImageRequestOperation.m in Sources */,
 				BD21A0CB1E88016C0040E092 /* AFHTTPRequestOperation.m in Sources */,
+				EAF3FB8E1E8FA3E50037F4A8 /* Chance.m in Sources */,
 				BD21A0111E7ED3B60040E092 /* TopPage.m in Sources */,
 				BDEAC77E1E89B99A0016502E /* TopStickersDirector.m in Sources */,
 				BDEAC7821E89B9B20016502E /* TopMenuDirector.m in Sources */,
 				BD21A00F1E7ED3B60040E092 /* TopObject.m in Sources */,
 				BD21A0D81E88016C0040E092 /* AFXMLRequestOperation.m in Sources */,
+				EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */,
 				BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */,
 				BD21A0D11E88016C0040E092 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */,
@@ -2056,6 +2095,7 @@
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
 				EA4969B11E82F82F00435E70 /* TopLayout4_Tmpl0.m in Sources */,
 				EA4969BB1E82FBF700435E70 /* StickerView.m in Sources */,
+				EAF3FB931E8FEC7E0037F4A8 /* TopPacket.m in Sources */,
 				BD21A0A51E85E1450040E092 /* TopBackendLessUserData.m in Sources */,
 				BD21A0CF1E88016C0040E092 /* AFJSONRequestOperation.m in Sources */,
 				BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */,

@@ -11,10 +11,12 @@
 @interface TopUser : NSObject
 +(TopUser *)initializeFromBackendLessUser:(id)bUser;
 -(NSArray *)stickers;
+-(NSInteger)packetsCount;
 @end
 
 
 @interface TopBackendLessUserData : NSObject
+// User Data
 +(void)loginUserWithEmail:(NSString *)email
                       pwd:(NSString *)pwd
                completion:(void(^)(id user,NSError *error))completionBlock;
@@ -25,8 +27,7 @@
                       email:(NSString *)email
                  completion:(void(^)(id user,NSError *error))completionBlock;
 
-
-
+// Stickers
 +(void)addStickers:(NSArray *)stickerNumbers
             toUser:(TopUser *)topUser
         completion:(void(^)(BOOL success,NSError *error))completionBlock;
@@ -34,4 +35,9 @@
              fromUser:(TopUser *)topUser
            completion:(void(^)(BOOL success,NSError *error))completionBlock;
 +(void)removeAllStickerFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
+
+// Packets
++(void)addPackets:(NSInteger)numberPackets toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
++(void)removePacketFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
+
 @end

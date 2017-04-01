@@ -16,7 +16,7 @@
 #import "TopLayoutFactory.h"
 #import "TOPPageController.h"
 #import "TopAppDelegate.h"
-
+#import "TopPacketsDirector.h"
 
 @interface TopMenuTmpl1 ()
 @end
@@ -92,7 +92,33 @@
     removeSticker.layer.borderWidth = 2;
     [removeSticker addTarget:self action:@selector(removeSticker) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:removeSticker];
+    
+    UIButton *unpack = [UIButton buttonWithType:UIButtonTypeCustom];
+    unpack.backgroundColor = [UIColor whiteColor];
+    [unpack setTitle:@"UnPack" forState:UIControlStateNormal];
+    [unpack setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    unpack.frame = CGRectMake(10, 500, 150, 50);
+    unpack.layer.cornerRadius = 10;
+    unpack.layer.borderColor = [UIColor blackColor].CGColor;
+    unpack.layer.borderWidth = 2;
+    [unpack addTarget:self action:@selector(unPack) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:unpack];
     // Do any additional setup after loading the view.
+}
+-(void)unPack{
+    TopPacket *packet = [[TopPacketsDirector sharedDirector] createNewPacket];
+    
+    
+    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
+
+    [TopBackendLessUserData addStickers:[packet stickers]
+                                 toUser:user
+                             completion:^(BOOL success, NSError *error) {
+                                 if (success) {
+                                    NSLog(@"my first found stickers");
+                                 }
+    }];
+    
 }
 -(void)removeSticker{
 

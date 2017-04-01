@@ -10,7 +10,6 @@
 #import "TopBackendLessData.h"
 #import "TopBackendLessUserData.h"
 
-
 static TopStickersDirector *sharedDirector = nil;
 
 @interface TopStickersDirector ()
@@ -72,9 +71,10 @@ static TopStickersDirector *sharedDirector = nil;
     for (TopPage *page in pages) {
         NSMutableDictionary *pageDict = [[NSMutableDictionary alloc]init];
         NSMutableDictionary *stickers_in_page = [[NSMutableDictionary alloc]init];
-        
         NSInteger stickers_count_in_page = 0;
+        
         for (TopObject *object in page.topObjects) {
+            
             
             NSInteger splitCount = object.rows * object.columns;
             stickers_count_in_page += splitCount;
@@ -82,15 +82,24 @@ static TopStickersDirector *sharedDirector = nil;
             NSInteger tmpTotalSticker = self.totalStickers;
             for (int i = tmpTotalSticker; i < tmpTotalSticker+splitCount; i++){
                 self.totalStickers += 1;
+                
+                [self saveStickerNumber:self.totalStickers
+                                 object:@(object.rarity)
+                                withKey:@"rarity"];
+                
+                
                 [stickersNumberArray addObject:@(self.totalStickers)];
             }
+            
             
             [self layerRectForStickerWithRows:object.rows
                                       columns:object.columns
                                stickerNumbers:stickersNumberArray
                                    completion:^(CGRect layerRect, NSInteger number) {
                                        [self saveStickerNumber:number
-                                                 withLayerRect:layerRect];
+                                                        object:NSStringFromCGRect(layerRect)
+                                                       withKey:@"layer_rect"];
+
                                        
                                    }];
             
@@ -112,15 +121,32 @@ static TopStickersDirector *sharedDirector = nil;
     NSString *stringRect = [self.stickers[@(number)] objectForKey:@"layer_rect"];
     return CGRectFromString(stringRect);
 }
-
-
-#pragma mark - save -
--(void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect{
-    if (self.stickers[@(number)] != nil) {
+- (NSInteger)askTotalStickers{
+    return self.stickers.count;
+}
+- (void)askStickerNumberFromRarity:(TopRarityLevel)topRarityLevel completion:(void(^)(NSInteger number,NSError *error))completion{
+    
+    NSMutableArray *mutStickers = [[NSMutableArray alloc]init];
+    for (id key in self.stickers) {
+        TopRarityLevel stickerRarityLevel = (TopRarityLevel)[[self.stickers[key] objectForKey:@"rarity"] integerValue];
+        if (stickerRarityLevel == topRarityLevel) {
+            [mutStickers addObject:key];
+        }
+    }
+    if (mutStickers.count == 0) {
+        completion(0,[NSError errorWithDomain:@"top error: no stickers with that rarity level" code:0 userInfo:nil]);
         return;
     }
-    self.stickers[@(number)] = @{@"layer_rect":NSStringFromCGRect(layerRect)};
+    NSInteger randomNumber = arc4random() % mutStickers.count;
+    completion([mutStickers[randomNumber] integerValue],nil);
 }
-
-
+#pragma mark - save -
+-(void)saveStickerNumber:(NSInteger)number
+                  object:(id)object
+                 withKey:(NSString *)key{
+    if (self.stickers[@(number)] == nil) {
+        self.stickers[@(number)] = [[NSMutableDictionary alloc]init];
+    }
+    [self.stickers[@(number)] setObject:object forKey:key];
+}
 @end
