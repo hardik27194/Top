@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TopObject.h"
+#import "PhotoContainerStickersView.h"
+
 @class StickerView;
 
 @protocol StickerViewProtocol <NSObject>
@@ -15,7 +17,14 @@
 @end
 
 @interface StickerView : UIView
+@property (nonatomic,weak) IBOutlet PhotoContainerStickersView *photoContainer;
+@property (nonatomic,weak) IBOutlet UILabel *stickerTitleLabel;
+@property (nonatomic,weak) IBOutlet UILabel *stickerDescriptionLabel;
+
+
 @property (nonatomic,strong) NSArray *numberStickers;
 @property (nonatomic,assign) id <StickerViewProtocol> delegate;
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
+-(void)build;
+
 @end

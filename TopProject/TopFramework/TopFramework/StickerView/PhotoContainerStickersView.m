@@ -19,21 +19,31 @@
 
 @end
 @implementation PhotoContainerStickersView
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self innerInit];
+    }
+    return self;
+}
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.stickerPhotos = [[NSMutableArray alloc]init];
-
-        
-        stickerContainerGrid defaultGrid;
-        defaultGrid.columns = 1;
-        defaultGrid.rows = 1;
-        self.grid = defaultGrid;
+        [self innerInit];
     }
     return self;
 }
-
+-(void)innerInit{
+    self.stickerPhotos = [[NSMutableArray alloc]init];
+    
+    
+    stickerContainerGrid defaultGrid;
+    defaultGrid.columns = 1;
+    defaultGrid.rows = 1;
+    self.grid = defaultGrid;
+}
 -(void)buildStickersFromNumbers:(NSArray *)numbers
                     andDelegate:(id<PhotoStickerViewProtocol>)delegate{
     for (NSNumber *number in numbers) {

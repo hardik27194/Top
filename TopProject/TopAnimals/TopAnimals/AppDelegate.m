@@ -10,7 +10,6 @@
 #import "TopAnimalPage.h"
 #import "TopAnimalObject.h"
 
-
 #define kAppId @"AE9C432A-B676-3C1A-FF5E-DE20C1F98600"
 #define kSecretKey @"17FE72FF-30B0-AC01-FFF5-DEAF9C87F100"
 #define kVersion @"v1"

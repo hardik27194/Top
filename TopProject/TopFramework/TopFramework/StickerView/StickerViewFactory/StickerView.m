@@ -7,14 +7,11 @@
 //
 
 #import "StickerView.h"
-#import "PhotoContainerStickersView.h"
 
 @interface StickerView()<PhotoStickerViewProtocol>{
     TopObject *_tObject;
 }
-@property (nonatomic,weak) PhotoContainerStickersView *photoContainer;
-@property (nonatomic,weak) UILabel *stickerTitleLabel;
-@property (nonatomic,weak) UILabel *stickerDescriptionLabel;
+
 @property (nonatomic,strong) UIImage *photo;
 @end
 @implementation StickerView
@@ -52,25 +49,19 @@
     return self;
 }
 -(void)build{
-    NSInteger offsetY = 0;
+    
     UILabel *titleLabel = [[UILabel alloc]init];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:titleLabel];
     self.stickerTitleLabel = titleLabel;
     
-    offsetY += titleLabel.bounds.size.height;
     PhotoContainerStickersView *photoContainer = [[PhotoContainerStickersView alloc]init];
-    
     [self addSubview:photoContainer];
-    photoContainer.backgroundColor = [UIColor purpleColor];
     self.photoContainer = photoContainer;
     
-    offsetY += photoContainer.bounds.size.height;
 }
 -(void)innerInit{
     [self build];
-    
-    self.backgroundColor = [UIColor colorWithRed:231/255.f green:231/255.f blue:231/255.f alpha:1];
 }
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
@@ -107,6 +98,8 @@
     self.stickerTitleLabel.frame =  CGRectMake(0, offsetY, self.bounds.size.width, 30);
     offsetY += self.stickerTitleLabel.bounds.size.height;
     self.photoContainer.frame = CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height-30);
+    
+    
     [self.photoContainer layoutSubviews];
 }
 @end

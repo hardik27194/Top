@@ -28,10 +28,13 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     NSDictionary *pageStructure = [[TopStickersDirector sharedDirector] askStickersFromTopPage:self.tPage];
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
     
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
+        
         StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
+        
         sview.delegate = self;
         [sview updateFromTopObject:tObject withNumbers:stickers];
     }];
