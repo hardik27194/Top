@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D9AD5E51E927B300060DECD /* StickerViewFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D9AD5E31E927B300060DECD /* StickerViewFactory.h */; };
+		3D9AD5E61E927B300060DECD /* StickerViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AD5E41E927B300060DECD /* StickerViewFactory.m */; };
+		3D9AD5E91E927C490060DECD /* StickerViewTmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */; };
+		3D9AD5EA1E927C490060DECD /* StickerViewTmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AD5E81E927C490060DECD /* StickerViewTmpl0.m */; };
 		3DF28B2A1E83DB85005FAD92 /* TopSideMenuContainerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DF28B201E83DB85005FAD92 /* TopSideMenuContainerController.h */; };
 		3DF28B2B1E83DB85005FAD92 /* TopSideMenuContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF28B211E83DB85005FAD92 /* TopSideMenuContainerController.m */; };
 		3DF28B2C1E83DB85005FAD92 /* TopSideMenuContainerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DF28B221E83DB85005FAD92 /* TopSideMenuContainerController.xib */; };
@@ -18,8 +22,6 @@
 		3DF28B361E83DBAC005FAD92 /* TopSideMenuControllerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DF28B351E83DBAC005FAD92 /* TopSideMenuControllerInterface.h */; };
 		BD1CC4AF1E9162E500628DF9 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1CC4AD1E9162E500628DF9 /* StickerView.h */; };
 		BD1CC4B01E9162E500628DF9 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4AE1E9162E500628DF9 /* StickerView.m */; };
-		BD1CC4B31E91632300628DF9 /* StickerViewFrameBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1CC4B11E91632300628DF9 /* StickerViewFrameBuilder.h */; };
-		BD1CC4B41E91632300628DF9 /* StickerViewFrameBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4B21E91632300628DF9 /* StickerViewFrameBuilder.m */; };
 		BD219D191E7EC8900040E092 /* TopFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D0B1E7EC8900040E092 /* TopFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD219E951E7EC9720040E092 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD219D281E7EC9720040E092 /* backendless.a */; };
 		BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D2A1E7EC9720040E092 /* AbstractProperty.h */; };
@@ -431,6 +433,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D9AD5E31E927B300060DECD /* StickerViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewFactory.h; sourceTree = "<group>"; };
+		3D9AD5E41E927B300060DECD /* StickerViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerViewFactory.m; sourceTree = "<group>"; };
+		3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewTmpl0.h; sourceTree = "<group>"; };
+		3D9AD5E81E927C490060DECD /* StickerViewTmpl0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerViewTmpl0.m; sourceTree = "<group>"; };
 		3DF28B201E83DB85005FAD92 /* TopSideMenuContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSideMenuContainerController.h; sourceTree = "<group>"; };
 		3DF28B211E83DB85005FAD92 /* TopSideMenuContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSideMenuContainerController.m; sourceTree = "<group>"; };
 		3DF28B221E83DB85005FAD92 /* TopSideMenuContainerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopSideMenuContainerController.xib; sourceTree = "<group>"; };
@@ -442,8 +448,6 @@
 		3DF28B351E83DBAC005FAD92 /* TopSideMenuControllerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSideMenuControllerInterface.h; sourceTree = "<group>"; };
 		BD1CC4AD1E9162E500628DF9 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		BD1CC4AE1E9162E500628DF9 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
-		BD1CC4B11E91632300628DF9 /* StickerViewFrameBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewFrameBuilder.h; sourceTree = "<group>"; };
-		BD1CC4B21E91632300628DF9 /* StickerViewFrameBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerViewFrameBuilder.m; sourceTree = "<group>"; };
 		BD219D081E7EC8900040E092 /* TopFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TopFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD219D0B1E7EC8900040E092 /* TopFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopFramework.h; sourceTree = "<group>"; };
 		BD219D0C1E7EC8900040E092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -918,8 +922,10 @@
 			children = (
 				BD1CC4AD1E9162E500628DF9 /* StickerView.h */,
 				BD1CC4AE1E9162E500628DF9 /* StickerView.m */,
-				BD1CC4B11E91632300628DF9 /* StickerViewFrameBuilder.h */,
-				BD1CC4B21E91632300628DF9 /* StickerViewFrameBuilder.m */,
+				3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */,
+				3D9AD5E81E927C490060DECD /* StickerViewTmpl0.m */,
+				3D9AD5E31E927B300060DECD /* StickerViewFactory.h */,
+				3D9AD5E41E927B300060DECD /* StickerViewFactory.m */,
 			);
 			path = StickerViewFactory;
 			sourceTree = "<group>";
@@ -1678,6 +1684,7 @@
 				BD219EA71E7EC9720040E092 /* BackendlessFile.h in Headers */,
 				BD219EC11E7EC9720040E092 /* FileService.h in Headers */,
 				BD219F991E7EC9730040E092 /* adler32.h in Headers */,
+				3D9AD5E91E927C490060DECD /* StickerViewTmpl0.h in Headers */,
 				BD21A0CC1E88016C0040E092 /* AFImageRequestOperation.h in Headers */,
 				BD219FCA1E7EC9730040E092 /* version.h in Headers */,
 				BD219EEF1E7EC9720040E092 /* AckMessage.h in Headers */,
@@ -1965,7 +1972,7 @@
 				3DF28B2A1E83DB85005FAD92 /* TopSideMenuContainerController.h in Headers */,
 				BD219EE71E7EC9720040E092 /* ServerCallback.h in Headers */,
 				BD21A0D71E88016C0040E092 /* AFXMLRequestOperation.h in Headers */,
-				BD1CC4B31E91632300628DF9 /* StickerViewFrameBuilder.h in Headers */,
+				3D9AD5E51E927B300060DECD /* StickerViewFactory.h in Headers */,
 				BD219EB61E7EC9720040E092 /* CacheFactory.h in Headers */,
 				BD21A0D31E88016C0040E092 /* AFPropertyListRequestOperation.h in Headers */,
 				BD219F031E7EC9720040E092 /* BinaryCodec.h in Headers */,
@@ -2042,6 +2049,7 @@
 				TargetAttributes = {
 					BD219D071E7EC8900040E092 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -2114,7 +2122,8 @@
 				BD21A0A51E85E1450040E092 /* TopBackendLessUserData.m in Sources */,
 				BD21A0CF1E88016C0040E092 /* AFJSONRequestOperation.m in Sources */,
 				BD21A0361E7F143B0040E092 /* TopLayoutFactory.m in Sources */,
-				BD1CC4B41E91632300628DF9 /* StickerViewFrameBuilder.m in Sources */,
+				3D9AD5EA1E927C490060DECD /* StickerViewTmpl0.m in Sources */,
+				3D9AD5E61E927B300060DECD /* StickerViewFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2220,6 +2229,7 @@
 		BD219D1D1E7EC8900040E092 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2240,12 +2250,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = private.TopFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		BD219D1E1E7EC8900040E092 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2266,6 +2279,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = private.TopFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
