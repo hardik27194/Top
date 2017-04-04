@@ -10,6 +10,6 @@
 #import "StickerView.h"
 
 @interface StickerViewFactory : NSObject
--(StickerView *)stickerViewFromIdentifier:(NSString *)identifier;
++(StickerView *)stickerViewFromIdentifier:(NSString *)identifier;
 
 @end

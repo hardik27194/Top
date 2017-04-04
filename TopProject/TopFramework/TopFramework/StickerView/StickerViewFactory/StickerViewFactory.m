@@ -14,14 +14,17 @@ static NSDictionary *stickerViews;
 +(void)load{
      stickerViews = @{@"tmpl0":[StickerViewTmpl0 class]};
 }
--(StickerView *)stickerViewFromIdentifier:(NSString *)identifier{
++(StickerView *)stickerViewFromIdentifier:(NSString *)identifier{
     
+    if(identifier == nil){
+        return nil;
+    }
+    Class stickerClass = stickerViews[identifier];
+    if (stickerClass == nil) {
+        return nil;
+    }
     
-//    Clas
-//    if (stickerViews) {
-//        <#statements#>
-//    }
-//    
-    return nil;
+    StickerView *stickerView = [stickerClass stickerView];
+    return stickerView;
 }
 @end

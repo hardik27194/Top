@@ -9,6 +9,7 @@
 #import "BasePageViewController.h"
 #import "TopAppDelegate.h"
 #import "TopStickersDirector.h"
+#import "StickerViewFactory.h"
 
 @interface BasePageViewController ()<StickerViewProtocol>
 @property (nonatomic,strong) TopPage *tPage;
@@ -33,10 +34,14 @@
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
         
-        UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
-        
-        sview.delegate = self;
-        [sview updateFromTopObject:tObject withNumbers:stickers];
+        UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
+        StickerView *stickerView = [StickerViewFactory stickerViewFromIdentifier:@"tmpl0"];
+        stickerView.frame = sview.bounds;
+        if (stickerView != nil) {
+            [sview addSubview:stickerView];
+            stickerView.delegate = self;
+            [stickerView updateFromTopObject:tObject withNumbers:stickers];
+        }
     }];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -50,8 +55,9 @@
 }
 -(void)refresh{
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
-        StickerView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",index]];
-        [sview layoutSubviews];
+        UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
+        StickerView * stickerView = sview.subviews[0];
+        [stickerView layoutSubviews];
     }];
 }
 -(void)stickerView:(StickerView *)stickerView askFoundStickers:(void (^)(NSArray *))foundStickers{

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D7C3D631E93F10D0083A94C /* StickerViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D7C3D621E93F10D0083A94C /* StickerViewTmpl0.xib */; };
 		3D9AD5E51E927B300060DECD /* StickerViewFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D9AD5E31E927B300060DECD /* StickerViewFactory.h */; };
 		3D9AD5E61E927B300060DECD /* StickerViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D9AD5E41E927B300060DECD /* StickerViewFactory.m */; };
 		3D9AD5E91E927C490060DECD /* StickerViewTmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */; };
@@ -433,6 +434,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D7C3D621E93F10D0083A94C /* StickerViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl0.xib; sourceTree = "<group>"; };
 		3D9AD5E31E927B300060DECD /* StickerViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewFactory.h; sourceTree = "<group>"; };
 		3D9AD5E41E927B300060DECD /* StickerViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerViewFactory.m; sourceTree = "<group>"; };
 		3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerViewTmpl0.h; sourceTree = "<group>"; };
@@ -924,6 +926,7 @@
 				BD1CC4AE1E9162E500628DF9 /* StickerView.m */,
 				3D9AD5E71E927C490060DECD /* StickerViewTmpl0.h */,
 				3D9AD5E81E927C490060DECD /* StickerViewTmpl0.m */,
+				3D7C3D621E93F10D0083A94C /* StickerViewTmpl0.xib */,
 				3D9AD5E31E927B300060DECD /* StickerViewFactory.h */,
 				3D9AD5E41E927B300060DECD /* StickerViewFactory.m */,
 			);
@@ -2076,6 +2079,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D7C3D631E93F10D0083A94C /* StickerViewTmpl0.xib in Resources */,
 				3DF28B2C1E83DB85005FAD92 /* TopSideMenuContainerController.xib in Resources */,
 				EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */,
 				BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */,

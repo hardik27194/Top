@@ -24,7 +24,9 @@
 
 @property (nonatomic,strong) NSArray *numberStickers;
 @property (nonatomic,assign) id <StickerViewProtocol> delegate;
--(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
--(void)build;
+
++ (id)stickerView;
+- (void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
+- (void)build;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StickerView.h"
 
-@interface StickerViewTmpl0 : UIView
+@interface StickerViewTmpl0 : StickerView
 
 @end
