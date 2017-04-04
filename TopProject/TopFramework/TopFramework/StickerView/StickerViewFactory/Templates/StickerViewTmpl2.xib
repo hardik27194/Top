@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StickerView">
+            <rect key="frame" x="0.0" y="0.0" width="396" height="270"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWf-Xp-IBt">
+                    <rect key="frame" x="5" y="247" width="386" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIV-AH-Waz" customClass="PhotoContainerStickersView">
+                    <rect key="frame" x="0.0" y="41.5" width="396" height="200.5"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="lMh-uQ-Ujc">
+                    <rect key="frame" x="5" y="5" width="381" height="31.5"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="27"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.96038383860701371" blue="0.47395487745557818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="sWf-Xp-IBt" firstAttribute="top" secondItem="FIV-AH-Waz" secondAttribute="bottom" constant="5" id="1gQ-1X-Tpf"/>
+                <constraint firstItem="lMh-uQ-Ujc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="AdJ-va-RfY"/>
+                <constraint firstItem="lMh-uQ-Ujc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Bhw-Ab-KVF"/>
+                <constraint firstItem="FIV-AH-Waz" firstAttribute="top" secondItem="lMh-uQ-Ujc" secondAttribute="bottom" constant="5" id="Cvb-ut-CbZ"/>
+                <constraint firstAttribute="trailing" secondItem="lMh-uQ-Ujc" secondAttribute="trailing" constant="10" id="KXl-NM-4Gq"/>
+                <constraint firstAttribute="bottom" secondItem="sWf-Xp-IBt" secondAttribute="bottom" constant="5" id="KxJ-ig-AC9"/>
+                <constraint firstItem="sWf-Xp-IBt" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="LFo-sb-jWn"/>
+                <constraint firstAttribute="trailing" secondItem="FIV-AH-Waz" secondAttribute="trailing" id="QvK-g9-OEz"/>
+                <constraint firstAttribute="trailing" secondItem="sWf-Xp-IBt" secondAttribute="trailing" constant="5" id="dKc-8p-1mW"/>
+                <constraint firstItem="FIV-AH-Waz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kLa-ji-82c"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="photoContainer" destination="FIV-AH-Waz" id="V3D-3j-02h"/>
+                <outlet property="stickerDescriptionLabel" destination="sWf-Xp-IBt" id="ew2-4R-wn1"/>
+                <outlet property="stickerTitleLabel" destination="lMh-uQ-Ujc" id="ETq-Up-8v4"/>
+            </connections>
+            <point key="canvasLocation" x="45" y="-383"/>
+        </view>
+    </objects>
+</document>

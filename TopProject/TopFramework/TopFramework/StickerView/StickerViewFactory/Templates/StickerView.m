@@ -54,6 +54,8 @@
 
  
     self.stickerTitleLabel.text = topObject.title;
+    self.stickerDescriptionLabel.text = topObject.desc;
+    
 }
 
 -(void)layoutSubviews{

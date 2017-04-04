@@ -18,7 +18,7 @@
         _number = [number integerValue];
         self.layerRect = CGRectZero;
         
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor lightGrayColor];
         self.layer.borderWidth = 1;
         self.layer.borderColor = [UIColor blackColor].CGColor;
         UILabel *numberLabel = [[UILabel alloc]init];
@@ -57,8 +57,8 @@
             return;
         }
         self.layer.contents = (__bridge id)image.CGImage;
-        self.layer.contentsRect = _layerRect;
 //        self.layer.contentsGravity = kCAGravityResizeAspectFill;
+        self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
 }

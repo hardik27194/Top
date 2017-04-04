@@ -22,6 +22,7 @@
 		BD1CC4BC1E942EF400628DF9 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4B71E942EF400628DF9 /* StickerView.m */; };
 		BD1CC4BF1E942EF400628DF9 /* StickerViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */; };
 		BD1CC4C51E94303800628DF9 /* StickerViewTmpl1.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4C41E94303800628DF9 /* StickerViewTmpl1.xib */; };
+		BD1CC4C71E944ACF00628DF9 /* StickerViewTmpl2.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4C61E944ACF00628DF9 /* StickerViewTmpl2.xib */; };
 		BD219D191E7EC8900040E092 /* TopFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D0B1E7EC8900040E092 /* TopFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD219E951E7EC9720040E092 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD219D281E7EC9720040E092 /* backendless.a */; };
 		BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D2A1E7EC9720040E092 /* AbstractProperty.h */; };
@@ -448,6 +449,7 @@
 		BD1CC4B71E942EF400628DF9 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl0.xib; sourceTree = "<group>"; };
 		BD1CC4C41E94303800628DF9 /* StickerViewTmpl1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl1.xib; sourceTree = "<group>"; };
+		BD1CC4C61E944ACF00628DF9 /* StickerViewTmpl2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl2.xib; sourceTree = "<group>"; };
 		BD219D081E7EC8900040E092 /* TopFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TopFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD219D0B1E7EC8900040E092 /* TopFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopFramework.h; sourceTree = "<group>"; };
 		BD219D0C1E7EC8900040E092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -934,6 +936,7 @@
 				BD1CC4B71E942EF400628DF9 /* StickerView.m */,
 				BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */,
 				BD1CC4C41E94303800628DF9 /* StickerViewTmpl1.xib */,
+				BD1CC4C61E944ACF00628DF9 /* StickerViewTmpl2.xib */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -2084,6 +2087,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF28B2C1E83DB85005FAD92 /* TopSideMenuContainerController.xib in Resources */,
+				BD1CC4C71E944ACF00628DF9 /* StickerViewTmpl2.xib in Resources */,
 				BD1CC4C51E94303800628DF9 /* StickerViewTmpl1.xib in Resources */,
 				EA4969B21E82F82F00435E70 /* TopLayout4_Tmpl0.xib in Resources */,
 				BD21A02E1E7F13D60040E092 /* TopLayout3_Tmpl0.xib in Resources */,

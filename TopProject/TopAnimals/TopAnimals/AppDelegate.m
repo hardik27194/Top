@@ -28,7 +28,7 @@
     
     self.backendlessConfiguration.topObjectClass = [TopAnimalObject class];
     self.backendlessConfiguration.topPageClass = [TopAnimalPage class];
-    self.backendlessConfiguration.topStickerId = @"tmpl1";
+    self.backendlessConfiguration.topStickerId = @"tmpl2";
     
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

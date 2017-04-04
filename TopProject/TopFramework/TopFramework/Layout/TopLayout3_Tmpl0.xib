@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,38 +24,32 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QPT-40-kIW">
-                    <rect key="frame" x="16" y="61" width="160" height="200"/>
+                    <rect key="frame" x="10" y="10" width="355" height="146.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="7jY-5B-oEe"/>
-                        <constraint firstAttribute="width" constant="160" id="zuB-ze-gwA"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-fo-55k">
-                    <rect key="frame" x="199" y="187" width="160" height="200"/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="iPo-Jd-uN6"/>
-                        <constraint firstAttribute="height" constant="200" id="qcY-2x-YGl"/>
-                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2c-bj-dZb">
-                    <rect key="frame" x="16" y="447" width="160" height="200"/>
+                    <rect key="frame" x="10" y="510.5" width="355" height="146.5"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="160" id="2S0-OF-oHV"/>
-                        <constraint firstAttribute="height" constant="200" id="qYJ-2G-zyM"/>
-                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-fo-55k">
+                    <rect key="frame" x="10" y="164.5" width="355" height="336"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Nzs-fo-55k" secondAttribute="trailing" constant="16" id="Vei-nv-s3D"/>
-                <constraint firstItem="Nzs-fo-55k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="187" id="b1T-zN-ZRa"/>
-                <constraint firstItem="Y2c-bj-dZb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="naL-sU-fPr"/>
-                <constraint firstItem="QPT-40-kIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="61" id="qLC-X7-wZp"/>
-                <constraint firstAttribute="bottom" secondItem="Y2c-bj-dZb" secondAttribute="bottom" constant="20" id="sCc-Cf-ng7"/>
-                <constraint firstItem="QPT-40-kIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="vvF-fM-lbB"/>
+                <constraint firstAttribute="trailing" secondItem="Y2c-bj-dZb" secondAttribute="trailing" constant="10" id="CCf-Vy-8Rl"/>
+                <constraint firstItem="Y2c-bj-dZb" firstAttribute="top" secondItem="Nzs-fo-55k" secondAttribute="bottom" constant="10" id="Cjp-Ff-pxv"/>
+                <constraint firstAttribute="trailing" secondItem="QPT-40-kIW" secondAttribute="trailing" constant="10" id="Eqm-yk-4JA"/>
+                <constraint firstItem="QPT-40-kIW" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.22" id="H94-rq-s5u"/>
+                <constraint firstAttribute="trailing" secondItem="Nzs-fo-55k" secondAttribute="trailing" constant="10" id="Vei-nv-s3D"/>
+                <constraint firstItem="Nzs-fo-55k" firstAttribute="top" secondItem="QPT-40-kIW" secondAttribute="bottom" constant="8" id="mjE-bu-Ee7"/>
+                <constraint firstItem="Y2c-bj-dZb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="naL-sU-fPr"/>
+                <constraint firstItem="Y2c-bj-dZb" firstAttribute="height" secondItem="QPT-40-kIW" secondAttribute="height" id="q4f-CW-azk"/>
+                <constraint firstItem="QPT-40-kIW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="qLC-X7-wZp"/>
+                <constraint firstAttribute="bottom" secondItem="Y2c-bj-dZb" secondAttribute="bottom" constant="10" id="sCc-Cf-ng7"/>
+                <constraint firstItem="QPT-40-kIW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="vvF-fM-lbB"/>
+                <constraint firstItem="Nzs-fo-55k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xym-fM-F9M"/>
             </constraints>
             <point key="canvasLocation" x="-30.5" y="36.5"/>
         </view>

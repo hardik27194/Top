@@ -13,7 +13,9 @@ static NSDictionary *stickerViews;
 +(void)load{
      stickerViews = @{@"default":@"StickerViewTmpl0",
                       @"tmpl0":@"StickerViewTmpl0",
-                      @"tmpl1":@"StickerViewTmpl1"};
+                      @"tmpl1":@"StickerViewTmpl1",
+                      @"tmpl2":@"StickerViewTmpl2"};
+
 }
 +(StickerView *)stickerViewFromIdentifier:(NSString *)identifier{
     

@@ -34,6 +34,7 @@
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
         
         UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
+        sview.backgroundColor = [UIColor clearColor];
         StickerView *stickerView = [StickerViewFactory stickerViewFromIdentifier:topConfiguration.topStickerId];
         if (stickerView != nil) {
             stickerView.frame = sview.bounds;
