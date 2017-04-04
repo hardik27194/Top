@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TopBackendLessConfiguration : NSObject
 @property (nonnull,assign) Class topObjectClass;
 @property (nonnull,assign) Class topPageClass;
-
+@property (nonatomic,strong) NSString *topStickerId;
 
 +(instancetype)initWithAppId:(NSString *)appIDKey
                       secret:(NSString *)secretKey

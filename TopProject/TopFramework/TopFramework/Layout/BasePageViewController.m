@@ -30,12 +30,11 @@
     [super viewDidLoad];
     NSDictionary *pageStructure = [[TopStickersDirector sharedDirector] askStickersFromTopPage:self.tPage];
     TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
-    
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
         
         UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
-        StickerView *stickerView = [StickerViewFactory stickerViewFromIdentifier:@"tmpl0"];
+        StickerView *stickerView = [StickerViewFactory stickerViewFromIdentifier:topConfiguration.topStickerId];
         if (stickerView != nil) {
             stickerView.frame = sview.bounds;
             [sview addSubview:stickerView];
