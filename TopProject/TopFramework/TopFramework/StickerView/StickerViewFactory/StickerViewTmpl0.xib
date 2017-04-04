@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,14 +16,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbC-bb-EHd" customClass="PhotoContainerStickersView">
-                    <rect key="frame" x="87" y="102" width="240" height="128"/>
+                    <rect key="frame" x="10" y="40.5" width="394" height="331.5"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxB-AP-B0B">
-                    <rect key="frame" x="133" y="38" width="149" height="49"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="49" id="BD0-4i-Lc0"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxB-AP-B0B">
+                    <rect key="frame" x="189.5" y="10" width="36.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,8 +29,13 @@
             <color key="backgroundColor" red="0.086892055159999995" green="0.57873854709999994" blue="0.075142192299999994" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="rxB-AP-B0B" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="24c-VE-bzK"/>
+                <constraint firstItem="DbC-bb-EHd" firstAttribute="top" secondItem="rxB-AP-B0B" secondAttribute="bottom" constant="10" id="5eY-ux-rI9"/>
                 <constraint firstItem="DbC-bb-EHd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AQx-oN-4WU"/>
-                <constraint firstItem="DbC-bb-EHd" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ijM-c3-DkG"/>
+                <constraint firstItem="DbC-bb-EHd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="EII-HC-H0I"/>
+                <constraint firstAttribute="trailing" secondItem="DbC-bb-EHd" secondAttribute="trailing" constant="10" id="Tbm-WX-TLk"/>
+                <constraint firstItem="rxB-AP-B0B" firstAttribute="centerX" secondItem="DbC-bb-EHd" secondAttribute="centerX" id="YH8-Kz-ihK"/>
+                <constraint firstItem="rxB-AP-B0B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="fA8-Ry-SQh"/>
+                <constraint firstAttribute="bottom" secondItem="DbC-bb-EHd" secondAttribute="bottom" constant="10" id="hl0-Ms-PHR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

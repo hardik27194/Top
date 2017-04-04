@@ -100,13 +100,6 @@
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    NSInteger offsetY = 0;
-
-//
-//    self.stickerTitleLabel.frame =  CGRectMake(0, offsetY, self.bounds.size.width, 30);
-//    offsetY += self.stickerTitleLabel.bounds.size.height;
-//    self.photoContainer.frame = CGRectMake(0, offsetY, self.bounds.size.width, self.bounds.size.height-30);
-//    
     [self.photoContainer layoutSubviews];
 }
 @end

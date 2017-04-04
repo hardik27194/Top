@@ -36,27 +36,26 @@
         
         UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
         StickerView *stickerView = [StickerViewFactory stickerViewFromIdentifier:@"tmpl0"];
-        stickerView.frame = sview.bounds;
         if (stickerView != nil) {
+            stickerView.frame = sview.bounds;
             [sview addSubview:stickerView];
             stickerView.delegate = self;
             [stickerView updateFromTopObject:tObject withNumbers:stickers];
         }
     }];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+-(void)viewWillAppear:(BOOL)animated{
 //    [self refresh];
 }
 -(void)viewDidAppear:(BOOL)animated{
     [self refresh];
-
 }
 -(void)refresh{
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
         StickerView * stickerView = sview.subviews[0];
+        [stickerView sizeToFit];
+
         [stickerView layoutSubviews];
     }];
 }
