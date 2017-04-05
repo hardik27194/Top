@@ -6,17 +6,20 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import "TopMenuDirector.h"
+#import "TopControllersDirector.h"
+
+#import "TopAppDelegate.h"
 #import "TOPPageController.h"
+#import "TOPUnpackController.h"
 #import "TopPage.h"
 #import "TopStickersDirector.h"
 #import "TopLayoutFactory.h"
 
 
 
-static TopMenuDirector *sharedMenuDirector = nil;
+static TopControllersDirector *sharedMenuDirector = nil;
 
-@implementation TopMenuDirector
+@implementation TopControllersDirector
 + (id)sharedDirector{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -25,7 +28,7 @@ static TopMenuDirector *sharedMenuDirector = nil;
     return sharedMenuDirector;
 }
 
--(NSArray <UIViewController *>*) menuControllers{
+- (NSArray <UIViewController *>*) menuControllers{
     NSMutableArray *arrayControllers = [[NSMutableArray alloc]init];
     
     NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
@@ -44,5 +47,15 @@ static TopMenuDirector *sharedMenuDirector = nil;
     [arrayControllers addObject:topPageController];
     
     return arrayControllers;
+}
+- (void)showUnPackController{
+    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    TopUnpackController *unpackController = [[TopUnpackController alloc] init];
+    
+    [mainController presentViewController:unpackController
+                                 animated:YES
+                               completion:^{
+        
+    }];
 }
 @end

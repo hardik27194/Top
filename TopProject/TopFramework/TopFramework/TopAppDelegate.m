@@ -12,7 +12,7 @@
 #import "TopMenuTmpl1.h"
 #import "TopSideMenu.h"
 
-#import "TopMenuDirector.h"
+#import "TopControllersDirector.h"
 
 @implementation TopAppDelegate
 @synthesize backendlessConfiguration;
@@ -24,7 +24,7 @@
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    NSArray <UIViewController *> *menuControllers = [[TopMenuDirector sharedDirector] menuControllers];
+    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] menuControllers];
     
     TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]initWithControllers:menuControllers];
     

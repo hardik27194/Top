@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface TopMenuDirector : NSObject
+@interface TopControllersDirector : NSObject
 + (id)sharedDirector;
+
+- (void)showUnPackController;
 - (NSArray <UIViewController *>*) menuControllers;
 
 @end

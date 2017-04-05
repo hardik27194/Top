@@ -8,6 +8,9 @@
 
 #import "TopSideMenuContainerController.h"
 
+
+#import "TopControllersDirector.h"
+
 @interface TopSideMenuContainerController ()
 {
     UIViewController *_contentController;
@@ -58,6 +61,10 @@
     [self.delegate TOPSMControllerOpenMenu];
 }
 
+//tmp
+-(IBAction)tmpUnpack{
+    [[TopControllersDirector sharedDirector] showUnPackController];
+}
 
 
 @end
