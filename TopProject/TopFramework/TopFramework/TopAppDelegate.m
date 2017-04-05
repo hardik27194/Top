@@ -18,7 +18,7 @@
 @synthesize backendlessConfiguration;
 
 +(TopAppDelegate *)topAppDelegate{
-    return [[UIApplication sharedApplication] delegate];
+    return (TopAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    

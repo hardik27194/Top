@@ -20,6 +20,4 @@
 - (void)askStickerNumberFromRarity:(TopRarityLevel)topRarityLevel
                         completion:(void(^)(NSInteger number,NSError *error))completion;
 
-- (void)saveStickerNumber:(NSInteger)number withLayerRect:(CGRect)layerRect;
-
 @end

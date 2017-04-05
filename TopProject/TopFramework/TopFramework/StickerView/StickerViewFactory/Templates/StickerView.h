@@ -27,6 +27,5 @@
 
 + (id)stickerViewWithIdentifier:(NSString *)identifier;
 - (void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
-- (void)build;
 
 @end

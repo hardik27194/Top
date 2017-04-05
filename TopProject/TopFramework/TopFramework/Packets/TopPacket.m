@@ -27,7 +27,7 @@
 -(NSString *)description{
     NSMutableString *description = [[NSMutableString alloc]initWithString:@"<TopPacket : \n"];
     for (NSNumber *number in _stickers) {
-        [description appendString:[NSString stringWithFormat:@" - %i - \n",[number integerValue]]];
+        [description appendString:[NSString stringWithFormat:@" - %i - \n",(int)[number integerValue]]];
     }
     [description appendString:@" >"];
     

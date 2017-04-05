@@ -24,7 +24,7 @@
         UILabel *numberLabel = [[UILabel alloc]init];
         numberLabel.font = [UIFont systemFontOfSize:20];
         numberLabel.textAlignment = NSTextAlignmentCenter;
-        numberLabel.text = [NSString stringWithFormat:@"%i",_number];
+        numberLabel.text = [NSString stringWithFormat:@"%li",(long)_number];
         [self addSubview:numberLabel];
         self.numberLabel = numberLabel;
     }

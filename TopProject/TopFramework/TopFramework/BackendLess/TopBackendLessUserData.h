@@ -17,27 +17,27 @@
 
 @interface TopBackendLessUserData : NSObject
 // User Data
-+(void)loginUserWithEmail:(NSString *)email
++ (void)loginUserWithEmail:(NSString *)email
                       pwd:(NSString *)pwd
                completion:(void(^)(id user,NSError *error))completionBlock;
-+(void)logoutUser:(void(^)(BOOL success,NSError *error))completionBlock;
-+(void)registerUserWithName:(NSString *)name
++ (void)logoutUser:(void(^)(BOOL success,NSError *error))completionBlock;
++ (void)registerUserWithName:(NSString *)name
                     surname:(NSString *)surname
                         pwd:(NSString *)pwd
                       email:(NSString *)email
                  completion:(void(^)(id user,NSError *error))completionBlock;
 
 // Stickers
-+(void)addStickers:(NSArray *)stickerNumbers
++ (void)addStickers:(NSArray *)stickerNumbers
             toUser:(TopUser *)topUser
         completion:(void(^)(BOOL success,NSError *error))completionBlock;
-+(void)removeStickers:(NSArray *)stickerNumbers
++ (void)removeStickers:(NSArray *)stickerNumbers
              fromUser:(TopUser *)topUser
            completion:(void(^)(BOOL success,NSError *error))completionBlock;
-+(void)removeAllStickerFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
++ (void)removeAllStickerFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
 
 // Packets
-+(void)addPackets:(NSInteger)numberPackets toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
-+(void)removePacketFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
++ (void)addPackets:(NSInteger)numberPackets toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
++ (void)removePacketFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
 
 @end

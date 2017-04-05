@@ -7,7 +7,6 @@
 //
 
 #import "TOPPageController.h"
-
 @interface TOPPageController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 {
     NSArray *controllers;

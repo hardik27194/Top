@@ -37,8 +37,6 @@
 }
 -(void)innerInit{
     self.stickerPhotos = [[NSMutableArray alloc]init];
-    
-    
     stickerContainerGrid defaultGrid;
     defaultGrid.columns = 1;
     defaultGrid.rows = 1;
@@ -61,7 +59,6 @@
     
     [self autoresizesSubviews];
     NSInteger index = 0;
-    NSInteger stickers_count = self.stickerPhotos.count;
     CGFloat frame_portion_width = self.bounds.size.width/self.grid.columns;
     CGFloat frame_portion_height = self.bounds.size.height/self.grid.rows;
 

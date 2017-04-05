@@ -37,7 +37,6 @@ static TopStickersDirector *sharedDirector = nil;
             stickerNumbers:(NSArray *)stickerNumbers
                 completion:(void(^)(CGRect layerRect,NSInteger number)) rectBlock {
     NSInteger index = 0;
-    NSInteger stickers_count = stickerNumbers.count;
     CGFloat portion_width = 1.0f / colums;
     CGFloat portion_height = 1.0f / rows;
     for (int row = 0; row < rows; row ++) {
@@ -74,13 +73,11 @@ static TopStickersDirector *sharedDirector = nil;
         NSInteger stickers_count_in_page = 0;
         
         for (TopObject *object in page.topObjects) {
-            
-            
             NSInteger splitCount = object.rows * object.columns;
             stickers_count_in_page += splitCount;
             NSMutableArray *stickersNumberArray = [[NSMutableArray alloc]init];
             NSInteger tmpTotalSticker = self.totalStickers;
-            for (int i = tmpTotalSticker; i < tmpTotalSticker+splitCount; i++){
+            for (int i = (int)tmpTotalSticker; i < tmpTotalSticker+splitCount; i++){
                 self.totalStickers += 1;
                 
                 [self saveStickerNumber:self.totalStickers

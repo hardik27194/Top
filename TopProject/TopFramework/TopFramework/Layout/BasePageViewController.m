@@ -17,6 +17,14 @@
 @end
 
 @implementation BasePageViewController
+@synthesize pl_0;
+@synthesize pl_1;
+@synthesize pl_2;
+@synthesize pl_3;
+@synthesize pl_4;
+@synthesize pl_5;
+@synthesize pl_6;
+
 - (instancetype)initWithTopPage:(TopPage *)topPage
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];

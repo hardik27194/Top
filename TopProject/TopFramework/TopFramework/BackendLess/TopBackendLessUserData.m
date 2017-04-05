@@ -42,8 +42,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
         return nil;
     }
     
-    NSDictionary *allProperties = [bUser retrieveProperties];
-    
+    NSDictionary *allProperties = [backendLessUser retrieveProperties];
     TopUser *topUser = [[TopUser alloc]init];
     topUser->_backendLessUser = bUser;
     topUser->_stickers = stickersArrayFromString(allProperties[@"stickers"]);
@@ -71,14 +70,19 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     [backendless.userService login:email password:pwd response:^(BackendlessUser *userObject) {
         completionBlock(userObject,nil);
     } error:^(Fault *fault) {
-        completionBlock(nil,fault);
+        NSError *error = [NSError errorWithDomain:fault.message code:[fault.faultCode integerValue] userInfo:nil];
+        completionBlock(nil,error);
     }];
     
 }
 
 +(void)logoutUser:(void(^)(BOOL success,NSError *error))completionBlock{
+    Fault *fault = nil;
+    BOOL success = [backendless.userService logoutError:&fault];
     NSError *error = nil;
-    BOOL success = [backendless.userService logoutError:&error];
+    if (fault != nil) {
+        error =  [NSError errorWithDomain:fault.message code:[fault.faultCode integerValue] userInfo:nil];
+    }
     completionBlock(success,error);
 }
 

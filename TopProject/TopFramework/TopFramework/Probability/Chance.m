@@ -19,7 +19,7 @@ static NSMutableArray *raritySource;
                                  @(TopRarityLevel_UltraRare):@(15),
                                  @(TopRatityLevel_Impossible):@(1)};
     for (id key in rarityCount) {
-        int count = [rarityCount[key] integerValue];
+        int count = (int)[rarityCount[key] integerValue];
         for (int i = 0; i < count; i++) {
             [raritySource addObject:key];
         }
