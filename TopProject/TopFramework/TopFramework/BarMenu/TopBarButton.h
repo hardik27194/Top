@@ -12,4 +12,7 @@
 @property (nonatomic,weak) UILabel *iconLabel;
 @property (nonatomic,weak) UILabel *valueLabel;
 -(void)update;
+-(void)relax;
+-(void)highlightWithNumber:(NSInteger)number;
+-(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL success))completion;
 @end

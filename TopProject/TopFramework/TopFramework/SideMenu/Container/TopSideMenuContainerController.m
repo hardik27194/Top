@@ -32,14 +32,17 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    TopPacketsButton *button = [[TopPacketsButton alloc]init];
-    [self.menu addButton:button];
-
+    TopPacketsButton *packetsButton = [[TopPacketsButton alloc]init];
+    [self.menu addButton:packetsButton];
+    TopDoubleButton *doubleButton = [[TopDoubleButton alloc]init];
+    [self.menu addButton:doubleButton];
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [_contentController viewWillAppear:YES];
+
     [self.menu update];
 }
 - (void)didReceiveMemoryWarning {

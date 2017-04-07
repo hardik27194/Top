@@ -13,6 +13,8 @@
 #import "TopControllersDirector.h"
 #import "BasePageViewController.h"
 #import "TopBarMenu.h"
+#import "TopSideMenu.h"
+#import "TopSideMenuContainerController.h"
 
 static TopStickSessionDirector *sharedStickSessionDirector = nil;
 
@@ -68,6 +70,25 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     }
 }
 -(void)tileView:(TopTileSticker *)tileView didDragToPoint:(CGPoint)pt{
+    
+    [self checkTileView:tileView withPoint:pt
+          inMenuButtons:^(TopBarButton *button,BOOL inrect) {
+              
+              if (inrect) {
+                  [button handleStickerNumber:tileView.number
+                                   completion:^(BOOL success){
+                                       if (success) {
+                                           [self insertSticker:tileView inButton:button completion:^{
+                                               [self removeTileView:tileView];
+                                               [button relax];
+                                               return;
+                                           }];
+                                       }
+                  }];
+              }
+          }];
+    
+    
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
     
     [self checkTileView:tileView
@@ -94,11 +115,21 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                                            }
                                        }];
                  } outRect:^(UIView *view) {
-                     
+                     view.backgroundColor = [UIColor lightGrayColor];
+
                  }];
     
 }
 -(void)tileView:(TopTileSticker *)tileView dragToPoint:(CGPoint)pt{
+    [self checkTileView:tileView withPoint:pt
+          inMenuButtons:^(TopBarButton *button,BOOL inrect) {
+              if (inrect) {
+                  [button highlightWithNumber:tileView.number];
+              }else{
+                  [button relax];
+              }
+          }];
+    
     [self checkTileView:tileView
               withPoint:pt
                  inRect:^(UIView *view) {
@@ -149,10 +180,22 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
 }
 #pragma mark - privates -
 -(void)checkTileView:(TopTileSticker *)tileView
-       inMenuButtons:(void(^)(TopBarButton *button))menuButtonsBlock{
+           withPoint:(CGPoint)point
+       inMenuButtons:(void(^)(TopBarButton *button,bool inrect))menuButtonsBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    TopSideMenu *sideMenu  = (TopSideMenu *)mainController;
+    TopSideMenuContainerController *container = (TopSideMenuContainerController *)[sideMenu containerController];
+    for (TopBarButton *button in [container.menu allButtons]) {
+        CGRect rect  = [button convertRect:button.bounds toView:mainController.view];
+        CGPoint convertedPoint = [mainController.view convertPoint:point toView:mainController.view];
+        if (CGRectContainsPoint(rect, convertedPoint)) {
+            menuButtonsBlock(button,YES);
 
-    
+        }else{
+            menuButtonsBlock(button,NO);
+        }
+
+    }
 }
 - (void)checkTileView:(TopTileSticker *)tileView
             withPoint:(CGPoint)point
@@ -178,10 +221,22 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
 -(void)stickSticker:(TopTileSticker *)sticker inPhotoView:(UIView *)view completion:(void(^)(void))completion{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect rect  = [view convertRect:view.bounds toView:mainController.view];
         
         sticker.frame = rect;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
+}
+-(void)insertSticker:(TopTileSticker *)sticker inButton:(TopBarButton *)button completion:(void(^)(void))completion{
+    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        CGRect rect  = [button convertRect:button.bounds toView:mainController.view];
+        
+        sticker.frame = rect;
+        sticker.transform = CGAffineTransformMakeScale(0.1, 0.1);
     } completion:^(BOOL finished) {
         completion();
     }];

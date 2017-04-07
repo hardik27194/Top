@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TopBarButton.h"
 #import "TopPacketsButton.h"
+#import "TopDoubleButton.h"
 
 @interface TopBarMenu : UIView
 -(void)addButton:(TopBarButton *)button;

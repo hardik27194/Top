@@ -8,6 +8,6 @@
 
 #import "TopBarButton.h"
 
-@interface TopDoubleStickers : TopBarButton
+@interface TopDoubleButton : TopBarButton
 
 @end

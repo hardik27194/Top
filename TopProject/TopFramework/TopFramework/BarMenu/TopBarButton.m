@@ -19,13 +19,13 @@
     if (self) {
         UILabel *iconLabel = [[UILabel alloc]init];
         iconLabel.textAlignment = NSTextAlignmentCenter;
-        iconLabel.backgroundColor = [UIColor redColor];
+        iconLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:iconLabel];
         self.iconLabel = iconLabel;
         
         UILabel *valueLabel = [[UILabel alloc]init];
         valueLabel.textAlignment = NSTextAlignmentCenter;
-        valueLabel.backgroundColor = [UIColor yellowColor];
+        valueLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:valueLabel];
         self.valueLabel = valueLabel;
            [self addTarget:self action:@selector(pressed) forControlEvents:UIControlEventTouchUpInside];
@@ -34,6 +34,7 @@
 }
 -(void)pressed{}
 -(void)update{}
+-(void)highlightWithNumber:(NSInteger)number{}
 -(void)setFrame:(CGRect)frame{
     [super setFrame:frame];
     NSInteger iconHeight = 0;

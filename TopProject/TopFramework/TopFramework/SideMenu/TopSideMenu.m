@@ -49,7 +49,9 @@
     [_containerController setController:[_menuController firstController]];
     // Do any additional setup after loading the view.
 }
-
+-(UIViewController *)containerController{
+    return _containerController;
+}
 
 #pragma mark - menu delegate -
 -(void)TOPSMDidSelectController:(UIViewController <TopSideMenuControllerInterface>*)controller{

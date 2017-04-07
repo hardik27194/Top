@@ -37,8 +37,8 @@
 		BD0CABF11E97DF9300E49782 /* TopBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABEF1E97DF9300E49782 /* TopBarButton.m */; };
 		BD0CABF41E97E8A700E49782 /* TopPacketsButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABF21E97E8A700E49782 /* TopPacketsButton.h */; };
 		BD0CABF51E97E8A700E49782 /* TopPacketsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABF31E97E8A700E49782 /* TopPacketsButton.m */; };
-		BD0CABF81E97F35700E49782 /* TopDoubleStickers.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABF61E97F35700E49782 /* TopDoubleStickers.h */; };
-		BD0CABF91E97F35700E49782 /* TopDoubleStickers.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABF71E97F35700E49782 /* TopDoubleStickers.m */; };
+		BD0CABF81E97F35700E49782 /* TopDoubleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABF61E97F35700E49782 /* TopDoubleButton.h */; };
+		BD0CABF91E97F35700E49782 /* TopDoubleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABF71E97F35700E49782 /* TopDoubleButton.m */; };
 		BD1CC4BB1E942EF400628DF9 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1CC4B61E942EF400628DF9 /* StickerView.h */; };
 		BD1CC4BC1E942EF400628DF9 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4B71E942EF400628DF9 /* StickerView.m */; };
 		BD1CC4BF1E942EF400628DF9 /* StickerViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */; };
@@ -478,8 +478,8 @@
 		BD0CABEF1E97DF9300E49782 /* TopBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarButton.m; sourceTree = "<group>"; };
 		BD0CABF21E97E8A700E49782 /* TopPacketsButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketsButton.h; sourceTree = "<group>"; };
 		BD0CABF31E97E8A700E49782 /* TopPacketsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsButton.m; sourceTree = "<group>"; };
-		BD0CABF61E97F35700E49782 /* TopDoubleStickers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDoubleStickers.h; sourceTree = "<group>"; };
-		BD0CABF71E97F35700E49782 /* TopDoubleStickers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDoubleStickers.m; sourceTree = "<group>"; };
+		BD0CABF61E97F35700E49782 /* TopDoubleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDoubleButton.h; sourceTree = "<group>"; };
+		BD0CABF71E97F35700E49782 /* TopDoubleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDoubleButton.m; sourceTree = "<group>"; };
 		BD1CC4B61E942EF400628DF9 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		BD1CC4B71E942EF400628DF9 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl0.xib; sourceTree = "<group>"; };
@@ -972,8 +972,8 @@
 				BD0CABEF1E97DF9300E49782 /* TopBarButton.m */,
 				BD0CABF21E97E8A700E49782 /* TopPacketsButton.h */,
 				BD0CABF31E97E8A700E49782 /* TopPacketsButton.m */,
-				BD0CABF61E97F35700E49782 /* TopDoubleStickers.h */,
-				BD0CABF71E97F35700E49782 /* TopDoubleStickers.m */,
+				BD0CABF61E97F35700E49782 /* TopDoubleButton.h */,
+				BD0CABF71E97F35700E49782 /* TopDoubleButton.m */,
 			);
 			path = BarMenu;
 			sourceTree = "<group>";
@@ -2013,7 +2013,7 @@
 				BD219FB41E7EC9730040E092 /* intfloat.h in Headers */,
 				BD219E971E7EC9720040E092 /* AbstractQuery.h in Headers */,
 				BD219F8A1E7EC9730040E092 /* vdpau.h in Headers */,
-				BD0CABF81E97F35700E49782 /* TopDoubleStickers.h in Headers */,
+				BD0CABF81E97F35700E49782 /* TopDoubleButton.h in Headers */,
 				BD21A0101E7ED3B60040E092 /* TopPage.h in Headers */,
 				BD219FB11E7EC9730040E092 /* frame.h in Headers */,
 				BD219FA81E7EC9730040E092 /* cpu.h in Headers */,
@@ -2188,7 +2188,7 @@
 				BDEAC7821E89B9B20016502E /* TopControllersDirector.m in Sources */,
 				BD21A00F1E7ED3B60040E092 /* TopObject.m in Sources */,
 				BD21A0D81E88016C0040E092 /* AFXMLRequestOperation.m in Sources */,
-				BD0CABF91E97F35700E49782 /* TopDoubleStickers.m in Sources */,
+				BD0CABF91E97F35700E49782 /* TopDoubleButton.m in Sources */,
 				EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */,
 				BD0CABED1E97DF1700E49782 /* TopBarMenu.m in Sources */,
 				BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */,

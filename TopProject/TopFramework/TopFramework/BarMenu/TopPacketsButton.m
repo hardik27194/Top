@@ -43,4 +43,15 @@
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
     self.valueLabel.text = [NSString stringWithFormat:@"%i",(int)user.packetsCount];
 }
+
+-(void)relax{
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+-(void)highlightWithNumber:(NSInteger)number{
+    self.backgroundColor = [UIColor orangeColor];
+}
+
+-(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL success))completion{
+    completion(false);
+}
 @end

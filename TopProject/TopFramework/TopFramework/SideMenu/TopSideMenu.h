@@ -11,6 +11,7 @@
 
 @interface TopSideMenu : UIViewController
 - (instancetype)initWithMenuController:(UIViewController <TopSideMenuMenuInterface> *)menuController;
+- (UIViewController *)containerController;
 
 
 @end
