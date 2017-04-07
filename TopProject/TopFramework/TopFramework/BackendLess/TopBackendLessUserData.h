@@ -12,6 +12,7 @@
 +(TopUser *)initializeFromBackendLessUser:(id)bUser;
 -(NSArray *)stickers;
 -(NSInteger)packetsCount;
+-(NSArray *)tmpStickers;
 @end
 
 
@@ -34,7 +35,16 @@
 + (void)removeStickers:(NSArray *)stickerNumbers
              fromUser:(TopUser *)topUser
            completion:(void(^)(BOOL success,NSError *error))completionBlock;
-+ (void)removeAllStickerFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
++ (void)removeAllStickersFromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;
+
+// Tmp Stickers
++(void)removeTmpStickers:(NSArray *)stickerNumbers
+                fromUser:(TopUser *)topUser
+              completion:(void(^)(BOOL success,NSError *error))completionBlock;
++(void)addTmpStickers:(NSArray *)stickerNumbers
+               toUser:(TopUser *)topUser
+           completion:(void(^)(BOOL success,NSError *error))completionBlock;
+
 
 // Packets
 + (void)addPackets:(NSInteger)numberPackets toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock;

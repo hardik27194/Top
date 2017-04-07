@@ -64,6 +64,7 @@
 }
 -(void)showPlaceholder{
     self.layer.contents = nil;
+    self.backgroundColor = [UIColor lightGrayColor];
 }
 
 

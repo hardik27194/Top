@@ -9,24 +9,26 @@
 #import "TopPacketsDirector.h"
 #import "TopStickersDirector.h"
 #import "Chance.h"
+#import "TopBackendLessUserData.h"
+#import "TopAppDelegate.h"
 
-static TopPacketsDirector *sharedMenuDirector = nil;
+static TopPacketsDirector *sharedPacketDirector = nil;
 
 @implementation TopPacketsDirector
 
 + (id)sharedDirector{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMenuDirector = [[self alloc] init];
+        sharedPacketDirector = [[self alloc] init];
     });
-    return sharedMenuDirector;
+    return sharedPacketDirector;
 }
 
 
--(TopPacket *)createNewPacket{
+-(void)createNewPacket:(void (^)(TopPacket *packet))packetBlock{
     NSInteger total  = [[TopStickersDirector sharedDirector] askTotalStickers];
     if (total <= 0 ) {
-        return nil;
+        packetBlock(nil);
     }
     
     NSMutableArray *stickers = [[NSMutableArray alloc]init];
@@ -43,9 +45,17 @@ static TopPacketsDirector *sharedMenuDirector = nil;
                                                               }];
     }
     if (stickers.count != 5) {
-        return nil;
+        packetBlock(nil);
     }
+    TopPacket *packet = [[TopPacket alloc]initWithArray:stickers];
     
-    return [[TopPacket alloc]initWithArray:stickers];
+    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
+
+    [TopBackendLessUserData removePacketFromUser:user completion:^(BOOL success, NSError *error) {
+        if (success) {
+            packetBlock(packet);
+        }
+    }];
+
 }
 @end

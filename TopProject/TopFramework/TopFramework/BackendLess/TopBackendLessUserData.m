@@ -31,6 +31,8 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
 @interface TopUser()
 @property (nonatomic,assign) NSInteger packetsCount;
 @property (nonatomic,strong) NSArray *stickers;
+@property (nonatomic,strong) NSArray *tmpStickers;
+
 @property (nonatomic,strong,readonly) BackendlessUser *backendLessUser;
 @end
 
@@ -46,6 +48,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     TopUser *topUser = [[TopUser alloc]init];
     topUser->_backendLessUser = bUser;
     topUser->_stickers = stickersArrayFromString(allProperties[@"stickers"]);
+    topUser->_tmpStickers = stickersArrayFromString(allProperties[@"tmp_stickers"]);
     topUser->_packetsCount = [allProperties[@"packets"] integerValue];
     
     return topUser;
@@ -57,6 +60,10 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
 -(NSInteger)packetsCount{
     NSDictionary *allProperties = [self->_backendLessUser retrieveProperties];
     return [allProperties[@"packets"] integerValue];
+}
+-(NSArray *)tmpStickers{
+    NSDictionary *allProperties = [self->_backendLessUser retrieveProperties];
+    return stickersArrayFromString(allProperties[@"tmp_stickers"]);
 }
 @end
 @implementation TopBackendLessUserData
@@ -113,7 +120,52 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
         completionBlock(NO,fault);
     }];
 }
-
+#pragma mark - tmpStickers -
++(void)removeTmpStickers:(NSArray *)stickerNumbers fromUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
+    if (topUser == nil){
+        NSError *error = [NSError errorWithDomain:@"You are not logged in" code:0 userInfo:nil];
+        completionBlock(NO,error);
+        return;
+    }
+    if (stickerNumbers == nil) {
+        return;
+    }
+    
+    BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.tmpStickers];
+    [mutStickers removeObjectsInArray:stickerNumbers];
+    topUser.stickers = (NSArray *)mutStickers;
+    NSString *stickerString = stickersStringFromArray(mutStickers);
+    [backendLessUser updateProperties:@{@"tmp_stickers":stickerString}];
+    
+    [TopBackendLessUserData updateUser:backendLessUser
+                            completion:^(BOOL success, NSError *error) {
+                                completionBlock(success,error);
+                            }];
+}
++(void)addTmpStickers:(NSArray *)stickerNumbers toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
+    if (topUser == nil){
+        NSError *error = [NSError errorWithDomain:@"you are not logged in" code:0 userInfo:nil];
+        completionBlock(NO,error);
+        return;
+    }
+    if (stickerNumbers == nil) {
+        return;
+    }
+    
+    
+    BackendlessUser *backendLessUser = topUser.backendLessUser;
+    NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.tmpStickers];
+    [mutStickers addObjectsFromArray:stickerNumbers];
+    NSString *stickerString = stickersStringFromArray(mutStickers);
+    topUser.stickers = (NSArray *)mutStickers;
+    [backendLessUser updateProperties:@{@"tmp_stickers":stickerString}];
+    
+    [TopBackendLessUserData updateUser:backendLessUser
+                            completion:^(BOOL success, NSError *error) {
+                                completionBlock(success,error);
+                            }];
+}
 #pragma mark - Stickers -
 +(void)addStickers:(NSArray *)stickerNumbers toUser:(TopUser *)topUser completion:(void(^)(BOOL success,NSError *error))completionBlock{
     if (topUser == nil){
@@ -160,7 +212,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
                                 completionBlock(success,error);
     }];
 }
-+(void)removeAllStickerFromUser:(TopUser *)topUser completion:
++(void)removeAllStickersFromUser:(TopUser *)topUser completion:
 (void(^)(BOOL success,NSError *error))completionBlock{
     
     if (topUser == nil){

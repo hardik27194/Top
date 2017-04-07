@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TopAnimals/TopAnimals/TopAnimalStickerView.m"
-            timestampString = "512844155.493598"
+            filePath = "TopFramework/TopFramework/BarMenu/TopPacketsButton.m"
+            timestampString = "513275309.689785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "-build"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-pressed"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

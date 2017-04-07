@@ -62,7 +62,9 @@
     [super layoutSubviews];
     [self.photoContainer layoutSubviews];
 }
-
+-(NSArray *)photoStickerViews{
+    return [self.photoContainer photoStickerViews];
+}
 #pragma mark - delegates -
 
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView image:(void (^)(UIImage *))imageBlock{

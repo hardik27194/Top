@@ -10,26 +10,35 @@
 
 #import "TopAppDelegate.h"
 #import "TOPPageController.h"
-#import "TOPUnpackController.h"
+#import "TopUnpackControllerView.h"
 #import "TopPage.h"
 #import "TopStickersDirector.h"
 #import "TopLayoutFactory.h"
 
+static TopControllersDirector *sharedControllersDirector = nil;
 
+@interface TopControllersDirector (){
+    NSMutableArray *_menuControllers;
 
-static TopControllersDirector *sharedMenuDirector = nil;
+}
+@end
 
 @implementation TopControllersDirector
 + (id)sharedDirector{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMenuDirector = [[self alloc] init];
+        sharedControllersDirector = [[self alloc] init];
     });
-    return sharedMenuDirector;
+    return sharedControllersDirector;
 }
 
 - (NSArray <UIViewController *>*) menuControllers{
-    NSMutableArray *arrayControllers = [[NSMutableArray alloc]init];
+    
+    if (_menuControllers != nil) {
+        return _menuControllers;
+    }
+    _menuControllers = [[NSMutableArray alloc]init];
+
     
     NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];
@@ -41,21 +50,33 @@ static TopControllersDirector *sharedMenuDirector = nil;
             [pages addObject:controller];
         }
     }
-    TOPPageController *topPageController = [[TOPPageController alloc]initWithPages:pages];
+    TopPageController *topPageController = [[TopPageController alloc]initWithPages:pages];
     
     
-    [arrayControllers addObject:topPageController];
+    [_menuControllers addObject:topPageController];
     
-    return arrayControllers;
+    return _menuControllers;
 }
-- (void)showUnPackController{
+- (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
-    TopUnpackController *unpackController = [[TopUnpackController alloc] init];
-    
-    [mainController presentViewController:unpackController
-                                 animated:YES
-                               completion:^{
+    TopUnpackControllerView *unPackControllerView = [[TopUnpackControllerView alloc] initWithFrame:mainController.view.bounds];
+    unPackControllerView.endingBlock = endingBlock;
+    [mainController.view addSubview:unPackControllerView];
+    unPackControllerView.transform = CGAffineTransformMakeTranslation(0, unPackControllerView.bounds.size.height);
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        unPackControllerView.transform = CGAffineTransformIdentity;
+
+    } completion:^(BOOL finished) {
+    }];
+}
+- (void)dismissUnPackController:(UIView *)unPackControllerView{
+    TopUnpackControllerView *unPackView = (TopUnpackControllerView*)unPackControllerView;
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        unPackView.transform = CGAffineTransformMakeTranslation(0, unPackView.bounds.size.height);
         
+    } completion:^(BOOL finished) {
+        unPackView.endingBlock(nil);
+        [unPackView removeFromSuperview];
     }];
 }
 @end

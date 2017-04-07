@@ -53,7 +53,9 @@
         
     }
 }
-
+-(NSArray *)photoStickerViews{
+    return self.stickerPhotos;
+}
 -(void)layoutSubviews{
     [super layoutSubviews];
     

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TopSideMenuControllerInterface.h"
+#import "TopBarMenu.h"
 
 @interface TopSideMenuContainerController : UIViewController <TopSideMenuControllerInterface>
-
+@property (nonatomic,weak) IBOutlet TopBarMenu *menu;
 - (void)setController:(UIViewController *)controller;
 - (void)removeController:(UIViewController *)controller;
 - (UIViewController *)contentController;

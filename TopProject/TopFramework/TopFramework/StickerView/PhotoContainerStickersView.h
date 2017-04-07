@@ -15,7 +15,7 @@ typedef struct {
 
 @interface PhotoContainerStickersView : UIView
 @property (nonatomic,assign) stickerContainerGrid grid;
-
+-(NSArray *)photoStickerViews;
 -(void)buildStickersFromNumbers:(NSArray *)numbers
                     andDelegate:(id<PhotoStickerViewProtocol>)delegate;
 

@@ -11,6 +11,6 @@
 
 @interface TopPacketsDirector : NSObject
 + (id)sharedDirector;
-- (TopPacket *)createNewPacket;
+- (void)createNewPacket:(void (^)(TopPacket *packet))packetBlock;
 
 @end

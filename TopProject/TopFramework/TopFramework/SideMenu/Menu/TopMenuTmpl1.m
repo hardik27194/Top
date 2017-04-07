@@ -105,21 +105,7 @@
     [self.view addSubview:unpack];
     // Do any additional setup after loading the view.
 }
--(void)unPack{
-    TopPacket *packet = [[TopPacketsDirector sharedDirector] createNewPacket];
-    
-    
-    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
 
-    [TopBackendLessUserData addStickers:[packet stickers]
-                                 toUser:user
-                             completion:^(BOOL success, NSError *error) {
-                                 if (success) {
-                                    NSLog(@"my first found stickers");
-                                 }
-    }];
-    
-}
 -(void)removeSticker{
 
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;

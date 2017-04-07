@@ -81,6 +81,10 @@ static TopStickersDirector *sharedDirector = nil;
                 self.totalStickers += 1;
                 
                 [self saveStickerNumber:self.totalStickers
+                                 object:object.image
+                                withKey:@"image"];
+                
+                [self saveStickerNumber:self.totalStickers
                                  object:@(object.rarity)
                                 withKey:@"rarity"];
                 
@@ -117,6 +121,10 @@ static TopStickersDirector *sharedDirector = nil;
 - (CGRect)askLayerRectFromStickerNumber:(NSInteger)number{
     NSString *stringRect = [self.stickers[@(number)] objectForKey:@"layer_rect"];
     return CGRectFromString(stringRect);
+}
+- (NSURL *)askUrlImageFromStickerNumber:(NSInteger)number{
+    NSString *urlString = [self.stickers[@(number)] objectForKey:@"image"];
+    return [NSURL URLWithString:urlString];
 }
 - (NSInteger)askTotalStickers{
     return self.stickers.count;

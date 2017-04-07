@@ -12,7 +12,9 @@
 @interface TopControllersDirector : NSObject
 + (id)sharedDirector;
 
-- (void)showUnPackController;
+- (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock;
+- (void)dismissUnPackController:(UIView *)unPackControllerView;
+
 - (NSArray <UIViewController *>*) menuControllers;
 
 @end

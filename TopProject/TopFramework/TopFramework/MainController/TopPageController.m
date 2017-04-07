@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Jacopo. All rights reserved.
 //
 
-#import "TOPPageController.h"
-@interface TOPPageController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
+#import "TopPageController.h"
+@interface TopPageController ()<UIPageViewControllerDataSource,UIPageViewControllerDelegate>
 {
     NSArray *controllers;
     BOOL pageAnimationFinished;
+    UIViewController *_currentController;
 }
 @property (nonatomic,strong) UIPageViewController *pageController;
 @property (nonatomic,strong) NSArray *pages;
@@ -18,7 +19,7 @@
 
 @end
 
-@implementation TOPPageController
+@implementation TopPageController
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -68,8 +69,9 @@
     pageAnimationFinished = YES;
     
     
-    
-    [self.pageController setViewControllers:[NSArray arrayWithObject:self.pages[0]]
+    _currentController = self.pages[0];
+
+    [self.pageController setViewControllers:[NSArray arrayWithObject:_currentController]
                                   direction:UIPageViewControllerNavigationDirectionForward
                                    animated:NO
                                  completion:nil];
@@ -79,10 +81,13 @@
     [self addChildViewController:self.pageController];
     [self.view addSubview:self.pageController.view];
     [self.pageController didMoveToParentViewController:self];
+    
    // self.view.gestureRecognizers = self.pageController.gestureRecognizers;
     
 }
-
+- (UIViewController *)currentController{
+    return _currentController;
+}
 #pragma mark - page controller delegate -
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
@@ -124,6 +129,7 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
     pageAnimationFinished = YES;
+    _currentController = pageViewController.viewControllers[0];
 }
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
     pageAnimationFinished = NO;

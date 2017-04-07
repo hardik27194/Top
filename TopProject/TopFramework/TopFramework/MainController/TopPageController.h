@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TOPPageController : UIViewController
+@interface TopPageController : UIViewController
 - (id)initWithPages:(NSArray *)pages;
+- (UIViewController *)currentController;
 @end

@@ -23,5 +23,7 @@
 
 - (instancetype)initWithTopPage:(TopPage *)topPage;
 - (void)refresh;
+- (NSArray *)photoStickerViews;
+
 
 @end

@@ -9,7 +9,7 @@
 #import "TopSideMenuContainerController.h"
 
 
-#import "TopControllersDirector.h"
+
 
 @interface TopSideMenuContainerController ()
 {
@@ -32,10 +32,16 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    TopPacketsButton *button = [[TopPacketsButton alloc]init];
+    [self.menu addButton:button];
 
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [_contentController viewWillAppear:YES];
+    [self.menu update];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -60,11 +66,5 @@
 - (IBAction)openAction:(id)sender {
     [self.delegate TOPSMControllerOpenMenu];
 }
-
-//tmp
--(IBAction)tmpUnpack{
-    [[TopControllersDirector sharedDirector] showUnPackController];
-}
-
 
 @end
