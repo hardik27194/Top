@@ -13,7 +13,7 @@
 #define kAppId @"AE9C432A-B676-3C1A-FF5E-DE20C1F98600"
 #define kSecretKey @"17FE72FF-30B0-AC01-FFF5-DEAF9C87F100"
 #define kVersion @"v1"
-
+#define kConfigurationIdKey @"TopAnimalConfiguration"
 @interface AppDelegate ()
 @end
 
@@ -24,11 +24,11 @@
     
     self.backendlessConfiguration = [TopBackendLessConfiguration initWithAppId:kAppId
                                                                         secret:kSecretKey
-                                                                        version:kVersion];
+                                                                        version:kVersion
+                                                                configurationId:kConfigurationIdKey];
     
     self.backendlessConfiguration.topObjectClass = [TopAnimalObject class];
     self.backendlessConfiguration.topPageClass = [TopAnimalPage class];
-    self.backendlessConfiguration.topStickerId = @"tmpl0";
     
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }

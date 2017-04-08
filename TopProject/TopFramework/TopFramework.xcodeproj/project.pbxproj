@@ -39,6 +39,10 @@
 		BD0CABF51E97E8A700E49782 /* TopPacketsButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABF31E97E8A700E49782 /* TopPacketsButton.m */; };
 		BD0CABF81E97F35700E49782 /* TopDoubleButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABF61E97F35700E49782 /* TopDoubleButton.h */; };
 		BD0CABF91E97F35700E49782 /* TopDoubleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABF71E97F35700E49782 /* TopDoubleButton.m */; };
+		BD0CAC161E98E87E00E49782 /* TopBackendLessConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CAC141E98E87E00E49782 /* TopBackendLessConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD0CAC171E98E87E00E49782 /* TopBackendLessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CAC151E98E87E00E49782 /* TopBackendLessConfiguration.m */; };
+		BD0CAC1A1E98E8B800E49782 /* TopConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CAC181E98E8B700E49782 /* TopConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD0CAC1B1E98E8B800E49782 /* TopConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CAC191E98E8B800E49782 /* TopConfiguration.m */; };
 		BD1CC4BB1E942EF400628DF9 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1CC4B61E942EF400628DF9 /* StickerView.h */; };
 		BD1CC4BC1E942EF400628DF9 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4B71E942EF400628DF9 /* StickerView.m */; };
 		BD1CC4BF1E942EF400628DF9 /* StickerViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */; };
@@ -400,8 +404,6 @@
 		BD21A00F1E7ED3B60040E092 /* TopObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A00A1E7ED3B60040E092 /* TopObject.m */; };
 		BD21A0101E7ED3B60040E092 /* TopPage.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A00C1E7ED3B60040E092 /* TopPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD21A0111E7ED3B60040E092 /* TopPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A00D1E7ED3B60040E092 /* TopPage.m */; };
-		BD21A0151E7ED3F50040E092 /* TopBackendLessConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0131E7ED3F50040E092 /* TopBackendLessConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */; };
 		BD21A0191E7ED42B0040E092 /* TopBackendLessData.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0171E7ED42B0040E092 /* TopBackendLessData.h */; };
 		BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0181E7ED42B0040E092 /* TopBackendLessData.m */; };
 		BD21A01E1E7EF8660040E092 /* TopPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A01C1E7EF8660040E092 /* TopPageController.h */; };
@@ -480,6 +482,10 @@
 		BD0CABF31E97E8A700E49782 /* TopPacketsButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsButton.m; sourceTree = "<group>"; };
 		BD0CABF61E97F35700E49782 /* TopDoubleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDoubleButton.h; sourceTree = "<group>"; };
 		BD0CABF71E97F35700E49782 /* TopDoubleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDoubleButton.m; sourceTree = "<group>"; };
+		BD0CAC141E98E87E00E49782 /* TopBackendLessConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBackendLessConfiguration.h; sourceTree = "<group>"; };
+		BD0CAC151E98E87E00E49782 /* TopBackendLessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessConfiguration.m; sourceTree = "<group>"; };
+		BD0CAC181E98E8B700E49782 /* TopConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopConfiguration.h; sourceTree = "<group>"; };
+		BD0CAC191E98E8B800E49782 /* TopConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopConfiguration.m; sourceTree = "<group>"; };
 		BD1CC4B61E942EF400628DF9 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		BD1CC4B71E942EF400628DF9 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl0.xib; sourceTree = "<group>"; };
@@ -843,8 +849,6 @@
 		BD21A00A1E7ED3B60040E092 /* TopObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopObject.m; sourceTree = "<group>"; };
 		BD21A00C1E7ED3B60040E092 /* TopPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPage.h; sourceTree = "<group>"; };
 		BD21A00D1E7ED3B60040E092 /* TopPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPage.m; sourceTree = "<group>"; };
-		BD21A0131E7ED3F50040E092 /* TopBackendLessConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBackendLessConfiguration.h; sourceTree = "<group>"; };
-		BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessConfiguration.m; sourceTree = "<group>"; };
 		BD21A0171E7ED42B0040E092 /* TopBackendLessData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBackendLessData.h; sourceTree = "<group>"; };
 		BD21A0181E7ED42B0040E092 /* TopBackendLessData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessData.m; sourceTree = "<group>"; };
 		BD21A01C1E7EF8660040E092 /* TopPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPageController.h; sourceTree = "<group>"; };
@@ -976,6 +980,17 @@
 				BD0CABF71E97F35700E49782 /* TopDoubleButton.m */,
 			);
 			path = BarMenu;
+			sourceTree = "<group>";
+		};
+		BD0CAC131E98E87E00E49782 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				BD0CAC141E98E87E00E49782 /* TopBackendLessConfiguration.h */,
+				BD0CAC151E98E87E00E49782 /* TopBackendLessConfiguration.m */,
+				BD0CAC181E98E8B700E49782 /* TopConfiguration.h */,
+				BD0CAC191E98E8B800E49782 /* TopConfiguration.m */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		BD1CC4AC1E9162E500628DF9 /* StickerViewFactory */ = {
@@ -1611,8 +1626,7 @@
 		BD21A0121E7ED3F50040E092 /* BackendLess */ = {
 			isa = PBXGroup;
 			children = (
-				BD21A0131E7ED3F50040E092 /* TopBackendLessConfiguration.h */,
-				BD21A0141E7ED3F50040E092 /* TopBackendLessConfiguration.m */,
+				BD0CAC131E98E87E00E49782 /* Configuration */,
 				BD21A0171E7ED42B0040E092 /* TopBackendLessData.h */,
 				BD21A0181E7ED42B0040E092 /* TopBackendLessData.m */,
 				BD21A0A21E85E1450040E092 /* TopBackendLessUserData.h */,
@@ -1810,7 +1824,6 @@
 				BD219FD61E7EC9730040E092 /* MediaStreamPlayer.h in Headers */,
 				BD219FBD1E7EC9730040E092 /* opt.h in Headers */,
 				BD219FC31E7EC9730040E092 /* replaygain.h in Headers */,
-				BD21A0151E7ED3F50040E092 /* TopBackendLessConfiguration.h in Headers */,
 				BD219EDA1E7EC9720040E092 /* MediaPublisher.h in Headers */,
 				BD219F961E7EC9730040E092 /* version.h in Headers */,
 				3DA342651E94E49D00BA5463 /* TopLayout4_Tmpl0.h in Headers */,
@@ -1943,6 +1956,7 @@
 				BD219FA21E7EC9730040E092 /* base64.h in Headers */,
 				BD219F761E7EC9730040E092 /* V3ArrayReader.h in Headers */,
 				BD219F511E7EC9730040E092 /* NumberObject.h in Headers */,
+				BD0CAC161E98E87E00E49782 /* TopBackendLessConfiguration.h in Headers */,
 				BD219FB71E7EC9730040E092 /* log.h in Headers */,
 				BD219F751E7EC9730040E092 /* UTFStringReader.h in Headers */,
 				BD219EAB1E7EC9720040E092 /* BeaconMonitoring.h in Headers */,
@@ -2013,6 +2027,7 @@
 				BD219FB41E7EC9730040E092 /* intfloat.h in Headers */,
 				BD219E971E7EC9720040E092 /* AbstractQuery.h in Headers */,
 				BD219F8A1E7EC9730040E092 /* vdpau.h in Headers */,
+				BD0CAC1A1E98E8B800E49782 /* TopConfiguration.h in Headers */,
 				BD0CABF81E97F35700E49782 /* TopDoubleButton.h in Headers */,
 				BD21A0101E7ED3B60040E092 /* TopPage.h in Headers */,
 				BD219FB11E7EC9730040E092 /* frame.h in Headers */,
@@ -2178,6 +2193,7 @@
 			files = (
 				BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */,
 				BD21A0CD1E88016C0040E092 /* AFImageRequestOperation.m in Sources */,
+				BD0CAC171E98E87E00E49782 /* TopBackendLessConfiguration.m in Sources */,
 				BD0CABF51E97E8A700E49782 /* TopPacketsButton.m in Sources */,
 				BD21A0CB1E88016C0040E092 /* AFHTTPRequestOperation.m in Sources */,
 				BD1CC4BC1E942EF400628DF9 /* StickerView.m in Sources */,
@@ -2191,11 +2207,11 @@
 				BD0CABF91E97F35700E49782 /* TopDoubleButton.m in Sources */,
 				EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */,
 				BD0CABED1E97DF1700E49782 /* TopBarMenu.m in Sources */,
+				BD0CAC1B1E98E8B800E49782 /* TopConfiguration.m in Sources */,
 				BD21A0321E7F13F20040E092 /* BasePageViewController.m in Sources */,
 				BD21A0D11E88016C0040E092 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */,
 				3DA342661E94E49D00BA5463 /* TopLayout4_Tmpl0.m in Sources */,
-				BD21A0161E7ED3F50040E092 /* TopBackendLessConfiguration.m in Sources */,
 				BD0CABE41E979F0300E49782 /* TopUnpackControllerView.m in Sources */,
 				BD21A0D41E88016C0040E092 /* AFPropertyListRequestOperation.m in Sources */,
 				BD1CC4D41E97966900628DF9 /* TopTileSticker.m in Sources */,
