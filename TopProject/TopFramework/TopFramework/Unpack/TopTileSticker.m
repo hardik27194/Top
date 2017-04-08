@@ -45,8 +45,8 @@
             self.layer.contentsRect = layerRect;
             self.layer.masksToBounds = YES;
         }];
-        UILabel *numberLabel = [[UILabel alloc]initWithFrame:self.bounds];
-        numberLabel.font = [UIFont systemFontOfSize:20];
+        UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        numberLabel.font = [UIFont systemFontOfSize:30];
         numberLabel.textAlignment = NSTextAlignmentCenter;
         numberLabel.textColor = [UIColor whiteColor];
 
@@ -55,7 +55,10 @@
         self.numberLabel = numberLabel;
         self.numberLabel.alpha = 0;
 
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor darkGrayColor];
+        //self.layer.shadowColor = [[UIColor blackColor] CGColor];
+       // self.layer.shadowOffset = CGSizeMake(0,5);
+        //self.layer.shadowOpacity = 0.5;
     }
     return self;
 }
@@ -67,9 +70,13 @@
     CGPoint pt = [[touches anyObject] locationInView:self.superview];
     _xOffset = pt.x - self.center.x;
     _yOffset = pt.y - self.center.y;
-    self.transform = CGAffineTransformScale(self.transform, 1.10, 1.10);
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformScale(self.transform, 1.30, 1.30);
+    }];
     self.layer.borderColor = [UIColor whiteColor].CGColor;
     self.layer.borderWidth = 2;
+   
+    self.alpha = 0.5;
     self.numberLabel.alpha = 1;
     
 }
@@ -94,7 +101,9 @@
     if (self.dragDelegate) {
         [self.dragDelegate tileView:self didDragToPoint:self.center];
     }
-    self.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:0.1 animations:^{
+        self.transform = CGAffineTransformIdentity;
+    }];
     self.alpha = 1;
     self.layer.borderColor = [UIColor clearColor].CGColor;
     self.layer.borderWidth = 0;

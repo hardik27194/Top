@@ -59,7 +59,8 @@ static TopControllersDirector *sharedControllersDirector = nil;
 }
 - (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
-    TopUnpackControllerView *unPackControllerView = [[TopUnpackControllerView alloc] initWithFrame:mainController.view.bounds];
+    TopUnpackControllerView *unPackControllerView = [TopUnpackControllerView unPackView];
+    unPackControllerView.frame = mainController.view.bounds;
     unPackControllerView.endingBlock = endingBlock;
     [mainController.view addSubview:unPackControllerView];
     unPackControllerView.transform = CGAffineTransformMakeTranslation(0, unPackControllerView.bounds.size.height);

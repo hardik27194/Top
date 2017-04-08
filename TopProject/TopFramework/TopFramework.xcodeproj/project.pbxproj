@@ -43,6 +43,7 @@
 		BD0CAC171E98E87E00E49782 /* TopBackendLessConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CAC151E98E87E00E49782 /* TopBackendLessConfiguration.m */; };
 		BD0CAC1A1E98E8B800E49782 /* TopConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CAC181E98E8B700E49782 /* TopConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD0CAC1B1E98E8B800E49782 /* TopConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CAC191E98E8B800E49782 /* TopConfiguration.m */; };
+		BD0CAC1D1E9949D800E49782 /* TopUnpackControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0CAC1C1E9949D800E49782 /* TopUnpackControllerView.xib */; };
 		BD1CC4BB1E942EF400628DF9 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BD1CC4B61E942EF400628DF9 /* StickerView.h */; };
 		BD1CC4BC1E942EF400628DF9 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD1CC4B71E942EF400628DF9 /* StickerView.m */; };
 		BD1CC4BF1E942EF400628DF9 /* StickerViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */; };
@@ -486,6 +487,7 @@
 		BD0CAC151E98E87E00E49782 /* TopBackendLessConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBackendLessConfiguration.m; sourceTree = "<group>"; };
 		BD0CAC181E98E8B700E49782 /* TopConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopConfiguration.h; sourceTree = "<group>"; };
 		BD0CAC191E98E8B800E49782 /* TopConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopConfiguration.m; sourceTree = "<group>"; };
+		BD0CAC1C1E9949D800E49782 /* TopUnpackControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopUnpackControllerView.xib; sourceTree = "<group>"; };
 		BD1CC4B61E942EF400628DF9 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
 		BD1CC4B71E942EF400628DF9 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		BD1CC4BA1E942EF400628DF9 /* StickerViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StickerViewTmpl0.xib; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 			children = (
 				BD0CABE11E979F0300E49782 /* TopUnpackControllerView.h */,
 				BD0CABE21E979F0300E49782 /* TopUnpackControllerView.m */,
+				BD0CAC1C1E9949D800E49782 /* TopUnpackControllerView.xib */,
 				BD1CC4D11E97966900628DF9 /* TopTileSticker.h */,
 				BD1CC4D21E97966900628DF9 /* TopTileSticker.m */,
 			);
@@ -2174,6 +2177,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0CAC1D1E9949D800E49782 /* TopUnpackControllerView.xib in Resources */,
 				3DF28B2C1E83DB85005FAD92 /* TopSideMenuContainerController.xib in Resources */,
 				BD1CC4C71E944ACF00628DF9 /* StickerViewTmpl2.xib in Resources */,
 				3DA342671E94E49D00BA5463 /* TopLayout4_Tmpl0.xib in Resources */,

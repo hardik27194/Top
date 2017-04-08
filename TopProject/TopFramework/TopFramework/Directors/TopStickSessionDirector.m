@@ -46,10 +46,10 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
         TopTileSticker *sticker = [[TopTileSticker alloc]initWithFrame:CGRectMake(50, 400, 100, 100) andNumber:[stickerNumber integerValue]];
         [tiles addObject:sticker];
     }
-    [self startSessionWithTileStickers:tiles];
+    [self startSessionWithTileStickers:tiles animation:nil];
 }
 
-- (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers{
+- (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers animation:(void(^)(void))animation{
     if (tileStickers == nil) {
         return;
     }
@@ -67,6 +67,9 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     for (TopTileSticker *sticker in tileStickers) {
         sticker.dragDelegate = self;
         [mainController.view addSubview:sticker];
+    }
+    if (animation != nil) {
+        animation();
     }
 }
 -(void)tileView:(TopTileSticker *)tileView didDragToPoint:(CGPoint)pt{
@@ -232,11 +235,10 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
 -(void)insertSticker:(TopTileSticker *)sticker inButton:(TopBarButton *)button completion:(void(^)(void))completion{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        CGRect rect  = [button convertRect:button.bounds toView:mainController.view];
+    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
-        sticker.frame = rect;
-        sticker.transform = CGAffineTransformMakeScale(0.1, 0.1);
+
+        sticker.transform = CGAffineTransformMakeScale(0.00001, 0.000001);
     } completion:^(BOOL finished) {
         completion();
     }];
