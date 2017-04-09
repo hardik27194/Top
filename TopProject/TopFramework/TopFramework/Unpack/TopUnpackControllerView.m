@@ -115,10 +115,10 @@
     } completion:^(BOOL finished) {
     }];
 }
--(void)stick{
-    
-//    [[TopControllersDirector sharedDirector] dismissUnPackController:self];
-    [[TopStickSessionDirector sharedDirector] startSessionWithOldTileStickers];
+-(IBAction)autoloadDoubles{
+    [[TopStickSessionDirector sharedDirector] autoLoadsDoublesCompletion:^{
+        [[TopControllersDirector sharedDirector] dismissUnPackController:self];
+    }];
 }
 
 

@@ -10,11 +10,14 @@
 @import UIKit;
 
 #import "TopObject.h"
+#import "TopCategory.h"
 
 @interface TopPage : NSObject
-@property (nonatomic,assign) NSUInteger number;
+@property (nonatomic,assign) NSUInteger index;
+@property (nonatomic,assign) NSUInteger assignedIndex;
 @property (nonatomic,strong) NSString *layoutName;
 @property (nonatomic,strong) NSString *title;
 @property (nonatomic,strong) NSString *desc;
+@property (nonatomic,strong) TopCategory *topCategory;
 @property (nonatomic,strong) NSMutableArray <TopObject *> *topObjects;
 @end

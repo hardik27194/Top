@@ -10,8 +10,8 @@
 
 @interface StickerView()<PhotoStickerViewProtocol>{
     TopObject *_tObject;
+    NSMutableArray *_requests;
 }
-
 @property (nonatomic,strong) UIImage *photo;
 @end
 @implementation StickerView
@@ -28,6 +28,7 @@
         photoBlock(self.photo);
         return;
     }
+    
         dispatch_queue_t callerQueue = dispatch_get_current_queue();
         dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
         
@@ -44,7 +45,7 @@
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
     _tObject = topObject;
     self.numberStickers = numbers;
-    
+    _requests = [[NSMutableArray alloc]init];
     stickerContainerGrid grid;
     grid.columns = _tObject.columns;
     grid.rows = _tObject.rows;
@@ -55,9 +56,18 @@
  
     self.stickerTitleLabel.text = topObject.title;
     self.stickerDescriptionLabel.text = topObject.desc;
+    [self photoWithUrl:[NSURL URLWithString:_tObject.image]
+            completion:^(UIImage *image) {
+                for (void(^block)(UIImage *photo) in _requests) {
+                    block(image);
+                }
+        _requests = nil;
+    }];
     
 }
-
+-(void)setPhoto:(UIImage *)photo{
+    _photo = photo;
+}
 -(void)layoutSubviews{
     [super layoutSubviews];
     [self.photoContainer layoutSubviews];
@@ -65,13 +75,14 @@
 -(NSArray *)photoStickerViews{
     return [self.photoContainer photoStickerViews];
 }
-#pragma mark - delegates -
 
+#pragma mark - delegates -
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView image:(void (^)(UIImage *))imageBlock{
-    [self photoWithUrl:[NSURL URLWithString:_tObject.image]
-            completion:^(UIImage *image) {
-        imageBlock(image);
-    }];
+    if (self.photo) {
+        imageBlock(self.photo);
+        return;
+    }
+    [_requests addObject:[imageBlock copy]];
 }
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView
               isFound:(void (^)(BOOL))foundBlock{

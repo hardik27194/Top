@@ -10,6 +10,9 @@
 #import "TopSideMenuMenuInterface.h"
 #import "TopSideMenuContainerController.h"
 
+
+#import "TopControllersDirector.h"
+
 @interface TopSideMenu ()<TopSideMenuMenuProtocol,TopSideMenuControllerProtocol>{
     UIViewController<TopSideMenuMenuInterface> *_menuController;
     TopSideMenuContainerController * _containerController;
@@ -46,13 +49,16 @@
     [self.view addSubview:_containerController.view];
     [_containerController didMoveToParentViewController:self];
     
-    [_containerController setController:[_menuController firstController]];
+    [self setCurrentController:[_menuController firstController]];
     // Do any additional setup after loading the view.
 }
 -(UIViewController *)containerController{
     return _containerController;
 }
-
+-(void)setCurrentController:(UIViewController *)controller{
+    [_containerController setController:controller];
+    [[TopControllersDirector sharedDirector] changedVisualizedController:controller];
+}
 #pragma mark - menu delegate -
 -(void)TOPSMDidSelectController:(UIViewController <TopSideMenuControllerInterface>*)controller{
     UIViewController *lastController = [_containerController contentController];
@@ -62,11 +68,15 @@
         }
     }
     
-    [_containerController setController:controller];
+    [self setCurrentController:controller];
     
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _containerController.view.transform = CGAffineTransformIdentity;
+        _overlay.alpha = 0;
+        [_containerController viewWillAppear:YES];
     } completion:^(BOOL finished) {
+        [_overlay removeFromSuperview];
+        _overlay = nil;
     }];
 }
 #pragma mark - controller delegate -

@@ -13,7 +13,8 @@
 @interface TopStickersDirector : NSObject
 + (id)sharedDirector;
 
-- (NSArray <TopPage *>*)askTopPages;
+- (NSArray <TopCategory *>*)askTopCategories;
+- (NSArray <TopPage *>*)askTopPagesForCategory:(TopCategory *)topCategory;
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
 - (CGRect)askLayerRectFromStickerNumber:(NSInteger)number;
 - (NSURL *)askUrlImageFromStickerNumber:(NSInteger)number;

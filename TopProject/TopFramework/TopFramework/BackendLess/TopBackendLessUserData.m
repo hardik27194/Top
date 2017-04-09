@@ -158,7 +158,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.tmpStickers];
     [mutStickers addObjectsFromArray:stickerNumbers];
     NSString *stickerString = stickersStringFromArray(mutStickers);
-    topUser.stickers = (NSArray *)mutStickers;
+    topUser.tmpStickers = (NSArray *)mutStickers;
     [backendLessUser updateProperties:@{@"tmp_stickers":stickerString}];
     
     [TopBackendLessUserData updateUser:backendLessUser

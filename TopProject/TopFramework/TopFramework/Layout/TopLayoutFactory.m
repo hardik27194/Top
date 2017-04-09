@@ -34,7 +34,7 @@ static NSDictionary *layouts;
         return nil;
     }
     
-    if (topPage.number < 0) {
+    if (topPage.index < 0) {
         return nil;
     }
     

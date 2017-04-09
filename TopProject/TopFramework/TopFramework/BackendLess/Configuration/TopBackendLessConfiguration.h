@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TopBackendLessConfiguration : NSObject
 @property (nonnull,assign) Class topObjectClass;
 @property (nonnull,assign) Class topPageClass;
+@property (nonnull,assign) Class topCategoryClass;
 +(instancetype)initWithAppId:(NSString *)appIDKey
                       secret:(NSString *)secretKey
                      version:(NSString *)versionKey

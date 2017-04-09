@@ -7,15 +7,15 @@
 //
 
 #import "TopSideMenuContainerController.h"
+#import "BasePageViewController.h"
+#import "TopPageController.h"
+#import "TopStyle.h"
 
-
-
-
-@interface TopSideMenuContainerController ()
-{
+@interface TopSideMenuContainerController (){
     UIViewController *_contentController;
 }
 @property (nonatomic,weak) IBOutlet UIView *contentControllerView;
+@property (nonatomic,strong) TopCategory *category;
 
 @end
 
@@ -24,9 +24,9 @@
 
 - (instancetype)init
 {
-    self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];
+    self = [super initWithNibName:NSStringFromClass([self class])
+                           bundle:[NSBundle bundleForClass:[self class]]];
     if (self) {
-        
     }
     return self;
 }
@@ -36,6 +36,8 @@
     [self.menu addButton:packetsButton];
     TopDoubleButton *doubleButton = [[TopDoubleButton alloc]init];
     [self.menu addButton:doubleButton];
+    TopTempsButton *tempsbutton = [[TopTempsButton alloc]init];
+    [self.menu addButton:tempsbutton];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -56,6 +58,10 @@
     controller.view.frame = self.contentControllerView.bounds;
     [self.contentControllerView addSubview:controller.view];
     [controller didMoveToParentViewController:self];
+    
+    TopPageController *pageController = (TopPageController *)controller;
+    self.category = [(BasePageViewController *)[pageController currentController] retrieveCategory];
+    [self updateStyle];
 }
 
 - (void)removeController:(UIViewController *)controller{
@@ -69,5 +75,7 @@
 - (IBAction)openAction:(id)sender {
     [self.delegate TOPSMControllerOpenMenu];
 }
-
+-(void)updateStyle{
+    self.view.backgroundColor = [TopStyle colorFromHexString:self.category.mainColor withAlpha:1];
+}
 @end

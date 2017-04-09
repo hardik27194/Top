@@ -11,6 +11,7 @@
 
 @interface TopBackendLessData : NSObject
 
++(NSArray<TopCategory *>*)getAllTopCategories;
 +(NSArray<TopPage *>*)getAllTopPages;
 +(NSArray*)getConfigurationWithClass:(Class)deviceClass;
 

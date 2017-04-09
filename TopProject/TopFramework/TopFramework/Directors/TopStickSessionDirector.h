@@ -14,5 +14,7 @@
 - (void)startSessionWithOldTileStickers;
 - (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers
                            animation:(void(^)(void))animation;
+-(void)autoLoadsDoublesCompletion:(void(^)(void))completion;
+
 
 @end

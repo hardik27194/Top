@@ -50,20 +50,28 @@ static TopStickersDirector *sharedDirector = nil;
         }
     }
 }
+- (NSArray<TopCategory *> *)orderTopCategories:(NSArray<TopCategory *> * )categories{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [categories sortedArrayUsingDescriptors:sortDescriptors];
+    
+    return sortedArray;
+}
 - (NSArray<TopPage *> *)orderTopPages:(NSArray<TopPage *> * )pages{
     NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"number"
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"index"
                                                  ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     NSArray *sortedArray = [pages sortedArrayUsingDescriptors:sortDescriptors];
     
     return sortedArray;
 }
-
-#pragma mark - ask -
--(NSArray <TopPage *>*)askTopPages{
-    NSArray <TopPage *> *pages = [self orderTopPages:[TopBackendLessData getAllTopPages]];
-    
+-(void)cachePagesData:(NSArray <TopPage *>*)pages{
+    if (self.mainStructure[@"pages"] != nil) {
+        return;
+    }
     self.totalStickers = 0;
     NSMutableArray *pagesArray = [[NSMutableArray alloc]init];
     
@@ -100,7 +108,7 @@ static TopStickersDirector *sharedDirector = nil;
                                        [self saveStickerNumber:number
                                                         object:NSStringFromCGRect(layerRect)
                                                        withKey:@"layer_rect"];
-
+                                       
                                        
                                    }];
             
@@ -112,11 +120,42 @@ static TopStickersDirector *sharedDirector = nil;
     }
     
     self.mainStructure[@"pages"] = pagesArray;
-    
-    return pages;
 }
+
+#pragma mark - ask -
+-(NSArray <TopCategory *>*)askTopCategories{
+    return  [self orderTopCategories:[TopBackendLessData getAllTopCategories]];
+}
+-(NSArray <TopPage *>*)askTopPagesForCategory:(TopCategory *)topCategory{
+    
+    NSArray <TopCategory *>*categories = [self askTopCategories];
+    
+        NSArray<TopPage *> *orderedPages = [self orderTopPages:[TopBackendLessData getAllTopPages]];
+        NSMutableArray *tmpPages = [[NSMutableArray alloc]init];
+        NSInteger idx = 0;
+        for (TopCategory *category in categories) {
+            for (TopPage *page in orderedPages) {
+                if ([page.topCategory isEqual:category]) {
+                    page.assignedIndex = idx;
+                    [tmpPages addObject:page];
+                    idx++;
+                }
+            }
+        }
+        [self cachePagesData:(NSArray *)tmpPages];
+    
+    NSMutableArray *pagesForCategory = [[NSMutableArray alloc]init];
+    for (TopPage *page in tmpPages) {
+        if ([page.topCategory isEqual:topCategory]) {
+            [pagesForCategory addObject:page];
+        }
+    }
+    
+    return (NSArray <TopPage *> *)pagesForCategory;
+}
+
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page{
-    return self.mainStructure[@"pages"][page.number];
+    return self.mainStructure[@"pages"][page.assignedIndex];
 }
 - (CGRect)askLayerRectFromStickerNumber:(NSInteger)number{
     NSString *stringRect = [self.stickers[@(number)] objectForKey:@"layer_rect"];

@@ -6,15 +6,17 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 @import UIKit;
 
 @interface TopControllersDirector : NSObject
-+ (id)sharedDirector;
++ (TopControllersDirector *)sharedDirector;
 
 - (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock;
 - (void)dismissUnPackController:(UIView *)unPackControllerView;
+- (UIViewController *)askVisualizedController;
 
-- (NSArray <UIViewController *>*) menuControllers;
+- (NSArray <UIViewController *>*)menuControllersSplitInCategories;
+- (void)changedVisualizedController:(UIViewController *)controller;
 
 @end

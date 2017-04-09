@@ -20,22 +20,17 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
 
 @interface TopStickSessionDirector ()<TileDragDelegateProtocol>{
     NSMutableArray <TopTileSticker *> * _tileStickers;
-    TopPageController *_pageController;
 }
 @end
 
 @implementation TopStickSessionDirector
-
+- (TopPageController *)currentPageController{
+    return (TopPageController*)[[TopControllersDirector sharedDirector] askVisualizedController];
+}
 + (id)sharedDirector{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedStickSessionDirector = [[self alloc] init];
-        for (UIViewController *controller in [[TopControllersDirector sharedDirector]menuControllers]) {
-            if ([controller isKindOfClass:[TopPageController class]]) {
-                sharedStickSessionDirector->_pageController = controller;
-                break;
-            }
-        }
     });
     return sharedStickSessionDirector;
 }
@@ -181,6 +176,29 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     }
     [TopBackendLessUserData addTmpStickers:numbers toUser:user completion:^(BOOL success, NSError *error) {}];
 }
+#pragma mark - pragmatical functions -
+-(void)autoLoadsDoublesCompletion:(void(^)(void))completion{
+    NSArray *copyStickers = [NSArray arrayWithArray:_tileStickers];
+    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
+    
+    NSMutableArray *doubles = [[NSMutableArray alloc]init];
+    NSMutableArray *doublesStickers = [[NSMutableArray alloc]init];
+
+    for (TopTileSticker *topSticker in copyStickers) {
+        if ([[[TopAppDelegate topAppDelegate].topUser stickers] containsObject:@(topSticker.number)]) {
+            [doubles addObject:@(topSticker.number)];
+            [doublesStickers addObject:topSticker];
+        }
+    }
+    [TopBackendLessUserData addStickers:doubles toUser:user completion:^(BOOL success, NSError *error) {
+        for (TopTileSticker *sticker in doublesStickers) {
+            [self removeTileView:sticker];
+        }
+        completion();
+    }];
+}
+
+
 #pragma mark - privates -
 -(void)checkTileView:(TopTileSticker *)tileView
            withPoint:(CGPoint)point
@@ -205,9 +223,10 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                inRect:(void(^)(UIView *view))inRectBlock
               outRect:(void(^)(UIView *view))outRectBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
-    for (UIView *view in [(BasePageViewController *)[_pageController currentController] photoStickerViews]) {
-        CGRect rect  = [view convertRect:view.bounds toView:[_pageController currentController].view];
-        CGPoint convertedPoint = [mainController.view convertPoint:point toView:[_pageController currentController].view];
+    
+    for (UIView *view in [(BasePageViewController *)[[self currentPageController] currentController] photoStickerViews]) {
+        CGRect rect  = [view convertRect:view.bounds toView:[[self currentPageController] currentController].view];
+        CGPoint convertedPoint = [mainController.view convertPoint:point toView:[[self currentPageController] currentController].view];
         if (CGRectContainsPoint(rect, convertedPoint)) {
             inRectBlock(view);
         }else{

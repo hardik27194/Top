@@ -19,12 +19,12 @@ static TopControllersDirector *sharedControllersDirector = nil;
 
 @interface TopControllersDirector (){
     NSMutableArray *_menuControllers;
-
+    UIViewController *_visualizedController;
 }
 @end
 
 @implementation TopControllersDirector
-+ (id)sharedDirector{
++ (TopControllersDirector* )sharedDirector{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedControllersDirector = [[self alloc] init];
@@ -32,31 +32,33 @@ static TopControllersDirector *sharedControllersDirector = nil;
     return sharedControllersDirector;
 }
 
-- (NSArray <UIViewController *>*) menuControllers{
+- (NSArray <UIViewController *>*)menuControllersSplitInCategories{
     
     if (_menuControllers != nil) {
         return _menuControllers;
     }
     _menuControllers = [[NSMutableArray alloc]init];
 
+    NSArray <TopCategory *> *categories = [[TopStickersDirector sharedDirector] askTopCategories];
     
-    NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPages];
     NSMutableArray *pages = [[NSMutableArray alloc]init];
-    
-    
-    for (TopPage *page in dataArray) {
-        BasePageViewController *controller = [TopLayoutFactory layoutFromTopPage:page];
-        if (controller) {
-            [pages addObject:controller];
+
+    for (TopCategory *category in categories) {
+        NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPagesForCategory:category];
+        NSMutableArray *pages = [[NSMutableArray alloc]init];
+        for (TopPage *page in dataArray) {
+            BasePageViewController *controller = [TopLayoutFactory layoutFromTopPage:page];
+            if (controller) {
+                [pages addObject:controller];
+            }
         }
+        TopPageController *topPageController = [[TopPageController alloc]initWithPages:pages];
+        [_menuControllers addObject:topPageController];
     }
-    TopPageController *topPageController = [[TopPageController alloc]initWithPages:pages];
-    
-    
-    [_menuControllers addObject:topPageController];
-    
     return _menuControllers;
 }
+
+#pragma mark - unpack controller -
 - (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     TopUnpackControllerView *unPackControllerView = [TopUnpackControllerView unPackView];
@@ -79,5 +81,14 @@ static TopControllersDirector *sharedControllersDirector = nil;
         unPackView.endingBlock(nil);
         [unPackView removeFromSuperview];
     }];
+}
+
+#pragma mark - menu visualized controller -
+-(UIViewController *)askVisualizedController{
+    return _visualizedController;
+}
+#pragma mark - observers methods -
+-(void)changedVisualizedController:(UIViewController *)controller{
+    _visualizedController = controller;
 }
 @end

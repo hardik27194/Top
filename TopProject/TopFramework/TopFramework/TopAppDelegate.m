@@ -24,11 +24,14 @@
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] menuControllers];
     
+    // to do : implement differents navigations for ipad and iphone
+    
+    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] menuControllersSplitInCategories];
     TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]initWithControllers:menuControllers];
-    
     self.viewController = [[TopSideMenu alloc]initWithMenuController:menuTmpl1];
+    
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     

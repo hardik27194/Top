@@ -18,5 +18,6 @@ FOUNDATION_EXPORT const unsigned char TopFrameworkVersionString[];
 
 #import <TopFramework/TopObject.h>
 #import <TopFramework/TopPage.h>
+#import <TopFramework/TopCategory.h>
 #import <TopFramework/TopAppDelegate.h>
 #import <TopFramework/TopBackendLessConfiguration.h>

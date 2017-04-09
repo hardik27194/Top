@@ -45,7 +45,7 @@
             self.layer.contentsRect = layerRect;
             self.layer.masksToBounds = YES;
         }];
-        UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 50, 50)];
+        UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 70, 50)];
         numberLabel.font = [UIFont systemFontOfSize:30];
         numberLabel.textAlignment = NSTextAlignmentCenter;
         numberLabel.textColor = [UIColor whiteColor];

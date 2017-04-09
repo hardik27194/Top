@@ -58,10 +58,19 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIa-VK-BuA">
+                    <rect key="frame" x="160" y="617" width="55" height="30"/>
+                    <state key="normal" title="doubles"/>
+                    <connections>
+                        <action selector="autoloadDoubles" destination="iN0-l3-epB" eventType="touchUpInside" id="N98-18-hea"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="KGo-47-vYa" secondAttribute="trailing" constant="109" id="Ctv-eZ-rz3"/>
+                <constraint firstAttribute="bottom" secondItem="yIa-VK-BuA" secondAttribute="bottom" constant="20" id="Ic7-6K-ZdA"/>
+                <constraint firstItem="yIa-VK-BuA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="aYb-St-Hzm"/>
                 <constraint firstItem="KGo-47-vYa" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="c9j-k7-lXV"/>
                 <constraint firstItem="KGo-47-vYa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="92" id="g0h-jT-vrK"/>
                 <constraint firstItem="KGo-47-vYa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="108" id="wDs-jh-KqR"/>

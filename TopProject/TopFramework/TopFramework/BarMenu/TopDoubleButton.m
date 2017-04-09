@@ -18,7 +18,9 @@
     }
     return self;
 }
--(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL success))completion{
+#pragma mark - public -
+-(void)handleStickerNumber:(NSInteger)number
+                completion:(void (^)(BOOL success))completion{
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
     [self checkDouble:number completion:^(BOOL isDouble) {
         if (isDouble) {
@@ -30,6 +32,21 @@
         }
     }];
 }
+
+-(void)relax{
+    self.backgroundColor = [UIColor lightGrayColor];
+}
+-(void)highlightWithNumber:(NSInteger)number{
+    [self checkDouble:number
+           completion:^(BOOL isDouble) {
+               if (isDouble) {
+                   self.backgroundColor = [UIColor purpleColor];
+               }else{
+                   self.backgroundColor = [UIColor yellowColor];
+               }
+    }];
+}
+#pragma mark - private -
 -(void)checkDouble:(NSInteger)number completion:(void (^)(BOOL isDouble))completion{
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
     if ([user.stickers containsObject:@(number)]) {
@@ -38,18 +55,4 @@
         completion(false);
     }
 }
--(void)relax{
-    self.backgroundColor = [UIColor lightGrayColor];
-}
--(void)highlightWithNumber:(NSInteger)number{
-    [self checkDouble:number
-           completion:^(BOOL isDouble) {
-               if (isDouble) {
-                   self.backgroundColor = [UIColor greenColor];
-               }else{
-                   self.backgroundColor = [UIColor yellowColor];
-               }
-    }];
-}
-
 @end

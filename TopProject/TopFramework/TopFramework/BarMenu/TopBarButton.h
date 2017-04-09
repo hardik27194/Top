@@ -11,6 +11,7 @@
 @interface TopBarButton : UIButton
 @property (nonatomic,weak) UILabel *iconLabel;
 @property (nonatomic,weak) UILabel *valueLabel;
+-(void)pressed;
 -(void)update;
 -(void)relax;
 -(void)highlightWithNumber:(NSInteger)number;

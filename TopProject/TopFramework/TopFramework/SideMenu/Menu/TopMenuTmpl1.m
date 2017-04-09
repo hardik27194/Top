@@ -18,6 +18,15 @@
 #import "TopAppDelegate.h"
 #import "TopPacketsDirector.h"
 
+@interface controllerButton : UIButton
+@property (nonatomic,strong) UIViewController *controller;
+@end
+@implementation controllerButton
+
+
+
+@end
+
 @interface TopMenuTmpl1 ()
 @end
 
@@ -37,106 +46,63 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor brownColor];
     
+    NSInteger offsetY = 40;
     UIButton *buttonRegister = [UIButton buttonWithType:UIButtonTypeCustom];
     buttonRegister.backgroundColor = [UIColor whiteColor];
     [buttonRegister setTitle:@"register" forState:UIControlStateNormal];
     [buttonRegister setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    buttonRegister.frame = CGRectMake(10, 200, 100, 50);
+    buttonRegister.frame = CGRectMake(10, offsetY, 100, 50);
     buttonRegister.layer.cornerRadius = 10;
     buttonRegister.layer.borderColor = [UIColor blackColor].CGColor;
     buttonRegister.layer.borderWidth = 2;
     [buttonRegister addTarget:self action:@selector(registerUser) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonRegister];
-    
+    offsetY+=60;
     UIButton *buttonLogin = [UIButton buttonWithType:UIButtonTypeCustom];
     buttonLogin.backgroundColor = [UIColor whiteColor];
     [buttonLogin setTitle:@"login" forState:UIControlStateNormal];
     [buttonLogin setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    buttonLogin.frame = CGRectMake(10, 260, 100, 50);
+    buttonLogin.frame = CGRectMake(10, offsetY, 100, 50);
     buttonLogin.layer.cornerRadius = 10;
     buttonLogin.layer.borderColor = [UIColor blackColor].CGColor;
     buttonLogin.layer.borderWidth = 2;
     [buttonLogin addTarget:self action:@selector(loginUser) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonLogin];
-    
+    offsetY+=60;
+
     UIButton *buttonLogout = [UIButton buttonWithType:UIButtonTypeCustom];
     buttonLogout.backgroundColor = [UIColor whiteColor];
     [buttonLogout setTitle:@"logout" forState:UIControlStateNormal];
     [buttonLogout setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    buttonLogout.frame = CGRectMake(10, 320, 100, 50);
+    buttonLogout.frame = CGRectMake(10, offsetY, 100, 50);
     buttonLogout.layer.cornerRadius = 10;
     buttonLogout.layer.borderColor = [UIColor blackColor].CGColor;
     buttonLogout.layer.borderWidth = 2;
     [buttonLogout addTarget:self action:@selector(logoutUser) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buttonLogout];
+    offsetY+=60;
+
+    for (UIViewController *controller in self.menuControllers) {
+        controllerButton *buttonController = [controllerButton buttonWithType:UIButtonTypeCustom];
+        buttonController.frame = CGRectMake(10, offsetY, 100, 60);
+        [buttonController setTitle:@"controller" forState:UIControlStateNormal];
+        [buttonController setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        buttonController.layer.borderColor = [UIColor blackColor].CGColor;
+        buttonController.layer.borderWidth = 2;
+        buttonController.backgroundColor = [UIColor whiteColor];
+        buttonController.controller = controller;
+        [buttonController addTarget:self action:@selector(selectControllerFromButton:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:buttonController];
+        offsetY+=70;
+
+    }
     
-    
-    UIButton *addSticker = [UIButton buttonWithType:UIButtonTypeCustom];
-    addSticker.backgroundColor = [UIColor whiteColor];
-    [addSticker setTitle:@"add Sticker" forState:UIControlStateNormal];
-    [addSticker setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    addSticker.frame = CGRectMake(10, 380, 150, 50);
-    addSticker.layer.cornerRadius = 10;
-    addSticker.layer.borderColor = [UIColor blackColor].CGColor;
-    addSticker.layer.borderWidth = 2;
-    [addSticker addTarget:self action:@selector(addSticker) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:addSticker];
-    
-    UIButton *removeSticker = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeSticker.backgroundColor = [UIColor whiteColor];
-    [removeSticker setTitle:@"remove Sticker" forState:UIControlStateNormal];
-    [removeSticker setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    removeSticker.frame = CGRectMake(10, 440, 150, 50);
-    removeSticker.layer.cornerRadius = 10;
-    removeSticker.layer.borderColor = [UIColor blackColor].CGColor;
-    removeSticker.layer.borderWidth = 2;
-    [removeSticker addTarget:self action:@selector(removeSticker) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:removeSticker];
-    
-    UIButton *unpack = [UIButton buttonWithType:UIButtonTypeCustom];
-    unpack.backgroundColor = [UIColor whiteColor];
-    [unpack setTitle:@"UnPack" forState:UIControlStateNormal];
-    [unpack setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    unpack.frame = CGRectMake(10, 500, 150, 50);
-    unpack.layer.cornerRadius = 10;
-    unpack.layer.borderColor = [UIColor blackColor].CGColor;
-    unpack.layer.borderWidth = 2;
-    [unpack addTarget:self action:@selector(unPack) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:unpack];
     // Do any additional setup after loading the view.
 }
-
--(void)removeSticker{
-
-    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
-    [TopBackendLessUserData removeStickers:@[@2]
-                                  fromUser:user
-                                completion:^(BOOL success, NSError *error) {
-                                    if (success) {
-                                        NSLog(@"added a sticker");
-                                    }
-                                    
-                                    if (error) {
-                                        NSLog(@"error : %@",error.domain);
-                                    }
-                                }];
-
+- (void)selectControllerFromButton:(controllerButton *)button{
+    [self.delegate TOPSMDidSelectController:button.controller];
 }
 
--(void)addSticker{
-    TopUser *user = [TopAppDelegate topAppDelegate].topUser;
-    [TopBackendLessUserData addStickers:@[@2,@2,@1]
-                                toUser:user
-                            completion:^(BOOL success, NSError *error) {
-        if (success) {
-            NSLog(@"added a sticker");
-        }
-        
-        if (error) {
-            NSLog(@"error : %@",error.domain);
-        }
-    }];
-}
 -(void)loginUser{
     [TopBackendLessUserData loginUserWithEmail:@"pippoFranco@libero.it"
                                            pwd:@"qwerty"
@@ -146,11 +112,7 @@
         
                                         if ([TopAppDelegate topAppDelegate].topUser != nil) {
                                             NSLog(@"login success !!");
-                                            
-//                                            [TopBackendLessUserData addStickers:@[@1,@2,@3,@4,@7] toUser:[TopAppDelegate topAppDelegate].topUser completion:^(BOOL success, NSError *error) {
-//                                                
-//                                            }];
-                                        }
+                                                                               }
         
     }];
 }

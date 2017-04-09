@@ -10,6 +10,7 @@
 #import "TopBarButton.h"
 #import "TopPacketsButton.h"
 #import "TopDoubleButton.h"
+#import "TopTempsButton.h"
 
 @interface TopBarMenu : UIView
 -(void)addButton:(TopBarButton *)button;

@@ -27,6 +27,10 @@
 @synthesize pl_5;
 @synthesize pl_6;
 
+- (TopCategory *)retrieveCategory{
+    return _tPage.topCategory;
+}
+
 - (instancetype)initWithTopPage:(TopPage *)topPage
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];
