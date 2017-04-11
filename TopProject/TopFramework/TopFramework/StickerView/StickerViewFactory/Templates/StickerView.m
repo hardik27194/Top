@@ -21,7 +21,13 @@
     StickerView *view = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
     return view;
 }
-
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 -(void)photoWithUrl:(NSURL *)photoUrl completion:(void(^)(UIImage* image))photoBlock{
     if (self.photo != nil) {
@@ -35,7 +41,7 @@
         dispatch_async(downloadQueue, ^{
             NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
             dispatch_async(callerQueue, ^{
-                self.photo= [UIImage imageWithData:imageData];
+                self.photo = [self imageWithImage:[UIImage imageWithData:imageData] scaledToSize:self.bounds.size];
                 photoBlock(self.photo);
             });
         });

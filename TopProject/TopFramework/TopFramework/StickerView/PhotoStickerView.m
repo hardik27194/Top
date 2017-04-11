@@ -47,6 +47,7 @@
     }];
    
 }
+
 -(void)showStickerPhoto{
     if (CGRectEqualToRect(self.layerRect, CGRectZero)) {
         return;
@@ -56,8 +57,9 @@
         if (image == nil) {
             return;
         }
+        
         self.layer.contents = (__bridge id)image.CGImage;
-//        self.layer.contentsGravity = kCAGravityResizeAspectFill;
+       self.layer.contentsGravity = kCAGravityResizeAspect;
         self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
