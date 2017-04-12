@@ -16,7 +16,7 @@
 @end
 @interface PhotoStickerView : UIView
 - (instancetype)initWithNumber:(NSNumber *)number;
-
+- (void)removeUnCompletedStyle;
 
 @property (nonatomic,assign) id<PhotoStickerViewProtocol> delegate;
 @property (nonatomic,assign) NSInteger number;

@@ -8,9 +8,11 @@
 
 #import "StickerView.h"
 
-@interface StickerView()<PhotoStickerViewProtocol>{
+@interface StickerView()<PhotoStickerViewProtocol,PhotoContainerStickerViewProtocol>{
     TopObject *_tObject;
     NSMutableArray *_requests;
+    BOOL found;
+    
 }
 @property (nonatomic,strong) UIImage *photo;
 @end
@@ -49,6 +51,7 @@
 
 
 -(void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers{
+    found = NO;
     _tObject = topObject;
     self.numberStickers = numbers;
     _requests = [[NSMutableArray alloc]init];
@@ -56,6 +59,7 @@
     grid.columns = _tObject.columns;
     grid.rows = _tObject.rows;
     self.photoContainer.grid = grid;
+    self.photoContainer.containerDelegate = self;
     [self.photoContainer buildStickersFromNumbers:self.numberStickers
                                       andDelegate:self];
 
@@ -96,5 +100,19 @@
         foundBlock([foundStickers containsObject:@(stickerNumberView.number)]);
     }];
 }
-
+-(void)photoContainer:(PhotoContainerStickersView *)photoContainer cointainerIsCompleted:(BOOL)completed{
+    found = completed;
+    self.backgroundColor = [UIColor redColor];
+}
+#pragma mark - handle tap -
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    NSLog(@"tap sticker :%@",self);
+     // handle tap animation!
+    
+    
+    if (found){
+    
+    
+    }
+}
 @end

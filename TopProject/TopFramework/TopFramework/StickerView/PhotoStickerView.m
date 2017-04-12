@@ -59,7 +59,7 @@
         }
         
         self.layer.contents = (__bridge id)image.CGImage;
-       self.layer.contentsGravity = kCAGravityResizeAspect;
+//       self.layer.contentsGravity = kCAGravityResizeAspect;
         self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
@@ -68,6 +68,9 @@
     self.layer.contents = nil;
     self.backgroundColor = [UIColor lightGrayColor];
 }
-
+-(void)removeUnCompletedStyle{
+    self.layer.borderWidth = 0;
+    self.layer.borderColor = [UIColor clearColor].CGColor;
+}
 
 @end

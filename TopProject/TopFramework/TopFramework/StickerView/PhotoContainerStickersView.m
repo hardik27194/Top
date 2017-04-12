@@ -64,6 +64,9 @@
     CGFloat frame_portion_width = self.bounds.size.width/self.grid.columns;
     CGFloat frame_portion_height = self.bounds.size.height/self.grid.rows;
 
+    
+    BOOL completed = YES;
+
     for (int row = 0; row < self.grid.rows; row ++) {
         for (int column = 0; column < self.grid.columns; column ++) {
 
@@ -71,12 +74,23 @@
             CGFloat f_originY = row *frame_portion_height;
             CGRect frameRect = CGRectMake(f_originX, f_originY, frame_portion_width, frame_portion_height);
             PhotoStickerView *view = self.stickerPhotos[index];
+            
             view.layerRect = [[TopStickersDirector sharedDirector] askLayerRectFromStickerNumber:view.number];
+            completed &= view.found;
 
             view.frame = frameRect;
             [view layoutSubviews];
             index++;
         }
     }
+    if (completed == NO) {
+        return;
+    }
+    
+    [self.containerDelegate photoContainer:self cointainerIsCompleted:YES];
+    for (PhotoStickerView *view in self.photoStickerViews) {
+        [view removeUnCompletedStyle];
+    }
+        
 }
 @end

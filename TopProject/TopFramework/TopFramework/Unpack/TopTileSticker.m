@@ -49,7 +49,7 @@
         [self photoWithUrl:urlImage completion:^(UIImage *image) {
             UIImage *resizedImage = [self imageWithImage:image scaledToSize:self.bounds.size];
             self.layer.contents = (__bridge id)resizedImage.CGImage;
-            self.layer.contentsGravity = kCAGravityResizeAspect;
+          //  self.layer.contentsGravity = kCAGravityResizeAspect;
             self.layer.contentsRect = layerRect;
             self.layer.masksToBounds = YES;
         }];
