@@ -106,13 +106,8 @@
 }
 #pragma mark - handle tap -
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSLog(@"tap sticker :%@",self);
-     // handle tap animation!
-    
-    
     if (found){
-    
-    
+        [self.delegate tappedStickerView:self];
     }
 }
 @end

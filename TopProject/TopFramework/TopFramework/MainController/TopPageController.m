@@ -83,7 +83,21 @@
     [self.pageController didMoveToParentViewController:self];
     
    // self.view.gestureRecognizers = self.pageController.gestureRecognizers;
+    self.view.gestureRecognizers = self.pageController.gestureRecognizers;
     
+    // Find the tap gesture recognizer so we can remove it!
+    UIGestureRecognizer* tapRecognizer = nil;
+    for (UIGestureRecognizer* recognizer in self.pageController.gestureRecognizers) {
+        if ( [recognizer isKindOfClass:[UITapGestureRecognizer class]] ) {
+            tapRecognizer = recognizer;
+            break;
+        }
+    }
+    
+    if ( tapRecognizer ) {
+        [self.view removeGestureRecognizer:tapRecognizer];
+        [self.pageController.view removeGestureRecognizer:tapRecognizer];
+    }
 }
 - (UIViewController *)currentController{
     return _currentController;

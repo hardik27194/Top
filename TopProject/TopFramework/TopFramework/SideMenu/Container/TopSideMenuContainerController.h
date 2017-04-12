@@ -16,4 +16,7 @@
 - (void)removeController:(UIViewController *)controller;
 - (UIViewController *)contentController;
 
+
+- (void)addOverlayWithAnimationCompletion:(void(^)(void))completion;
+- (void)removeOverlayWithAnimationCompletion:(void(^)(void))completion;
 @end

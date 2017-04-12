@@ -13,6 +13,7 @@
 
 @interface TopSideMenuContainerController (){
     UIViewController *_contentController;
+    UIView *_overlay;
 }
 @property (nonatomic,weak) IBOutlet UIView *contentControllerView;
 @property (nonatomic,strong) TopCategory *category;
@@ -32,6 +33,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIView *overlayView = [[UIView alloc]initWithFrame:self.view.bounds];
+    overlayView.backgroundColor = [UIColor blackColor];
+    overlayView.alpha = 0;
+    [self.view addSubview:overlayView];
+    _overlay = overlayView;
+    
     TopPacketsButton *packetsButton = [[TopPacketsButton alloc]init];
     [self.menu addButton:packetsButton];
     TopDoubleButton *doubleButton = [[TopDoubleButton alloc]init];
@@ -77,5 +85,26 @@
 }
 -(void)updateStyle{
     self.view.backgroundColor = [TopStyle colorFromHexString:self.category.mainColor withAlpha:1];
+}
+#pragma mark - overlay -
+-(void)addOverlayWithAnimationCompletion:(void(^)(void))completion{
+   
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _overlay.alpha = 0.8;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
+}
+-(void)removeOverlayWithAnimationCompletion:(void (^)(void))completion{
+    if (_overlay == nil) {
+        completion();
+        return;
+    }
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        _overlay.alpha = 0;
+    } completion:^(BOOL finished) {
+        completion();
+    }];
 }
 @end

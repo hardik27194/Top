@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface TopConfiguration : NSObject
+@property (nonatomic,strong) NSString *detailViewId;
 @property (nonatomic,strong) NSString *stickerViewId;
 @property (nonatomic,assign) BOOL splitCategories;
 @end

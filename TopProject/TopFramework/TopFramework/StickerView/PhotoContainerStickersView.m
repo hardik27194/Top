@@ -76,10 +76,11 @@
             PhotoStickerView *view = self.stickerPhotos[index];
             
             view.layerRect = [[TopStickersDirector sharedDirector] askLayerRectFromStickerNumber:view.number];
-            completed &= view.found;
 
             view.frame = frameRect;
             [view layoutSubviews];
+            completed &= view.found;
+
             index++;
         }
     }
@@ -91,6 +92,6 @@
     for (PhotoStickerView *view in self.photoStickerViews) {
         [view removeUnCompletedStyle];
     }
-        
 }
+
 @end

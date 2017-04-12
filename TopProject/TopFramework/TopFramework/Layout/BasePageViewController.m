@@ -10,8 +10,11 @@
 #import "TopAppDelegate.h"
 #import "TopStickersDirector.h"
 #import "StickerViewFactory.h"
+#import "TopDetailViewFactory.h"
+#import "TopSideMenu.h"
+#import "TopSideMenuContainerController.h"
 
-@interface BasePageViewController ()<StickerViewProtocol>{
+@interface BasePageViewController ()<StickerViewProtocol,TopDetailViewProtocol>{
     NSMutableArray *_stickerViews;
 }
 @property (nonatomic,strong) TopPage *tPage;
@@ -75,9 +78,6 @@
         [stickerView layoutSubviews];
     }];
 }
--(void)stickerView:(StickerView *)stickerView askFoundStickers:(void (^)(NSArray *))foundStickers{
-    foundStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
-}
 
 -(void)enumTopObject:(void(^)(TopObject *tObject,NSInteger index))tObjectBlock{
     NSInteger i = 0;
@@ -92,6 +92,57 @@
         [photoStickerViews addObjectsFromArray:[sView photoStickerViews]];
     }
     return photoStickerViews;
+}
+#pragma mark - delegates -
+-(void)stickerView:(StickerView *)stickerView askFoundStickers:(void (^)(NSArray *))foundStickers{
+    foundStickers([[TopAppDelegate topAppDelegate].topUser stickers]);
+}
+
+-(void)tappedStickerView:(StickerView *)stickerView{
+    
+    
+    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    TopSideMenuContainerController *container = (TopSideMenuContainerController *)[(TopSideMenu *)mainController containerController];
+    [container addOverlayWithAnimationCompletion:^{}];
+
+    
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
+    TopDetailView *detailView = [TopDetailViewFactory detailViewFromIdentifier:topConfiguration.configuration.detailViewId];
+    detailView.detailProtocol = self;
+    
+    [container.view addSubview:detailView];
+    CGRect beginFrame = [stickerView convertRect:stickerView.bounds toView:container.view];
+    detailView.frame = beginFrame;
+    detailView.beginFrame = beginFrame;
+    [detailView layoutIfNeeded];
+
+   
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        detailView.frame = CGRectInset(container.view.bounds, 20, 20);
+        [detailView layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [detailView layoutIfNeeded];
+
+    }];
+
+    
+}
+#pragma mark - detail delegates -
+-(void)topDetailView:(TopDetailView *)detailView askCloseWithData:(id)data{
+    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    TopSideMenuContainerController *container = (TopSideMenuContainerController *)[(TopSideMenu *)mainController containerController];
+    [container removeOverlayWithAnimationCompletion:^{}];
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        detailView.frame = detailView.beginFrame;
+
+        [detailView layoutIfNeeded];
+
+    } completion:^(BOOL finished) {
+        [detailView removeFromSuperview];
+    }];
 }
 
 @end

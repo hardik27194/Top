@@ -14,6 +14,7 @@
 
 @protocol StickerViewProtocol <NSObject>
 -(void)stickerView:(StickerView *)stickerView askFoundStickers:(void(^)(NSArray *foundStickers))foundStickers;
+-(void)tappedStickerView:(StickerView *)stickerView;
 @end
 
 @interface StickerView : UIView
