@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TopPacket.h"
+#import "TopPacketFactory.h"
 
 @interface TopPacketsDirector : NSObject
 + (id)sharedDirector;
-- (void)createNewPacket:(void (^)(TopPacket *packet))packetBlock;
+-(void)createNewPacket:(void (^)(TopPacket *packet))packetBlock type:(TopPacketType)type;
 
 @end

@@ -20,5 +20,6 @@ typedef enum{
 
 @interface Chance : NSObject
 +(TopRarityLevel)randomRarity;
++(TopRarityLevel)luck:(NSInteger)luckyLevel;
 
 @end

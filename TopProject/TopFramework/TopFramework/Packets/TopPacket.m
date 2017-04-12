@@ -7,6 +7,9 @@
 //
 
 #import "TopPacket.h"
+#import "Chance.h"
+
+
 @interface TopPacket (){
     NSArray <NSNumber *> *_stickers;
 }
@@ -32,5 +35,64 @@
     [description appendString:@" >"];
     
     return description;
+}
+@end
+
+@implementation TopSimplePacket
+
++ (NSArray<NSNumber *> *)types{
+    NSNumber *first = @(TopRarityLevel_Common);
+    NSNumber *second = @(TopRarityLevel_Uncommon);
+    NSNumber *third = @([Chance luck:0]);
+    NSNumber *fourth = @(TopRarityLevel_Rare);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
+}
+@end
+
+@implementation TopUncommonPacket
+
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @(TopRarityLevel_Common);
+    NSNumber *second = @(TopRarityLevel_Common);
+    NSNumber *third = @(TopRarityLevel_Uncommon);
+    NSNumber *fourth = @([Chance luck:1]);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
+}
+@end
+
+@implementation TopRarePacket
+
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @(TopRarityLevel_Uncommon);
+    NSNumber *second = @([Chance luck:1]);
+    NSNumber *third = @([Chance luck:2]);
+    NSNumber *fourth = @([Chance luck:2]);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
+}
+@end
+
+@implementation TopUltraRarePacket
+
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @([Chance luck:1]);
+    NSNumber *second = @([Chance luck:2]);
+    NSNumber *third = @([Chance luck:2]);
+    NSNumber *fourth = @([Chance luck:3]);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
+}
+@end
+
+@implementation TopLegendaryPacket
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @([Chance luck:1]);
+    NSNumber *second = @([Chance luck:3]);
+    NSNumber *third = @([Chance luck:3]);
+    NSNumber *fourth = @([Chance luck:4]);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
 }
 @end

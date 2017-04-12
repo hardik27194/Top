@@ -30,4 +30,51 @@ static NSMutableArray *raritySource;
     NSInteger randomNumber = arc4random() % raritySource.count;
     return (TopRarityLevel)[raritySource[randomNumber] integerValue];
 }
++(TopRarityLevel)luck:(NSInteger)luckyLevel{
+
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+    switch (luckyLevel) {
+        case 0:{
+            for (int i = 0; i< 3; i++) {
+                [arr addObject:@(TopRarityLevel_Common)];
+            }
+            [arr addObject:@(TopRarityLevel_Uncommon)];
+        }
+            break;
+        case 1:{
+            for (int i = 0; i< 5; i++) {
+                [arr addObject:@(TopRarityLevel_Uncommon)];
+            }
+            [arr addObject:@(TopRarityLevel_Rare)];
+        }
+            
+            break;
+        case 2:{
+            for (int i = 0; i< 10; i++) {
+                [arr addObject:@(TopRarityLevel_Rare)];
+            }
+            [arr addObject:@(TopRarityLevel_UltraRare)];
+        }
+        case 3:{
+            for (int i = 0; i< 2; i++) {
+                [arr addObject:@(TopRarityLevel_Rare)];
+            }
+            [arr addObject:@(TopRarityLevel_UltraRare)];
+        }
+        case 4:{
+            for (int i = 0; i< 40; i++) {
+                [arr addObject:@(TopRarityLevel_UltraRare)];
+            }
+            [arr addObject:@(TopRatityLevel_Impossible)];
+        }
+            break;
+        
+        default:
+            break;
+    }
+    
+    NSInteger randomNumber = arc4random() % arr.count;
+    return (TopRarityLevel)[arr[randomNumber] integerValue];
+}
+
 @end

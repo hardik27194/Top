@@ -12,6 +12,7 @@
 #import "TopBackendLessUserData.h"
 #import "TopAppDelegate.h"
 
+
 static TopPacketsDirector *sharedPacketDirector = nil;
 
 @implementation TopPacketsDirector
@@ -25,16 +26,17 @@ static TopPacketsDirector *sharedPacketDirector = nil;
 }
 
 
--(void)createNewPacket:(void (^)(TopPacket *packet))packetBlock{
+-(void)createNewPacket:(void (^)(TopPacket *packet))packetBlock type:(TopPacketType)type{
     NSInteger total  = [[TopStickersDirector sharedDirector] askTotalStickers];
     if (total <= 0 ) {
         packetBlock(nil);
     }
     
     NSMutableArray *stickers = [[NSMutableArray alloc]init];
-    
-    for (int i = 0; i < 5; i++){
-         TopRarityLevel level = [Chance randomRarity];
+    Class packetClass = [TopPacketFactory packetClassFromType:type];
+    NSArray *levels = [packetClass types];
+    for (int i = 0; i < levels.count; i++){
+         TopRarityLevel level = (TopRarityLevel)[levels[i] integerValue];
         [[TopStickersDirector sharedDirector] askStickerNumberFromRarity:level
                                                               completion:^(NSInteger number, NSError *error) {
                                                                   if (!error) {
@@ -47,7 +49,7 @@ static TopPacketsDirector *sharedPacketDirector = nil;
     if (stickers.count != 5) {
         packetBlock(nil);
     }
-    TopPacket *packet = [[TopPacket alloc]initWithArray:stickers];
+    TopPacket *packet = [[packetClass alloc]initWithArray:stickers];
     
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
 

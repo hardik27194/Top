@@ -105,7 +105,7 @@
                index++;
            }
        }];
-   }];
+   } type:TopPacketType_Legendary];
 }
 -(void)animateTile:(TopTileSticker *)tileSticker
             toRect:(CGRect)rect{
