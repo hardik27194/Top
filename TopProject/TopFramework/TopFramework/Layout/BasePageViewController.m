@@ -107,64 +107,37 @@
 
     
     TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
-    TopDetailView *detailView = [TopDetailViewFactory detailViewFromIdentifier:topConfiguration.configuration.detailViewId];
+    TopDetailView *detailView = [TopDetailViewFactory detailViewFromIdentifier:topConfiguration.configuration.detailViewId andFrame:CGRectInset(container.view.bounds, 20, 20)];
     detailView.detailProtocol = self;
+    detailView.shrinkedView = stickerView;
     
     [container.view addSubview:detailView];
-    CGRect beginFrame = [stickerView convertRect:stickerView.bounds toView:container.view];
-    detailView.frame = beginFrame;
-    detailView.beginFrame = beginFrame;
+    
+    detailView.centerPoint = [stickerView convertPoint:stickerView.center toView:container.view];
+    
+    [detailView willShrink];
+    [detailView shrink];
+    [detailView didShrink];
     
     detailView.tmpImage = stickerView.photo;
     [detailView updateWithTopObject:[stickerView topObject]];
     
-    CGAffineTransform initImageTransform = [self transformFromRect:detailView.imageView.frame toRect:stickerView.photoContainer.frame];
-    
-    detailView.imageView.transform = initImageTransform;
-    detailView.beginStickerPhotoFrame = stickerView.photoContainer.frame;
-    detailView.titleLabel.alpha = 0;
-    detailView.descriptionLabel.alpha = 0;
-    
     
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        detailView.frame = CGRectInset(container.view.bounds, 20, 20);
-        detailView.imageView.transform = CGAffineTransformIdentity;
-        detailView.titleLabel.alpha = 1;
-        detailView.descriptionLabel.alpha = 1;
-        [detailView layoutIfNeeded];
-
+        [detailView expand];
     } completion:^(BOOL finished) {
-        [detailView layoutIfNeeded];
-
     }];
-
-    
-}
-- (CGAffineTransform) transformFromRect:(CGRect)sourceRect
-                                 toRect:(CGRect)finalRect {
-    
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    transform = CGAffineTransformTranslate(transform, -(CGRectGetMidX(sourceRect)-CGRectGetMidX(finalRect)), -(CGRectGetMidY(sourceRect)-CGRectGetMidY(finalRect)));
-    transform = CGAffineTransformScale(transform, finalRect.size.width/sourceRect.size.width, finalRect.size.height/sourceRect.size.height);
-    
-    return transform;
 }
 #pragma mark - detail delegates -
 -(void)topDetailView:(TopDetailView *)detailView askCloseWithData:(id)data{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     TopSideMenuContainerController *container = (TopSideMenuContainerController *)[(TopSideMenu *)mainController containerController];
     [container removeOverlayWithAnimationCompletion:^{}];
-
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-        detailView.frame = detailView.beginFrame;
-//        detailView.imageView.transform = [self transformFromRect:<#(CGRect)#> toRect:<#(CGRect)#>];
-        detailView.titleLabel.alpha = 0;
-        detailView.descriptionLabel.alpha = 0;
-       [detailView layoutIfNeeded];
-
+    [detailView willShrink];
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewKeyframeAnimationOptionBeginFromCurrentState animations:^{
+        [detailView shrink];
     } completion:^(BOOL finished) {
+        [detailView didShrink];
         [detailView removeFromSuperview];
     }];
 }

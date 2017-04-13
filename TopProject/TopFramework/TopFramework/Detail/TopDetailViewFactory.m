@@ -7,25 +7,26 @@
 //
 
 #import "TopDetailViewFactory.h"
+#import "TopSimpleDetailView.h"
 
 static NSDictionary *details;
 
 @implementation TopDetailViewFactory
 +(void)load{
-    details = @{@"default":@"DetailViewTmpl0"};
+    details = @{@"default":[TopSimpleDetailView class]};
     
 }
-+(TopDetailView *)detailViewFromIdentifier:(NSString *)identifier{
++(TopDetailView *)detailViewFromIdentifier:(NSString *)identifier andFrame:(CGRect)frame{
     
     if(identifier == nil){
         return nil;
     }
-    NSString *detailViewNibName = details[identifier];
-    if (detailViewNibName == nil) {
-        detailViewNibName = details[@"default"];
+    Class detailViewClass = details[identifier];
+    if (detailViewClass == nil) {
+        detailViewClass = details[@"default"];
     }
     
-    TopDetailView *detailView = [TopDetailView detailViewWithIdentifier:detailViewNibName];
+    TopDetailView *detailView = [[detailViewClass alloc]initWithFrame:frame];
     return detailView;
 }
 @end

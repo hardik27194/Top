@@ -446,6 +446,8 @@
 		BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */; };
 		BDEAC7891E89BED80016502E /* PhotoStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC7871E89BED80016502E /* PhotoStickerView.h */; };
 		BDEAC78A1E89BED80016502E /* PhotoStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7881E89BED80016502E /* PhotoStickerView.m */; };
+		EA633F811EA02B090090BFF2 /* TopSimpleDetailView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA633F7F1EA02B090090BFF2 /* TopSimpleDetailView.h */; };
+		EA633F821EA02B090090BFF2 /* TopSimpleDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA633F801EA02B090090BFF2 /* TopSimpleDetailView.m */; };
 		EA9346401E9E985600A362A4 /* TopPacketFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = EA93463E1E9E985600A362A4 /* TopPacketFactory.h */; };
 		EA9346411E9E985600A362A4 /* TopPacketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93463F1E9E985600A362A4 /* TopPacketFactory.m */; };
 		EA9346511E9EC9A800A362A4 /* TopDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93464F1E9EC9A800A362A4 /* TopDetailView.m */; };
@@ -454,7 +456,6 @@
 		EA9346561E9ECCA900A362A4 /* TopDetailViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9346541E9ECCA900A362A4 /* TopDetailViewFactory.m */; };
 		EA9346591E9ECCE700A362A4 /* StickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9346571E9ECCE700A362A4 /* StickerView.m */; };
 		EA93465A1E9ECCE700A362A4 /* StickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA9346581E9ECCE700A362A4 /* StickerView.h */; };
-		EA93465D1E9ECD7F00A362A4 /* DetailViewTmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA93465C1E9ECD7F00A362A4 /* DetailViewTmpl0.xib */; };
 		EAF3FB8D1E8FA3E50037F4A8 /* Chance.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB8B1E8FA3E50037F4A8 /* Chance.h */; };
 		EAF3FB8E1E8FA3E50037F4A8 /* Chance.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB8C1E8FA3E50037F4A8 /* Chance.m */; };
 		EAF3FB921E8FEC7E0037F4A8 /* TopPacket.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB901E8FEC7E0037F4A8 /* TopPacket.h */; };
@@ -905,6 +906,8 @@
 		BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoContainerStickersView.m; sourceTree = "<group>"; };
 		BDEAC7871E89BED80016502E /* PhotoStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStickerView.h; sourceTree = "<group>"; };
 		BDEAC7881E89BED80016502E /* PhotoStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStickerView.m; sourceTree = "<group>"; };
+		EA633F7F1EA02B090090BFF2 /* TopSimpleDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSimpleDetailView.h; sourceTree = "<group>"; };
+		EA633F801EA02B090090BFF2 /* TopSimpleDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSimpleDetailView.m; sourceTree = "<group>"; };
 		EA93463E1E9E985600A362A4 /* TopPacketFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketFactory.h; sourceTree = "<group>"; };
 		EA93463F1E9E985600A362A4 /* TopPacketFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketFactory.m; sourceTree = "<group>"; };
 		EA93464F1E9EC9A800A362A4 /* TopDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDetailView.m; sourceTree = "<group>"; };
@@ -913,7 +916,6 @@
 		EA9346541E9ECCA900A362A4 /* TopDetailViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDetailViewFactory.m; sourceTree = "<group>"; };
 		EA9346571E9ECCE700A362A4 /* StickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickerView.m; sourceTree = "<group>"; };
 		EA9346581E9ECCE700A362A4 /* StickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickerView.h; sourceTree = "<group>"; };
-		EA93465C1E9ECD7F00A362A4 /* DetailViewTmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewTmpl0.xib; sourceTree = "<group>"; };
 		EAF3FB8B1E8FA3E50037F4A8 /* Chance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chance.h; sourceTree = "<group>"; };
 		EAF3FB8C1E8FA3E50037F4A8 /* Chance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chance.m; sourceTree = "<group>"; };
 		EAF3FB901E8FEC7E0037F4A8 /* TopPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacket.h; sourceTree = "<group>"; };
@@ -1776,7 +1778,8 @@
 		EA93465B1E9ECD0200A362A4 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				EA93465C1E9ECD7F00A362A4 /* DetailViewTmpl0.xib */,
+				EA633F7F1EA02B090090BFF2 /* TopSimpleDetailView.h */,
+				EA633F801EA02B090090BFF2 /* TopSimpleDetailView.m */,
 			);
 			path = Templates;
 			sourceTree = "<group>";
@@ -1887,6 +1890,7 @@
 				BD219FAC1E7EC9730040E092 /* downmix_info.h in Headers */,
 				BD219F5A1E7EC9730040E092 /* ParseContext.h in Headers */,
 				BD219EEB1E7EC9720040E092 /* UserService.h in Headers */,
+				EA633F811EA02B090090BFF2 /* TopSimpleDetailView.h in Headers */,
 				3DF28B2D1E83DB85005FAD92 /* TopMenuTmpl1.h in Headers */,
 				BD219FE31E7EC9730040E092 /* speex_bits.h in Headers */,
 				BD219F391E7EC9720040E092 /* IServiceCall.h in Headers */,
@@ -2260,7 +2264,6 @@
 				3DA342671E94E49D00BA5463 /* TopLayout4_Tmpl0.xib in Resources */,
 				BD1CC4C51E94303800628DF9 /* StickerViewTmpl1.xib in Resources */,
 				3DA342611E94E49D00BA5463 /* TopLayout1_Tmpl0.xib in Resources */,
-				EA93465D1E9ECD7F00A362A4 /* DetailViewTmpl0.xib in Resources */,
 				3DA342641E94E49D00BA5463 /* TopLayout3_Tmpl0.xib in Resources */,
 				BD1CC4BF1E942EF400628DF9 /* StickerViewTmpl0.xib in Resources */,
 			);
@@ -2300,6 +2303,7 @@
 				BD21A0D41E88016C0040E092 /* AFPropertyListRequestOperation.m in Sources */,
 				BD1CC4D41E97966900628DF9 /* TopTileSticker.m in Sources */,
 				3DF28B301E83DB85005FAD92 /* TopSideMenu.m in Sources */,
+				EA633F821EA02B090090BFF2 /* TopSimpleDetailView.m in Sources */,
 				BD21A0DA1E88016C0040E092 /* UIImageView+AFNetworking.m in Sources */,
 				BD0CABF11E97DF9300E49782 /* TopBarButton.m in Sources */,
 				3DF28B2E1E83DB85005FAD92 /* TopMenuTmpl1.m in Sources */,

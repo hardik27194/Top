@@ -10,6 +10,7 @@
 #import "TopDetailView.h"
 
 @interface TopDetailViewFactory : NSObject
-+(TopDetailView *)detailViewFromIdentifier:(NSString *)identifier;
++(TopDetailView *)detailViewFromIdentifier:(NSString *)identifier
+                                  andFrame:(CGRect)frame;
 
 @end

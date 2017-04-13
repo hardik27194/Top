@@ -16,16 +16,23 @@
 
 @end
 @interface TopDetailView : UIView
-@property (nonatomic,weak) IBOutlet UIImageView *imageView;
-@property (nonatomic,weak) IBOutlet UILabel *titleLabel;
-@property (nonatomic,weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic,weak)  UIImageView *imageView;
+@property (nonatomic,weak)  UILabel *titleLabel;
+@property (nonatomic,weak)  UILabel *descriptionLabel;
+
+@property (nonatomic,strong) UIView *shrinkedView;
+@property (nonatomic,assign) CGPoint centerPoint;
 
 @property (nonatomic,strong) UIImage *tmpImage;
 
-@property (nonatomic,assign) CGRect beginFrame;
-@property (nonatomic,assign) CGRect beginStickerPhotoFrame;
-
 @property (nonatomic,assign) id <TopDetailViewProtocol> detailProtocol;
-+ (id)detailViewWithIdentifier:(NSString *)identifier;
 - (void)updateWithTopObject:(TopObject *)topObject;
+
+
+- (void)willShrink;
+- (void)shrink;
+- (void)didShrink;
+- (void)expand;
+- (void)updateStyle;
+
 @end
