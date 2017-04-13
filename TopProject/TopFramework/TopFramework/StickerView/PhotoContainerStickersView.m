@@ -15,7 +15,6 @@
 
 @property (nonatomic,strong) NSMutableArray *stickerPhotos;
 
-@property (nonatomic,strong) UIImage *photo;
 
 @end
 @implementation PhotoContainerStickersView

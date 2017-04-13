@@ -14,13 +14,14 @@
     BOOL found;
     
 }
-@property (nonatomic,strong) UIImage *photo;
 @end
 @implementation StickerView
 + (id)stickerViewWithIdentifier:(NSString *)identifier {
     UINib *nib = [UINib nibWithNibName:identifier
                                 bundle:[NSBundle bundleForClass:[self class]]];
     StickerView *view = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:view action:@selector(pressSticker)];
+    [view addGestureRecognizer:tapGesture];
     return view;
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -85,7 +86,10 @@
 -(NSArray *)photoStickerViews{
     return [self.photoContainer photoStickerViews];
 }
-
+#pragma mark - retrieve -
+-(TopObject *)topObject{
+    return _tObject;
+}
 #pragma mark - delegates -
 -(void)photoStickerView:(PhotoStickerView *)stickerNumberView image:(void (^)(UIImage *))imageBlock{
     if (self.photo) {
@@ -105,7 +109,7 @@
     self.backgroundColor = [UIColor redColor];
 }
 #pragma mark - handle tap -
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+-(void)pressSticker{
     if (found){
         [self.delegate tappedStickerView:self];
     }

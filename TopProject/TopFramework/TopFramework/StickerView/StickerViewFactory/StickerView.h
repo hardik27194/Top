@@ -18,6 +18,7 @@
 @end
 
 @interface StickerView : UIView
+@property (nonatomic,strong) UIImage *photo;
 @property (nonatomic,weak) IBOutlet PhotoContainerStickersView *photoContainer;
 @property (nonatomic,weak) IBOutlet UILabel *stickerTitleLabel;
 @property (nonatomic,weak) IBOutlet UILabel *stickerDescriptionLabel;
@@ -29,5 +30,5 @@
 + (id)stickerViewWithIdentifier:(NSString *)identifier;
 - (void)updateFromTopObject:(TopObject *)topObject withNumbers:(NSArray *)numbers;
 - (NSArray *)photoStickerViews;
-
+- (TopObject *)topObject;
 @end
