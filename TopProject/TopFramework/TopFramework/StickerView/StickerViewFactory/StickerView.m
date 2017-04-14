@@ -7,6 +7,7 @@
 //
 
 #import "StickerView.h"
+#import "TopAppDelegate.h"
 
 @interface StickerView()<PhotoStickerViewProtocol,PhotoContainerStickerViewProtocol>{
     TopObject *_tObject;
@@ -22,6 +23,8 @@
     StickerView *view = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:view action:@selector(pressSticker)];
     [view addGestureRecognizer:tapGesture];
+    TopStyle *normalStyle = [TopAppDelegate topAppDelegate].topStyles[@"default_style"];
+    [view setStyle:normalStyle forState:TopViewStyleState_Normal];
     return view;
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {

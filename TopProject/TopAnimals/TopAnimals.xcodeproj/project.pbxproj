@@ -16,6 +16,7 @@
 		BD219FEF1E7EC98A0040E092 /* TopFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD219FED1E7EC98A0040E092 /* TopFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD21A08C1E84695B0040E092 /* TopAnimalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08B1E84695B0040E092 /* TopAnimalObject.m */; };
 		BD21A08F1E846A5B0040E092 /* TopAnimalPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */; };
+		EA90FCC41EA1930300B255B0 /* TopAnimalStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCC31EA1930300B255B0 /* TopAnimalStyler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		BD21A08B1E84695B0040E092 /* TopAnimalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalObject.m; sourceTree = "<group>"; };
 		BD21A08D1E846A5B0040E092 /* TopAnimalPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalPage.h; sourceTree = "<group>"; };
 		BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalPage.m; sourceTree = "<group>"; };
+		EA90FCC21EA1930300B255B0 /* TopAnimalStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalStyler.h; sourceTree = "<group>"; };
+		EA90FCC31EA1930300B255B0 /* TopAnimalStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalStyler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */,
 				BD0CAC231E9A42D200E49782 /* TopAnimalCategory.h */,
 				BD0CAC241E9A42D200E49782 /* TopAnimalCategory.m */,
+				EA90FCC21EA1930300B255B0 /* TopAnimalStyler.h */,
+				EA90FCC31EA1930300B255B0 /* TopAnimalStyler.m */,
 				BD219CD71E7EC82F0040E092 /* Assets.xcassets */,
 				BD219CD91E7EC82F0040E092 /* LaunchScreen.storyboard */,
 				BD219CDC1E7EC82F0040E092 /* Info.plist */,
@@ -181,6 +186,7 @@
 				BD21A08C1E84695B0040E092 /* TopAnimalObject.m in Sources */,
 				BD219CD01E7EC82F0040E092 /* AppDelegate.m in Sources */,
 				BD0CAC251E9A42D200E49782 /* TopAnimalCategory.m in Sources */,
+				EA90FCC41EA1930300B255B0 /* TopAnimalStyler.m in Sources */,
 				BD219CCD1E7EC82F0040E092 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

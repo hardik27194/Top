@@ -9,7 +9,7 @@
 #import "TopSideMenuContainerController.h"
 #import "BasePageViewController.h"
 #import "TopPageController.h"
-#import "TopStyle.h"
+#import "TopStyleUtils.h"
 
 @interface TopSideMenuContainerController (){
     UIViewController *_contentController;
@@ -84,7 +84,7 @@
     [self.delegate TOPSMControllerOpenMenu];
 }
 -(void)updateStyle{
-    self.view.backgroundColor = [TopStyle colorFromHexString:self.category.mainColor withAlpha:1];
+    self.view.backgroundColor = [TopStyleUtils colorFromHexString:self.category.mainColor withAlpha:1];
 }
 #pragma mark - overlay -
 -(void)addOverlayWithAnimationCompletion:(void(^)(void))completion{

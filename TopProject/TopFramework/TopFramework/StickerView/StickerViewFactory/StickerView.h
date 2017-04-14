@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TopObject.h"
 #import "PhotoContainerStickersView.h"
+#import "TopBaseStyledView.h"
 
 @class StickerView;
 
@@ -17,7 +18,7 @@
 -(void)tappedStickerView:(StickerView *)stickerView;
 @end
 
-@interface StickerView : UIView
+@interface StickerView : TopBaseStyledView
 @property (nonatomic,strong) UIImage *photo;
 @property (nonatomic,weak) IBOutlet PhotoContainerStickersView *photoContainer;
 @property (nonatomic,weak) IBOutlet UILabel *stickerTitleLabel;

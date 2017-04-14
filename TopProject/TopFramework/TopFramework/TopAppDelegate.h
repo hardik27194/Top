@@ -16,8 +16,12 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) UIViewController *viewController;
+
+
+
 @property (strong, nonatomic) TopBackendLessConfiguration *backendlessConfiguration;
 @property (strong, nonatomic) TopUser *topUser;
+@property (assign, nonatomic) Class stylerClass;
 
 
 +(TopAppDelegate *)topAppDelegate;

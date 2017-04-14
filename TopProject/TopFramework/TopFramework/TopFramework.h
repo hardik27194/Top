@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char TopFrameworkVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <TopFramework/PublicHeader.h>
 
 #import <TopFramework/TopObject.h>
+#import <TopFramework/TopStyle.h>
 #import <TopFramework/TopPage.h>
 #import <TopFramework/TopCategory.h>
 #import <TopFramework/TopAppDelegate.h>
