@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopLayout2_Tmpl0">
+            <connections>
+                <outlet property="pl_0" destination="Iq3-hk-T42" id="RWM-R0-GOH"/>
+                <outlet property="pl_1" destination="pbF-Am-UEd" id="vR7-OX-ETX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iq3-hk-T42">
+                    <rect key="frame" x="10" y="10" width="355" height="318.5"/>
+                    <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbF-Am-UEd">
+                    <rect key="frame" x="10" y="338.5" width="355" height="318.5"/>
+                    <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pbF-Am-UEd" secondAttribute="trailing" constant="10" id="5al-h0-2lQ"/>
+                <constraint firstAttribute="bottom" secondItem="pbF-Am-UEd" secondAttribute="bottom" constant="10" id="Uf4-MY-YgM"/>
+                <constraint firstItem="Iq3-hk-T42" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="Y6h-fR-oNe"/>
+                <constraint firstItem="Iq3-hk-T42" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="jYB-Ef-D12"/>
+                <constraint firstItem="pbF-Am-UEd" firstAttribute="height" secondItem="Iq3-hk-T42" secondAttribute="height" id="kWo-0a-EI7"/>
+                <constraint firstItem="pbF-Am-UEd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="khd-x0-UUO"/>
+                <constraint firstAttribute="trailing" secondItem="Iq3-hk-T42" secondAttribute="trailing" constant="10" id="leJ-yX-glC"/>
+                <constraint firstItem="pbF-Am-UEd" firstAttribute="top" secondItem="Iq3-hk-T42" secondAttribute="bottom" constant="10" id="xOo-Gq-KhT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24.5" y="52.5"/>
+        </view>
+    </objects>
+</document>

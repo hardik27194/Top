@@ -59,7 +59,7 @@
         }
         
         self.layer.contents = (__bridge id)image.CGImage;
-//       self.layer.contentsGravity = kCAGravityResizeAspect;
+//      self.layer.contentsGravity = kCAGravityResizeAspect;
         self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
