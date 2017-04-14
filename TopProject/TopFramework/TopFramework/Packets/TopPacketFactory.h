@@ -13,7 +13,8 @@ typedef enum{
     TopPacketType_Uncommon,
     TopPacketType_Rare,
     TopPacketType_UltraRare,
-    TopPacketType_Legendary
+    TopPacketType_Legendary,
+    TopPacketType_Random
 } TopPacketType;
 
 @import Foundation;

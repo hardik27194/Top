@@ -32,6 +32,9 @@
 @interface TopUltraRarePacket : TopPacket
 
 @end
+@interface TopRandomPacket : TopPacket
+
+@end
 
 @interface TopLegendaryPacket : TopPacket
 

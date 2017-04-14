@@ -105,7 +105,7 @@
                index++;
            }
        }];
-   } type:TopPacketType_Legendary];
+   } type:TopPacketType_Random];
 }
 -(void)animateTile:(TopTileSticker *)tileSticker
             toRect:(CGRect)rect{

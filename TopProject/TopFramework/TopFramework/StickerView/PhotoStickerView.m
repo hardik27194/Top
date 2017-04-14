@@ -18,9 +18,7 @@
         _number = [number integerValue];
         self.layerRect = CGRectZero;
         
-        self.backgroundColor = [UIColor lightGrayColor];
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = [UIColor blackColor].CGColor;
+  
         UILabel *numberLabel = [[UILabel alloc]init];
         numberLabel.font = [UIFont systemFontOfSize:20];
         numberLabel.textAlignment = NSTextAlignmentCenter;
@@ -59,7 +57,7 @@
         }
         
         self.layer.contents = (__bridge id)image.CGImage;
-//      self.layer.contentsGravity = kCAGravityResizeAspect;
+        self.layer.contentsGravity = kCAGravityResizeAspectFill;
         self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
@@ -67,6 +65,11 @@
 -(void)showPlaceholder{
     self.layer.contents = nil;
     self.backgroundColor = [UIColor lightGrayColor];
+}
+-(void)defaultStyle{
+    self.backgroundColor = [UIColor lightGrayColor];
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [UIColor blackColor].CGColor;
 }
 -(void)removeUnCompletedStyle{
     self.layer.borderWidth = 0;

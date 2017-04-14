@@ -96,3 +96,15 @@
     return @[first,second,third,fourth,last];
 }
 @end
+
+@implementation TopRandomPacket
+
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @([Chance randomRarity]);
+    NSNumber *second = @([Chance randomRarity]);
+    NSNumber *third = @([Chance randomRarity]);
+    NSNumber *fourth = @([Chance randomRarity]);
+    NSNumber *last = @([Chance randomRarity]);
+    return @[first,second,third,fourth,last];
+}
+@end

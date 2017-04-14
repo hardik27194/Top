@@ -11,12 +11,12 @@
 @implementation TopSimpleDetailView
 -(void)updateStyle{
     self.backgroundColor = [UIColor whiteColor];
-    self.imageView.backgroundColor = [UIColor redColor];
+    self.imageView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
     self.imageView.layer.masksToBounds = YES;
     
     self.titleLabel.font = [UIFont boldSystemFontOfSize:25];
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    //    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.descriptionLabel.numberOfLines = 0;
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
 }

@@ -99,7 +99,8 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                                                if (![[[TopAppDelegate topAppDelegate].topUser stickers] containsObject:@(tileView.number)]) {
                                                    [TopBackendLessUserData addStickers:@[@(tileView.number)] toUser:user completion:^(BOOL success, NSError *error) {
                                                        if (success) {
-                                                           [view layoutSubviews];
+                                                           
+                                                           [view.superview layoutSubviews];
                                                            [self stickSticker:tileView
                                                                   inPhotoView:view completion:^{
                                                                       [self removeTileView:tileView];

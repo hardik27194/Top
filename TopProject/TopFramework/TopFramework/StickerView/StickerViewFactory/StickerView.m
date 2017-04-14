@@ -106,7 +106,11 @@
 }
 -(void)photoContainer:(PhotoContainerStickersView *)photoContainer cointainerIsCompleted:(BOOL)completed{
     found = completed;
-    self.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
+    if (completed) {
+        self.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
+    }else{
+        
+    }
 }
 #pragma mark - handle tap -
 -(void)pressSticker{
@@ -114,4 +118,5 @@
         [self.delegate tappedStickerView:self];
     }
 }
+
 @end

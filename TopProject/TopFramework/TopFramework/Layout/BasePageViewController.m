@@ -74,7 +74,6 @@
         UIView *sview = [self valueForKey:[NSString stringWithFormat:@"pl_%i",(int)index]];
         StickerView * stickerView = sview.subviews[0];
         [stickerView sizeToFit];
-
         [stickerView layoutSubviews];
     }];
 }

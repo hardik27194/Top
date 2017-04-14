@@ -84,6 +84,9 @@
         }
     }
     if (completed == NO) {
+        for (PhotoStickerView *view in self.photoStickerViews) {
+            [view defaultStyle];
+        }
         return;
     }
     

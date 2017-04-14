@@ -42,7 +42,7 @@ static TopPacketsDirector *sharedPacketDirector = nil;
                                                                   if (!error) {
                                                                       [stickers addObject:@(number)];
                                                                   }else{
-                                                                      // to do : handle error
+                                                                      NSLog(@"error : %@",error.domain);
                                                                   }
                                                               }];
     }
