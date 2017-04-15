@@ -88,7 +88,7 @@
 }
 #pragma mark - overlay -
 -(void)addOverlayWithAnimationCompletion:(void(^)(void))completion{
-   
+    _overlay.frame  = self.view.bounds;
     [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _overlay.alpha = 0.8;
     } completion:^(BOOL finished) {
