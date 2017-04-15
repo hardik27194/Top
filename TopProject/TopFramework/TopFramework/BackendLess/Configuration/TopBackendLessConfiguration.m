@@ -10,8 +10,6 @@
 #import "Backendless.h"
 #import "TopBackendLessData.h"
 
-#define IDIOM    UI_USER_INTERFACE_IDIOM()
-#define IPAD     UIUserInterfaceIdiomPad
 @interface TopBackendLessConfiguration(){
     TopConfiguration *_configuration;
 }
@@ -39,7 +37,7 @@
                                   version:versionKey];
     
     TopConfiguration *configuration;
-    if ( IDIOM == IPAD ) {
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
         configuration  = [[TopBackendLessData getConfigurationWithClass:[TopIPadConfiguration class]] objectAtIndex:0];
     } else {
         configuration  = [[TopBackendLessData getConfigurationWithClass:[TopIPhoneConfiguration class]] objectAtIndex:0];

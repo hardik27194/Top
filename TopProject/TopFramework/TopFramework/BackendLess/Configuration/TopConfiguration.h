@@ -11,7 +11,7 @@
 @interface TopConfiguration : NSObject
 @property (nonatomic,strong) NSString *detailViewId;
 @property (nonatomic,strong) NSString *stickerViewId;
-@property (nonatomic,assign) BOOL splitCategories;
+@property (nonatomic,assign) BOOL menuCategories;
 @end
 @interface TopIPhoneConfiguration : TopConfiguration
 

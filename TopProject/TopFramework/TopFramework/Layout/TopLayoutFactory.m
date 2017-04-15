@@ -12,7 +12,11 @@
 #import "TopLayout3_Tmpl0.h"
 #import "TopLayout4_Tmpl0.h"
 
-static NSDictionary *layouts;
+#import "TopIPadLayout2_Tmpl0.h"
+#import "TopIPadLayout2_Tmpl1.h"
+
+static NSDictionary *iPhoneLayouts;
+static NSDictionary *iPadLayouts;
 
 @interface TopLayoutFactory()
 @end
@@ -20,15 +24,24 @@ static NSDictionary *layouts;
 @implementation TopLayoutFactory
 +(void)load{
     
-    NSDictionary *layout_1_obj = @{@"l1_tmpl0":[TopLayout1_Tmpl0 class]};
-    NSDictionary *layout_2_obj = @{@"l2_tmpl0":[TopLayout2_Tmpl0 class]};
-    NSDictionary *layout_3_obj = @{@"l3_tmpl0":[TopLayout3_Tmpl0 class]};
-    NSDictionary *layout_4_obj = @{@"l4_tmpl0":[TopLayout4_Tmpl0 class]};
+    NSDictionary *iphone_layout_1_obj = @{@"iphone_l1_tmpl0":[TopLayout1_Tmpl0 class]};
+    NSDictionary *iphone_layout_2_obj = @{@"iphone_l2_tmpl0":[TopLayout2_Tmpl0 class]};
+    NSDictionary *iphone_layout_3_obj = @{@"iphone_l3_tmpl0":[TopLayout3_Tmpl0 class]};
+    NSDictionary *iphone_layout_4_obj = @{@"iphone_l4_tmpl0":[TopLayout4_Tmpl0 class]};
 
-    layouts = @{@1:layout_1_obj,
-                @2:layout_2_obj,
-                @3:layout_3_obj,
-                @4:layout_4_obj};
+    iPhoneLayouts = @{@1:iphone_layout_1_obj,
+                @2:iphone_layout_2_obj,
+                @3:iphone_layout_3_obj,
+                @4:iphone_layout_4_obj};
+    
+    NSDictionary *ipad_layout_2_obj = @{@"ipad_l2_tmpl0":[TopIPadLayout2_Tmpl0 class],
+                                        @"ipad_l2_tmpl1":[TopIPadLayout2_Tmpl1 class]};
+
+    iPadLayouts = @{
+                    @2:ipad_layout_2_obj
+                    
+                    };
+    
     
 }
 +(BasePageViewController *)layoutFromTopPage:(TopPage *)topPage{
@@ -42,23 +55,42 @@ static NSDictionary *layouts;
     }
     
     NSNumber *countObjectsInPage = [NSNumber numberWithUnsignedInteger:topPage.topObjects.count];
-    NSDictionary *layoutDict = [layouts objectForKey:countObjectsInPage];
+    
+    NSDictionary *sourceDictionary = nil;
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+        sourceDictionary = iPadLayouts;
+    } else {
+        sourceDictionary = iPhoneLayouts;
+    }
+    
+    NSDictionary *layoutDict = [sourceDictionary objectForKey:countObjectsInPage];
     if (layoutDict == nil) {
         NSLog(@"Top Error: there is no layout with %i objects",(int)countObjectsInPage);
         return nil;
     }
     
-    if (topPage.layoutName == nil) {
+    NSString *layoutName = nil;
+    
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ) {
+        layoutName = topPage.iPadLayoutName;
+    } else {
+        layoutName = topPage.iPhoneLayoutName;
+    }
+    
+    if (layoutName == nil) {
         return nil;
     }
     
-    Class layoutClass = [layoutDict objectForKey:topPage.layoutName];
+    Class layoutClass = [layoutDict objectForKey:layoutName];
     if (layoutClass == nil) {
-        NSLog(@"Top Error: there is no layout name %@ ",topPage.layoutName);
+        NSLog(@"Top Error: there is no layout name %@ ",layoutName);
         return nil;
     }
     
     BasePageViewController *layoutController = [[layoutClass alloc]initWithTopPage:topPage];
     return layoutController;
 }
+
+
 @end

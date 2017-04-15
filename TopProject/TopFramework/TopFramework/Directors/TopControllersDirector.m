@@ -43,6 +43,12 @@ static TopControllersDirector *sharedControllersDirector = nil;
     
     NSMutableArray *pages = [[NSMutableArray alloc]init];
 
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
+    BOOL menuCategories = topConfiguration.configuration.menuCategories;
+    
+    
+    NSMutableArray *allPages = [[NSMutableArray alloc]init];
+    
     for (TopCategory *category in categories) {
         NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPagesForCategory:category];
         NSMutableArray *pages = [[NSMutableArray alloc]init];
@@ -52,7 +58,14 @@ static TopControllersDirector *sharedControllersDirector = nil;
                 [pages addObject:controller];
             }
         }
-        TopPageController *topPageController = [[TopPageController alloc]initWithPages:pages];
+        [allPages addObjectsFromArray:pages];
+        if (menuCategories) {
+            TopPageController *topPageController = [[TopPageController alloc]initWithPages:pages];
+            [_menuControllers addObject:topPageController];
+        }
+    }
+    if (menuCategories == NO) {
+        TopPageController *topPageController = [[TopPageController alloc]initWithPages:allPages];
         [_menuControllers addObject:topPageController];
     }
     return _menuControllers;

@@ -39,3 +39,7 @@
 @interface TopLegendaryPacket : TopPacket
 
 @end
+
+@interface TopAllCommonPacket : TopPacket
+
+@end

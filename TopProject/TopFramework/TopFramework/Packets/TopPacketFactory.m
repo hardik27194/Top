@@ -18,7 +18,8 @@ static NSDictionary *packets;
                 @(TopPacketType_Rare):[TopRarePacket class],
                 @(TopPacketType_UltraRare):[TopUltraRarePacket class],
                 @(TopPacketType_Legendary):[TopLegendaryPacket class],
-                @(TopPacketType_Random):[TopRandomPacket class]};
+                @(TopPacketType_Random):[TopRandomPacket class],
+                @(TopPacketType_AllCommon):[TopAllCommonPacket class]};
 }
 
 +(Class)packetClassFromType:(TopPacketType)type{

@@ -108,3 +108,14 @@
     return @[first,second,third,fourth,last];
 }
 @end
+@implementation TopAllCommonPacket
+
++(NSArray<NSNumber *> *)types{
+    NSNumber *first = @(TopRarityLevel_Common);
+    NSNumber *second = @(TopRarityLevel_Common);
+    NSNumber *third = @(TopRarityLevel_Common);
+    NSNumber *fourth = @(TopRarityLevel_Common);
+    NSNumber *last = @(TopRarityLevel_Common);
+    return @[first,second,third,fourth,last];
+}
+@end
