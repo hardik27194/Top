@@ -8,6 +8,7 @@
 
 #import "StickerView.h"
 #import "TopAppDelegate.h"
+#import "TopStyleDirector.h"
 
 @interface StickerView()<PhotoStickerViewProtocol,PhotoContainerStickerViewProtocol>{
     TopObject *_tObject;
@@ -23,8 +24,15 @@
     StickerView *view = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:view action:@selector(pressSticker)];
     [view addGestureRecognizer:tapGesture];
-    TopStyle *normalStyle = [TopAppDelegate topAppDelegate].topStyles[@"default_style"];
+    
+    
+    TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                   forState:TopViewStyleState_Normal];
+    TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                     forState:TopViewStyleState_Selected];
     [view setStyle:normalStyle forState:TopViewStyleState_Normal];
+    [view setStyle:selectedStyle forState:TopViewStyleState_Selected];
+    
     return view;
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -109,10 +117,10 @@
 }
 -(void)photoContainer:(PhotoContainerStickersView *)photoContainer cointainerIsCompleted:(BOOL)completed{
     found = completed;
-    if (completed) {
-        self.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3];
+    if (found) {
+        self.styleState = TopViewStyleState_Selected;
     }else{
-        
+        self.styleState = TopViewStyleState_Normal;
     }
 }
 #pragma mark - handle tap -

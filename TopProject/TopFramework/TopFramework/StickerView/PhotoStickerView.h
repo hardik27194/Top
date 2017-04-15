@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopBaseStyledView.h"
+
 @class PhotoStickerView;
 
 @protocol PhotoStickerViewProtocol <NSObject>
@@ -14,7 +16,7 @@
 -(void)photoStickerView:(PhotoStickerView* )stickerNumberView isFound:(void(^)(BOOL found))foundBlock;
 
 @end
-@interface PhotoStickerView : UIView
+@interface PhotoStickerView : TopBaseStyledView
 - (instancetype)initWithNumber:(NSNumber *)number;
 - (void)removeUnCompletedStyle;
 - (void)defaultStyle;

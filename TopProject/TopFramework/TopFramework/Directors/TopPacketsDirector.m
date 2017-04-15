@@ -30,6 +30,7 @@ static TopPacketsDirector *sharedPacketDirector = nil;
     NSInteger total  = [[TopStickersDirector sharedDirector] askTotalStickers];
     if (total <= 0 ) {
         packetBlock(nil);
+        return;
     }
     
     NSMutableArray *stickers = [[NSMutableArray alloc]init];
@@ -48,6 +49,7 @@ static TopPacketsDirector *sharedPacketDirector = nil;
     }
     if (stickers.count != 5) {
         packetBlock(nil);
+        return;
     }
     TopPacket *packet = [[packetClass alloc]initWithArray:stickers];
     

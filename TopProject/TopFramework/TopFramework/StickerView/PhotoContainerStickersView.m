@@ -83,17 +83,7 @@
             index++;
         }
     }
-    if (completed == NO) {
-        for (PhotoStickerView *view in self.photoStickerViews) {
-            [view defaultStyle];
-        }
-        return;
-    }
-    
-    [self.containerDelegate photoContainer:self cointainerIsCompleted:YES];
-    for (PhotoStickerView *view in self.photoStickerViews) {
-        [view removeUnCompletedStyle];
-    }
+    [self.containerDelegate photoContainer:self cointainerIsCompleted:completed];
 }
 
 @end

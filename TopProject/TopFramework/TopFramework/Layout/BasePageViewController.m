@@ -64,10 +64,10 @@
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
-//    [self refresh];
+    [self refresh];
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [self refresh];
+//    [self refresh];
 }
 -(void)refresh{
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {

@@ -446,17 +446,20 @@
 		BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */; };
 		BDEAC7891E89BED80016502E /* PhotoStickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC7871E89BED80016502E /* PhotoStickerView.h */; };
 		BDEAC78A1E89BED80016502E /* PhotoStickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7881E89BED80016502E /* PhotoStickerView.m */; };
+		EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EA600A431EA2180700D928D4 /* TopStyleDirector.m */; };
+		EA600A461EA2180700D928D4 /* TopStyleDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A441EA2180700D928D4 /* TopStyleDirector.h */; };
+		EA600A491EA218AA00D928D4 /* TopDefaultStyler.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A471EA218AA00D928D4 /* TopDefaultStyler.h */; };
+		EA600A4A1EA218AA00D928D4 /* TopDefaultStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA600A481EA218AA00D928D4 /* TopDefaultStyler.m */; };
+		EA600A4C1EA220CB00D928D4 /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA633F811EA02B090090BFF2 /* TopSimpleDetailView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA633F7F1EA02B090090BFF2 /* TopSimpleDetailView.h */; };
 		EA633F821EA02B090090BFF2 /* TopSimpleDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA633F801EA02B090090BFF2 /* TopSimpleDetailView.m */; };
 		EA90FCB71EA148D600B255B0 /* TopLayout2_Tmpl0.h in Headers */ = {isa = PBXBuildFile; fileRef = EA90FCB41EA148D600B255B0 /* TopLayout2_Tmpl0.h */; };
 		EA90FCB81EA148D600B255B0 /* TopLayout2_Tmpl0.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCB51EA148D600B255B0 /* TopLayout2_Tmpl0.m */; };
 		EA90FCB91EA148D600B255B0 /* TopLayout2_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA90FCB61EA148D600B255B0 /* TopLayout2_Tmpl0.xib */; };
-		EA90FCBC1EA187AC00B255B0 /* TopBaseStyledView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA90FCBA1EA187AC00B255B0 /* TopBaseStyledView.h */; };
+		EA90FCBC1EA187AC00B255B0 /* TopBaseStyledView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA90FCBA1EA187AC00B255B0 /* TopBaseStyledView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA90FCBD1EA187AC00B255B0 /* TopBaseStyledView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCBB1EA187AC00B255B0 /* TopBaseStyledView.m */; };
 		EA90FCC01EA1893300B255B0 /* TopStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = EA90FCBE1EA1893300B255B0 /* TopStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA90FCC11EA1893300B255B0 /* TopStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCBF1EA1893300B255B0 /* TopStyle.m */; };
-		EA90FCC71EA193B700B255B0 /* TopStyler.h in Headers */ = {isa = PBXBuildFile; fileRef = EA90FCC51EA193B700B255B0 /* TopStyler.h */; };
-		EA90FCC81EA193B700B255B0 /* TopStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCC61EA193B700B255B0 /* TopStyler.m */; };
 		EA9346401E9E985600A362A4 /* TopPacketFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = EA93463E1E9E985600A362A4 /* TopPacketFactory.h */; };
 		EA9346411E9E985600A362A4 /* TopPacketFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93463F1E9E985600A362A4 /* TopPacketFactory.m */; };
 		EA9346511E9EC9A800A362A4 /* TopDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA93464F1E9EC9A800A362A4 /* TopDetailView.m */; };
@@ -915,6 +918,11 @@
 		BDEAC7841E89BD050016502E /* PhotoContainerStickersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoContainerStickersView.m; sourceTree = "<group>"; };
 		BDEAC7871E89BED80016502E /* PhotoStickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoStickerView.h; sourceTree = "<group>"; };
 		BDEAC7881E89BED80016502E /* PhotoStickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoStickerView.m; sourceTree = "<group>"; };
+		EA600A431EA2180700D928D4 /* TopStyleDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleDirector.m; sourceTree = "<group>"; };
+		EA600A441EA2180700D928D4 /* TopStyleDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleDirector.h; sourceTree = "<group>"; };
+		EA600A471EA218AA00D928D4 /* TopDefaultStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDefaultStyler.h; sourceTree = "<group>"; };
+		EA600A481EA218AA00D928D4 /* TopDefaultStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDefaultStyler.m; sourceTree = "<group>"; };
+		EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStylerProtocol.h; sourceTree = "<group>"; };
 		EA633F7F1EA02B090090BFF2 /* TopSimpleDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSimpleDetailView.h; sourceTree = "<group>"; };
 		EA633F801EA02B090090BFF2 /* TopSimpleDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSimpleDetailView.m; sourceTree = "<group>"; };
 		EA90FCB41EA148D600B255B0 /* TopLayout2_Tmpl0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout2_Tmpl0.h; sourceTree = "<group>"; };
@@ -924,8 +932,6 @@
 		EA90FCBB1EA187AC00B255B0 /* TopBaseStyledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBaseStyledView.m; sourceTree = "<group>"; };
 		EA90FCBE1EA1893300B255B0 /* TopStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyle.h; sourceTree = "<group>"; };
 		EA90FCBF1EA1893300B255B0 /* TopStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyle.m; sourceTree = "<group>"; };
-		EA90FCC51EA193B700B255B0 /* TopStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyler.h; sourceTree = "<group>"; };
-		EA90FCC61EA193B700B255B0 /* TopStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyler.m; sourceTree = "<group>"; };
 		EA93463E1E9E985600A362A4 /* TopPacketFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketFactory.h; sourceTree = "<group>"; };
 		EA93463F1E9E985600A362A4 /* TopPacketFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketFactory.m; sourceTree = "<group>"; };
 		EA93464F1E9EC9A800A362A4 /* TopDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDetailView.m; sourceTree = "<group>"; };
@@ -1064,8 +1070,8 @@
 				EA90FCBB1EA187AC00B255B0 /* TopBaseStyledView.m */,
 				EA90FCBE1EA1893300B255B0 /* TopStyle.h */,
 				EA90FCBF1EA1893300B255B0 /* TopStyle.m */,
-				EA90FCC51EA193B700B255B0 /* TopStyler.h */,
-				EA90FCC61EA193B700B255B0 /* TopStyler.m */,
+				EA600A471EA218AA00D928D4 /* TopDefaultStyler.h */,
+				EA600A481EA218AA00D928D4 /* TopDefaultStyler.m */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -1774,6 +1780,9 @@
 				EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */,
 				BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */,
 				BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */,
+				EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */,
+				EA600A441EA2180700D928D4 /* TopStyleDirector.h */,
+				EA600A431EA2180700D928D4 /* TopStyleDirector.m */,
 			);
 			path = Directors;
 			sourceTree = "<group>";
@@ -1921,8 +1930,8 @@
 				EA633F811EA02B090090BFF2 /* TopSimpleDetailView.h in Headers */,
 				3DF28B2D1E83DB85005FAD92 /* TopMenuTmpl1.h in Headers */,
 				BD219FE31E7EC9730040E092 /* speex_bits.h in Headers */,
+				EA600A461EA2180700D928D4 /* TopStyleDirector.h in Headers */,
 				BD219F391E7EC9720040E092 /* IServiceCall.h in Headers */,
-				EA90FCC71EA193B700B255B0 /* TopStyler.h in Headers */,
 				BD219F3B1E7EC9720040E092 /* ISharedObjectEvent.h in Headers */,
 				BD219F171E7EC9720040E092 /* DateType.h in Headers */,
 				BD219F4F1E7EC9730040E092 /* NullType.h in Headers */,
@@ -2056,6 +2065,7 @@
 				BD219F6F1E7EC9730040E092 /* StringType.h in Headers */,
 				BD219F081E7EC9720040E092 /* BodyHolderWriter.h in Headers */,
 				BD219EB41E7EC9720040E092 /* BETableView.h in Headers */,
+				EA600A4C1EA220CB00D928D4 /* _TopStylerProtocol.h in Headers */,
 				BD219F161E7EC9720040E092 /* DateReader.h in Headers */,
 				BD219EF61E7EC9720040E092 /* AmfV3Formatter.h in Headers */,
 				BD21A0CA1E88016C0040E092 /* AFHTTPRequestOperation.h in Headers */,
@@ -2215,6 +2225,7 @@
 				BD219F561E7EC9730040E092 /* ObjectSerializer.h in Headers */,
 				BD219ED71E7EC9720040E092 /* MapDrivenDataStore.h in Headers */,
 				BDEAC7811E89B9B20016502E /* TopControllersDirector.h in Headers */,
+				EA600A491EA218AA00D928D4 /* TopDefaultStyler.h in Headers */,
 				BD219F471E7EC9730040E092 /* MetaData.h in Headers */,
 				BD219EF51E7EC9720040E092 /* AMFSerializer.h in Headers */,
 				BD219EFF1E7EC9720040E092 /* AudioData.h in Headers */,
@@ -2308,7 +2319,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA90FCC81EA193B700B255B0 /* TopStyler.m in Sources */,
 				BDEAC7861E89BD050016502E /* PhotoContainerStickersView.m in Sources */,
 				BD21A0CD1E88016C0040E092 /* AFImageRequestOperation.m in Sources */,
 				EA9346561E9ECCA900A362A4 /* TopDetailViewFactory.m in Sources */,
@@ -2334,6 +2344,7 @@
 				BD21A0D11E88016C0040E092 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD21A01A1E7ED42B0040E092 /* TopBackendLessData.m in Sources */,
 				3DA342661E94E49D00BA5463 /* TopLayout4_Tmpl0.m in Sources */,
+				EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */,
 				BD0CABE41E979F0300E49782 /* TopUnpackControllerView.m in Sources */,
 				BD21A0D41E88016C0040E092 /* AFPropertyListRequestOperation.m in Sources */,
 				BD1CC4D41E97966900628DF9 /* TopTileSticker.m in Sources */,
@@ -2353,6 +2364,7 @@
 				BD0CAC2A1E9A9A0C00E49782 /* TopStyleUtils.m in Sources */,
 				BD21A0C91E88016C0040E092 /* AFHTTPClient.m in Sources */,
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
+				EA600A4A1EA218AA00D928D4 /* TopDefaultStyler.m in Sources */,
 				EAF3FB931E8FEC7E0037F4A8 /* TopPacket.m in Sources */,
 				BD21A0A51E85E1450040E092 /* TopBackendLessUserData.m in Sources */,
 				BD21A0CF1E88016C0040E092 /* AFJSONRequestOperation.m in Sources */,

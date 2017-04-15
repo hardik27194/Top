@@ -6,8 +6,8 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <TopFramework/TopFramework.h>
 
-@interface TopAnimalStyler : NSObject
+@interface TopAnimalStyler : NSObject <TopStylerProtocol>
 
 @end

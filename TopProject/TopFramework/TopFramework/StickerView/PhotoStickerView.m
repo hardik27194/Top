@@ -7,6 +7,8 @@
 //
 
 #import "PhotoStickerView.h"
+#import "TopStyleDirector.h"
+
 @interface PhotoStickerView ()
 @property (nonatomic,weak) UILabel *numberLabel;
 @end
@@ -25,6 +27,10 @@
         numberLabel.text = [NSString stringWithFormat:@"%li",(long)_number];
         [self addSubview:numberLabel];
         self.numberLabel = numberLabel;
+        TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                       forState:TopViewStyleState_Normal];
+
+        [self setStyle:normalStyle forState:TopViewStyleState_Normal];
     }
     return self;
 }
@@ -45,7 +51,6 @@
     }];
    
 }
-
 -(void)showStickerPhoto{
     if (CGRectEqualToRect(self.layerRect, CGRectZero)) {
         return;
@@ -61,19 +66,13 @@
         self.layer.contentsRect = _layerRect;
         self.layer.masksToBounds = YES;
     }];
+    
+    self.layer.borderWidth = 0;
+    self.layer.borderColor = [UIColor clearColor].CGColor;
 }
 -(void)showPlaceholder{
     self.layer.contents = nil;
-    self.backgroundColor = [UIColor lightGrayColor];
-}
--(void)defaultStyle{
-    self.backgroundColor = [UIColor lightGrayColor];
-    self.layer.borderWidth = 1;
-    self.layer.borderColor = [UIColor blackColor].CGColor;
-}
--(void)removeUnCompletedStyle{
-    self.layer.borderWidth = 0;
-    self.layer.borderColor = [UIColor clearColor].CGColor;
+    self.styleState = TopViewStyleState_Normal;
 }
 
 @end

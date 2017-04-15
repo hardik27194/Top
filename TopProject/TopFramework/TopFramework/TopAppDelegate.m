@@ -14,7 +14,8 @@
 
 #import "TopControllersDirector.h"
 
-#import "TopStyle.h"
+#import "TopStyleDirector.h"
+#import "TopDefaultStyler.h"
 
 @implementation TopAppDelegate
 @synthesize backendlessConfiguration;
@@ -25,6 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
     // to do : implement differents navigations for ipad and iphone
     
     NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] menuControllersSplitInCategories];
@@ -38,7 +40,4 @@
     return YES;
 }
 
--(void)loadStyles{
-    // implement some default styles...
-}
 @end

@@ -23,6 +23,7 @@
     }
     return self;
 }
+
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -31,6 +32,7 @@
     }
     return self;
 }
+
 -(void)innerInit{
     _styles = [[NSMutableDictionary alloc]init];
     _styleState = TopViewStyleState_Normal;
@@ -41,10 +43,14 @@
 }
 -(void)setStyleState:(TopViewStyleState)styleState{
     _styleState = styleState;
-    [self layoutIfNeeded];
+    [self applyStyles];
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
+    [self applyStyles];
+}
+
+-(void)applyStyles{
     TopStyle *style = _styles[@(self.styleState)];
     
     self.backgroundColor = style.backgroundColor;
@@ -53,5 +59,4 @@
     self.layer.cornerRadius = style.layerCornerRadius;
     self.layer.masksToBounds = style.maskToBounds;
 }
-
 @end
