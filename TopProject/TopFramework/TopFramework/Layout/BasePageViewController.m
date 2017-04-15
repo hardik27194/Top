@@ -52,6 +52,9 @@
 }
 
 - (void)applyTopPageStyle{
+    
+    self.view.layer.masksToBounds = YES;
+    
     TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
     if (topConfiguration.configuration.useBgImage == NO) {
         return;
