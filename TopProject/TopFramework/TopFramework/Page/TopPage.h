@@ -15,6 +15,7 @@
 @interface TopPage : NSObject
 @property (nonatomic,assign) NSUInteger index;
 @property (nonatomic,assign) NSUInteger assignedIndex;
+@property (nonatomic,strong) NSString *bgImage;
 @property (nonatomic,strong) NSString *iPhoneLayoutName;
 @property (nonatomic,strong) NSString *iPadLayoutName;
 @property (nonatomic,strong) NSString *title;

@@ -26,29 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TopFramework/TopFramework/Layout/BasePageViewController.m"
-            timestampString = "513806637.860709"
+            timestampString = "513959400.911242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-tappedStickerView:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TopFramework/TopFramework/Layout/BasePageViewController.m"
-            timestampString = "513806672.279562"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "-topDetailView:askCloseWithData:"
-            landmarkType = "7">
+            startingLineNumber = "183"
+            endingLineNumber = "183">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

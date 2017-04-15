@@ -253,11 +253,7 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     }];
 }
 -(void)insertSticker:(TopTileSticker *)sticker inButton:(TopBarButton *)button completion:(void(^)(void))completion{
-    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
-    
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        
-
         sticker.transform = CGAffineTransformMakeScale(0.00001, 0.000001);
     } completion:^(BOOL finished) {
         completion();

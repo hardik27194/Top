@@ -41,16 +41,12 @@
         photoBlock(_photo);
         return;
     }
-    
-    dispatch_queue_t callerQueue = dispatch_get_current_queue();
-    dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
+        dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
     
     dispatch_async(downloadQueue, ^{
         NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
-        dispatch_async(callerQueue, ^{
-            _photo = [UIImage imageWithData:imageData];
-            photoBlock(_photo);
-        });
+        _photo = [UIImage imageWithData:imageData];
+        photoBlock(_photo);
     });
 }
 

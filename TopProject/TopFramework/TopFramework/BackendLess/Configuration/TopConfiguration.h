@@ -12,6 +12,7 @@
 @property (nonatomic,strong) NSString *detailViewId;
 @property (nonatomic,strong) NSString *stickerViewId;
 @property (nonatomic,assign) BOOL menuCategories;
+@property (nonatomic,assign) BOOL useBgImage;
 @end
 @interface TopIPhoneConfiguration : TopConfiguration
 

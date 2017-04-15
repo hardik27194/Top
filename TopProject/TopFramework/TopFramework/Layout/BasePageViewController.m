@@ -43,10 +43,32 @@
     }
     return self;
 }
+-(void)photoWithUrl:(NSURL *)photoUrl completion:(void(^)(UIImage* image))photoBlock{
+    dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
+    dispatch_async(downloadQueue, ^{
+        NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
+        photoBlock([UIImage imageWithData:imageData]);
+    });
+}
 
+- (void)applyTopPageStyle{
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
+    if (topConfiguration.configuration.useBgImage == NO) {
+        return;
+    }
+    if (self.tPage.bgImage == nil){
+        return;
+    }
+    [self photoWithUrl:[NSURL URLWithString:self.tPage.bgImage]
+            completion:^(UIImage *image) {
+        self.view.layer.contents = (__bridge id)[image CGImage];
+        self.view.layer.contentsGravity = kCAGravityResizeAspectFill;
+    }];
+}
 - (void)viewDidLoad{
     [super viewDidLoad];
     NSDictionary *pageStructure = [[TopStickersDirector sharedDirector] askStickersFromTopPage:self.tPage];
+    [self applyTopPageStyle];
     TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
     [self enumTopObject:^(TopObject *tObject,NSInteger index) {
         NSArray *stickers = pageStructure[@"stickers"][tObject.objectId];
@@ -98,8 +120,6 @@
 }
 
 -(void)tappedStickerView:(StickerView *)stickerView{
-    
-    
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     TopSideMenuContainerController *container = (TopSideMenuContainerController *)[(TopSideMenu *)mainController containerController];
     [container addOverlayWithAnimationCompletion:^{}];
@@ -133,7 +153,7 @@
     TopSideMenuContainerController *container = (TopSideMenuContainerController *)[(TopSideMenu *)mainController containerController];
     [container removeOverlayWithAnimationCompletion:^{}];
     [detailView willShrink];
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewKeyframeAnimationOptionBeginFromCurrentState animations:^{
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [detailView shrink];
     } completion:^(BOOL finished) {
         [detailView didShrink];

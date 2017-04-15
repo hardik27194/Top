@@ -26,9 +26,9 @@
     [view addGestureRecognizer:tapGesture];
     
     
-    TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:self
+    TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:(TopBaseStyledView *)self
                                                                    forState:TopViewStyleState_Normal];
-    TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:self
+    TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:(TopBaseStyledView *)self
                                                                      forState:TopViewStyleState_Selected];
     [view setStyle:normalStyle forState:TopViewStyleState_Normal];
     [view setStyle:selectedStyle forState:TopViewStyleState_Selected];
@@ -48,16 +48,11 @@
         photoBlock(self.photo);
         return;
     }
-    
-        dispatch_queue_t callerQueue = dispatch_get_current_queue();
         dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
-        
         dispatch_async(downloadQueue, ^{
             NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
-            dispatch_async(callerQueue, ^{
-                self.photo = [self imageWithImage:[UIImage imageWithData:imageData] scaledToSize:self.bounds.size];
-                photoBlock(self.photo);
-            });
+            self.photo = [self imageWithImage:[UIImage imageWithData:imageData] scaledToSize:self.bounds.size];
+            photoBlock(self.photo);
         });
 }
 
