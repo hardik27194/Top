@@ -42,8 +42,11 @@
     
     TopPacketsButton *packetsButton = [[TopPacketsButton alloc]init];
     [self.menu addButton:packetsButton];
+    [packetsButton setStyleState:TopViewStyleState_Normal];
     TopDoubleButton *doubleButton = [[TopDoubleButton alloc]init];
     [self.menu addButton:doubleButton];
+    [doubleButton setStyleState:TopViewStyleState_Normal];
+
     TopTempsButton *tempsbutton = [[TopTempsButton alloc]init];
     [self.menu addButton:tempsbutton];
     

@@ -54,8 +54,8 @@
     TopStyle *warningStyle = [[TopStyleDirector sharedDirector] styleForView:self
                                                                     forState:TopViewStyleState_Warning];
     [self setStyle:warningStyle forState:TopViewStyleState_Warning];
+    
     _styleState = TopViewStyleState_Normal;
-
 }
 -(void)setStyle:(TopStyle *)style
        forState:(TopViewStyleState)styleState{

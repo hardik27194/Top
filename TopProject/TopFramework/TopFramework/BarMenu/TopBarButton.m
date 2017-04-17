@@ -57,5 +57,11 @@
 }
 -(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL))completion{}
 
-
+#pragma mark - custom styles -
+-(void)applyStyle:(TopStyle *)style{
+    self.iconLabel.textColor = style.textColor;
+    self.iconLabel.font = style.textFont;
+    self.valueLabel.font = style.supporTextFont;
+    self.valueLabel.textColor = style.supporTextColor;
+}
 @end

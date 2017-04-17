@@ -40,4 +40,9 @@ typedef enum{
 @property (nonatomic,strong) UIFont *textFont;
 @property (nonatomic,strong) UIColor *textColor;
 
+@property (nonatomic,assign) NSTextAlignment supportTextAlign;
+@property (nonatomic,strong) UIFont *supporTextFont;
+@property (nonatomic,strong) UIColor *supporTextColor;
+
+
 @end

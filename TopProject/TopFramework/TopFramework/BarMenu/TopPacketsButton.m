@@ -58,10 +58,5 @@
 -(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL success))completion{
     completion(false);
 }
-#pragma mark - custom styles -
--(void)applyStyle:(TopStyle *)style{
-    self.iconLabel.textColor = style.textColor;
-    self.iconLabel.font = style.textFont;
-    
-}
+
 @end

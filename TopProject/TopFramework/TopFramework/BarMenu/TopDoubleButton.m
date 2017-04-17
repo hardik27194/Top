@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.iconLabel.text = @"doubles";
+        self.iconLabel.text = @"\uf0c5";
     }
     return self;
 }
@@ -34,15 +34,15 @@
 }
 
 -(void)relax{
-    self.backgroundColor = [UIColor lightGrayColor];
+    [super relax];
 }
 -(void)highlightWithNumber:(NSInteger)number{
     [self checkDouble:number
            completion:^(BOOL isDouble) {
                if (isDouble) {
-                   self.backgroundColor = [UIColor purpleColor];
+                   [self setStyleState:TopViewStyleState_Highlighted];
                }else{
-                   self.backgroundColor = [UIColor yellowColor];
+                   [self setStyleState:TopViewStyleState_Warning];
                }
     }];
 }

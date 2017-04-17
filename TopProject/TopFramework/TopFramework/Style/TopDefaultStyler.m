@@ -93,16 +93,15 @@
             style.backgroundColor = [UIColor clearColor];
             style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
             style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
-            
+            style.supporTextFont = [UIFont boldSystemFontOfSize:13];
+            style.supporTextColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
         }
             break;
         case TopViewStyleState_Selected:{
-      
-            
         }
             break;
         case TopViewStyleState_Highlighted:{
-            style.backgroundColor = [TopStyleUtils colorFromHexString:@"16a085" withAlpha:1];
+            style.backgroundColor = [UIColor clearColor];
             style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
             style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
             
@@ -110,6 +109,41 @@
             break;
         case TopViewStyleState_Warning:{
             
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return style;
+}
+-(TopStyle *)styleForTopDoubleButton:(TopBaseStyledButton *)button forState:(TopViewStyleState)state{
+    TopStyle *style = [[TopStyle alloc]init];
+    
+    switch (state) {
+        case TopViewStyleState_Normal:{
+            style.backgroundColor = [UIColor clearColor];
+            style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
+            style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            style.supporTextFont = [UIFont boldSystemFontOfSize:13];
+            style.supporTextColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+        }
+            break;
+        case TopViewStyleState_Selected:{
+        }
+            break;
+        case TopViewStyleState_Highlighted:{
+            style.backgroundColor = [UIColor clearColor];
+            style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
+            style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            
+        }
+            break;
+        case TopViewStyleState_Warning:{
+            style.backgroundColor = [UIColor clearColor];
+            style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
+            style.textColor = [TopStyleUtils colorFromHexString:@"e74c3c" withAlpha:1];
             
         }
             break;
