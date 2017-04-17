@@ -31,6 +31,21 @@
                                                                        forState:TopViewStyleState_Normal];
 
         [self setStyle:normalStyle forState:TopViewStyleState_Normal];
+        
+        
+        
+        TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                       forState:TopViewStyleState_Selected];
+        [self setStyle:selectedStyle forState:TopViewStyleState_Selected];
+        
+        TopStyle *highlightStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                         forState:TopViewStyleState_Highlighted];
+        [self setStyle:highlightStyle forState:TopViewStyleState_Highlighted];
+        
+        TopStyle *warningStyle = [[TopStyleDirector sharedDirector] styleForView:self
+                                                                          forState:TopViewStyleState_Warning];
+        [self setStyle:warningStyle forState:TopViewStyleState_Warning];
+
     }
     return self;
 }
@@ -60,15 +75,11 @@
         if (image == nil) {
             return;
         }
-        
         self.layer.contents = (__bridge id)image.CGImage;
         self.layer.contentsGravity = kCAGravityResizeAspectFill;
         self.layer.contentsRect = _layerRect;
-        self.layer.masksToBounds = YES;
+        self.styleState = TopViewStyleState_Selected;
     }];
-    
-    self.layer.borderWidth = 0;
-    self.layer.borderColor = [UIColor clearColor].CGColor;
 }
 -(void)showPlaceholder{
     self.layer.contents = nil;

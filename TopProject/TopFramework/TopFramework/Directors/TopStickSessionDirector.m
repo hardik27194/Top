@@ -114,8 +114,12 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                                            }
                                        }];
                  } outRect:^(UIView *view) {
-                     view.backgroundColor = [UIColor lightGrayColor];
-
+                     PhotoStickerView *stickerView = (PhotoStickerView *)view;
+                     if (stickerView.found){
+                         stickerView.styleState = TopViewStyleState_Selected;
+                     }else{
+                         stickerView.styleState = TopViewStyleState_Normal;
+                     }
                  }];
     
 }
@@ -135,15 +139,21 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                      [self checkNumberTileView:tileView
                                         inView:view
                                        reflect:^(BOOL reflect) {
+                                           PhotoStickerView *photoView = (PhotoStickerView *)view;
+                                           
                                            if (reflect) {
-                                               view.backgroundColor = [UIColor greenColor];
+                                               photoView.styleState = TopViewStyleState_Highlighted;
                                            }else{
-                                               view.backgroundColor = [UIColor redColor];
-                                               
+                                               photoView.styleState = TopViewStyleState_Warning;
                                            }
                                        }];
                  } outRect:^(UIView *view) {
-                     view.backgroundColor = [UIColor lightGrayColor];
+                     PhotoStickerView *stickerView = (PhotoStickerView *)view;
+                     if (stickerView.found){
+                         stickerView.styleState = TopViewStyleState_Selected;
+                     }else{
+                         stickerView.styleState = TopViewStyleState_Normal;
+                     }
                  }];
 }
 -(void)removeTileView:(TopTileSticker *)topTileSticker{

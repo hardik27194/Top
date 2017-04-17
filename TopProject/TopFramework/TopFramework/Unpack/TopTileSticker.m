@@ -22,10 +22,12 @@
 -(void)photoWithUrl:(NSURL *)urlImage completion:(void(^)(UIImage *image))completionBlock{
     dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
     
+    dispatch_queue_t callerQueue = dispatch_get_current_queue();
     dispatch_async(downloadQueue, ^{
         NSData * imageData = [NSData dataWithContentsOfURL:urlImage];
-        completionBlock([UIImage imageWithData:imageData]);
-    });
+        dispatch_async(callerQueue, ^{
+            completionBlock([UIImage imageWithData:imageData]);
+        });    });
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
