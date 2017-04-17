@@ -17,6 +17,8 @@
     switch (state) {
         case TopViewStyleState_Normal:{
             style.backgroundColor = [TopStyleUtils colorFromHexString:@"efefef" withAlpha:1];
+            style.textFont = [UIFont boldSystemFontOfSize:20];
+            style.textColor = [TopStyleUtils colorFromHexString:@"34495e" withAlpha:1];
             style.layerBorderWidth = 1;
             style.layerCornerRadius = 5;
             style.layerBorderColor = [TopStyleUtils colorFromHexString:@"d9d9d9" withAlpha:1];
@@ -26,6 +28,8 @@
             break;
         case TopViewStyleState_Selected:{
             style.backgroundColor = [TopStyleUtils colorFromHexString:@"DCC857" withAlpha:1];
+            style.textFont = [UIFont boldSystemFontOfSize:20];
+            style.textColor = [TopStyleUtils colorFromHexString:@"ecf0f1" withAlpha:1];
             style.layerBorderWidth = 0;
             style.layerCornerRadius = 10;
             style.maskToBounds = YES;
@@ -53,7 +57,6 @@
             style.layerCornerRadius = 0;
             style.layerBorderColor = [TopStyleUtils colorFromHexString:@"d9d9d9" withAlpha:1];
         }
-        
             break;
         case TopViewStyleState_Highlighted:{
             style.maskToBounds = YES;

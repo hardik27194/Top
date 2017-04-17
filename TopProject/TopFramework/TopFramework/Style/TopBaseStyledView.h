@@ -22,4 +22,7 @@ typedef enum{
 @property (nonatomic,assign) TopViewStyleState styleState;
 -(void)setStyle:(TopStyle *)style
        forState:(TopViewStyleState)styleState;
+
+-(void)applyStyle:(TopStyle *)style;
+
 @end

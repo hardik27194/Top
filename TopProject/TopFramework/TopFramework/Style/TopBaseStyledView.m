@@ -43,20 +43,28 @@
 }
 -(void)setStyleState:(TopViewStyleState)styleState{
     _styleState = styleState;
-    [self applyStyles];
+    TopStyle *style = _styles[@(self.styleState)];
+    [self applyStyle:style];
 }
 -(void)layoutSubviews{
     [super layoutSubviews];
-    [self applyStyles];
+    TopStyle *style = _styles[@(self.styleState)];
+    [self applyStyle:style];
 }
 
--(void)applyStyles{
-    TopStyle *style = _styles[@(self.styleState)];
+-(void)applyStyle:(TopStyle *)style{
     
     self.backgroundColor = style.backgroundColor;
     self.layer.borderColor = [style.layerBorderColor CGColor];
     self.layer.borderWidth = style.layerBorderWidth;
     self.layer.cornerRadius = style.layerCornerRadius;
     self.layer.masksToBounds = style.maskToBounds;
+    
+    if ([self isKindOfClass:[UILabel class]]) {
+        UILabel *label = (UILabel *)self;
+        label.textColor = style.textColor;
+        label.font = style.textFont;
+        label.textAlignment = style.textAlign;
+    }
 }
 @end

@@ -124,5 +124,11 @@
         [self.delegate tappedStickerView:self];
     }
 }
-
+#pragma mark - custom styles -
+-(void)applyStyle:(TopStyle *)style{
+    [super applyStyle:style];
+    self.stickerTitleLabel.font = style.textFont;
+    self.stickerTitleLabel.textColor = style.textColor;
+    self.stickerTitleLabel.textAlignment = style.textAlign;
+}
 @end

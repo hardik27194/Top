@@ -29,5 +29,6 @@
 // label
 @property (nonatomic,assign) NSTextAlignment textAlign;
 @property (nonatomic,strong) UIFont *textFont;
+@property (nonatomic,strong) UIColor *textColor;
 
 @end
