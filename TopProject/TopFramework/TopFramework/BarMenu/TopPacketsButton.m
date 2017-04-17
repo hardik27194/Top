@@ -9,14 +9,18 @@
 #import "TopPacketsButton.h"
 #import "TopControllersDirector.h"
 #import "TopAppDelegate.h"
+#import "TopStyleDirector.h"
 
 @implementation TopPacketsButton
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        self.iconLabel.text = @"packs";
+        self.iconLabel.text = @"\uf06b";
         [self updatePacketsCount];
+        
+        
+
     }
     return self;
 }
@@ -45,13 +49,19 @@
 }
 
 -(void)relax{
-    self.backgroundColor = [UIColor lightGrayColor];
+    [super relax];
 }
 -(void)highlightWithNumber:(NSInteger)number{
-    self.backgroundColor = [UIColor orangeColor];
+    [super highlightWithNumber:number];
 }
 
 -(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL success))completion{
     completion(false);
+}
+#pragma mark - custom styles -
+-(void)applyStyle:(TopStyle *)style{
+    self.iconLabel.textColor = style.textColor;
+    self.iconLabel.font = style.textFont;
+    
 }
 @end

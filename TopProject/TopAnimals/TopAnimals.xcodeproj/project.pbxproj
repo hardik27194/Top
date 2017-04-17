@@ -16,6 +16,7 @@
 		BD219FEF1E7EC98A0040E092 /* TopFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BD219FED1E7EC98A0040E092 /* TopFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BD21A08C1E84695B0040E092 /* TopAnimalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08B1E84695B0040E092 /* TopAnimalObject.m */; };
 		BD21A08F1E846A5B0040E092 /* TopAnimalPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */; };
+		BDB5791F1EA541B6004C1ECC /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = BDB5791E1EA541B6004C1ECC /* FontAwesome.otf */; };
 		EA90FCC41EA1930300B255B0 /* TopAnimalStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = EA90FCC31EA1930300B255B0 /* TopAnimalStyler.m */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		BD21A08B1E84695B0040E092 /* TopAnimalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalObject.m; sourceTree = "<group>"; };
 		BD21A08D1E846A5B0040E092 /* TopAnimalPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalPage.h; sourceTree = "<group>"; };
 		BD21A08E1E846A5B0040E092 /* TopAnimalPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalPage.m; sourceTree = "<group>"; };
+		BDB5791E1EA541B6004C1ECC /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		EA90FCC21EA1930300B255B0 /* TopAnimalStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopAnimalStyler.h; sourceTree = "<group>"; };
 		EA90FCC31EA1930300B255B0 /* TopAnimalStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopAnimalStyler.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 		BD219CCA1E7EC82F0040E092 /* TopAnimals */ = {
 			isa = PBXGroup;
 			children = (
+				BDB5791D1EA541B6004C1ECC /* Resources */,
 				BD219CCE1E7EC82F0040E092 /* AppDelegate.h */,
 				BD219CCF1E7EC82F0040E092 /* AppDelegate.m */,
 				BD21A08A1E84695B0040E092 /* TopAnimalObject.h */,
@@ -108,6 +111,14 @@
 				BD219CCC1E7EC82F0040E092 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BDB5791D1EA541B6004C1ECC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDB5791E1EA541B6004C1ECC /* FontAwesome.otf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			files = (
 				BD219CDB1E7EC82F0040E092 /* LaunchScreen.storyboard in Resources */,
 				BD219CD81E7EC82F0040E092 /* Assets.xcassets in Resources */,
+				BDB5791F1EA541B6004C1ECC /* FontAwesome.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

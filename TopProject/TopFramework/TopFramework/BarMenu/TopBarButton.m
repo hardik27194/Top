@@ -32,9 +32,14 @@
     }
     return self;
 }
+-(void)relax{
+    [self setStyleState:TopViewStyleState_Normal];
+}
 -(void)pressed{}
 -(void)update{}
--(void)highlightWithNumber:(NSInteger)number{}
+-(void)highlightWithNumber:(NSInteger)number{
+    [self setStyleState:TopViewStyleState_Highlighted];
+}
 -(void)setFrame:(CGRect)frame{
     [super setFrame:frame];
     NSInteger iconHeight = 0;
@@ -50,12 +55,7 @@
     self.iconLabel.frame = CGRectMake(0, 0, frame.size.width,iconHeight);
     self.valueLabel.frame = CGRectMake(0, iconHeight, frame.size.width, valueHeight);
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+-(void)handleStickerNumber:(NSInteger)number completion:(void (^)(BOOL))completion{}
+
 
 @end

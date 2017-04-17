@@ -9,6 +9,15 @@
 @import Foundation;
 @import UIKit;
 
+typedef enum{
+    TopViewStyleState_Normal,
+    TopViewStyleState_Highlighted,
+    TopViewStyleState_Selected,
+    TopViewStyleState_Warning,
+    TopViewStyleState_Disabled
+} TopViewStyleState;
+
+
 #import "TopStyleUtils.h"
 
 @interface TopStyle : NSObject

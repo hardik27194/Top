@@ -14,8 +14,5 @@
 @interface TopStyleDirector : NSObject
 
 + (TopStyleDirector *)sharedDirector;
-
-- (TopStyle *)styleForView:(TopBaseStyledView *)styleView
-                     forState:(TopViewStyleState)styleState;
-
+- (TopStyle *)styleForView:(NSObject <TopStyleViewProtocol>*)styleView forState:(TopViewStyleState)styleState;
 @end

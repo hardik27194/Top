@@ -19,12 +19,15 @@ static NSDictionary *selectors = nil;
     dispatch_once(&onceToken, ^{
         sharedStyleDirector = [[self alloc] init];
         selectors = @{@"StickerView":[NSValue valueWithPointer:@selector(styleForStickerView:forState:)],
-                      @"PhotoStickerView":[NSValue valueWithPointer:@selector(styleForPhotoStickerView:forState:)]};
+                      @"PhotoStickerView":[NSValue valueWithPointer:@selector(styleForPhotoStickerView:forState:)],
+                      @"TopPacketsButton":[NSValue valueWithPointer:@selector(styleForTopPacketsButton:forState:)],
+                      @"TopDoubleButton":[NSValue valueWithPointer:@selector(styleForTopDoubleButton:forState:)],
+                      @"TopTempsButton":[NSValue valueWithPointer:@selector(styleForTopTempButton:forState:)]};
     });
     return sharedStyleDirector;
 }
 
-- (TopStyle *)styleForView:(TopBaseStyledView *)styleView
+- (TopStyle *)styleForView:(NSObject <TopStyleViewProtocol>*)styleView
                     forState:(TopViewStyleState)styleState{
     
     Class stylerClass = [TopAppDelegate topAppDelegate].stylerClass;
@@ -36,6 +39,11 @@ static NSDictionary *selectors = nil;
         return nil;
     }
     SEL delegateSelector = [selectors[NSStringFromClass([styleView class])] pointerValue];
+    
+    
+    if ([stylerClass instancesRespondToSelector:delegateSelector] == NO) {
+        return nil;
+    }
     if (delegateSelector) {
         NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[(NSObject *)styler methodSignatureForSelector:delegateSelector]];
         [inv setSelector:delegateSelector];

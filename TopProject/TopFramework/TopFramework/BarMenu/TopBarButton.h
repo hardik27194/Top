@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopBaseStyledButton.h"
 
-@interface TopBarButton : UIButton
+@interface TopBarButton : TopBaseStyledButton
 @property (nonatomic,weak) UILabel *iconLabel;
 @property (nonatomic,weak) UILabel *valueLabel;
 -(void)pressed;

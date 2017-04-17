@@ -27,24 +27,7 @@
         numberLabel.text = [NSString stringWithFormat:@"%li",(long)_number];
         [self addSubview:numberLabel];
         self.numberLabel = numberLabel;
-        TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:self
-                                                                       forState:TopViewStyleState_Normal];
-
-        [self setStyle:normalStyle forState:TopViewStyleState_Normal];
-        
-        
-        
-        TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:self
-                                                                       forState:TopViewStyleState_Selected];
-        [self setStyle:selectedStyle forState:TopViewStyleState_Selected];
-        
-        TopStyle *highlightStyle = [[TopStyleDirector sharedDirector] styleForView:self
-                                                                         forState:TopViewStyleState_Highlighted];
-        [self setStyle:highlightStyle forState:TopViewStyleState_Highlighted];
-        
-        TopStyle *warningStyle = [[TopStyleDirector sharedDirector] styleForView:self
-                                                                          forState:TopViewStyleState_Warning];
-        [self setStyle:warningStyle forState:TopViewStyleState_Warning];
+       
 
     }
     return self;

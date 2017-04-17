@@ -429,6 +429,9 @@
 		BD21A0D81E88016C0040E092 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0C51E88016C0040E092 /* AFXMLRequestOperation.m */; };
 		BD21A0D91E88016C0040E092 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0C61E88016C0040E092 /* UIImageView+AFNetworking.h */; };
 		BD21A0DA1E88016C0040E092 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0C71E88016C0040E092 /* UIImageView+AFNetworking.m */; };
+		BD5A47AD1EA539430023D9C0 /* TopBaseStyledButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BD5A47AB1EA539430023D9C0 /* TopBaseStyledButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD5A47AE1EA539430023D9C0 /* TopBaseStyledButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5A47AC1EA539430023D9C0 /* TopBaseStyledButton.m */; };
+		BD5A47B01EA539C20023D9C0 /* _TopStyleViewProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = BD5A47AF1EA5397C0023D9C0 /* _TopStyleViewProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BDEAC77D1E89B99A0016502E /* TopStickersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC77B1E89B99A0016502E /* TopStickersDirector.h */; };
 		BDEAC77E1E89B99A0016502E /* TopStickersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */; };
 		BDEAC7811E89B9B20016502E /* TopControllersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC77F1E89B9B20016502E /* TopControllersDirector.h */; };
@@ -907,6 +910,9 @@
 		BD21A0C51E88016C0040E092 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		BD21A0C61E88016C0040E092 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		BD21A0C71E88016C0040E092 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		BD5A47AB1EA539430023D9C0 /* TopBaseStyledButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBaseStyledButton.h; sourceTree = "<group>"; };
+		BD5A47AC1EA539430023D9C0 /* TopBaseStyledButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBaseStyledButton.m; sourceTree = "<group>"; };
+		BD5A47AF1EA5397C0023D9C0 /* _TopStyleViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStyleViewProtocol.h; sourceTree = "<group>"; };
 		BDEAC77B1E89B99A0016502E /* TopStickersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickersDirector.h; sourceTree = "<group>"; };
 		BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickersDirector.m; sourceTree = "<group>"; };
 		BDEAC77F1E89B9B20016502E /* TopControllersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopControllersDirector.h; sourceTree = "<group>"; };
@@ -1059,8 +1065,11 @@
 			children = (
 				BD0CAC271E9A9A0C00E49782 /* TopStyleUtils.h */,
 				BD0CAC281E9A9A0C00E49782 /* TopStyleUtils.m */,
+				BD5A47AF1EA5397C0023D9C0 /* _TopStyleViewProtocol.h */,
 				EA90FCBA1EA187AC00B255B0 /* TopBaseStyledView.h */,
 				EA90FCBB1EA187AC00B255B0 /* TopBaseStyledView.m */,
+				BD5A47AB1EA539430023D9C0 /* TopBaseStyledButton.h */,
+				BD5A47AC1EA539430023D9C0 /* TopBaseStyledButton.m */,
 				EA90FCBE1EA1893300B255B0 /* TopStyle.h */,
 				EA90FCBF1EA1893300B255B0 /* TopStyle.m */,
 				EA600A471EA218AA00D928D4 /* TopDefaultStyler.h */,
@@ -1991,6 +2000,7 @@
 				BD219F2A1E7EC9720040E092 /* IDeserializer.h in Headers */,
 				BD219EC01E7EC9720040E092 /* FilePermission.h in Headers */,
 				BD219F281E7EC9720040E092 /* IClientSharedObject.h in Headers */,
+				BD5A47B01EA539C20023D9C0 /* _TopStyleViewProtocol.h in Headers */,
 				BD219F7A1E7EC9730040E092 /* V3ObjectReader.h in Headers */,
 				BD219F951E7EC9730040E092 /* avio.h in Headers */,
 				BD219F3A1E7EC9720040E092 /* IServiceObjectFactory.h in Headers */,
@@ -2217,6 +2227,7 @@
 				BD219FAA1E7EC9730040E092 /* dict.h in Headers */,
 				BD219F2C1E7EC9720040E092 /* IEventDispatcher.h in Headers */,
 				BD219E991E7EC9720040E092 /* AtomicCountersFactory.h in Headers */,
+				BD5A47AD1EA539430023D9C0 /* TopBaseStyledButton.h in Headers */,
 				3DF28B2A1E83DB85005FAD92 /* TopSideMenuContainerController.h in Headers */,
 				BD219EE71E7EC9720040E092 /* ServerCallback.h in Headers */,
 				BD21A0D71E88016C0040E092 /* AFXMLRequestOperation.h in Headers */,
@@ -2396,6 +2407,7 @@
 				BD0CAC2A1E9A9A0C00E49782 /* TopStyleUtils.m in Sources */,
 				BD21A0C91E88016C0040E092 /* AFHTTPClient.m in Sources */,
 				BD219FF81E7ECB940040E092 /* TopAppDelegate.m in Sources */,
+				BD5A47AE1EA539430023D9C0 /* TopBaseStyledButton.m in Sources */,
 				EA600A4A1EA218AA00D928D4 /* TopDefaultStyler.m in Sources */,
 				EA600A611EA2556E00D928D4 /* TopLayout3_Tmpl0.m in Sources */,
 				EAF3FB931E8FEC7E0037F4A8 /* TopPacket.m in Sources */,

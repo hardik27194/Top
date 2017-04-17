@@ -25,14 +25,7 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:view action:@selector(pressSticker)];
     [view addGestureRecognizer:tapGesture];
     
-    
-    TopStyle *normalStyle = [[TopStyleDirector sharedDirector] styleForView:(TopBaseStyledView *)self
-                                                                   forState:TopViewStyleState_Normal];
-    TopStyle *selectedStyle = [[TopStyleDirector sharedDirector] styleForView:(TopBaseStyledView *)self
-                                                                     forState:TopViewStyleState_Selected];
-    [view setStyle:normalStyle forState:TopViewStyleState_Normal];
-    [view setStyle:selectedStyle forState:TopViewStyleState_Selected];
-    
+   
     return view;
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {

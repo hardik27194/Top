@@ -11,10 +11,11 @@
 #import "TopPacketsButton.h"
 #import "TopDoubleButton.h"
 #import "TopTempsButton.h"
+#import "TopBaseStyledView.h"
 
-@interface TopBarMenu : UIView
--(void)addButton:(TopBarButton *)button;
--(void)removeButton:(TopBarButton *)button;
--(NSArray <TopBarButton *>*)allButtons;
--(void)update;
+@interface TopBarMenu : TopBaseStyledView
+- (void)addButton:(TopBarButton *)button;
+- (void)removeButton:(TopBarButton *)button;
+- (NSArray <TopBarButton *>*)allButtons;
+- (void)update;
 @end
