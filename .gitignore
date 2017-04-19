@@ -1,0 +1,7 @@
+
+## Various settings
+xcuserdata/
+
+## build generated
+build/
+DerivedData/
