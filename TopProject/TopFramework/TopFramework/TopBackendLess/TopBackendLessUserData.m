@@ -107,7 +107,8 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     [backendless.userService registering:user response:^(BackendlessUser *userObject) {
         completionBlock(userObject,nil);
     } error:^(Fault *fault) {
-        completionBlock(nil,fault);
+        NSError *error = [NSError errorWithDomain:fault.description code:fault.faultCode userInfo:nil];
+        completionBlock(nil,error);
     }];
 }
 #pragma mark -
@@ -117,7 +118,8 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     [backendless.userService update:backendLessUser response:^(BackendlessUser *userObject) {
         completionBlock(YES,nil);
     } error:^(Fault *fault) {
-        completionBlock(NO,fault);
+        NSError *error = [NSError errorWithDomain:fault.description code:fault.faultCode userInfo:nil];
+        completionBlock(NO,error);
     }];
 }
 #pragma mark - tmpStickers -

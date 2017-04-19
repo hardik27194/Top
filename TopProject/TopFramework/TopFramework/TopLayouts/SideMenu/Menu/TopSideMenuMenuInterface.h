@@ -9,7 +9,7 @@
 #import "TopSideMenuControllerInterface.h"
 
 @protocol TopSideMenuMenuProtocol <NSObject>
--(void)TOPSMDidSelectController:(UIViewController <TopSideMenuControllerInterface>*)controller;
+-(void)TOPSMDidSelectController:(UIViewController *)controller;
 @end
 
 @protocol TopSideMenuMenuInterface <NSObject>

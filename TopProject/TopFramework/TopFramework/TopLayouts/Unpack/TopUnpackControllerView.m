@@ -51,16 +51,7 @@
         unpack.layer.borderWidth = 2;
         [unpack addTarget:self action:@selector(unpack) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:unpack];
-        UIButton *stick = [UIButton buttonWithType:UIButtonTypeCustom];
-        stick.backgroundColor = [UIColor whiteColor];
-        [stick setTitle:@"stick" forState:UIControlStateNormal];
-        [stick setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        stick.frame = CGRectMake(100, 10, 100, 50);
-        stick.layer.cornerRadius = 10;
-        stick.layer.borderColor = [UIColor blackColor].CGColor;
-        stick.layer.borderWidth = 2;
-        [stick addTarget:self action:@selector(stick) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:stick];
+
         
   
     }

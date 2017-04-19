@@ -36,6 +36,9 @@
     
     return description;
 }
++ (NSArray<NSNumber *> *)types{
+    return nil;
+}
 @end
 
 @implementation TopSimplePacket
