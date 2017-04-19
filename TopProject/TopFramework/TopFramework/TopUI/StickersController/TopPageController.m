@@ -30,7 +30,7 @@
     }
     return self;
 }
-- (id)initWithPages:(NSArray *)pages
+- (instancetype)initWithPages:(NSArray *)pages
 {
     self = [super init];
     if (self) {

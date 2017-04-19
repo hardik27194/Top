@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BasePageViewController.h"
 
 @interface TopScrollerBaseLayout : UIViewController
+- (instancetype)initFromPages:(NSArray <TopPage *> *)pages;
+- (void)build;
+- (void)refreshCurrentPage;
+- (BasePageViewController *)currentPageController;
 
 @end

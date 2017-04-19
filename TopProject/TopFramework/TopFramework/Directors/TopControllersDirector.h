@@ -10,6 +10,7 @@
 @import UIKit;
 
 #import "TOPPageController.h"
+#import "TopScrollerController.h"
 
 @interface TopControllersDirector : NSObject
 + (TopControllersDirector *)sharedDirector;
@@ -24,6 +25,6 @@
 
 // Main controllers
 - (NSArray <TopPageController  *>*)pageControllersSplitInCategories;
-
+- (NSArray <TopScrollerController *>*)scrollControllersSplitInCategories;
 
 @end

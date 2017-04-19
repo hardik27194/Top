@@ -484,6 +484,7 @@
 		EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EA600A431EA2180700D928D4 /* TopStyleDirector.m */; };
 		EA600A461EA2180700D928D4 /* TopStyleDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A441EA2180700D928D4 /* TopStyleDirector.h */; };
 		EA600A4C1EA220CB00D928D4 /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA797BDF1EA80FDA00C0A187 /* _TopStickerControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EA797BDE1EA80E6900C0A187 /* _TopStickerControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EAF3FB961E8FF0750037F4A8 /* TopPacketsDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */; };
 		EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */; };
 /* End PBXBuildFile section */
@@ -969,6 +970,7 @@
 		EA600A431EA2180700D928D4 /* TopStyleDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleDirector.m; sourceTree = "<group>"; };
 		EA600A441EA2180700D928D4 /* TopStyleDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleDirector.h; sourceTree = "<group>"; };
 		EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStylerProtocol.h; sourceTree = "<group>"; };
+		EA797BDE1EA80E6900C0A187 /* _TopStickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStickerControllerProtocol.h; sourceTree = "<group>"; };
 		EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketsDirector.h; sourceTree = "<group>"; };
 		EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsDirector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1238,6 +1240,7 @@
 		3D9989F41EA7B93A00E5DF37 /* StickersController */ = {
 			isa = PBXGroup;
 			children = (
+				EA797BDE1EA80E6900C0A187 /* _TopStickerControllerProtocol.h */,
 				3D9989F51EA7B93A00E5DF37 /* TopPageController.h */,
 				3D9989F61EA7B93A00E5DF37 /* TopPageController.m */,
 				3D9989F71EA7B93A00E5DF37 /* TopScrollerController.h */,
@@ -2158,6 +2161,7 @@
 				BD219E9B1E7EC9720040E092 /* Backendless-Bridging-Header.h in Headers */,
 				BD219F691E7EC9730040E092 /* RTMProtocol.h in Headers */,
 				BD219E9D1E7EC9720040E092 /* Backendless.h in Headers */,
+				EA797BDF1EA80FDA00C0A187 /* _TopStickerControllerProtocol.h in Headers */,
 				BD219EBA1E7EC9720040E092 /* CustomService.h in Headers */,
 				BD219FE41E7EC9730040E092 /* speex_callbacks.h in Headers */,
 				BD219F571E7EC9730040E092 /* ObjectWriter.h in Headers */,

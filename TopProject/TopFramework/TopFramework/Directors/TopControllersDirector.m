@@ -14,6 +14,8 @@
 #import "TopStickersDirector.h"
 #import "TopLayoutFactory.h"
 
+#import "TopScrollerBaseLayout.h"
+
 static TopControllersDirector *sharedControllersDirector = nil;
 
 @interface TopControllersDirector (){
@@ -30,9 +32,36 @@ static TopControllersDirector *sharedControllersDirector = nil;
     });
     return sharedControllersDirector;
 }
-- (NSArray *)scrollControllersSplitInCategories{
+- (NSArray <TopScrollerController *>*)scrollControllersSplitInCategories{
+    
+    if (_menuControllers != nil) {
+        return _menuControllers;
+    }
+    _menuControllers = [[NSMutableArray alloc]init];
 
-    return nil;
+    NSArray <TopCategory *> *categories = [[TopStickersDirector sharedDirector] askTopCategories];
+
+    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
+    BOOL menuCategories = topConfiguration.configuration.menuCategories;
+    
+    
+    NSMutableArray *pages = [[NSMutableArray alloc]init];
+
+    for (TopCategory *category in categories ) {
+        NSArray <TopPage *> *dataArray =  [[TopStickersDirector sharedDirector] askTopPagesForCategory:category];
+        TopScrollerBaseLayout *basePage = [[TopScrollerBaseLayout alloc]initFromPages:dataArray];
+        [pages addObject:basePage];
+        /**
+         ------ ATTENTION !! ----
+         A topPage is not page layout:
+         for this reason a TopScrollerBaseLayout could load multiple toppages
+         */
+    }
+    
+    TopScrollerController *scrollerController = [[TopScrollerController alloc]initWithScrollerLayouts:pages];
+    [_menuControllers addObject:scrollerController];
+
+    return _menuControllers;
     
 }
 - (NSArray <TopPageController  *>*)pageControllersSplitInCategories{

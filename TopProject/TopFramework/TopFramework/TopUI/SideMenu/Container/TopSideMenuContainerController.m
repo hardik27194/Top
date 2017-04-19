@@ -8,8 +8,8 @@
 
 #import "TopSideMenuContainerController.h"
 #import "BasePageViewController.h"
-#import "TopPageController.h"
 #import "TopStyleUtils.h"
+#import "_TopStickerControllerProtocol.h"
 
 @interface TopSideMenuContainerController (){
     UIViewController *_contentController;
@@ -38,6 +38,8 @@
     overlayView.backgroundColor = [UIColor blackColor];
     overlayView.alpha = 0;
     [self.view addSubview:overlayView];
+    
+    
     _overlay = overlayView;
     
     TopPacketsButton *packetsButton = [[TopPacketsButton alloc]init];
@@ -70,8 +72,9 @@
     [self.contentControllerView addSubview:controller.view];
     [controller didMoveToParentViewController:self];
     
-    TopPageController *pageController = (TopPageController *)controller;
-    self.category = [(BasePageViewController *)[pageController currentController] retrieveCategory];
+    
+    id <TopStickerControllerProtocol> stickerController = (id <TopStickerControllerProtocol>)controller;
+    self.category = [(BasePageViewController *)[stickerController currentController] retrieveCategory];
     [self updateStyle];
 }
 

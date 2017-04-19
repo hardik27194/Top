@@ -6,10 +6,7 @@
 //  Copyright © 2017 Jacopo Pappalettera. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "TopScrollerBaseLayout.h"
-
-@interface TopScrollerController : UIViewController
-- (instancetype)initWithScrollerLayouts:(NSArray <TopScrollerBaseLayout *>*)scrollerLayoutControlles;
-- (UIViewController *)currentController;
+#import "_TopStickerControllerProtocol.h"
+@interface TopScrollerController : UIViewController<TopStickerControllerProtocol>
+- (instancetype)initWithScrollerLayouts:(NSArray *)scrollerLayoutControlles;
 @end

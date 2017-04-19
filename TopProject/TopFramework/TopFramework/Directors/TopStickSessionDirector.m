@@ -8,7 +8,6 @@
 
 #import "TopStickSessionDirector.h"
 #import "TopBackendLessUserData.h"
-#import "TOPPageController.h"
 #import "TopAppDelegate.h"
 #import "TopControllersDirector.h"
 #import "BasePageViewController.h"
@@ -24,8 +23,8 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
 @end
 
 @implementation TopStickSessionDirector
-- (TopPageController *)currentPageController{
-    return (TopPageController*)[[TopControllersDirector sharedDirector] askVisualizedController];
+- (id <TopStickerControllerProtocol>)currentPageController{
+    return (id <TopStickerControllerProtocol>)[[TopControllersDirector sharedDirector] askVisualizedController];
 }
 + (id)sharedDirector{
     static dispatch_once_t onceToken;

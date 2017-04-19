@@ -29,7 +29,11 @@
 
     // to do : implement differents navigations for ipad and iphone
     
-    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] pageControllersSplitInCategories];
+//    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] pageControllersSplitInCategories];
+    
+    NSArray <UIViewController *> *menuControllers = [[TopControllersDirector sharedDirector] scrollControllersSplitInCategories];
+    
+    
     TopMenuTmpl1 *menuTmpl1 = [[TopMenuTmpl1 alloc]initWithControllers:menuControllers];
     self.viewController = [[TopSideMenu alloc]initWithMenuController:menuTmpl1];
     

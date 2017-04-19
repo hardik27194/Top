@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jacopo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
-@interface TopPageController : UIViewController
-- (id)initWithPages:(NSArray *)pages;
-- (UIViewController *)currentController;
+#import "_TopStickerControllerProtocol.h"
+
+@interface TopPageController : UIViewController <TopStickerControllerProtocol>
+- (instancetype)initWithPages:(NSArray *)pages;
 @end
