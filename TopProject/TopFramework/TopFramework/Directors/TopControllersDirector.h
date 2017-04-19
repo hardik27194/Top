@@ -9,14 +9,21 @@
 @import Foundation;
 @import UIKit;
 
+#import "TOPPageController.h"
+
 @interface TopControllersDirector : NSObject
 + (TopControllersDirector *)sharedDirector;
 
+// Unpack controller
 - (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock;
 - (void)dismissUnPackController:(UIView *)unPackControllerView;
-- (UIViewController *)askVisualizedController;
 
-- (NSArray <UIViewController *>*)menuControllersSplitInCategories;
+// Visualized controller
+- (UIViewController *)askVisualizedController;
 - (void)changedVisualizedController:(UIViewController *)controller;
+
+// Main controllers
+- (NSArray <TopPageController  *>*)pageControllersSplitInCategories;
+
 
 @end

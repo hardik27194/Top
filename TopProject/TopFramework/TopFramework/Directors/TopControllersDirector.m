@@ -9,7 +9,6 @@
 #import "TopControllersDirector.h"
 
 #import "TopAppDelegate.h"
-#import "TOPPageController.h"
 #import "TopUnpackControllerView.h"
 #import "TopPage.h"
 #import "TopStickersDirector.h"
@@ -31,8 +30,11 @@ static TopControllersDirector *sharedControllersDirector = nil;
     });
     return sharedControllersDirector;
 }
+- (NSArray *)scrollControllersSplitInCategories{
 
-- (NSArray <UIViewController *>*)menuControllersSplitInCategories{
+    
+}
+- (NSArray <TopPageController  *>*)pageControllersSplitInCategories{
     
     if (_menuControllers != nil) {
         return _menuControllers;

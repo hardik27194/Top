@@ -103,6 +103,8 @@
 		3D22B6CC1EA79FA6006665BE /* TopLayout4_Tmpl0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D22B6B61EA79FA6006665BE /* TopLayout4_Tmpl0.xib */; };
 		3D22B6CD1EA79FA6006665BE /* TopLayoutFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D22B6B71EA79FA6006665BE /* TopLayoutFactory.h */; };
 		3D22B6CE1EA79FA6006665BE /* TopLayoutFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B6B81EA79FA6006665BE /* TopLayoutFactory.m */; };
+		3D22B6D11EA7B6C7006665BE /* TopScrollerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D22B6CF1EA7B6C7006665BE /* TopScrollerController.h */; };
+		3D22B6D21EA7B6C7006665BE /* TopScrollerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D22B6D01EA7B6C7006665BE /* TopScrollerController.m */; };
 		BD0CABE71E97A51D00E49782 /* TopStickSessionDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */; };
 		BD0CABE81E97A51D00E49782 /* TopStickSessionDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */; };
 		BD219D191E7EC8900040E092 /* TopFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D0B1E7EC8900040E092 /* TopFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -581,6 +583,8 @@
 		3D22B6B61EA79FA6006665BE /* TopLayout4_Tmpl0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout4_Tmpl0.xib; sourceTree = "<group>"; };
 		3D22B6B71EA79FA6006665BE /* TopLayoutFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayoutFactory.h; sourceTree = "<group>"; };
 		3D22B6B81EA79FA6006665BE /* TopLayoutFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayoutFactory.m; sourceTree = "<group>"; };
+		3D22B6CF1EA7B6C7006665BE /* TopScrollerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScrollerController.h; sourceTree = "<group>"; };
+		3D22B6D01EA7B6C7006665BE /* TopScrollerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScrollerController.m; sourceTree = "<group>"; };
 		BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickSessionDirector.h; sourceTree = "<group>"; };
 		BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickSessionDirector.m; sourceTree = "<group>"; };
 		BD219D081E7EC8900040E092 /* TopFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TopFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1136,6 +1140,8 @@
 			children = (
 				3D22B52F1EA79D2A006665BE /* TopPageController.h */,
 				3D22B5301EA79D2A006665BE /* TopPageController.m */,
+				3D22B6CF1EA7B6C7006665BE /* TopScrollerController.h */,
+				3D22B6D01EA7B6C7006665BE /* TopScrollerController.m */,
 			);
 			path = MainController;
 			sourceTree = "<group>";
@@ -2096,6 +2102,7 @@
 				BD219F491E7EC9730040E092 /* MultiDimArrayWriter.h in Headers */,
 				BD219ECC1E7EC9720040E092 /* ICallback.h in Headers */,
 				BD219F241E7EC9720040E092 /* IAttributeStore.h in Headers */,
+				3D22B6D11EA7B6C7006665BE /* TopScrollerController.h in Headers */,
 				BD219FC81E7EC9730040E092 /* xtea.h in Headers */,
 				BD219EB51E7EC9720040E092 /* BodyParts.h in Headers */,
 				BD219FC91E7EC9730040E092 /* swscale.h in Headers */,
@@ -2416,6 +2423,7 @@
 				3D22B57A1EA79D2A006665BE /* TopSideMenuContainerController.m in Sources */,
 				3D22B5811EA79D2A006665BE /* TopSideMenu.m in Sources */,
 				EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */,
+				3D22B6D21EA7B6C7006665BE /* TopScrollerController.m in Sources */,
 				BD21A0D41E88016C0040E092 /* AFPropertyListRequestOperation.m in Sources */,
 				3D22B6C51EA79FA6006665BE /* TopLayout2_Tmpl0.m in Sources */,
 				3D22B5521EA79D2A006665BE /* TopBarButton.m in Sources */,
