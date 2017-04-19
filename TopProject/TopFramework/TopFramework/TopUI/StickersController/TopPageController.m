@@ -34,8 +34,7 @@
 {
     self = [super init];
     if (self) {
-        self.pages = [[NSArray alloc]initWithArray:pages];
-        // Custom initialization
+        _pages = [[NSArray alloc]initWithArray:pages];
     }
     return self;
 }
@@ -45,9 +44,8 @@
     
     self.view.backgroundColor = [UIColor brownColor];
 
-    [self createPageController];
+    [self buildPageController];
     
-    // Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -58,7 +56,7 @@
         }
     }
 }
-- (void)createPageController
+- (void)buildPageController
 {
 
     self.pageController = [[UIPageViewController alloc]initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];

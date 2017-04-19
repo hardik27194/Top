@@ -8,30 +8,71 @@
 
 #import "TopScrollerController.h"
 
-@interface TopScrollerController ()
+@interface TopScrollerController ()<UIScrollViewDelegate>{
+    UIViewController *_currentController;
+}
+
+@property (nonatomic,strong) NSArray <TopScrollerBaseLayout *> *scrollerLayoutControllers;
 
 @end
 
 @implementation TopScrollerController
+- (instancetype)initWithScrollerLayouts:(NSArray <TopScrollerBaseLayout *>*)scrollerLayoutControlles
+{
+    self = [super init];
+    if (self) {
+        _scrollerLayoutControllers = scrollerLayoutControlles;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor blueColor];
+    [self buildScrollerController];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)buildScrollerController{
+    UIScrollView *mainScroller = [[UIScrollView alloc]initWithFrame:CGRectInset(self.view.bounds, 10,10)];
+    mainScroller.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:mainScroller];
+    
+    CGFloat maxContentWidth = 0;
+    CGSize scrollerControllerSize = CGSizeMake(mainScroller.bounds.size.width, mainScroller.bounds.size.height);
+    
+    for (TopScrollerBaseLayout *controller in self.scrollerLayoutControllers) {
+        [self addChildViewController:controller];
+        controller.view.frame = CGRectMake(maxContentWidth, 0, scrollerControllerSize.width, scrollerControllerSize.height);
+        controller.view.backgroundColor = [UIColor yellowColor];
+        [mainScroller addSubview:controller.view];
+        [controller didMoveToParentViewController:self];
+        maxContentWidth += controller.view.bounds.size.width;
+    }
+    
+    mainScroller.contentSize = CGSizeMake(maxContentWidth, mainScroller.bounds.size.height);
+    mainScroller.pagingEnabled = YES;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIViewController *)currentController{
+    
+    return nil;
 }
-*/
+#pragma mark - privates -
+- (void)scrollToScrollerLayout:(UIViewController *)scrollerLayoutController{
+    
+}
+
+#pragma mark - scrollView delegates -
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+}
 
 @end

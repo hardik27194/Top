@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopScrollerBaseLayout.h"
 
 @interface TopScrollerController : UIViewController
-
+- (instancetype)initWithScrollerLayouts:(NSArray <TopScrollerBaseLayout *>*)scrollerLayoutControlles;
+- (UIViewController *)currentController;
 @end
