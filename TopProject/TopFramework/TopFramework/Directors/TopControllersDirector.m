@@ -32,6 +32,7 @@ static TopControllersDirector *sharedControllersDirector = nil;
 }
 - (NSArray *)scrollControllersSplitInCategories{
 
+    return nil;
     
 }
 - (NSArray <TopPageController  *>*)pageControllersSplitInCategories{
