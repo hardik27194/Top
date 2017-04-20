@@ -64,6 +64,10 @@
     }
     self.mainScroller.contentSize = CGSizeMake(maxContentWidth, self.mainScroller.bounds.size.height);
     _currentPageIndex = 0;
+ 
+    if ([[self currentController] respondsToSelector:@selector(refresh)]) {
+        [[self currentController] performSelector:@selector(refresh) withObject:nil afterDelay:0];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

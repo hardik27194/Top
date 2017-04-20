@@ -70,8 +70,16 @@
 }
 
 -(void)refreshCurrentPage{
+    if (_currentPageIndex-1 >0) {
+        BasePageViewController *controller = self.controllers[_currentPageIndex-1];
+        [controller refresh];
+    }
     if (_currentPageIndex < self.controllers.count) {
         BasePageViewController *controller = self.controllers[_currentPageIndex];
+        [controller refresh];
+    }
+    if (_currentPageIndex+1 < self.controllers.count) {
+        BasePageViewController *controller = self.controllers[_currentPageIndex+1];
         [controller refresh];
     }
 }
@@ -90,10 +98,7 @@
         return;
     }
     _currentPageIndex = page;
-    if (_currentPageIndex < self.controllers.count) {
-        BasePageViewController *controller = self.controllers[_currentPageIndex];
-        [controller refresh];
-    }
+    [self refreshCurrentPage];
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     

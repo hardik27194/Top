@@ -9,8 +9,10 @@
 #import "TopLayoutFactory.h"
 #import "TopLayout1_Tmpl0.h"
 #import "TopLayout2_Tmpl0.h"
+#import "TopLayout2_Tmpl1.h"
 #import "TopLayout3_Tmpl0.h"
 #import "TopLayout4_Tmpl0.h"
+
 
 #import "TopIPadLayout2_Tmpl0.h"
 #import "TopIPadLayout2_Tmpl1.h"
@@ -25,7 +27,8 @@ static NSDictionary *iPadLayouts;
 +(void)load{
     
     NSDictionary *iphone_layout_1_obj = @{@"iphone_l1_tmpl0":[TopLayout1_Tmpl0 class]};
-    NSDictionary *iphone_layout_2_obj = @{@"iphone_l2_tmpl0":[TopLayout2_Tmpl0 class]};
+    NSDictionary *iphone_layout_2_obj = @{@"iphone_l2_tmpl0":[TopLayout2_Tmpl0 class],
+                                          @"iphone_l2_tmpl1":[TopLayout2_Tmpl1 class]};
     NSDictionary *iphone_layout_3_obj = @{@"iphone_l3_tmpl0":[TopLayout3_Tmpl0 class]};
     NSDictionary *iphone_layout_4_obj = @{@"iphone_l4_tmpl0":[TopLayout4_Tmpl0 class]};
 
