@@ -41,8 +41,7 @@
         photoBlock(_photo);
         return;
     }
-        dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
-    
+    dispatch_queue_t downloadQueue = dispatch_queue_create("top.process_images", NULL);
     dispatch_async(downloadQueue, ^{
         NSData * imageData = [NSData dataWithContentsOfURL:photoUrl];
         _photo = [UIImage imageWithData:imageData];
@@ -56,14 +55,15 @@
 }
 -(void)updateWithTopObject:(TopObject *)topObject{
     _tObject = topObject;
-    /*
-     [self photoWithUrl:[NSURL URLWithString:_tObject.image]
-            completion:^(UIImage *image) {
-//                self.imageView.image = image;
-            }];
-    */
     self.titleLabel.text = _tObject.title;
     self.descriptionLabel.text = _tObject.desc;
+    [self photoWithUrl:[NSURL URLWithString:_tObject.image]
+            completion:^(UIImage *image) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.imageView.image = image;
+                    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                });
+            }];
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.detailProtocol topDetailView:self askCloseWithData:nil];
@@ -71,13 +71,13 @@
 
 #pragma mark - style -
 -(void)updateStyle{
-
 }
 -(void)setCenterPoint:(CGPoint)centerPoint{
     _centerPoint = centerPoint;
 }
 #pragma mark - shrink and expand -
--(void)willShrink{}
+-(void)willShrink{
+}
 -(void)shrink{
     if (self.shrinkedView == nil) {
         return;

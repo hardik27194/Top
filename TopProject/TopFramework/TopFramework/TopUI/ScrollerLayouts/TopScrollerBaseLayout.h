@@ -15,4 +15,8 @@
 - (void)refreshCurrentPage;
 - (BasePageViewController *)currentPageController;
 
+
+- (NSInteger)controllerHeight;
+- (NSInteger)controllersSpace;
+
 @end

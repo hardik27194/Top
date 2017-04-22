@@ -9,6 +9,7 @@
 #import "StickerView.h"
 #import "TopAppDelegate.h"
 #import "TopStyleDirector.h"
+@import AVFoundation;
 
 @interface StickerView()<PhotoStickerViewProtocol,PhotoContainerStickerViewProtocol>{
     TopObject *_tObject;
@@ -29,8 +30,9 @@
     return view;
 }
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    CGRect rect  = AVMakeRectWithAspectRatioInsideRect(image.size,self.frame);
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:rect blendMode:kCGBlendModePlusDarker alpha:1];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;

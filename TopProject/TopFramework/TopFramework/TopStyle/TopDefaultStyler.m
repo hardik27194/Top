@@ -70,12 +70,14 @@
             style.backgroundColor = [TopStyleUtils colorFromHexString:@"efefef" withAlpha:1];
             style.maskToBounds = YES;
             style.layerBorderWidth = 0;
+            break;
         }
         case TopViewStyleState_Warning:{
             style.backgroundColor = [TopStyleUtils colorFromHexString:@"f39c12" withAlpha:1];
             style.maskToBounds = YES;
             style.layerBorderWidth = 0;
         }
+            break;
         default:
             break;
     }

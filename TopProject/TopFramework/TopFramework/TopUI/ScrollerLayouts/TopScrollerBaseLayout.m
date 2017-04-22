@@ -50,6 +50,11 @@
     }
     for (TopPage *page in _pages) {
         BasePageViewController *baseController = [TopLayoutFactory layoutFromTopPage:page];
+        
+        if (baseController == nil) {
+            continue;
+        }
+        
         [self addChildViewController:baseController];
         [self.mainScrollView addSubview:baseController.view];
         [baseController didMoveToParentViewController:self];
@@ -61,8 +66,11 @@
 }
 -(void)updateFrames{
     CGFloat offsetY = 0;
+    NSInteger controllerHeight = [self controllerHeight];
+    
     for (BasePageViewController *bController in self.controllers) {
-        bController.view.frame = CGRectMake(0, offsetY, bController.view.bounds.size.width, bController.view.bounds.size.height);
+        bController.view.frame = CGRectMake(0, offsetY, bController.view.bounds.size.width, controllerHeight);
+        offsetY += [self controllersSpace];
         offsetY += bController.view.bounds.size.height;
     }
     self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.bounds.size.width, offsetY);
@@ -70,7 +78,7 @@
 }
 
 -(void)refreshCurrentPage{
-    if (_currentPageIndex-1 >0) {
+    if (_currentPageIndex-1 >0 && _currentPageIndex-1 < self.controllers.count) {
         BasePageViewController *controller = self.controllers[_currentPageIndex-1];
         [controller refresh];
     }
@@ -84,26 +92,34 @@
     }
 }
 -(BasePageViewController *)currentPageController{
-    if (_currentPageIndex >= self.controllers.count) {
+    if (_currentPageIndex > self.controllers.count) {
         return nil;
     }
     return self.controllers[_currentPageIndex];
 }
+#pragma mark - public - 
+- (NSInteger)controllerHeight{
+    return self.mainScrollView.bounds.size.height+10;
+}
+- (NSInteger)controllersSpace{
+    return 100;
+}
 #pragma mark - scrollview delegate -
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSInteger offsetY = scrollView.contentOffset.y;
-    NSInteger height = self.view.bounds.size.height;
+    NSInteger height = [self controllerHeight]+[self controllersSpace];
     NSInteger page = (offsetY / height);
     if (_currentPageIndex == page) {
         return;
     }
     _currentPageIndex = page;
-    [self refreshCurrentPage];
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
 }
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self refreshCurrentPage];
 }
 @end

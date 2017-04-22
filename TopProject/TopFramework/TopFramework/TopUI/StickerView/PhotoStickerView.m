@@ -19,8 +19,7 @@
     if (self) {
         _number = [number integerValue];
         self.layerRect = CGRectZero;
-        
-  
+
         UILabel *numberLabel = [[UILabel alloc]init];
         numberLabel.font = [UIFont systemFontOfSize:20];
         numberLabel.textAlignment = NSTextAlignmentCenter;
@@ -58,9 +57,8 @@
         if (image == nil) {
             return;
         }
-        self.layer.contents = (__bridge id)image.CGImage;
-        self.layer.contentsGravity = kCAGravityResizeAspectFill;
         self.layer.contentsRect = _layerRect;
+        self.layer.contents = (__bridge id)image.CGImage;
         self.styleState = TopViewStyleState_Selected;
     }];
 }
