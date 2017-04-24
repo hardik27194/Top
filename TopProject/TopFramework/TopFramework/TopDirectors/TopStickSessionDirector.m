@@ -234,16 +234,18 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                inRect:(void(^)(UIView *view))inRectBlock
               outRect:(void(^)(UIView *view))outRectBlock{
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
-    
-    for (UIView *view in [(BasePageViewController *)[[self currentPageController] currentController] photoStickerViews]) {
-        CGRect rect  = [view convertRect:view.bounds toView:[[self currentPageController] currentController].view];
-        CGPoint convertedPoint = [mainController.view convertPoint:point toView:[[self currentPageController] currentController].view];
-        if (CGRectContainsPoint(rect, convertedPoint)) {
-            inRectBlock(view);
-        }else{
-            outRectBlock(view);
+    [[self currentPageController] enumCurrentControllers:^(UIViewController *controller) {
+        BasePageViewController *basePageController = (BasePageViewController *)controller;
+        for (UIView *view in [basePageController photoStickerViews]) {
+            CGRect rect  = [view convertRect:view.bounds toView:[[self currentPageController] currentController].view];
+            CGPoint convertedPoint = [mainController.view convertPoint:point toView:[[self currentPageController] currentController].view];
+            if (CGRectContainsPoint(rect, convertedPoint)) {
+                inRectBlock(view);
+            }else{
+                outRectBlock(view);
+            }
         }
-    }
+    }];
 }
 -(void)checkNumberTileView:(TopTileSticker *)tileView
                     inView:(UIView *)view

@@ -14,7 +14,8 @@
 - (void)build;
 - (void)refreshCurrentPage;
 - (BasePageViewController *)currentPageController;
-
+- (BasePageViewController *)previousPageController;
+- (BasePageViewController *)nextPageController;
 
 - (NSInteger)controllerHeight;
 - (NSInteger)controllersSpace;

@@ -65,21 +65,48 @@
     self.mainScroller.contentSize = CGSizeMake(maxContentWidth, self.mainScroller.bounds.size.height);
     _currentPageIndex = 0;
  
-    if ([[self currentController] respondsToSelector:@selector(refresh)]) {
-        [[self currentController] performSelector:@selector(refresh) withObject:nil afterDelay:0];
-    }
+    [self enumCurrentControllers:^(UIViewController *controller) {
+        if ([controller respondsToSelector:@selector(refresh)]) {
+            [controller performSelector:@selector(refresh) withObject:nil afterDelay:0];
+        }
+    }];
+    
 }
--(void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
 
-}
+#pragma mark - get controllers -
 - (UIViewController *)currentController{
     if (_currentPageIndex >= self.scrollerLayoutControllers.count) {
         return nil;
     }
     return [self.scrollerLayoutControllers[_currentPageIndex] currentPageController];
 }
+-(NSArray *)currentControllers{
+    if (_currentPageIndex >= self.scrollerLayoutControllers.count) {
+        return nil;
+    }
+    NSMutableArray *controllers = [[NSMutableArray alloc]init];
+    UIViewController *cController = [self.scrollerLayoutControllers[_currentPageIndex] currentPageController];
+    UIViewController *nController = [self.scrollerLayoutControllers[_currentPageIndex] nextPageController];
+    UIViewController *pController = [self.scrollerLayoutControllers[_currentPageIndex] previousPageController];
+    if (controllers) {
+        [controllers addObject:cController];
+    }
+    if (nController) {
+        [controllers addObject:nController];
+    }
+    if (pController) {
+        [controllers addObject:pController];
+    }
+    return (NSArray *)controllers;
+}
+
 #pragma mark - privates -
+
+- (void)enumCurrentControllers:(void(^)(UIViewController *controller))controllersBlock{
+    for (UIViewController *controller in [self currentControllers]) {
+        controllersBlock(controller);
+    }
+}
 - (void)scrollToScrollerLayout:(UIViewController *)scrollerLayoutController{
     
 }

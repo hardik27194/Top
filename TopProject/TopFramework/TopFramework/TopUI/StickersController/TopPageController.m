@@ -100,6 +100,9 @@
 - (UIViewController *)currentController{
     return _currentController;
 }
+- (void)enumCurrentControllers:(void (^)(UIViewController *))controllersBlock{
+    controllersBlock([self currentController]);
+}
 #pragma mark - page controller delegate -
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController

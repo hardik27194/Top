@@ -120,7 +120,7 @@
 		3DE38ADF1EAE2CA8000C9A6D /* TopStickSessionDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD41EAE2CA8000C9A6D /* TopStickSessionDirector.m */; };
 		3DE38AE01EAE2CA8000C9A6D /* TopStyleDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AD51EAE2CA8000C9A6D /* TopStyleDirector.h */; };
 		3DE38AE11EAE2CA8000C9A6D /* TopStyleDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD61EAE2CA8000C9A6D /* TopStyleDirector.m */; };
-		3DE38AE31EAE3092000C9A6D /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AE21EAE3092000C9A6D /* _TopStylerProtocol.h */; };
+		3DE38AE31EAE3092000C9A6D /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AE21EAE3092000C9A6D /* _TopStylerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD219D191E7EC8900040E092 /* TopFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D0B1E7EC8900040E092 /* TopFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD219E951E7EC9720040E092 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD219D281E7EC9720040E092 /* backendless.a */; };
 		BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D2A1E7EC9720040E092 /* AbstractProperty.h */; };

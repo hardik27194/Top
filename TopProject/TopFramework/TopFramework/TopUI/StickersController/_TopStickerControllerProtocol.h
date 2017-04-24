@@ -13,6 +13,7 @@
 
 @protocol TopStickerControllerProtocol <NSObject>
 - (UIViewController *)currentController;
+- (void)enumCurrentControllers:(void(^)(UIViewController *controller))controllersBlock;
 @end
 
 #endif /* _TopStickerControllerProtocol_h */

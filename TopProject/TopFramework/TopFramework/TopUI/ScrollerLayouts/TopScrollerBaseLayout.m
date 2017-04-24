@@ -77,25 +77,32 @@
     _currentPageIndex = 0;
 }
 
--(void)refreshCurrentPage{
+-(void)refreshPages{
+    BasePageViewController *previousController = [self previousPageController];
+    [previousController refresh];
+    BasePageViewController *currentController = [self currentPageController];
+    [currentController refresh];
+    BasePageViewController *nextController = [self nextPageController];
+    [nextController refresh];
+}
+#pragma mark - get controllers -
+-(BasePageViewController *)previousPageController{
     if (_currentPageIndex-1 >0 && _currentPageIndex-1 < self.controllers.count) {
-        BasePageViewController *controller = self.controllers[_currentPageIndex-1];
-        [controller refresh];
+        return self.controllers[_currentPageIndex-1];
     }
-    if (_currentPageIndex < self.controllers.count) {
-        BasePageViewController *controller = self.controllers[_currentPageIndex];
-        [controller refresh];
-    }
-    if (_currentPageIndex+1 < self.controllers.count) {
-        BasePageViewController *controller = self.controllers[_currentPageIndex+1];
-        [controller refresh];
-    }
+    return nil;
 }
 -(BasePageViewController *)currentPageController{
     if (_currentPageIndex > self.controllers.count) {
         return nil;
     }
     return self.controllers[_currentPageIndex];
+}
+-(BasePageViewController *)nextPageController{
+    if (_currentPageIndex+1 < self.controllers.count) {
+        return self.controllers[_currentPageIndex+1];
+    }
+    return nil;
 }
 #pragma mark - public - 
 - (NSInteger)controllerHeight{
@@ -120,6 +127,6 @@
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self refreshCurrentPage];
+    [self refreshPages];
 }
 @end
