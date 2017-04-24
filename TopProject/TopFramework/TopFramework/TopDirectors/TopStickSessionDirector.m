@@ -67,10 +67,9 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     }
 }
 -(void)tileView:(TopTileSticker *)tileView didDragToPoint:(CGPoint)pt{
-    
-    [self checkTileView:tileView withPoint:pt
-          inMenuButtons:^(TopBarButton *button,BOOL inrect) {
-              
+    [self checkTileView:tileView
+              withPoint:pt
+          inMenuButtons:^(TopBarButton *button, bool inrect) {
               if (inrect) {
                   [button handleStickerNumber:tileView.number
                                    completion:^(BOOL success){
@@ -81,9 +80,10 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                                                return;
                                            }];
                                        }
-                  }];
+                                   }];
               }
-          }];
+    }];
+
     
     
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
@@ -123,14 +123,15 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     
 }
 -(void)tileView:(TopTileSticker *)tileView dragToPoint:(CGPoint)pt{
-    [self checkTileView:tileView withPoint:pt
-          inMenuButtons:^(TopBarButton *button,BOOL inrect) {
+    [self checkTileView:tileView
+              withPoint:pt
+          inMenuButtons:^(TopBarButton *button, bool inrect) {
               if (inrect) {
                   [button highlightWithNumber:tileView.number];
               }else{
                   [button relax];
               }
-          }];
+    }];
     
     [self checkTileView:tileView
               withPoint:pt

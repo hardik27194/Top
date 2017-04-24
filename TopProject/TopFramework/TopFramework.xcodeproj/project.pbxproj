@@ -110,8 +110,17 @@
 		3DD3E02D1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DD3E02A1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.h */; };
 		3DD3E02E1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DD3E02B1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.m */; };
 		3DD3E02F1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DD3E02C1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.xib */; };
-		BD0CABE71E97A51D00E49782 /* TopStickSessionDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */; };
-		BD0CABE81E97A51D00E49782 /* TopStickSessionDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */; };
+		3DE38AD71EAE2CA8000C9A6D /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38ACC1EAE2CA8000C9A6D /* _TopStylerProtocol.h */; };
+		3DE38AD81EAE2CA8000C9A6D /* TopControllersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38ACD1EAE2CA8000C9A6D /* TopControllersDirector.h */; };
+		3DE38AD91EAE2CA8000C9A6D /* TopControllersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38ACE1EAE2CA8000C9A6D /* TopControllersDirector.m */; };
+		3DE38ADA1EAE2CA8000C9A6D /* TopPacketsDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38ACF1EAE2CA8000C9A6D /* TopPacketsDirector.h */; };
+		3DE38ADB1EAE2CA8000C9A6D /* TopPacketsDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD01EAE2CA8000C9A6D /* TopPacketsDirector.m */; };
+		3DE38ADC1EAE2CA8000C9A6D /* TopStickersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AD11EAE2CA8000C9A6D /* TopStickersDirector.h */; };
+		3DE38ADD1EAE2CA8000C9A6D /* TopStickersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD21EAE2CA8000C9A6D /* TopStickersDirector.m */; };
+		3DE38ADE1EAE2CA8000C9A6D /* TopStickSessionDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AD31EAE2CA8000C9A6D /* TopStickSessionDirector.h */; };
+		3DE38ADF1EAE2CA8000C9A6D /* TopStickSessionDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD41EAE2CA8000C9A6D /* TopStickSessionDirector.m */; };
+		3DE38AE01EAE2CA8000C9A6D /* TopStyleDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DE38AD51EAE2CA8000C9A6D /* TopStyleDirector.h */; };
+		3DE38AE11EAE2CA8000C9A6D /* TopStyleDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DE38AD61EAE2CA8000C9A6D /* TopStyleDirector.m */; };
 		BD219D191E7EC8900040E092 /* TopFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D0B1E7EC8900040E092 /* TopFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD219E951E7EC9720040E092 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD219D281E7EC9720040E092 /* backendless.a */; };
 		BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = BD219D2A1E7EC9720040E092 /* AbstractProperty.h */; };
@@ -480,16 +489,7 @@
 		BD21A0D81E88016C0040E092 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0C51E88016C0040E092 /* AFXMLRequestOperation.m */; };
 		BD21A0D91E88016C0040E092 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = BD21A0C61E88016C0040E092 /* UIImageView+AFNetworking.h */; };
 		BD21A0DA1E88016C0040E092 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BD21A0C71E88016C0040E092 /* UIImageView+AFNetworking.m */; };
-		BDEAC77D1E89B99A0016502E /* TopStickersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC77B1E89B99A0016502E /* TopStickersDirector.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BDEAC77E1E89B99A0016502E /* TopStickersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */; };
-		BDEAC7811E89B9B20016502E /* TopControllersDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEAC77F1E89B9B20016502E /* TopControllersDirector.h */; };
-		BDEAC7821E89B9B20016502E /* TopControllersDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = BDEAC7801E89B9B20016502E /* TopControllersDirector.m */; };
-		EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EA600A431EA2180700D928D4 /* TopStyleDirector.m */; };
-		EA600A461EA2180700D928D4 /* TopStyleDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A441EA2180700D928D4 /* TopStyleDirector.h */; };
-		EA600A4C1EA220CB00D928D4 /* _TopStylerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA797BDF1EA80FDA00C0A187 /* _TopStickerControllerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = EA797BDE1EA80E6900C0A187 /* _TopStickerControllerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EAF3FB961E8FF0750037F4A8 /* TopPacketsDirector.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */; };
-		EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */ = {isa = PBXBuildFile; fileRef = EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -596,8 +596,17 @@
 		3DD3E02A1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLayout2_Tmpl1.h; sourceTree = "<group>"; };
 		3DD3E02B1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLayout2_Tmpl1.m; sourceTree = "<group>"; };
 		3DD3E02C1EA8DAD2004AEDFE /* TopLayout2_Tmpl1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopLayout2_Tmpl1.xib; sourceTree = "<group>"; };
-		BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickSessionDirector.h; sourceTree = "<group>"; };
-		BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickSessionDirector.m; sourceTree = "<group>"; };
+		3DE38ACC1EAE2CA8000C9A6D /* _TopStylerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TopStylerProtocol.h; sourceTree = "<group>"; };
+		3DE38ACD1EAE2CA8000C9A6D /* TopControllersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopControllersDirector.h; sourceTree = "<group>"; };
+		3DE38ACE1EAE2CA8000C9A6D /* TopControllersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopControllersDirector.m; sourceTree = "<group>"; };
+		3DE38ACF1EAE2CA8000C9A6D /* TopPacketsDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketsDirector.h; sourceTree = "<group>"; };
+		3DE38AD01EAE2CA8000C9A6D /* TopPacketsDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsDirector.m; sourceTree = "<group>"; };
+		3DE38AD11EAE2CA8000C9A6D /* TopStickersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickersDirector.h; sourceTree = "<group>"; };
+		3DE38AD21EAE2CA8000C9A6D /* TopStickersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickersDirector.m; sourceTree = "<group>"; };
+		3DE38AD31EAE2CA8000C9A6D /* TopStickSessionDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickSessionDirector.h; sourceTree = "<group>"; };
+		3DE38AD41EAE2CA8000C9A6D /* TopStickSessionDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickSessionDirector.m; sourceTree = "<group>"; };
+		3DE38AD51EAE2CA8000C9A6D /* TopStyleDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleDirector.h; sourceTree = "<group>"; };
+		3DE38AD61EAE2CA8000C9A6D /* TopStyleDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleDirector.m; sourceTree = "<group>"; };
 		BD219D081E7EC8900040E092 /* TopFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TopFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD219D0B1E7EC8900040E092 /* TopFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopFramework.h; sourceTree = "<group>"; };
 		BD219D0C1E7EC8900040E092 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -969,16 +978,7 @@
 		BD21A0C51E88016C0040E092 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		BD21A0C61E88016C0040E092 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		BD21A0C71E88016C0040E092 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		BDEAC77B1E89B99A0016502E /* TopStickersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStickersDirector.h; sourceTree = "<group>"; };
-		BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStickersDirector.m; sourceTree = "<group>"; };
-		BDEAC77F1E89B9B20016502E /* TopControllersDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopControllersDirector.h; sourceTree = "<group>"; };
-		BDEAC7801E89B9B20016502E /* TopControllersDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopControllersDirector.m; sourceTree = "<group>"; };
-		EA600A431EA2180700D928D4 /* TopStyleDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopStyleDirector.m; sourceTree = "<group>"; };
-		EA600A441EA2180700D928D4 /* TopStyleDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopStyleDirector.h; sourceTree = "<group>"; };
-		EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStylerProtocol.h; sourceTree = "<group>"; };
 		EA797BDE1EA80E6900C0A187 /* _TopStickerControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TopStickerControllerProtocol.h; sourceTree = "<group>"; };
-		EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPacketsDirector.h; sourceTree = "<group>"; };
-		EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPacketsDirector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1313,6 +1313,24 @@
 			path = ScrollerLayouts;
 			sourceTree = "<group>";
 		};
+		3DE38ACB1EAE2CA8000C9A6D /* TopDirectors */ = {
+			isa = PBXGroup;
+			children = (
+				3DE38ACC1EAE2CA8000C9A6D /* _TopStylerProtocol.h */,
+				3DE38ACD1EAE2CA8000C9A6D /* TopControllersDirector.h */,
+				3DE38ACE1EAE2CA8000C9A6D /* TopControllersDirector.m */,
+				3DE38ACF1EAE2CA8000C9A6D /* TopPacketsDirector.h */,
+				3DE38AD01EAE2CA8000C9A6D /* TopPacketsDirector.m */,
+				3DE38AD11EAE2CA8000C9A6D /* TopStickersDirector.h */,
+				3DE38AD21EAE2CA8000C9A6D /* TopStickersDirector.m */,
+				3DE38AD31EAE2CA8000C9A6D /* TopStickSessionDirector.h */,
+				3DE38AD41EAE2CA8000C9A6D /* TopStickSessionDirector.m */,
+				3DE38AD51EAE2CA8000C9A6D /* TopStyleDirector.h */,
+				3DE38AD61EAE2CA8000C9A6D /* TopStyleDirector.m */,
+			);
+			path = TopDirectors;
+			sourceTree = "<group>";
+		};
 		BD219CFE1E7EC8900040E092 = {
 			isa = PBXGroup;
 			children = (
@@ -1333,12 +1351,12 @@
 		BD219D0A1E7EC8900040E092 /* TopFramework */ = {
 			isa = PBXGroup;
 			children = (
-				3D22B43A1EA79D10006665BE /* Computing */,
 				3D22B5921EA79D3E006665BE /* TopStyle */,
 				3D9989BB1EA7B93A00E5DF37 /* TopUI */,
+				3DE38ACB1EAE2CA8000C9A6D /* TopDirectors */,
 				3D22B48E1EA79D11006665BE /* TopObjects */,
+				3D22B43A1EA79D10006665BE /* Computing */,
 				3D22B4A01EA79D11006665BE /* TopBackendLess */,
-				BDEAC77A1E89B99A0016502E /* Directors */,
 				BD219D261E7EC9720040E092 /* lib */,
 				BD21A0B41E88016C0040E092 /* AFNetworking */,
 				BD219FF51E7ECB940040E092 /* TopAppDelegate.h */,
@@ -1912,24 +1930,6 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
-		BDEAC77A1E89B99A0016502E /* Directors */ = {
-			isa = PBXGroup;
-			children = (
-				BDEAC77B1E89B99A0016502E /* TopStickersDirector.h */,
-				BDEAC77C1E89B99A0016502E /* TopStickersDirector.m */,
-				BDEAC77F1E89B9B20016502E /* TopControllersDirector.h */,
-				BDEAC7801E89B9B20016502E /* TopControllersDirector.m */,
-				EAF3FB941E8FF0750037F4A8 /* TopPacketsDirector.h */,
-				EAF3FB951E8FF0750037F4A8 /* TopPacketsDirector.m */,
-				BD0CABE51E97A51D00E49782 /* TopStickSessionDirector.h */,
-				BD0CABE61E97A51D00E49782 /* TopStickSessionDirector.m */,
-				EA600A4B1EA2204100D928D4 /* _TopStylerProtocol.h */,
-				EA600A441EA2180700D928D4 /* TopStyleDirector.h */,
-				EA600A431EA2180700D928D4 /* TopStyleDirector.m */,
-			);
-			path = Directors;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1939,6 +1939,7 @@
 			files = (
 				BD219F941E7EC9730040E092 /* avformat.h in Headers */,
 				BD219FAD1E7EC9730040E092 /* error.h in Headers */,
+				3DE38ADC1EAE2CA8000C9A6D /* TopStickersDirector.h in Headers */,
 				BD21A0D21E88016C0040E092 /* AFNetworking.h in Headers */,
 				BD219FC01E7EC9730040E092 /* pixfmt.h in Headers */,
 				BD219F221E7EC9720040E092 /* IAdaptingType.h in Headers */,
@@ -2013,11 +2014,11 @@
 				3D998A401EA7B93A00E5DF37 /* PhotoContainerStickersView.h in Headers */,
 				3D998A2B1EA7B93A00E5DF37 /* TopLayout3_Tmpl0.h in Headers */,
 				3D998A371EA7B93A00E5DF37 /* TopMenuTmpl1.h in Headers */,
-				EA600A461EA2180700D928D4 /* TopStyleDirector.h in Headers */,
 				BD219F391E7EC9720040E092 /* IServiceCall.h in Headers */,
 				BD219F3B1E7EC9720040E092 /* ISharedObjectEvent.h in Headers */,
 				BD219F171E7EC9720040E092 /* DateType.h in Headers */,
 				3D22B4F11EA79D11006665BE /* TopObject.h in Headers */,
+				3DE38ADA1EAE2CA8000C9A6D /* TopPacketsDirector.h in Headers */,
 				BD219F4F1E7EC9730040E092 /* NullType.h in Headers */,
 				BD219F931E7EC9730040E092 /* version.h in Headers */,
 				BD219F531E7EC9730040E092 /* NumberWriter.h in Headers */,
@@ -2052,6 +2053,7 @@
 				BD219FD11E7EC9730040E092 /* AudioCodec.h in Headers */,
 				BD219F5E1E7EC9730040E092 /* PropertyBagWriter.h in Headers */,
 				BD219FBA1E7EC9730040E092 /* md5.h in Headers */,
+				3DE38ADE1EAE2CA8000C9A6D /* TopStickSessionDirector.h in Headers */,
 				3D998A361EA7B93A00E5DF37 /* TopSideMenuControllerInterface.h in Headers */,
 				BD219EC91E7EC9720040E092 /* HashMap.h in Headers */,
 				BD219F2A1E7EC9720040E092 /* IDeserializer.h in Headers */,
@@ -2118,6 +2120,7 @@
 				BD219EB91E7EC9720040E092 /* ClientCallback.h in Headers */,
 				3D998A1B1EA7B93A00E5DF37 /* TopDetailViewFactory.h in Headers */,
 				BD219EDB1E7EC9720040E092 /* MediaPublishOptions.h in Headers */,
+				3DE38AD81EAE2CA8000C9A6D /* TopControllersDirector.h in Headers */,
 				BD219EA31E7EC9720040E092 /* BackendlessCacheProtocol.h in Headers */,
 				BD219F871E7EC9730040E092 /* dxva2.h in Headers */,
 				BD219FB91E7EC9730040E092 /* mathematics.h in Headers */,
@@ -2147,7 +2150,6 @@
 				3D998A0D1EA7B93A00E5DF37 /* TopBarButton.h in Headers */,
 				BD219EB31E7EC9720040E092 /* BESubscription.h in Headers */,
 				BD219F411E7EC9730040E092 /* ITypeWriter.h in Headers */,
-				EAF3FB961E8FF0750037F4A8 /* TopPacketsDirector.h in Headers */,
 				3D998A2E1EA7B93A00E5DF37 /* TopLayout4_Tmpl0.h in Headers */,
 				BD219EF71E7EC9720040E092 /* AnonymousObject.h in Headers */,
 				BD219EE51E7EC9720040E092 /* PublishOptions.h in Headers */,
@@ -2161,7 +2163,6 @@
 				BD219F6F1E7EC9730040E092 /* StringType.h in Headers */,
 				BD219F081E7EC9720040E092 /* BodyHolderWriter.h in Headers */,
 				BD219EB41E7EC9720040E092 /* BETableView.h in Headers */,
-				EA600A4C1EA220CB00D928D4 /* _TopStylerProtocol.h in Headers */,
 				3D998A391EA7B93A00E5DF37 /* TopSideMenuMenuInterface.h in Headers */,
 				BD219F161E7EC9720040E092 /* DateReader.h in Headers */,
 				BD219EF61E7EC9720040E092 /* AmfV3Formatter.h in Headers */,
@@ -2183,7 +2184,6 @@
 				BD219FD81E7EC9730040E092 /* MPCodecIDMapping.h in Headers */,
 				BD219EA51E7EC9720040E092 /* BackendlessDataQuery.h in Headers */,
 				BD219EB71E7EC9720040E092 /* CacheService.h in Headers */,
-				BDEAC77D1E89B99A0016502E /* TopStickersDirector.h in Headers */,
 				BD219E9C1E7EC9720040E092 /* Backendless-With-Media-Bridging-Header.h in Headers */,
 				BD219F3C1E7EC9720040E092 /* ISharedObjectListener.h in Headers */,
 				BD219F911E7EC9730040E092 /* buffersink.h in Headers */,
@@ -2220,7 +2220,6 @@
 				BD219F611E7EC9730040E092 /* ReferenceCache.h in Headers */,
 				BD219E961E7EC9720040E092 /* AbstractProperty.h in Headers */,
 				BD219F011E7EC9720040E092 /* BaseRTMPProtocolDecoder.h in Headers */,
-				BD0CABE71E97A51D00E49782 /* TopStickSessionDirector.h in Headers */,
 				3D998A221EA7B93A00E5DF37 /* TopIPadLayout2_Tmpl1.h in Headers */,
 				BD219FAB1E7EC9730040E092 /* display.h in Headers */,
 				3D998A3C1EA7B93A00E5DF37 /* TopPageController.h in Headers */,
@@ -2282,6 +2281,7 @@
 				BD219EBE1E7EC9720040E092 /* DeviceRegistration.h in Headers */,
 				BD219FE71E7EC9730040E092 /* speex_stereo.h in Headers */,
 				BD219F781E7EC9730040E092 /* V3DateReader.h in Headers */,
+				3DE38AE01EAE2CA8000C9A6D /* TopStyleDirector.h in Headers */,
 				BD219FDA1E7EC9730040E092 /* MPMediaDecoder.h in Headers */,
 				BD219FAA1E7EC9730040E092 /* dict.h in Headers */,
 				BD219F2C1E7EC9720040E092 /* IEventDispatcher.h in Headers */,
@@ -2318,13 +2318,13 @@
 				BD219EBD1E7EC9720040E092 /* DeliveryOptions.h in Headers */,
 				BD219F561E7EC9730040E092 /* ObjectSerializer.h in Headers */,
 				BD219ED71E7EC9720040E092 /* MapDrivenDataStore.h in Headers */,
-				BDEAC7811E89B9B20016502E /* TopControllersDirector.h in Headers */,
 				3D22B4EF1EA79D11006665BE /* TopCategory.h in Headers */,
 				BD219F471E7EC9730040E092 /* MetaData.h in Headers */,
 				3D998A531EA7BEAB00E5DF37 /* TopScrollerBaseLayout.h in Headers */,
 				BD219EF51E7EC9720040E092 /* AMFSerializer.h in Headers */,
 				BD219EFF1E7EC9720040E092 /* AudioData.h in Headers */,
 				BD219F231E7EC9720040E092 /* IArgumentObjectFactory.h in Headers */,
+				3DE38AD71EAE2CA8000C9A6D /* _TopStylerProtocol.h in Headers */,
 				BD219F371E7EC9720040E092 /* IRTMProtocol.h in Headers */,
 				BD21A0CE1E88016C0040E092 /* AFJSONRequestOperation.h in Headers */,
 				3D998A171EA7B93A00E5DF37 /* TopSimpleDetailView.h in Headers */,
@@ -2428,12 +2428,9 @@
 				3D22B5A81EA79D3E006665BE /* TopStyleUtils.m in Sources */,
 				3D22B4AB1EA79D11006665BE /* Chance.m in Sources */,
 				3D998A3D1EA7B93A00E5DF37 /* TopPageController.m in Sources */,
-				BD0CABE81E97A51D00E49782 /* TopStickSessionDirector.m in Sources */,
 				3D998A451EA7B93A00E5DF37 /* StickerView.m in Sources */,
-				BDEAC77E1E89B99A0016502E /* TopStickersDirector.m in Sources */,
 				3D998A2C1EA7B93A00E5DF37 /* TopLayout3_Tmpl0.m in Sources */,
 				3D998A141EA7B93A00E5DF37 /* TopPacketsButton.m in Sources */,
-				BDEAC7821E89B9B20016502E /* TopControllersDirector.m in Sources */,
 				3D998A431EA7B93A00E5DF37 /* PhotoStickerView.m in Sources */,
 				3D22B4FA1EA79D11006665BE /* TopBackendLessConfiguration.m in Sources */,
 				3D998A4C1EA7B93A00E5DF37 /* TopTileSticker.m in Sources */,
@@ -2443,19 +2440,21 @@
 				3D998A121EA7B93A00E5DF37 /* TopDoubleButton.m in Sources */,
 				3D998A291EA7B93A00E5DF37 /* TopLayout2_Tmpl0.m in Sources */,
 				3D998A321EA7B93A00E5DF37 /* TopLayoutFactory.m in Sources */,
-				EAF3FB971E8FF0750037F4A8 /* TopPacketsDirector.m in Sources */,
 				3D22B4FE1EA79D11006665BE /* TopBackendLessData.m in Sources */,
 				3D22B4F61EA79D11006665BE /* TopPacketFactory.m in Sources */,
 				3D22B5A41EA79D3E006665BE /* TopDefaultStyler.m in Sources */,
 				3D998A231EA7B93A00E5DF37 /* TopIPadLayout2_Tmpl1.m in Sources */,
+				3DE38AE11EAE2CA8000C9A6D /* TopStyleDirector.m in Sources */,
+				3DE38ADF1EAE2CA8000C9A6D /* TopStickSessionDirector.m in Sources */,
 				3D998A2F1EA7B93A00E5DF37 /* TopLayout4_Tmpl0.m in Sources */,
 				3D998A411EA7B93A00E5DF37 /* PhotoContainerStickersView.m in Sources */,
 				BD21A0D11E88016C0040E092 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				3D22B5A21EA79D3E006665BE /* TopBaseStyledView.m in Sources */,
 				3D998A1C1EA7B93A00E5DF37 /* TopDetailViewFactory.m in Sources */,
-				EA600A451EA2180700D928D4 /* TopStyleDirector.m in Sources */,
 				BD21A0D41E88016C0040E092 /* AFPropertyListRequestOperation.m in Sources */,
+				3DE38AD91EAE2CA8000C9A6D /* TopControllersDirector.m in Sources */,
 				3D998A381EA7B93A00E5DF37 /* TopMenuTmpl1.m in Sources */,
+				3DE38ADB1EAE2CA8000C9A6D /* TopPacketsDirector.m in Sources */,
 				3D22B4F01EA79D11006665BE /* TopCategory.m in Sources */,
 				3D22B5A61EA79D3E006665BE /* TopStyle.m in Sources */,
 				BD21A0DA1E88016C0040E092 /* UIImageView+AFNetworking.m in Sources */,
@@ -2463,6 +2462,7 @@
 				3D998A181EA7B93A00E5DF37 /* TopSimpleDetailView.m in Sources */,
 				3D998A201EA7B93A00E5DF37 /* TopIPadLayout2_Tmpl0.m in Sources */,
 				3D22B4FC1EA79D11006665BE /* TopConfiguration.m in Sources */,
+				3DE38ADD1EAE2CA8000C9A6D /* TopStickersDirector.m in Sources */,
 				3D998A471EA7B93A00E5DF37 /* StickerViewFactory.m in Sources */,
 				3D998A1E1EA7B93A00E5DF37 /* BasePageViewController.m in Sources */,
 				3D998A3B1EA7B93A00E5DF37 /* TopSideMenu.m in Sources */,

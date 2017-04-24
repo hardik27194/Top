@@ -37,13 +37,10 @@ static TopControllersDirector *sharedControllersDirector = nil;
     if (_menuControllers != nil) {
         return _menuControllers;
     }
+    
     _menuControllers = [[NSMutableArray alloc]init];
 
     NSArray <TopCategory *> *categories = [[TopStickersDirector sharedDirector] askTopCategories];
-
-    TopBackendLessConfiguration *topConfiguration = [TopAppDelegate topAppDelegate].backendlessConfiguration;
-    BOOL menuCategories = topConfiguration.configuration.menuCategories;
-    
     
     NSMutableArray *pages = [[NSMutableArray alloc]init];
 
