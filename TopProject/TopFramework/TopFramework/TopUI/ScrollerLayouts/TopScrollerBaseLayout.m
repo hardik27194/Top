@@ -67,10 +67,10 @@
 -(void)updateFrames{
     CGFloat offsetY = 0;
     NSInteger controllerHeight = [self controllerHeight];
-    
+    NSInteger controllerSpace = [self controllersSpace];
     for (BasePageViewController *bController in self.controllers) {
         bController.view.frame = CGRectMake(0, offsetY, bController.view.bounds.size.width, controllerHeight);
-        offsetY += [self controllersSpace];
+        offsetY += controllerSpace;
         offsetY += bController.view.bounds.size.height;
     }
     self.mainScrollView.contentSize = CGSizeMake(self.mainScrollView.bounds.size.width, offsetY);
@@ -99,10 +99,10 @@
 }
 #pragma mark - public - 
 - (NSInteger)controllerHeight{
-    return self.mainScrollView.bounds.size.height+10;
+    return self.mainScrollView.bounds.size.height;
 }
 - (NSInteger)controllersSpace{
-    return 100;
+    return 0;
 }
 #pragma mark - scrollview delegate -
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
