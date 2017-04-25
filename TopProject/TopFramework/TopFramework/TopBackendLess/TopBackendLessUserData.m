@@ -107,7 +107,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     [backendless.userService registering:user response:^(BackendlessUser *userObject) {
         completionBlock(userObject,nil);
     } error:^(Fault *fault) {
-        NSError *error = [NSError errorWithDomain:fault.description code:fault.faultCode userInfo:nil];
+        NSError *error = [NSError errorWithDomain:fault.description code:[fault.faultCode integerValue] userInfo:nil];
         completionBlock(nil,error);
     }];
 }
@@ -118,7 +118,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     [backendless.userService update:backendLessUser response:^(BackendlessUser *userObject) {
         completionBlock(YES,nil);
     } error:^(Fault *fault) {
-        NSError *error = [NSError errorWithDomain:fault.description code:fault.faultCode userInfo:nil];
+        NSError *error = [NSError errorWithDomain:fault.description code:[fault.faultCode integerValue] userInfo:nil];
         completionBlock(NO,error);
     }];
 }
@@ -136,7 +136,7 @@ static NSString *stickersStringFromArray(NSArray *stickerArray){
     BackendlessUser *backendLessUser = topUser.backendLessUser;
     NSMutableArray *mutStickers = [[NSMutableArray alloc]initWithArray:topUser.tmpStickers];
     [mutStickers removeObjectsInArray:stickerNumbers];
-    topUser.stickers = (NSArray *)mutStickers;
+    topUser.tmpStickers = (NSArray *)mutStickers;
     NSString *stickerString = stickersStringFromArray(mutStickers);
     [backendLessUser updateProperties:@{@"tmp_stickers":stickerString}];
     

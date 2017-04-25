@@ -43,7 +43,8 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     [self startSessionWithTileStickers:tiles animation:nil];
 }
 
-- (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers animation:(void(^)(void))animation{
+- (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers
+                           animation:(void(^)(void))animation{
     if (tileStickers == nil) {
         return;
     }
@@ -56,6 +57,25 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
         [_tileStickers removeAllObjects];
     }
     _tileStickers = [[NSMutableArray alloc]initWithArray:tileStickers];
+    
+    UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+    for (TopTileSticker *sticker in tileStickers) {
+        sticker.dragDelegate = self;
+        [mainController.view addSubview:sticker];
+    }
+    if (animation != nil) {
+        animation();
+    }
+}
+-(void)addTileStickers:(NSArray<TopTileSticker *>*)tileStickers animation:(void(^)(void))animation{
+    if (tileStickers == nil) {
+        return;
+    }
+    if (_tileStickers.count  == 0) {
+        [self startSessionWithTileStickers:tileStickers animation:animation];
+        return;
+    }
+    [_tileStickers addObjectsFromArray:tileStickers];
     
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     for (TopTileSticker *sticker in tileStickers) {

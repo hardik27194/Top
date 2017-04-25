@@ -12,6 +12,8 @@
 @interface TopBarButton : TopBaseStyledButton
 @property (nonatomic,weak) UILabel *iconLabel;
 @property (nonatomic,weak) UILabel *valueLabel;
+-(void)longPressBegan;
+-(void)longPressEnd;
 -(void)pressed;
 -(void)update;
 -(void)relax;

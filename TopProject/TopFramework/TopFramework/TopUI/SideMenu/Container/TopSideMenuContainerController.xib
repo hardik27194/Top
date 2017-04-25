@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n4j-2K-oIA">
-                    <rect key="frame" x="8" y="89" width="359" height="570"/>
+                    <rect key="frame" x="0.0" y="90" width="375" height="578"/>
                     <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wrh-aE-mpA">
@@ -44,15 +44,15 @@
             <color key="backgroundColor" white="0.90172018720000002" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="WI9-Og-v9i" firstAttribute="leading" secondItem="Wrh-aE-mpA" secondAttribute="trailing" constant="8" id="6Ey-aA-SA8"/>
-                <constraint firstItem="n4j-2K-oIA" firstAttribute="top" secondItem="Wrh-aE-mpA" secondAttribute="bottom" constant="16" id="B5A-Vi-rOu"/>
-                <constraint firstAttribute="bottom" secondItem="n4j-2K-oIA" secondAttribute="bottom" constant="8" id="FIi-Ii-pb6"/>
+                <constraint firstItem="n4j-2K-oIA" firstAttribute="top" secondItem="Wrh-aE-mpA" secondAttribute="bottom" constant="17" id="B5A-Vi-rOu"/>
+                <constraint firstAttribute="bottom" secondItem="n4j-2K-oIA" secondAttribute="bottom" constant="-1" id="FIi-Ii-pb6"/>
                 <constraint firstItem="WI9-Og-v9i" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="N1K-CF-Wcl"/>
                 <constraint firstItem="Wrh-aE-mpA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="U4y-T0-rhw"/>
                 <constraint firstItem="Wrh-aE-mpA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="ZA2-hY-cxj"/>
-                <constraint firstAttribute="trailing" secondItem="n4j-2K-oIA" secondAttribute="trailing" constant="8" id="aYJ-ZG-etv"/>
+                <constraint firstAttribute="trailing" secondItem="n4j-2K-oIA" secondAttribute="trailing" id="aYJ-ZG-etv"/>
                 <constraint firstAttribute="trailing" secondItem="WI9-Og-v9i" secondAttribute="trailing" constant="8" id="fVa-4O-tOg"/>
-                <constraint firstItem="n4j-2K-oIA" firstAttribute="top" secondItem="WI9-Og-v9i" secondAttribute="bottom" constant="8" id="oDC-Jp-FAf"/>
-                <constraint firstItem="n4j-2K-oIA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="pWf-Rl-Q0B"/>
+                <constraint firstItem="n4j-2K-oIA" firstAttribute="top" secondItem="WI9-Og-v9i" secondAttribute="bottom" constant="9" id="oDC-Jp-FAf"/>
+                <constraint firstItem="n4j-2K-oIA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pWf-Rl-Q0B"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

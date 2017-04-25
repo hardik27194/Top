@@ -21,6 +21,7 @@ static TopControllersDirector *sharedControllersDirector = nil;
 @interface TopControllersDirector (){
     NSMutableArray *_menuControllers;
     UIViewController *_visualizedController;
+    UIView *_tmpView;
 }
 @end
 
@@ -100,9 +101,13 @@ static TopControllersDirector *sharedControllersDirector = nil;
 
 #pragma mark - unpack controller -
 - (void)showUnPackControllerWithEndingBlock:(void(^)(id data))endingBlock{
+    if (_tmpView != nil) {
+        return;
+    }
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
     TopUnpackControllerView *unPackControllerView = [TopUnpackControllerView unPackView];
-    unPackControllerView.frame = mainController.view.bounds;
+    _tmpView = unPackControllerView;
+    unPackControllerView.frame = CGRectMake(0, 90, mainController.view.bounds.size.width,  mainController.view.bounds.size.height-90);
     unPackControllerView.endingBlock = endingBlock;
     [mainController.view addSubview:unPackControllerView];
     unPackControllerView.transform = CGAffineTransformMakeTranslation(0, unPackControllerView.bounds.size.height);
@@ -120,6 +125,7 @@ static TopControllersDirector *sharedControllersDirector = nil;
     } completion:^(BOOL finished) {
         unPackView.endingBlock(nil);
         [unPackView removeFromSuperview];
+        _tmpView = nil;
     }];
 }
 

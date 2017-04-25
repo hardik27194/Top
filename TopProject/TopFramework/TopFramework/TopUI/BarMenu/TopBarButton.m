@@ -28,13 +28,28 @@
         valueLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:valueLabel];
         self.valueLabel = valueLabel;
-           [self addTarget:self action:@selector(pressed) forControlEvents:UIControlEventTouchUpInside];
+           [self addTarget:self action:@selector(pressed)
+          forControlEvents:UIControlEventTouchUpInside];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        longPress.minimumPressDuration = 2;
+        [self addGestureRecognizer:longPress];
+        
     }
     return self;
 }
 -(void)relax{
     [self setStyleState:TopViewStyleState_Normal];
 }
+-(void)longPress:(UILongPressGestureRecognizer *)sender{
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        [self longPressEnd];
+    }
+    else if (sender.state == UIGestureRecognizerStateBegan){
+        [self longPressBegan];
+    }
+}
+-(void)longPressBegan{}
+-(void)longPressEnd{};
 -(void)pressed{}
 -(void)update{}
 -(void)highlightWithNumber:(NSInteger)number{

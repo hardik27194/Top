@@ -12,6 +12,8 @@
 @interface TopStickSessionDirector : NSObject
 + (id)sharedDirector;
 - (void)startSessionWithOldTileStickers;
+- (void)addTileStickers:(NSArray<TopTileSticker *>*)tileStickers
+             animation:(void(^)(void))animation;
 - (void)startSessionWithTileStickers:(NSArray<TopTileSticker *> *)tileStickers
                            animation:(void(^)(void))animation;
 -(void)autoLoadsDoublesCompletion:(void(^)(void))completion;
