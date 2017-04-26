@@ -161,10 +161,12 @@
     
     switch (state) {
         case TopViewStyleState_Normal:{
-            style.backgroundColor =  [[UIColor lightGrayColor] colorWithAlphaComponent:0.4];
-            style.layerBorderColor = [UIColor lightGrayColor];
+            style.backgroundColor =  [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+            style.layerBorderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
             style.layerBorderWidth = 2;
             style.layerCornerRadius = 10;
+            style.supporTextColor = [UIColor darkGrayColor];
+            style.maskToBounds = YES;
         }
             break;
         case TopViewStyleState_Selected:{
@@ -172,10 +174,10 @@
             break;
         case TopViewStyleState_Highlighted:{
             style.backgroundColor =  [[UIColor whiteColor] colorWithAlphaComponent:0];
-            style.layerBorderColor = [UIColor darkGrayColor];
             style.layerBorderWidth = 0;
             style.layerCornerRadius = 10;
-            
+            style.supporTextColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0];
+            style.maskToBounds = YES;
         }
             break;
         case TopViewStyleState_Warning:{

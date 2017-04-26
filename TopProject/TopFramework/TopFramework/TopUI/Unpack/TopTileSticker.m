@@ -51,13 +51,6 @@
         NSURL *urlImage = [[TopStickersDirector sharedDirector] askUrlImageFromStickerNumber:_number];
         CGRect layerRect = [[TopStickersDirector sharedDirector] askLayerRectFromStickerNumber:_number];
         
-        //        [self photoWithUrl:urlImage completion:^(UIImage *image) {
-        //            UIImage *resizedImage = [self imageWithImage:image scaledToSize:self.bounds.size];
-        //            self.layer.contents = (__bridge id)resizedImage.CGImage;
-        //            self.layer.contentsGravity = kCAGravityResizeAspect;
-        //            self.layer.contentsRect = layerRect;
-        //            self.layer.masksToBounds = YES;
-        //        }];
         
         
         
@@ -65,17 +58,32 @@
         UIImageView *photoView = [[UIImageView alloc]initWithFrame:CGRectMake((self.frame.size.width-photoSize.width)/2, 10, photoSize.width, photoSize.height)
                                   ];
         photoView.backgroundColor = [UIColor redColor];
+        [photoView.layer addSublayer:[self addDashedBorderWithColor:[[UIColor blackColor] CGColor] toView:photoView]];
+        photoView.layer.masksToBounds = YES;
         [self addSubview:photoView];
+        
+        
+        
         self.photoView = photoView;
         
-        UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 70, 50)];
-        numberLabel.font = [UIFont systemFontOfSize:30];
-        numberLabel.textAlignment = NSTextAlignmentCenter;
-        numberLabel.textColor = [UIColor whiteColor];
+        [self photoWithUrl:urlImage completion:^(UIImage *image) {
+            UIImage *resizedImage = [self imageWithImage:image scaledToSize:self.bounds.size];
+            self.photoView.layer.contents = (__bridge id)resizedImage.CGImage;
+//            self.photoView.layer.contentsGravity = kCAGravityResizeAspect;
+            self.photoView.layer.contentsRect = layerRect;
+            self.photoView.layer.masksToBounds = YES;
+            self.layer.contents = (__bridge id)resizedImage.CGImage;
+            self.layer.contentsGravity = kCAGravityResizeAspectFill;
+        }];
         
+        UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height-30, self.bounds.size.width, 30)];
+        numberLabel.font = [UIFont systemFontOfSize:15];
+        numberLabel.textAlignment = NSTextAlignmentCenter;        
         numberLabel.text = [NSString stringWithFormat:@"%li",(long)_number];
+        
+        [self addSubview:numberLabel];
+        
         self.numberLabel = numberLabel;
-        self.numberLabel.alpha = 0;
     }
     return self;
 }
@@ -119,10 +127,32 @@
         [self setStyleState:TopViewStyleState_Normal];
     }];
 }
-
+- (CAShapeLayer *) addDashedBorderWithColor: (CGColorRef) color toView:(UIView *)view {
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    
+    CGSize frameSize = view.bounds.size;
+    
+    CGRect shapeRect = CGRectMake(0.0f, 0.0f, frameSize.width, frameSize.height);
+    [shapeLayer setBounds:shapeRect];
+    [shapeLayer setPosition:CGPointMake( frameSize.width/2,frameSize.height/2)];
+    
+    [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
+    [shapeLayer setStrokeColor:color];
+    [shapeLayer setLineWidth:3.0f];
+    [shapeLayer setLineJoin:kCALineJoinRound];
+    [shapeLayer setLineDashPattern:
+     [NSArray arrayWithObjects:[NSNumber numberWithInt:10],
+      [NSNumber numberWithInt:5],
+      nil]];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:shapeRect cornerRadius:0];
+    [shapeLayer setPath:path.CGPath];
+    
+    return shapeLayer;
+}
 #pragma mark - custom styles -
 -(void)applyStyle:(TopStyle *)style{
     [super applyStyle:style];
- 
+    self.numberLabel.textColor = style.supporTextColor;
+    
 }
 @end
