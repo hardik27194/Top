@@ -58,7 +58,7 @@
     NSNumber *number = [user tmpStickers][_index];
     [TopBackendLessUserData removeTmpStickers:@[number] fromUser:user completion:^(BOOL success, NSError *error) {
         if (error == nil){
-            TopTileSticker *sticker = [[TopTileSticker alloc]initWithFrame:CGRectMake(50, 400, 100, 100) andNumber:[number integerValue]];
+            TopTileSticker *sticker = [[TopTileSticker alloc]initWithNumber:[number integerValue] type:TopTileStickerType_small_vertical];
             [[TopStickSessionDirector sharedDirector] addTileStickers:@[sticker] animation:^{
             }];
             _index --;

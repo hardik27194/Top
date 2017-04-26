@@ -155,4 +155,37 @@
     }
     return style;
 }
+-(TopStyle *)styleForTopTileSticker:(TopBaseStyledButton *)button forState:(TopViewStyleState)state{
+    
+    TopStyle *style = [[TopStyle alloc]init];
+    
+    switch (state) {
+        case TopViewStyleState_Normal:{
+            style.backgroundColor =  [[UIColor lightGrayColor] colorWithAlphaComponent:0.4];
+            style.layerBorderColor = [UIColor lightGrayColor];
+            style.layerBorderWidth = 2;
+            style.layerCornerRadius = 10;
+        }
+            break;
+        case TopViewStyleState_Selected:{
+        }
+            break;
+        case TopViewStyleState_Highlighted:{
+            style.backgroundColor =  [[UIColor whiteColor] colorWithAlphaComponent:0];
+            style.layerBorderColor = [UIColor darkGrayColor];
+            style.layerBorderWidth = 0;
+            style.layerCornerRadius = 10;
+            
+        }
+            break;
+        case TopViewStyleState_Warning:{
+        }
+            break;
+            
+        default:
+            break;
+    }
+    return style;
+    
+}
 @end

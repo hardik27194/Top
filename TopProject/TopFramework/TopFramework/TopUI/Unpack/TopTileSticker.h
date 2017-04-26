@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopBaseStyledView.h"
+typedef enum{
+    TopTileStickerType_small_horizontal,
+    TopTileStickerType_big_horizontal,
+    TopTileStickerType_small_vertical,
+    TopTileStickerType_big_vertical
+} TopTileStickerType;
+
 @class TopTileSticker;
 @protocol TileDragDelegateProtocol <NSObject>
 -(void)tileView:(TopTileSticker*)tileView didDragToPoint:(CGPoint)pt;
@@ -14,10 +22,11 @@
 
 @end
 
-@interface TopTileSticker : UIView
+@interface TopTileSticker : TopBaseStyledView
 
 @property (strong, nonatomic) id<TileDragDelegateProtocol> dragDelegate;
-- (instancetype)initWithFrame:(CGRect)frame
-                    andNumber:(NSInteger)number;
+- (instancetype)initWithNumber:(NSInteger)number
+                          type:(TopTileStickerType)type;
+
 - (NSInteger)number;
 @end

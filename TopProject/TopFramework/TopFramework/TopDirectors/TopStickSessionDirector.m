@@ -37,7 +37,7 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     TopUser *user = [TopAppDelegate topAppDelegate].topUser;
     NSMutableArray *tiles = [[NSMutableArray alloc]init];
     for (NSNumber *stickerNumber in [user tmpStickers]) {
-        TopTileSticker *sticker = [[TopTileSticker alloc]initWithFrame:CGRectMake(50, 400, 100, 100) andNumber:[stickerNumber integerValue]];
+        TopTileSticker *sticker = [[TopTileSticker alloc]initWithNumber:[stickerNumber integerValue] type:TopTileStickerType_small_vertical];
         [tiles addObject:sticker];
     }
     [self startSessionWithTileStickers:tiles animation:nil];

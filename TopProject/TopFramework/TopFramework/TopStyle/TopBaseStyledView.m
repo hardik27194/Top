@@ -16,7 +16,14 @@
 
 @implementation TopBaseStyledView
 @synthesize styleState = _styleState;
-
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self innerInit];
+    }
+    return self;
+}
 - (instancetype)init
 {
     self = [super init];

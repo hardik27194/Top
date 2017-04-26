@@ -14,7 +14,7 @@
 #import "TopStickSessionDirector.h"
 @interface TopUnpackControllerView ()
 
-@property (nonatomic,strong) NSArray <NSString *> *rects;
+@property (nonatomic,strong) NSArray <NSString *> *centers;
 @end
 
 @implementation TopUnpackControllerView
@@ -65,11 +65,11 @@
     self.sticker4.alpha = 0;
     self.sticker5.alpha = 0;
     
-    self.rects = @[NSStringFromCGRect(self.sticker1.frame),
-                   NSStringFromCGRect(self.sticker2.frame),
-                   NSStringFromCGRect(self.sticker3.frame),
-                   NSStringFromCGRect(self.sticker4.frame),
-                   NSStringFromCGRect(self.sticker5.frame)];
+    self.centers = @[NSStringFromCGPoint(self.sticker1.center),
+                   NSStringFromCGPoint(self.sticker2.center),
+                   NSStringFromCGPoint(self.sticker3.center),
+                   NSStringFromCGPoint(self.sticker4.center),
+                   NSStringFromCGPoint(self.sticker5.center)];
 }
 
 -(IBAction)dismiss{
@@ -81,17 +81,16 @@
    [[TopPacketsDirector sharedDirector] createNewPacket:^(TopPacket *packet) {
        NSMutableArray <TopTileSticker *> *stickers = [[NSMutableArray alloc]init];
        for (NSNumber *stickerNumber in [packet stickers]) {
-           TopTileSticker *sticker = [[TopTileSticker alloc]initWithFrame:CGRectMake(50, 400, 100, 100) andNumber:[stickerNumber integerValue]];
+           TopTileSticker *sticker = [[TopTileSticker alloc]initWithNumber:[stickerNumber integerValue] type:TopTileStickerType_small_vertical];
            sticker.center = self.unpackButton.center;
-           
            [stickers addObject:sticker];
        }
        [[TopStickSessionDirector sharedDirector] startSessionWithTileStickers:stickers animation:^{
            NSInteger index = 0;
            for (TopTileSticker *sticker in stickers) {
                sticker.alpha = 0;
-               if (index<self.rects.count) {
-                   [self animateTile:sticker toRect:CGRectFromString(self.rects[index])];
+               if (index < self.centers.count) {
+                   [self animateTile:sticker toCenter:CGPointFromString(self.centers[index])];
                }
                index++;
            }
@@ -99,9 +98,9 @@
    } type:TopPacketType_AllCommon];
 }
 -(void)animateTile:(TopTileSticker *)tileSticker
-            toRect:(CGRect)rect{
+            toCenter:(CGPoint)point{
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        tileSticker.frame = rect;
+        tileSticker.center = point;
         tileSticker.alpha = 1;
     } completion:^(BOOL finished) {
     }];

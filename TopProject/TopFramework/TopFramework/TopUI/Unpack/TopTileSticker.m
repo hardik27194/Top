@@ -11,6 +11,8 @@
 @interface TopTileSticker()
 
 @property (nonatomic,weak) UILabel *numberLabel;
+@property (nonatomic,weak) UIImageView *photoView;
+
 @end
 
 @implementation TopTileSticker
@@ -36,39 +38,48 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-- (instancetype)initWithFrame:(CGRect)frame
-                    andNumber:(NSInteger)number
-{
-    self = [super initWithFrame:frame];
+- (instancetype)initWithNumber:(NSInteger)number type:(TopTileStickerType)type{
+    
+    NSDictionary *types = @{@(TopTileStickerType_small_horizontal):NSStringFromCGRect(CGRectZero),
+                            @(TopTileStickerType_big_horizontal):NSStringFromCGRect(CGRectZero),
+                            @(TopTileStickerType_small_vertical):NSStringFromCGRect(CGRectMake(0, 0, 80, 100)),
+                            @(TopTileStickerType_big_vertical):NSStringFromCGRect(CGRectZero)};
+    
+    self = [super initWithFrame:CGRectFromString(types[@(type)])];
     if (self) {
         _number = number;
         NSURL *urlImage = [[TopStickersDirector sharedDirector] askUrlImageFromStickerNumber:_number];
         CGRect layerRect = [[TopStickersDirector sharedDirector] askLayerRectFromStickerNumber:_number];
         
-        [self photoWithUrl:urlImage completion:^(UIImage *image) {
-            UIImage *resizedImage = [self imageWithImage:image scaledToSize:self.bounds.size];
-            self.layer.contents = (__bridge id)resizedImage.CGImage;
-          //  self.layer.contentsGravity = kCAGravityResizeAspect;
-            self.layer.contentsRect = layerRect;
-            self.layer.masksToBounds = YES;
-        }];
+        //        [self photoWithUrl:urlImage completion:^(UIImage *image) {
+        //            UIImage *resizedImage = [self imageWithImage:image scaledToSize:self.bounds.size];
+        //            self.layer.contents = (__bridge id)resizedImage.CGImage;
+        //            self.layer.contentsGravity = kCAGravityResizeAspect;
+        //            self.layer.contentsRect = layerRect;
+        //            self.layer.masksToBounds = YES;
+        //        }];
+        
+        
+        
+        CGSize photoSize = CGSizeMake(50, 50);
+        UIImageView *photoView = [[UIImageView alloc]initWithFrame:CGRectMake((self.frame.size.width-photoSize.width)/2, 10, photoSize.width, photoSize.height)
+                                  ];
+        photoView.backgroundColor = [UIColor redColor];
+        [self addSubview:photoView];
+        self.photoView = photoView;
+        
         UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 70, 50)];
         numberLabel.font = [UIFont systemFontOfSize:30];
         numberLabel.textAlignment = NSTextAlignmentCenter;
         numberLabel.textColor = [UIColor whiteColor];
-
+        
         numberLabel.text = [NSString stringWithFormat:@"%li",(long)_number];
-        [self addSubview:numberLabel];
         self.numberLabel = numberLabel;
         self.numberLabel.alpha = 0;
-
-        self.backgroundColor = [UIColor darkGrayColor];
-        //self.layer.shadowColor = [[UIColor blackColor] CGColor];
-       // self.layer.shadowOffset = CGSizeMake(0,5);
-        //self.layer.shadowOpacity = 0.5;
     }
     return self;
 }
+
 -(NSInteger)number{
     return _number;
 }
@@ -77,14 +88,10 @@
     CGPoint pt = [[touches anyObject] locationInView:self.superview];
     _xOffset = pt.x - self.center.x;
     _yOffset = pt.y - self.center.y;
+    
     [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformScale(self.transform, 1.30, 1.30);
+        [self setStyleState:TopViewStyleState_Highlighted];
     }];
-    self.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.layer.borderWidth = 2;
-   
-    self.alpha = 0.5;
-    self.numberLabel.alpha = 1;
     
 }
 
@@ -94,7 +101,7 @@
     self.center = CGPointMake(pt.x - _xOffset, pt.y - _yOffset);
     if (self.dragDelegate) {
         [self.dragDelegate tileView:self dragToPoint:self.center];
-        self.alpha = 0.5;
+        [self setStyleState:TopViewStyleState_Highlighted];
     }
 }
 
@@ -109,13 +116,13 @@
         [self.dragDelegate tileView:self didDragToPoint:self.center];
     }
     [UIView animateWithDuration:0.1 animations:^{
-        self.transform = CGAffineTransformIdentity;
+        [self setStyleState:TopViewStyleState_Normal];
     }];
-    self.alpha = 1;
-    self.layer.borderColor = [UIColor clearColor].CGColor;
-    self.layer.borderWidth = 0;
-    self.numberLabel.alpha = 0;
-
 }
 
+#pragma mark - custom styles -
+-(void)applyStyle:(TopStyle *)style{
+    [super applyStyle:style];
+ 
+}
 @end

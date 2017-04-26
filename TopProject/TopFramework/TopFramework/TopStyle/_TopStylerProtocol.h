@@ -26,6 +26,12 @@
                               forState:(TopViewStyleState)state;
 - (TopStyle *)styleForTopTempButton:(TopBaseStyledButton *)button
                              forState:(TopViewStyleState)state;
+
+
+
+- (TopStyle *)styleForTopTileSticker:(TopBaseStyledButton *)button
+                           forState:(TopViewStyleState)state;
+
 @end
 
 

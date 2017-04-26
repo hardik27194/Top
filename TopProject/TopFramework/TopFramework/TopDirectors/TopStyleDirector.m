@@ -22,7 +22,8 @@ static NSDictionary *selectors = nil;
                       @"PhotoStickerView":[NSValue valueWithPointer:@selector(styleForPhotoStickerView:forState:)],
                       @"TopPacketsButton":[NSValue valueWithPointer:@selector(styleForTopPacketsButton:forState:)],
                       @"TopDoubleButton":[NSValue valueWithPointer:@selector(styleForTopDoubleButton:forState:)],
-                      @"TopTempsButton":[NSValue valueWithPointer:@selector(styleForTopTempButton:forState:)]};
+                      @"TopTempsButton":[NSValue valueWithPointer:@selector(styleForTopTempButton:forState:)],
+                      @"TopTileSticker":[NSValue valueWithPointer:@selector(styleForTopTileSticker:forState:)]};
     });
     return sharedStyleDirector;
 }
