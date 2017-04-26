@@ -25,7 +25,7 @@ typedef enum{
 // view
 @property (nonatomic,strong) UIColor *backgroundColor;
 @property (nonatomic,strong) UIColor *tintColor;
-
+@property (nonatomic,assign) CGFloat alpha;
 
 // layer
 @property (nonatomic,assign) CGFloat layerBorderWidth;

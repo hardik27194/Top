@@ -95,7 +95,9 @@ static TopStickersDirector *sharedDirector = nil;
                 [self saveStickerNumber:self.totalStickers
                                  object:@(object.rarity)
                                 withKey:@"rarity"];
-                
+                [self saveStickerNumber:self.totalStickers
+                                 object:page
+                                withKey:@"page"];
                 
                 [stickersNumberArray addObject:@(self.totalStickers)];
             }
@@ -153,7 +155,6 @@ static TopStickersDirector *sharedDirector = nil;
     
     return (NSArray <TopPage *> *)pagesForCategory;
 }
-
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page{
     return self.mainStructure[@"pages"][page.assignedIndex];
 }
@@ -164,6 +165,10 @@ static TopStickersDirector *sharedDirector = nil;
 - (NSURL *)askUrlImageFromStickerNumber:(NSInteger)number{
     NSString *urlString = [self.stickers[@(number)] objectForKey:@"image"];
     return [NSURL URLWithString:urlString];
+}
+-(TopCategory *)askTopCategoryFromStickerNumber:(NSInteger)number{
+    TopPage *page = [self.stickers[@(number)] objectForKey:@"page"];
+    return page.topCategory;
 }
 - (NSInteger)askTotalStickers{
     return self.stickers.count;

@@ -25,8 +25,12 @@ typedef enum{
 @interface TopTileSticker : TopBaseStyledView
 
 @property (strong, nonatomic) id<TileDragDelegateProtocol> dragDelegate;
+@property (nonatomic,weak) UIView *photoView;
+
 - (instancetype)initWithNumber:(NSInteger)number
                           type:(TopTileStickerType)type;
 
 - (NSInteger)number;
+- (void)removeBgViews;
+
 @end

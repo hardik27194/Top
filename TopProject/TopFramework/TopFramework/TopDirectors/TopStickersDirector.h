@@ -18,6 +18,7 @@
 - (NSDictionary *)askStickersFromTopPage:(TopPage *)page;
 - (CGRect)askLayerRectFromStickerNumber:(NSInteger)number;
 - (NSURL *)askUrlImageFromStickerNumber:(NSInteger)number;
+- (TopCategory *)askTopCategoryFromStickerNumber:(NSInteger)number;
 - (NSInteger)askTotalStickers;
 - (void)askStickerNumberFromRarity:(TopRarityLevel)topRarityLevel
                         completion:(void(^)(NSInteger number,NSError *error))completion;

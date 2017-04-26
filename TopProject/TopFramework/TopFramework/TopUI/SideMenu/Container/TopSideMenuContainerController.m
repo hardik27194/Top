@@ -11,7 +11,7 @@
 #import "TopStyleUtils.h"
 #import "_TopStickerControllerProtocol.h"
 
-@interface TopSideMenuContainerController (){
+@interface TopSideMenuContainerController ()<TopStickerControllerActions>{
     UIViewController *_contentController;
     UIView *_overlay;
 }
@@ -72,12 +72,13 @@
     [self.contentControllerView addSubview:controller.view];
     [controller didMoveToParentViewController:self];
     
-    
-    id <TopStickerControllerProtocol> stickerController = (id <TopStickerControllerProtocol>)controller;
-    self.category = [(BasePageViewController *)[stickerController currentController] retrieveCategory];
+    id <TopStickerControllerProtocol> stickerController = (id <TopStickerControllerProtocol>)_contentController;
+    stickerController.stickerControllerDelegate = self;
+}
+- (void)refreshStyleFromCategory:(TopCategory *)category{
+    self.category = category;
     [self updateStyle];
 }
-
 - (void)removeController:(UIViewController *)controller{
     [controller.view removeFromSuperview];
     [controller removeFromParentViewController];
@@ -90,7 +91,19 @@
     [self.delegate TOPSMControllerOpenMenu];
 }
 -(void)updateStyle{
-    self.view.backgroundColor = [TopStyleUtils colorFromHexString:self.category.mainColor withAlpha:1];
+   [UIView animateWithDuration:.4 animations:^{
+       self.view.layer.backgroundColor = [TopStyleUtils colorFromHexString:self.category.mainColor withAlpha:1].CGColor;
+   }];
+}
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    id <TopStickerControllerProtocol> stickerController = (id <TopStickerControllerProtocol>)_contentController;
+    self.category = [(BasePageViewController *)[stickerController currentController] retrieveCategory];
+    [self refreshStyleFromCategory:self.category];
+}
+#pragma mark - sticker controller delegates -
+-(void)askRefreshFromStickerController:(id<TopStickerControllerProtocol>)stickerController{
+    [self refreshStyleFromCategory:[(BasePageViewController *)[stickerController currentController] retrieveCategory]];
 }
 #pragma mark - overlay -
 -(void)addOverlayWithAnimationCompletion:(void(^)(void))completion{

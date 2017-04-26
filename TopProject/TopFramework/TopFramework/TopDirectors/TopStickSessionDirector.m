@@ -116,12 +116,13 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
                                        reflect:^(BOOL reflect) {
                                            if (reflect) {
                                                if (![[[TopAppDelegate topAppDelegate].topUser stickers] containsObject:@(tileView.number)]) {
+                                                   [tileView removeBgViews];
                                                    [TopBackendLessUserData addStickers:@[@(tileView.number)] toUser:user completion:^(BOOL success, NSError *error) {
                                                        if (success) {
                                                            
-                                                           [view.superview layoutSubviews];
                                                            [self stickSticker:tileView
                                                                   inPhotoView:view completion:^{
+                                                                      [view.superview layoutSubviews];
                                                                       [self removeTileView:tileView];
                                                                   }];
                                                            
@@ -273,14 +274,21 @@ static TopStickSessionDirector *sharedStickSessionDirector = nil;
     PhotoStickerView *pView = (PhotoStickerView *)view;
     reflectionBlock(tileView.number == pView.number);
 }
--(void)stickSticker:(TopTileSticker *)sticker inPhotoView:(UIView *)view completion:(void(^)(void))completion{
+-(void)stickSticker:(TopTileSticker *)sticker
+        inPhotoView:(UIView *)view
+         completion:(void(^)(void))completion{
+
     UIViewController *mainController = [TopAppDelegate topAppDelegate].viewController;
+
+    CGRect photoRect  = [sticker.photoView convertRect:sticker.photoView.bounds toView:mainController.view];
+    [mainController.view addSubview:sticker.photoView];
+    sticker.photoView.frame = photoRect;
     
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect rect  = [view convertRect:view.bounds toView:mainController.view];
-        
-        sticker.frame = rect;
+        sticker.photoView.frame = rect;
     } completion:^(BOOL finished) {
+        [sticker.photoView removeFromSuperview];
         completion();
     }];
 }

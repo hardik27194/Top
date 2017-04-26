@@ -94,9 +94,9 @@
         case TopViewStyleState_Normal:{
             style.backgroundColor = [UIColor clearColor];
             style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
-            style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            style.textColor = [TopStyleUtils colorFromHexString:@"ffffff" withAlpha:1];
             style.supporTextFont = [UIFont boldSystemFontOfSize:13];
-            style.supporTextColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            style.supporTextColor = [TopStyleUtils colorFromHexString:@"ffffff" withAlpha:1];
         }
             break;
         case TopViewStyleState_Selected:{
@@ -127,9 +127,9 @@
         case TopViewStyleState_Normal:{
             style.backgroundColor = [UIColor clearColor];
             style.textFont = [UIFont fontWithName:@"FontAwesome" size:20];
-            style.textColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            style.textColor = [TopStyleUtils colorFromHexString:@"ffffff" withAlpha:1];
             style.supporTextFont = [UIFont boldSystemFontOfSize:13];
-            style.supporTextColor = [TopStyleUtils colorFromHexString:@"95a5a6" withAlpha:1];
+            style.supporTextColor = [TopStyleUtils colorFromHexString:@"ffffff" withAlpha:1];
         }
             break;
         case TopViewStyleState_Selected:{
@@ -161,11 +161,12 @@
     
     switch (state) {
         case TopViewStyleState_Normal:{
-            style.backgroundColor =  [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+            style.backgroundColor =  [UIColor whiteColor];
+            style.alpha = .7;
             style.layerBorderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.6];
-            style.layerBorderWidth = 2;
+            style.layerBorderWidth = 1;
             style.layerCornerRadius = 10;
-            style.supporTextColor = [UIColor darkGrayColor];
+            style.supporTextColor = [[UIColor blackColor] colorWithAlphaComponent:1];
             style.maskToBounds = YES;
         }
             break;
@@ -173,7 +174,7 @@
         }
             break;
         case TopViewStyleState_Highlighted:{
-            style.backgroundColor =  [[UIColor whiteColor] colorWithAlphaComponent:0];
+            style.alpha = 0;
             style.layerBorderWidth = 0;
             style.layerCornerRadius = 10;
             style.supporTextColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0];

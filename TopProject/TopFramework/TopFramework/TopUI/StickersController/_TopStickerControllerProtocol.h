@@ -10,10 +10,17 @@
 
 #ifndef _TopStickerControllerProtocol_h
 #define _TopStickerControllerProtocol_h
+@protocol TopStickerControllerProtocol;
+
+@protocol TopStickerControllerActions <NSObject>
+- (void)askRefreshFromStickerController:(id <TopStickerControllerProtocol>)stickerController;
+@end
 
 @protocol TopStickerControllerProtocol <NSObject>
+@property (nonatomic,weak) id <TopStickerControllerActions> stickerControllerDelegate;
 - (UIViewController *)currentController;
 - (void)enumCurrentControllers:(void(^)(UIViewController *controller))controllersBlock;
+- (void)refresh;
 @end
 
 #endif /* _TopStickerControllerProtocol_h */

@@ -20,7 +20,7 @@
 @end
 
 @implementation TopPageController
-
+@synthesize stickerControllerDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

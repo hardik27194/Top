@@ -11,7 +11,8 @@
 @interface TopTileSticker()
 
 @property (nonatomic,weak) UILabel *numberLabel;
-@property (nonatomic,weak) UIImageView *photoView;
+@property (nonatomic,weak) UIView *containerView;
+@property (nonatomic,weak) CAShapeLayer *dashBorderLayer;
 
 @end
 
@@ -51,14 +52,17 @@
         NSURL *urlImage = [[TopStickersDirector sharedDirector] askUrlImageFromStickerNumber:_number];
         CGRect layerRect = [[TopStickersDirector sharedDirector] askLayerRectFromStickerNumber:_number];
         
-        
-        
+        UIView *containerView = [[UIView alloc]initWithFrame:self.bounds];
+        [self addSubview:containerView];
+        self.containerView = containerView;
         
         CGSize photoSize = CGSizeMake(50, 50);
-        UIImageView *photoView = [[UIImageView alloc]initWithFrame:CGRectMake((self.frame.size.width-photoSize.width)/2, 10, photoSize.width, photoSize.height)
+        UIView *photoView = [[UIView alloc]initWithFrame:CGRectMake((self.frame.size.width-photoSize.width)/2, 10, photoSize.width, photoSize.height)
                                   ];
         photoView.backgroundColor = [UIColor redColor];
-        [photoView.layer addSublayer:[self addDashedBorderWithColor:[[UIColor blackColor] CGColor] toView:photoView]];
+        CALayer *dashLayer = [self addDashedBorderWithColor:[[UIColor blackColor] CGColor] toView:photoView];
+        self.dashBorderLayer = dashLayer;
+        [photoView.layer addSublayer:dashLayer];
         photoView.layer.masksToBounds = YES;
         [self addSubview:photoView];
         
@@ -72,8 +76,8 @@
 //            self.photoView.layer.contentsGravity = kCAGravityResizeAspect;
             self.photoView.layer.contentsRect = layerRect;
             self.photoView.layer.masksToBounds = YES;
-            self.layer.contents = (__bridge id)resizedImage.CGImage;
-            self.layer.contentsGravity = kCAGravityResizeAspectFill;
+            self.containerView.layer.contents = (__bridge id)resizedImage.CGImage;
+            self.containerView.layer.contentsGravity = kCAGravityResizeAspectFill;
         }];
         
         UILabel *numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height-30, self.bounds.size.width, 30)];
@@ -83,7 +87,9 @@
         
         [self addSubview:numberLabel];
         
+      
         self.numberLabel = numberLabel;
+        [self updateLayoutFromRelatedObject];
     }
     return self;
 }
@@ -131,11 +137,9 @@
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     
     CGSize frameSize = view.bounds.size;
-    
     CGRect shapeRect = CGRectMake(0.0f, 0.0f, frameSize.width, frameSize.height);
     [shapeLayer setBounds:shapeRect];
     [shapeLayer setPosition:CGPointMake( frameSize.width/2,frameSize.height/2)];
-    
     [shapeLayer setFillColor:[[UIColor clearColor] CGColor]];
     [shapeLayer setStrokeColor:color];
     [shapeLayer setLineWidth:3.0f];
@@ -149,9 +153,30 @@
     
     return shapeLayer;
 }
+-(void)removeBgViews{
+    self.containerView.layer.contents = nil;
+    self.containerView.alpha = 0;
+    self.numberLabel.alpha = 0;
+    [self.containerView removeFromSuperview];
+    [self.numberLabel removeFromSuperview];
+    self.dashBorderLayer.strokeColor = [[UIColor clearColor] CGColor];
+    
+}
+-(void)updateLayoutFromRelatedObject{
+    TopCategory *category = [[TopStickersDirector sharedDirector] askTopCategoryFromStickerNumber:self.number];
+    
+    // to do : make personalizable this code !
+    self.containerView.layer.borderColor = [[TopStyleUtils colorFromHexString:category.mainColor withAlpha:1] CGColor];
+    
+}
 #pragma mark - custom styles -
 -(void)applyStyle:(TopStyle *)style{
-    [super applyStyle:style];
+    self.backgroundColor = [UIColor clearColor];
+//    self.containerView.layer.borderColor = [style.layerBorderColor CGColor];
+    self.containerView.layer.borderWidth = style.layerBorderWidth;
+    self.containerView.layer.cornerRadius = style.layerCornerRadius;
+    self.containerView.layer.masksToBounds = style.maskToBounds;
+    self.containerView.alpha = style.alpha;
     self.numberLabel.textColor = style.supporTextColor;
     
 }

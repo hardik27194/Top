@@ -21,6 +21,8 @@
 @end
 
 @implementation TopScrollerController
+@synthesize stickerControllerDelegate;
+
 - (instancetype)initWithScrollerLayouts:(NSArray *)scrollerLayoutControlles
 {
     self = [super init];
@@ -32,7 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = [TopStyleUtils colorFromHexString:@"efefef" withAlpha:1];
+    _currentPageIndex = 0;
    [self buildScrollerController];
 }
 
@@ -63,7 +66,6 @@
         maxContentWidth += controller.view.bounds.size.width;
     }
     self.mainScroller.contentSize = CGSizeMake(maxContentWidth, self.mainScroller.bounds.size.height);
-    _currentPageIndex = 0;
  
     [self enumCurrentControllers:^(UIViewController *controller) {
         if ([controller respondsToSelector:@selector(refresh)]) {
@@ -114,7 +116,7 @@
 #pragma mark - scrollView delegates -
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSInteger offsetX = scrollView.contentOffset.x;
-    NSInteger width = self.view.bounds.size.width;
+    NSInteger width = scrollView.bounds.size.width;
     NSInteger page = (offsetX / width);
     if (_currentPageIndex == page) {
         return;
@@ -127,7 +129,7 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    
+    [self.stickerControllerDelegate askRefreshFromStickerController:self];
 }
 
 @end
